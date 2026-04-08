@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治経済 GAMBA ④ 人権獲得の歴史</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;--gold:#c8972a;--gold2:#f0c040;--red:#c0392b;--blue:#1a3a6b;--green:#1a6b3a;--orange:#e67e22;--muted:#6b7a99;--border:#d8d3c8;--drop:#fffbe6;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.9}
+.hdr{background:var(--ink);color:#fff;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;box-shadow:0 3px 14px rgba(0,0,0,.45)}
+.hdr-info{display:flex;flex-direction:column;gap:1px}
+.hdr-sub{font-size:.65em;opacity:.5;letter-spacing:.12em}
+.hdr-title{font-size:.95em;font-weight:700;letter-spacing:.03em}
+.hdr-timer{font-size:1.15em;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums;min-width:66px;text-align:right}
+.tab-bar{background:#1d2f5a;border-bottom:2px solid var(--gold);display:flex;gap:4px;padding:6px 10px;flex-wrap:wrap;position:sticky;top:52px;z-index:290;overflow-x:auto}
+.tab-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.72em;font-weight:700;padding:5px 11px;border:none;border-radius:4px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.58);cursor:pointer;transition:.14s;white-space:nowrap;text-decoration:none;display:inline-block}
+.tab-btn:hover{background:rgba(255,255,255,.22);color:#fff}
+.tab-btn.active{background:var(--gold);color:var(--ink)}
+.phase-bar{background:#fff;border-bottom:2px solid var(--border);padding:7px 14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;position:sticky;top:96px;z-index:280}
+.pdot{width:11px;height:11px;border-radius:50%;background:var(--border);transition:.3s;flex-shrink:0}.pdot.on{background:var(--gold)}
+.ptxt{font-size:.75em;color:var(--muted);font-weight:700}.ptxt.on{color:var(--ink)}
+.parr{font-size:.82em;color:var(--border);margin:0 3px}.plbl{font-size:.72em;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.wb-bar{background:#fff;border-bottom:2px solid var(--border);padding:9px 14px;display:none;position:sticky;top:132px;z-index:270;box-shadow:0 4px 10px rgba(0,0,0,.07)}
+.wb-lbl{font-size:.68em;color:var(--muted);font-weight:700;letter-spacing:.08em;margin-bottom:6px}
+.wb-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:32px;align-items:center}
+.chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;transition:.12s}
+.chip:hover{background:#253060;transform:translateY(-1px)}.chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink);transform:scale(1.05)}
+.main{max-width:860px;margin:0 auto;padding:20px 13px 160px}
+.view{display:none}.view.on{display:block}
+.s-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.s-head-e{background:var(--blue);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-q{background:var(--red);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-fc{background:linear-gradient(135deg,#1a3a6b,#2d5ea8);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-kakomon{background:linear-gradient(135deg,#1a6b3a,#27ae60);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-seigo{background:linear-gradient(135deg,#7b2d8b,#9b59b6);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-icon{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
+.s-ht{font-size:.92em;font-weight:700;letter-spacing:.03em;flex:1}
+.s-body{padding:16px 18px}
+.person-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed var(--border)}
+.person-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pbadge{background:var(--blue);color:#fff;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:3px;flex-shrink:0}
+.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.dk{background:#333}
+.pcont{flex:1;font-size:.93em}.pcont p{margin-bottom:8px}.pcont strong{color:var(--blue)}
+.pt{display:inline-block;background:var(--blue);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.blank{display:inline-flex;align-items:center;justify-content:center;min-width:100px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.blank:hover{background:#fff3b0}.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
+.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.86em}
+.gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.7}
+.gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
+.note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
+.q-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--border);font-size:.93em;line-height:1.85}
+.q-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.qt{display:inline-block;background:var(--red);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.seigo-item{margin-bottom:14px;padding:12px 14px;background:#f8f8f5;border-radius:8px;border:1.5px solid var(--border)}
+.seigo-q{font-size:.92em;margin-bottom:10px;line-height:1.8}
+.seigo-btns{display:flex;gap:8px}
+.seigo-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:7px 18px;border:2px solid var(--border);border-radius:6px;background:#f0f0ee;cursor:pointer;transition:.13s}
+.seigo-btn.correct{background:var(--green);color:#fff;border-color:var(--green)}.seigo-btn.wrong{background:var(--red);color:#fff;border-color:var(--red)}
+.seigo-explain{display:none;margin-top:8px;font-size:.82em;background:#f0f8ff;border-left:3px solid var(--blue);padding:8px 12px;border-radius:4px;line-height:1.7}.seigo-explain.on{display:block}
+.kk-choices{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.kk-choice{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#f8f8f5;cursor:pointer;transition:.13s;text-align:left;line-height:1.5}
+.kk-choice:hover{border-color:var(--blue);background:#eef3ff}.kk-choice.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}.kk-choice.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.kk-explain{display:none;font-size:.83em;color:#333;background:#f0f8ff;border-radius:6px;padding:10px 13px;border-left:3px solid var(--blue);line-height:1.75;margin-top:7px}.kk-explain.on{display:block}
+.kk-ans-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.76em;font-weight:700;padding:5px 13px;border:none;border-radius:5px;background:var(--blue);color:#fff;cursor:pointer;margin-top:6px}
+.kk-year-tag{font-size:.7em;font-weight:700;background:var(--gold);color:var(--ink);padding:2px 8px;border-radius:4px;margin-bottom:8px;display:inline-block}
+.timeline{border-left:3px solid var(--blue);padding-left:16px;margin:8px 0}
+.tl-item{position:relative;margin-bottom:14px}
+.tl-item::before{content:'';position:absolute;left:-22px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--blue)}
+.tl-year{font-size:.72em;font-weight:700;color:var(--blue);letter-spacing:.05em;margin-bottom:2px}
+.tl-body{font-size:.9em;line-height:1.75}
+.fc-settings{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:16px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:9px}
+.fc-set-lbl{font-size:.76em;font-weight:700;color:var(--muted);white-space:nowrap}
+.spd-btns{display:flex;gap:5px}.spd-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:6px 14px;border:2px solid var(--border);border-radius:5px;background:#f5f5f2;cursor:pointer;transition:.12s}.spd-btn:hover{border-color:var(--blue)}.spd-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mode-btns{display:flex;gap:5px}.mode-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:6px 14px;border:2px solid var(--border);border-radius:5px;background:#f5f5f2;cursor:pointer;transition:.12s}.mode-btn:hover{border-color:var(--red)}.mode-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.fc-start-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;font-weight:700;padding:9px 24px;border:none;border-radius:7px;background:var(--red);color:#fff;cursor:pointer;transition:.12s;margin-left:auto}.fc-start-btn:hover{background:#9c2a1f}
+.fc-arena{display:none}.fc-arena.on{display:block}
+.fc-prog-wrap{margin-bottom:12px}.fc-prog-bar{background:var(--border);border-radius:20px;height:8px;overflow:hidden;margin-bottom:3px}.fc-prog-fill{background:linear-gradient(90deg,var(--blue),var(--gold));height:100%;border-radius:20px;transition:.4s}.fc-prog-txt{font-size:.72em;color:var(--muted);text-align:right;font-weight:700}
+.flash-card{min-height:220px;background:var(--card);border:2px solid var(--border);border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.1);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px 22px;text-align:center;position:relative;transition:transform .14s,box-shadow .14s;user-select:none;-webkit-user-select:none;margin-bottom:14px}
+.flash-card:hover{box-shadow:0 10px 34px rgba(0,0,0,.14);transform:translateY(-2px)}.flash-card.flip-anim{animation:fcFlip .28s ease}
+@keyframes fcFlip{0%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(.95)}100%{opacity:1;transform:scale(1)}}
+.fc-unit-tag2{position:absolute;top:10px;left:12px;font-size:.64em;font-weight:700;background:var(--blue);color:#fff;padding:2px 7px;border-radius:3px}
+.fc-side-tag2{position:absolute;top:10px;right:12px;font-size:.64em;font-weight:700;padding:2px 7px;border-radius:3px}.fc-side-tag2.q{background:#fde8e8;color:var(--red)}.fc-side-tag2.a{background:#d4f5e2;color:var(--green)}
+.fc-counter2{position:absolute;bottom:10px;right:12px;font-size:.68em;color:var(--muted);font-weight:700}
+.fc-auto-bar2{position:absolute;bottom:0;left:0;height:4px;background:var(--gold);border-radius:0 0 12px 12px;transition:none}
+.fc-main-text2{font-family:'Noto Serif JP',serif;font-size:1.1em;font-weight:700;line-height:1.75;color:var(--ink)}
+.fc-hint2{font-size:.8em;color:var(--muted);margin-top:8px;line-height:1.6}.fc-tap-hint2{font-size:.7em;color:var(--muted);opacity:.7;margin-top:10px}
+.fc-ans-area{display:none;width:100%;background:#f0f8ff;border-top:1px dashed var(--border);margin-top:12px;padding-top:12px;text-align:left}.fc-ans-area.on{display:block}
+.fc-ans-lbl{font-size:.66em;font-weight:700;color:var(--green);letter-spacing:.08em;margin-bottom:4px}.fc-ans-txt{font-size:.97em;font-weight:700;color:var(--ink);line-height:1.65}
+.fc-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
+.fc-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:9px 20px;border:none;border-radius:7px;cursor:pointer;transition:.12s}.fc-btn:hover{transform:translateY(-1px);opacity:.88}
+.btn-prev2{background:#d0d5e0;color:var(--ink)}.btn-flip2{background:var(--blue);color:#fff}.btn-next2{background:var(--green);color:#fff}.btn-stop2{background:var(--muted);color:#fff}
+.fc-mark-row{display:flex;gap:8px;justify-content:center}
+.fc-stat-row2{display:flex;gap:14px;justify-content:center;font-size:.76em;color:var(--muted);font-weight:700;flex-wrap:wrap;margin-top:6px;margin-bottom:10px}
+.foot{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid var(--border);padding:9px 13px;display:flex;gap:7px;justify-content:center;align-items:center;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.09);flex-wrap:wrap}
+.fbtn{font-family:'BIZ UDPGothic',sans-serif;font-size:.86em;font-weight:700;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;transition:.12s;letter-spacing:.03em}.fbtn:hover{transform:translateY(-1px);opacity:.88}
+.f-expl{background:var(--orange);color:#fff}.f-check{background:var(--green);color:#fff}.f-hint{background:#8e44ad;color:#fff}.f-next{background:var(--blue);color:#fff}.f-retry{background:var(--blue);color:#fff}.f-back{background:var(--muted);color:#fff}.f-judge{background:var(--green);color:#fff}
+.score-pill{background:var(--ink);color:#fff;padding:5px 13px;border-radius:18px;font-size:.82em;font-weight:700}
+.jbanner{display:none;position:fixed;top:62px;left:50%;transform:translateX(-50%);z-index:600;padding:14px 32px;border-radius:11px;font-size:1.18em;font-weight:700;letter-spacing:.05em;text-align:center;white-space:nowrap;box-shadow:0 6px 26px rgba(0,0,0,.28);animation:pop .3s cubic-bezier(.17,.67,.37,1.4)}
+@keyframes pop{from{transform:translateX(-50%) scale(.5);opacity:0}to{transform:translateX(-50%) scale(1);opacity:1}}
+.ban-pass{background:#1e7a4a;color:#fff}.ban-ng{background:#c0392b;color:#fff}
+.blank-popup{display:none;position:fixed;z-index:1000;background:#fff;border:2px solid var(--blue);border-radius:8px;padding:9px 11px;box-shadow:0 6px 22px rgba(0,0,0,.22);max-width:320px;flex-wrap:wrap;gap:6px}.blank-popup.open{display:flex}
+.bp-arrow{position:absolute;top:-8px;left:14px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:8px solid var(--blue)}
+.bp-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.83em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:5px 11px;border-radius:4px;cursor:pointer;transition:.11s;white-space:nowrap}.bp-chip:hover{background:var(--blue);transform:translateY(-1px)}
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;align-items:center;justify-content:center}.modal-ov.open{display:flex}
+.modal-box{background:#fff;border-radius:14px;padding:26px 30px;max-width:330px;width:90%;box-shadow:0 8px 38px rgba(0,0,0,.3);text-align:center}
+.modal-title{font-size:1.06em;font-weight:700;color:var(--ink);margin-bottom:16px}
+.modal-btns{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.modal-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;border:none;border-radius:7px;padding:11px 0;cursor:pointer}
+.mb-resume{background:var(--green);color:#fff}.mb-back{background:var(--muted);color:#fff}.mb-cancel{background:#eee;color:var(--ink)}
+#cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.home-btn{position:fixed;bottom:130px;right:14px;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:22px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;transition:.14s;z-index:500;text-decoration:none}.home-btn:hover{background:#253060;transform:translateY(-2px)}
+</style>
+</head>
+<body>
+<canvas id="cnv"></canvas>
+<header class="hdr">
+  <div class="hdr-info">
+    <div class="hdr-sub">政治経済 GAMBA</div>
+    <div class="hdr-title">④ 人権獲得の歴史 ─ 市民革命・国際人権</div>
+  </div>
+  <div class="hdr-timer" id="timerDisp">00:00</div>
+</header>
+<nav class="tab-bar">
+  <a class="tab-btn" href="seikei01.html">① 国家と法(1)</a>
+  <a class="tab-btn" href="seikei02.html">② 国家と法(2)</a>
+  <a class="tab-btn" href="seikei03.html">③ 国家と法(3)</a>
+  <a class="tab-btn active" href="seikei04.html">④ 人権獲得の歴史</a>
+  <a class="tab-btn" href="seikei05.html">⑤ 各国の政治制度</a>
+  <a class="tab-btn" href="seikei_index.html">📋 単元表</a>
+</nav>
+<div class="phase-bar">
+  <span class="plbl">STEP</span>
+  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明</span>
+  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②確認</span>
+  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③テスト</span>
+  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④正誤</span>
+  <span class="parr">▶</span><div class="pdot" id="d4"></div><span class="ptxt" id="t4">⑤過去問</span>
+  <span class="parr">▶</span><div class="pdot" id="d5"></div><span class="ptxt" id="t5">⑥フラッシュ</span>
+</div>
+<div class="wb-bar" id="wbBar">
+  <div class="wb-lbl">▶ 語句をタップして選択 → 空欄をタップで入力　／　入力済み空欄をタップするとクリア</div>
+  <div class="wb-chips" id="wbChips"></div>
+</div>
+<div class="main">
+
+<!-- ①説明 -->
+<div class="view on" id="vRead">
+
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">人権獲得の歴史 ─ 市民革命の流れ</div></div>
+    <div class="s-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">1215年 イギリス</div>
+          <div class="tl-body"><span class="blank show" data-ans="マグナカルタ">マグナカルタ</span>（大憲章）── ジョン王に貴族が認めさせた。法の支配の原型。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1628年 イギリス</div>
+          <div class="tl-body"><span class="blank show" data-ans="権利請願">権利請願</span>── エドワード＝コークがチャールズ1世に提出・承認させた。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1642〜 イギリス</div>
+          <div class="tl-body"><span class="blank show" data-ans="ピューリタン革命">ピューリタン革命</span>（清教徒革命）── クロムウェル主導でチャールズ1世を処刑。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1688〜89年 イギリス</div>
+          <div class="tl-body"><span class="blank show" data-ans="名誉革命">名誉革命</span>── 流血なく議会が国王を交代させた革命。翌年<span class="blank show" data-ans="権利章典">権利章典</span>（立法権・徴税権・軍事権は議会にある）が成立。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1776年 アメリカ</div>
+          <div class="tl-body">世界で初めて自然権を明文化した<span class="blank show" data-ans="バージニア権利章典">バージニア権利章典</span>。<br><span class="blank show" data-ans="アメリカ独立宣言">アメリカ独立宣言</span>── 起草者は<span class="blank show" data-ans="ジェファーソン">ジェファーソン</span>（ロックの影響）。「生命・自由・幸福追求権は自明の真理」。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1789年 フランス</div>
+          <div class="tl-body"><span class="blank show" data-ans="フランス革命">フランス革命</span>。<span class="blank show" data-ans="フランス人権宣言">フランス人権宣言</span>── 起草者は<span class="blank show" data-ans="ラファイエット">ラファイエット</span>（ルソーの影響）。自然権・<span class="blank show" data-ans="立憲主義">立憲主義</span>・国民主権・権力分立を規定。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1838〜58年 イギリス</div>
+          <div class="tl-body">労働者が普通選挙権を求めた<span class="blank show" data-ans="チャーチスト運動">チャーチスト運動</span>（当時は失敗）。参政権獲得運動の先駆け。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1919年 ドイツ</div>
+          <div class="tl-body"><span class="blank show" data-ans="ワイマール憲法">ワイマール憲法</span>── 世界初の社会権保障（「人間たるに値する生活の保障」）。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1941年 アメリカ</div>
+          <div class="tl-body"><span class="blank show" data-ans="ローズヴェルト">ローズヴェルト</span>大統領が「<span class="blank show" data-ans="四つの自由">四つの自由</span>」を提唱。①言論・表現の自由　②信仰の自由　③<span class="blank show" data-ans="欠乏からの自由">欠乏からの自由</span>（社会権の国際的宣言）　④<span class="blank show" data-ans="恐怖からの自由">恐怖からの自由</span>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1948年 国際連合</div>
+          <div class="tl-body"><span class="blank show" data-ans="世界人権宣言">世界人権宣言</span>── 法的拘束力なし。人権保障の国際的基準を示した。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1966年 国際連合</div>
+          <div class="tl-body"><span class="blank show" data-ans="国際人権規約">国際人権規約</span>── 世界人権宣言を条約化。<strong>法的拘束力あり</strong>。<br><span class="blank show" data-ans="A規約">A規約</span>（社会権規約）・<span class="blank show" data-ans="B規約">B規約</span>（自由権・参政権規約）の2本立て。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">国際人権諸条約</div></div>
+    <div class="s-body">
+      <table class="gtbl">
+        <thead><tr><th>条 約 名</th><th>採択年</th><th>内 容</th></tr></thead>
+        <tbody>
+          <tr><td><span class="blank show" data-ans="難民条約">難民条約</span></td><td>1951年</td><td>迫害を受けた難民の保護。日本は1981年に加入。</td></tr>
+          <tr><td><span class="blank show" data-ans="人種差別撤廃条約">人種差別撤廃条約</span></td><td>1965年</td><td>人種・民族・皮膚の色などによる差別の撤廃。</td></tr>
+          <tr><td><span class="blank show" data-ans="女子差別撤廃条約">女子差別撤廃条約</span></td><td>1979年</td><td>女性への差別撤廃と機会の平等を定める。</td></tr>
+          <tr><td><span class="blank show" data-ans="子どもの権利条約">子どもの権利条約</span></td><td>1989年</td><td>子どもの生存・発達・保護・参加の権利を保障。</td></tr>
+          <tr><td><span class="blank show" data-ans="障害者権利条約">障害者権利条約</span></td><td>2006年</td><td>障害者の人権・基本的自由の享有を促進・確保。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /vRead -->
+
+<!-- ②確認 -->
+<div class="view" id="vChallE">
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">市民革命の流れ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-year">1215年 イギリス</div><div class="tl-body"><span class="blank" data-ans="マグナカルタ" onclick="fillBlank(this)"></span>── 法の支配の原型。</div></div>
+        <div class="tl-item"><div class="tl-year">1628年 イギリス</div><div class="tl-body"><span class="blank" data-ans="権利請願" onclick="fillBlank(this)"></span>── エドワード＝コーク提出。</div></div>
+        <div class="tl-item"><div class="tl-year">1642〜 イギリス</div><div class="tl-body"><span class="blank" data-ans="ピューリタン革命" onclick="fillBlank(this)"></span>── クロムウェル主導。</div></div>
+        <div class="tl-item"><div class="tl-year">1688〜89年 イギリス</div><div class="tl-body"><span class="blank" data-ans="名誉革命" onclick="fillBlank(this)"></span>→翌年<span class="blank" data-ans="権利章典" onclick="fillBlank(this)"></span>成立（立法権・徴税権・軍事権は議会に）。</div></div>
+        <div class="tl-item"><div class="tl-year">1776年 アメリカ</div><div class="tl-body">世界初の自然権明文化：<span class="blank" data-ans="バージニア権利章典" onclick="fillBlank(this)"></span>。<br><span class="blank" data-ans="アメリカ独立宣言" onclick="fillBlank(this)"></span>──起草者<span class="blank" data-ans="ジェファーソン" onclick="fillBlank(this)"></span>（ロックの影響）。</div></div>
+        <div class="tl-item"><div class="tl-year">1789年 フランス</div><div class="tl-body"><span class="blank" data-ans="フランス人権宣言" onclick="fillBlank(this)"></span>──起草者<span class="blank" data-ans="ラファイエット" onclick="fillBlank(this)"></span>（ルソーの影響）。自然権・<span class="blank" data-ans="立憲主義" onclick="fillBlank(this)"></span>・国民主権・権力分立を規定。</div></div>
+        <div class="tl-item"><div class="tl-year">1838〜 イギリス</div><div class="tl-body">普通選挙権を求めた<span class="blank" data-ans="チャーチスト運動" onclick="fillBlank(this)"></span>。</div></div>
+        <div class="tl-item"><div class="tl-year">1919年 ドイツ</div><div class="tl-body"><span class="blank" data-ans="ワイマール憲法" onclick="fillBlank(this)"></span>── 世界初の社会権保障。</div></div>
+        <div class="tl-item"><div class="tl-year">1941年 アメリカ</div><div class="tl-body"><span class="blank" data-ans="ローズヴェルト" onclick="fillBlank(this)"></span>が「<span class="blank" data-ans="四つの自由" onclick="fillBlank(this)"></span>」を提唱（①言論②信仰③<span class="blank" data-ans="欠乏からの自由" onclick="fillBlank(this)"></span>④<span class="blank" data-ans="恐怖からの自由" onclick="fillBlank(this)"></span>）。</div></div>
+        <div class="tl-item"><div class="tl-year">1948年</div><div class="tl-body"><span class="blank" data-ans="世界人権宣言" onclick="fillBlank(this)"></span>（法的拘束力なし）。</div></div>
+        <div class="tl-item"><div class="tl-year">1966年</div><div class="tl-body"><span class="blank" data-ans="国際人権規約" onclick="fillBlank(this)"></span>（法的拘束力あり）。<span class="blank" data-ans="A規約" onclick="fillBlank(this)"></span>（社会権）・<span class="blank" data-ans="B規約" onclick="fillBlank(this)"></span>（自由権・参政権）。</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">国際人権諸条約 ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <table class="gtbl">
+        <thead><tr><th>条 約 名</th><th>採択年</th></tr></thead>
+        <tbody>
+          <tr><td><span class="blank" data-ans="難民条約" onclick="fillBlank(this)"></span></td><td>1951年</td></tr>
+          <tr><td><span class="blank" data-ans="人種差別撤廃条約" onclick="fillBlank(this)"></span></td><td>1965年</td></tr>
+          <tr><td><span class="blank" data-ans="女子差別撤廃条約" onclick="fillBlank(this)"></span></td><td>1979年</td></tr>
+          <tr><td><span class="blank" data-ans="子どもの権利条約" onclick="fillBlank(this)"></span></td><td>1989年</td></tr>
+          <tr><td><span class="blank" data-ans="障害者権利条約" onclick="fillBlank(this)"></span></td><td>2006年</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div><!-- /vChallE -->
+
+<!-- ③テスト -->
+<div class="view" id="vQ">
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問1</div>1215年、イギリスで貴族たちが国王に認めさせた法の支配の原型となる文書は？→ <span class="blank" data-ans="マグナカルタ" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問2</div>1688〜89年のイギリスの革命を何というか。翌年制定された文書も答えよ。→ <span class="blank" data-ans="名誉革命" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="権利章典" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問3</div>クロムウェルが主導した1642年のイギリスの革命を何というか。→ <span class="blank" data-ans="ピューリタン革命" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問4</div>1776年、世界で初めて自然権を明文化したアメリカの文書は？→ <span class="blank" data-ans="バージニア権利章典" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問5</div>1776年のアメリカ独立宣言の起草者は誰か。→ <span class="blank" data-ans="ジェファーソン" onclick="fillBlank(this)"></span>（ロックの影響を受けた）</div>
+      <div class="q-item"><div class="qt">問6</div>1789年のフランス人権宣言の起草者は誰か。→ <span class="blank" data-ans="ラファイエット" onclick="fillBlank(this)"></span>（ルソーの影響を受けた）</div>
+      <div class="q-item"><div class="qt">問7</div>フランス人権宣言に規定された四つの内容を答えよ。→ <span class="blank" data-ans="自然権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="立憲主義" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="国民主権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="権力分立" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問8</div>19世紀イギリスで労働者が普通選挙権を求めた運動を何というか。→ <span class="blank" data-ans="チャーチスト運動" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問9</div>1941年、ローズヴェルトが提唱した「四つの自由」を全て答えよ。→ ①言論・表現の自由　②信仰の自由　③<span class="blank" data-ans="欠乏からの自由" onclick="fillBlank(this)"></span>　④<span class="blank" data-ans="恐怖からの自由" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問10</div>1948年、国連で採択された法的拘束力のない人権保障の国際基準は何か。→ <span class="blank" data-ans="世界人権宣言" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群①〜⑩】マグナカルタ　名誉革命　権利章典　ピューリタン革命　バージニア権利章典　ジェファーソン　ラファイエット　自然権　立憲主義　国民主権　権力分立　チャーチスト運動　欠乏からの自由　恐怖からの自由　世界人権宣言</div>
+    </div>
+  </div>
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問11</div>1966年、世界人権宣言を条約化した法的拘束力のある国際文書は何か。→ <span class="blank" data-ans="国際人権規約" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問12</div>国際人権規約のうち社会権を規定するものを何というか。→ <span class="blank" data-ans="A規約" onclick="fillBlank(this)"></span>（社会権規約）</div>
+      <div class="q-item"><div class="qt">問13</div>国際人権規約のうち自由権・参政権を規定するものを何というか。→ <span class="blank" data-ans="B規約" onclick="fillBlank(this)"></span>（自由権規約）</div>
+      <div class="q-item"><div class="qt">問14</div>1951年に採択された、迫害を受けた難民の保護を定める条約は何か。→ <span class="blank" data-ans="難民条約" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問15</div>1965年に採択された人種・民族・皮膚の色などによる差別の撤廃を定める条約は何か。→ <span class="blank" data-ans="人種差別撤廃条約" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問16</div>1979年に採択された、女性への差別撤廃と機会の平等を定める条約は何か。→ <span class="blank" data-ans="女子差別撤廃条約" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問17</div>1989年に採択された、子どもの生存・発達・保護・参加の権利を保障する条約は何か。→ <span class="blank" data-ans="子どもの権利条約" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問18</div>世界人権宣言（1948年）と国際人権規約（1966年）の違いを一言で答えよ。→ 世界人権宣言は<span class="blank" data-ans="法的拘束力なし" onclick="fillBlank(this)"></span>、国際人権規約は<span class="blank" data-ans="法的拘束力あり" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問19</div>権利章典（1689年）で定められた、議会が持つ3つの権限は何か。→ <span class="blank" data-ans="立法権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="徴税権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="軍事権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問20</div>フランス人権宣言の起草に最も影響を与えた哲学者は誰か。→ <span class="blank" data-ans="ルソー" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群⑪〜⑳】国際人権規約　A規約　B規約　難民条約　人種差別撤廃条約　女子差別撤廃条約　子どもの権利条約　法的拘束力なし　法的拘束力あり　立法権　徴税権　軍事権　ルソー</div>
+    </div>
+  </div>
+</div><!-- /vQ -->
+
+<!-- ④正誤 -->
+<div class="view" id="vSeigo">
+  <div class="s-card">
+    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
+    <div class="s-body">
+      <div class="seigo-item" id="sg0"><div class="seigo-q">① 1689年の権利章典は、名誉革命の結果として制定され、立法権・徴税権・軍事権は議会にあると定めた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,true,'正しい。名誉革命（1688〜89年）の翌年に権利章典が制定された。立法権・徴税権・軍事権は議会にあるとし、議会制民主主義の基礎となった。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,true,'正しい。名誉革命（1688〜89年）の翌年に権利章典が制定された。立法権・徴税権・軍事権は議会にあるとし、議会制民主主義の基礎となった。')">× 誤り</button></div><div class="seigo-explain" id="sgex0"></div></div>
+      <div class="seigo-item" id="sg1"><div class="seigo-q">② バージニア権利章典（1776年）はロックの影響を受けたルソーが起草し、世界で初めて自然権を明文化した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,false,'誤り。バージニア権利章典はロックの影響を受けて成立した。起草者はメイソンなど。ルソーが起草したわけではない。アメリカ独立宣言の起草者はジェファーソン。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,false,'誤り。バージニア権利章典はロックの影響を受けて成立した。起草者はメイソンなど。ルソーが起草したわけではない。アメリカ独立宣言の起草者はジェファーソン。')">× 誤り</button></div><div class="seigo-explain" id="sgex1"></div></div>
+      <div class="seigo-item" id="sg2"><div class="seigo-q">③ フランス人権宣言（1789年）は、ラファイエットが起草し、自然権・立憲主義・国民主権・権力分立を規定した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,true,'正しい。フランス人権宣言（1789年）はラファイエットが起草した。ルソーの思想の影響を受けており、自然権・立憲主義・国民主権・権力分立を規定した。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,true,'正しい。フランス人権宣言（1789年）はラファイエットが起草した。ルソーの思想の影響を受けており、自然権・立憲主義・国民主権・権力分立を規定した。')">× 誤り</button></div><div class="seigo-explain" id="sgex2"></div></div>
+      <div class="seigo-item" id="sg3"><div class="seigo-q">④ チャーチスト運動は19世紀フランスの労働者が普通選挙権を求めて起こした運動で、当時は成功を収めた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。チャーチスト運動は19世紀イギリス（フランスではない）の労働者が普通選挙権を求めた運動で、当時は失敗に終わった（その後選挙権は徐々に拡大された）。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。チャーチスト運動は19世紀イギリス（フランスではない）の労働者が普通選挙権を求めた運動で、当時は失敗に終わった（その後選挙権は徐々に拡大された）。')">× 誤り</button></div><div class="seigo-explain" id="sgex3"></div></div>
+      <div class="seigo-item" id="sg4"><div class="seigo-q">⑤ ローズヴェルト大統領が1941年に提唱した「四つの自由」には、「欠乏からの自由」と「恐怖からの自由」が含まれる。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,true,'正しい。ローズヴェルトの「四つの自由」は①言論・表現の自由②信仰の自由③欠乏からの自由（社会権の国際的宣言）④恐怖からの自由である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,true,'正しい。ローズヴェルトの「四つの自由」は①言論・表現の自由②信仰の自由③欠乏からの自由（社会権の国際的宣言）④恐怖からの自由である。')">× 誤り</button></div><div class="seigo-explain" id="sgex4"></div></div>
+      <div class="seigo-item" id="sg5"><div class="seigo-q">⑥ 世界人権宣言（1948年）は法的拘束力を持ち、国連加盟国はその内容を遵守する義務がある。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,false,'誤り。世界人権宣言は法的拘束力を持たない宣言である。法的拘束力を持つのは1966年に採択された「国際人権規約」である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,false,'誤り。世界人権宣言は法的拘束力を持たない宣言である。法的拘束力を持つのは1966年に採択された「国際人権規約」である。')">× 誤り</button></div><div class="seigo-explain" id="sgex5"></div></div>
+      <div class="seigo-item" id="sg6"><div class="seigo-q">⑦ 国際人権規約（1966年）は、A規約（社会権規約）とB規約（自由権・参政権規約）の2つからなる。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,true,'正しい。国際人権規約（1966年）は世界人権宣言を条約化した文書で法的拘束力を持つ。A規約（社会権規約）とB規約（自由権規約）の2本立てで構成されている。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,true,'正しい。国際人権規約（1966年）は世界人権宣言を条約化した文書で法的拘束力を持つ。A規約（社会権規約）とB規約（自由権規約）の2本立てで構成されている。')">× 誤り</button></div><div class="seigo-explain" id="sgex6"></div></div>
+      <div class="seigo-item" id="sg7"><div class="seigo-q">⑧ ピューリタン革命は「清教徒革命」とも呼ばれ、クロムウェルの主導でチャールズ1世が処刑された。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,true,'正しい。ピューリタン革命（清教徒革命）は1642年に始まり、クロムウェルが主導してチャールズ1世を処刑した。イギリス最初の市民革命である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,true,'正しい。ピューリタン革命（清教徒革命）は1642年に始まり、クロムウェルが主導してチャールズ1世を処刑した。イギリス最初の市民革命である。')">× 誤り</button></div><div class="seigo-explain" id="sgex7"></div></div>
+      <div class="seigo-item" id="sg8"><div class="seigo-q">⑨ アメリカ独立宣言（1776年）は、ロックの影響を受けたルソーが起草し、「すべての人は平等に作られている」と宣言した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,false,'誤り。アメリカ独立宣言の起草者はジェファーソンである（ルソーではない）。ロックの影響を受け、「生命・自由・幸福追求権は自明の真理」と宣言した。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,false,'誤り。アメリカ独立宣言の起草者はジェファーソンである（ルソーではない）。ロックの影響を受け、「生命・自由・幸福追求権は自明の真理」と宣言した。')">× 誤り</button></div><div class="seigo-explain" id="sgex8"></div></div>
+      <div class="seigo-item" id="sg9"><div class="seigo-q">⑩ 女子差別撤廃条約は1989年、子どもの権利条約は1979年に採択された。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,false,'誤り。順番が逆。女子差別撤廃条約は1979年採択、子どもの権利条約は1989年採択である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,false,'誤り。順番が逆。女子差別撤廃条約は1979年採択、子どもの権利条約は1989年採択である。')">× 誤り</button></div><div class="seigo-explain" id="sgex9"></div></div>
+    </div>
+  </div>
+</div><!-- /vSeigo -->
+
+<!-- ⑤過去問 -->
+<div class="view" id="vKakomon">
+  <div class="s-card">
+    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">共通テスト・センター試験 過去問 ─ 政治経済④</div></div>
+    <div class="s-body">
+      <div class="q-item">
+        <span class="kk-year-tag">2024年 共通テスト</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 人権獲得の歴史に関する組み合わせとして<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc0">
+          <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① バージニア権利章典（1776年）── フランス人権宣言の起草に用いられた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',1,2,'kkex0')">② アメリカ独立宣言（1776年）── 起草者はラファイエットで、ルソーの影響を受けた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 権利章典（1689年）── 名誉革命後に制定され、立法権・徴税権・軍事権は議会にあるとした。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ フランス人権宣言（1789年）── アメリカ独立宣言の起草者ジェファーソンが起草した。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex0"><strong>正解：③</strong><br>権利章典（1689年）は名誉革命後に制定され、立法権・徴税権・軍事権は議会にあると定め、議会制民主主義の基礎を築いた。<br>①は無関係。②アメリカ独立宣言の起草者はジェファーソン（ロックの影響）。④フランス人権宣言の起草者はラファイエット（ルソーの影響）。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">2022年 共通テスト</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 世界人権宣言と国際人権規約の違いとして<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc1">
+          <button class="kk-choice" onclick="ansKakomon('kkc1',0,1,'kkex1')">① 世界人権宣言は法的拘束力があり、国際人権規約は宣言にとどまる。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',1,1,'kkex1')">② 世界人権宣言は法的拘束力がなく、国際人権規約は条約として法的拘束力を持つ。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',2,1,'kkex1')">③ 両者ともに法的拘束力があり、国連加盟国は遵守義務を負う。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',3,1,'kkex1')">④ 世界人権宣言は1966年、国際人権規約は1948年に採択された。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex1"><strong>正解：②</strong><br>世界人権宣言（1948年）は法的拘束力を持たない宣言。国際人権規約（1966年）は世界人権宣言を条約化したもので法的拘束力がある。①③④はすべて誤り。年代も逆（世界人権宣言1948年、国際人権規約1966年）。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験 2019年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 国際人権規約（1966年）に関する記述として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc2">
+          <button class="kk-choice" onclick="ansKakomon('kkc2',0,1,'kkex2')">① A規約は自由権・参政権を規定し、B規約は社会権を規定する。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',1,1,'kkex2')">② A規約は社会権を規定し、B規約は自由権・参政権を規定する。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ A規約・B規約ともに法的拘束力がない宣言に過ぎない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 国際人権規約には難民条約と女子差別撤廃条約も含まれる。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex2"><strong>正解：②</strong><br>国際人権規約はA規約（社会権規約）とB規約（自由権・参政権規約）の2本立て。両者ともに法的拘束力がある（条約）。①はAとBが逆。③④は誤り。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">2023年 共通テスト</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. ローズヴェルトの「四つの自由」に含まれないものを選べ。</div>
+        <div class="kk-choices" id="kkc3">
+          <button class="kk-choice" onclick="ansKakomon('kkc3',0,2,'kkex3')">① 言論・表現の自由</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',1,2,'kkex3')">② 信仰の自由</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',2,2,'kkex3')">③ 移動の自由</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',3,2,'kkex3')">④ 欠乏からの自由</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex3"><strong>正解：③</strong><br>ローズヴェルトの「四つの自由」は①言論・表現の自由②信仰の自由③欠乏からの自由④恐怖からの自由。「移動の自由」は含まれない。③④が紛らわしいが、④欠乏からの自由は正しく、③移動の自由は四つの自由に含まれない。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験 2021年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 国際人権に関する条約と年代の組み合わせとして<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc4">
+          <button class="kk-choice" onclick="ansKakomon('kkc4',0,2,'kkex4')">① 難民条約（1979年）・女子差別撤廃条約（1951年）</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',1,2,'kkex4')">② 人種差別撤廃条約（1965年）・子どもの権利条約（1989年）</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',2,2,'kkex4')">③ 女子差別撤廃条約（1989年）・子どもの権利条約（1979年）</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',3,2,'kkex4')">④ 難民条約（1965年）・人種差別撤廃条約（1951年）</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex4"><strong>正解：②</strong><br>人種差別撤廃条約（1965年）・子どもの権利条約（1989年）が正しい。難民条約1951年、人種差別撤廃条約1965年、女子差別撤廃条約1979年、子どもの権利条約1989年、障害者権利条約2006年と覚えよう。</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vKakomon -->
+
+<!-- ⑥フラッシュカード -->
+<div class="view" id="vFlash">
+  <div class="s-card">
+    <div class="s-head-fc"><div class="s-icon">⚡</div><div class="s-ht">フラッシュカード ─ 人権獲得の歴史</div></div>
+    <div class="s-body">
+      <div class="fc-settings">
+        <span class="fc-set-lbl">⏱ 速度：</span>
+        <div class="spd-btns"><button class="spd-btn active" data-sec="0" onclick="setFcSpeed(this)">手動</button><button class="spd-btn" data-sec="2" onclick="setFcSpeed(this)">2秒</button><button class="spd-btn" data-sec="3" onclick="setFcSpeed(this)">3秒</button><button class="spd-btn" data-sec="4" onclick="setFcSpeed(this)">4秒</button></div>
+        <span class="fc-set-lbl" style="margin-left:8px">📌 モード：</span>
+        <div class="mode-btns"><button class="mode-btn active" data-mode="term" onclick="setFcMode(this)">用語→意味</button><button class="mode-btn" data-mode="def" onclick="setFcMode(this)">意味→用語</button></div>
+        <button class="fc-start-btn" onclick="startFc()">▶ スタート</button>
+      </div>
+      <div class="fc-arena" id="fcArena">
+        <div class="fc-prog-wrap"><div class="fc-prog-bar"><div class="fc-prog-fill" id="fcProgFill" style="width:0%"></div></div><div class="fc-prog-txt" id="fcProgTxt">0 / 0</div></div>
+        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた：<span id="fcOkCnt">0</span></span><span>❌ もう一度：<span id="fcNgCnt">0</span></span></div>
+        <div class="flash-card" id="flashCard" onclick="fcFlipOrNext()">
+          <div class="fc-unit-tag2">④ 人権獲得の歴史</div>
+          <div class="fc-side-tag2 q" id="fcSideTag">問題</div>
+          <div class="fc-main-text2" id="fcMainText">スタートボタンを押してください</div>
+          <div class="fc-hint2" id="fcHint2"></div>
+          <div class="fc-ans-area" id="fcAnsArea"><div class="fc-ans-lbl">▶ 答え</div><div class="fc-ans-txt" id="fcAnsTxt"></div></div>
+          <div class="fc-tap-hint2" id="fcTapHint">タップで答えを見る</div>
+          <div class="fc-counter2" id="fcCounter">-</div>
+          <div class="fc-auto-bar2" id="fcAutoBar" style="width:0%"></div>
+        </div>
+        <div class="fc-btns"><button class="fc-btn btn-prev2" onclick="fcPrev()">◀ 前へ</button><button class="fc-btn btn-flip2" onclick="fcFlip()">🔄 裏返す</button><button class="fc-btn btn-next2" onclick="fcNext()">次へ ▶</button><button class="fc-btn btn-stop2" onclick="stopFc()">■ 終了</button></div>
+        <div class="fc-mark-row"><button class="fc-btn" style="background:var(--green);color:#fff" onclick="fcMarkOk()">✅ 覚えた</button><button class="fc-btn" style="background:var(--red);color:#fff" onclick="fcMarkNg()">❌ もう一度</button></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vFlash -->
+
+</div><!-- /main -->
+<div class="jbanner" id="jbanner"></div>
+<div class="foot">
+  <button class="fbtn f-expl"   id="bExpl"      onclick="goChallE()">📝 確認する</button>
+  <button class="fbtn f-next"   id="bGoQ"        onclick="goTest()">▶ テストへ</button>
+  <button class="fbtn f-next"   id="bGoFlashTop" onclick="goFlash()" style="background:var(--blue)">⚡ フラッシュカード</button>
+  <button class="fbtn f-check"  id="bCheckE"     onclick="checkExplain()" style="display:none">✔ 確　認</button>
+  <button class="fbtn f-hint"   id="bHint"       onclick="showHint()" style="display:none">📖 お手本</button>
+  <button class="fbtn f-next"   id="bGoQ2"       onclick="goTest()" style="display:none">▶ テストへ</button>
+  <button class="fbtn f-judge"  id="bJudge"      onclick="judgeAll()" style="display:none">✔ 判　定</button>
+  <button class="fbtn f-retry"  id="bRetry"      onclick="retryQ()" style="display:none">↺ やり直し</button>
+  <button class="fbtn f-next"   id="bGoSeigo"    onclick="goSeigo()" style="display:none">▶ 正誤問題へ</button>
+  <button class="fbtn f-next"   id="bGoKakomon"  onclick="goKakomon()" style="display:none">▶ 過去問へ</button>
+  <button class="fbtn f-next"   id="bGoFlash"    onclick="goFlash()" style="display:none">⚡ フラッシュカードへ</button>
+  <button class="fbtn f-back"   id="bBack"       onclick="backToRead()" style="display:none">📖 説明に戻る</button>
+  <div class="score-pill" id="spill" style="display:none"></div>
+</div>
+<div class="blank-popup" id="popup"><div class="bp-arrow"></div></div>
+<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか？</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
+<a class="home-btn" href="seikei_index.html">🏠 単元表</a>
+
+<script>
+const EW=['マグナカルタ','権利請願','ピューリタン革命','名誉革命','権利章典','バージニア権利章典','アメリカ独立宣言','ジェファーソン','フランス革命','フランス人権宣言','ラファイエット','立憲主義','国民主権','権力分立','チャーチスト運動','ワイマール憲法','ローズヴェルト','四つの自由','欠乏からの自由','恐怖からの自由','世界人権宣言','国際人権規約','A規約','B規約','難民条約','人種差別撤廃条約','女子差別撤廃条約','子どもの権利条約','障害者権利条約','自然権'];
+const QW=['マグナカルタ','名誉革命','権利章典','ピューリタン革命','バージニア権利章典','ジェファーソン','ラファイエット','自然権','立憲主義','国民主権','権力分立','チャーチスト運動','欠乏からの自由','恐怖からの自由','世界人権宣言','国際人権規約','A規約','B規約','難民条約','人種差別撤廃条約','女子差別撤廃条約','子どもの権利条約','法的拘束力なし','法的拘束力あり','立法権','徴税権','軍事権','ルソー'];
+const FC_CARDS=[
+  {q:'マグナカルタが制定された年・国・背景は？',a:'1215年 イギリス　ジョン王に貴族が認めさせた「法の支配」の原型'},
+  {q:'権利請願が提出された年と提出者・承認者は？',a:'1628年　エドワード＝コーク提出 → チャールズ1世が承認'},
+  {q:'クロムウェルが主導した1642年のイギリスの革命は？',a:'ピューリタン革命（清教徒革命）チャールズ1世を処刑'},
+  {q:'名誉革命はいつ？翌年制定された文書と内容は？',a:'1688〜89年 イギリス。翌年「権利章典」→立法権・徴税権・軍事権は議会に'},
+  {q:'世界で初めて自然権を明文化した1776年のアメリカの文書は？',a:'バージニア権利章典'},
+  {q:'アメリカ独立宣言（1776年）の起草者と影響を受けた哲学者は？',a:'ジェファーソン　ロックの影響を受けた'},
+  {q:'フランス人権宣言（1789年）の起草者と影響を受けた哲学者は？規定内容は？',a:'ラファイエット　ルソーの影響。自然権・立憲主義・国民主権・権力分立を規定'},
+  {q:'19世紀イギリスで普通選挙権を求めた労働者の運動は？',a:'チャーチスト運動（当時は失敗）'},
+  {q:'世界初の社会権保障憲法は？年・国は？',a:'ワイマール憲法（1919年、ドイツ）'},
+  {q:'ローズヴェルトが1941年に提唱した「四つの自由」とは？',a:'①言論・表現の自由②信仰の自由③欠乏からの自由④恐怖からの自由'},
+  {q:'世界人権宣言はいつ・どこで採択された？法的拘束力は？',a:'1948年 国連で採択。法的拘束力なし'},
+  {q:'国際人権規約はいつ採択された？世界人権宣言との違いは？',a:'1966年 国連採択。世界人権宣言を条約化→法的拘束力あり'},
+  {q:'国際人権規約のA規約・B規約の内容は？',a:'A規約＝社会権規約　B規約＝自由権・参政権規約'},
+  {q:'難民条約が採択された年は？内容は？',a:'1951年　迫害を受けた難民の保護（日本は1981年加入）'},
+  {q:'人種差別撤廃条約が採択された年は？',a:'1965年　人種・民族・皮膚の色などによる差別の撤廃'},
+  {q:'女子差別撤廃条約が採択された年は？',a:'1979年　女性への差別撤廃と機会の平等'},
+  {q:'子どもの権利条約が採択された年は？内容は？',a:'1989年　子どもの生存・発達・保護・参加の権利保障'},
+  {q:'障害者権利条約が採択された年は？',a:'2006年　障害者の人権・基本的自由の享有を促進・確保'},
+  {q:'国際人権条約の年代順（5つ）を答えよ。',a:'難民(1951)→人種差別(1965)→女子差別(1979)→子ども(1989)→障害者(2006)'},
+  {q:'フランス人権宣言に規定された4つの内容は？',a:'自然権・立憲主義・国民主権・権力分立'},
+];
+
+var _selChip=null,_tInt=null,_t0=0,_pausedMs=0;
+var _popup=document.getElementById('popup'),_popupTarget=null,_currentView='vRead';
+var _sgAnswered=new Array(10).fill(false),_sgScore=0;
+function _el(id){return document.getElementById(id)}
+function _show(id){var e=_el(id);if(e)e.style.display='inline-block'}
+function _hide(id){var e=_el(id);if(e)e.style.display='none'}
+function _tick(){var ms=_pausedMs+(Date.now()-_t0);var m=String(Math.floor(ms/60000)).padStart(2,'0');var s=String(Math.floor((ms%60000)/1000)).padStart(2,'0');_el('timerDisp').textContent=m+':'+s}
+function _startTimer(){_t0=Date.now();_tInt=setInterval(_tick,200)}
+function _stopTimer(){clearInterval(_tInt);_tInt=null}
+function _resetTimer(){_stopTimer();_pausedMs=0;_el('timerDisp').textContent='00:00'}
+function setPhase(n){for(var i=0;i<6;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
+function _showView(id){['vRead','vChallE','vQ','vSeigo','vKakomon','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
+function _showWB(){_el('wbBar').style.display='block'}
+function _hideWB(){_el('wbBar').style.display='none'}
+function buildChips(words){var wb=_el('wbChips');wb.innerHTML='';_selChip=null;var arr=words.slice().sort(function(){return Math.random()-.5});arr.forEach(function(w){var btn=document.createElement('button');btn.className='chip';btn.textContent=w;btn.addEventListener('click',function(e){e.stopPropagation();if(_selChip&&_selChip!==btn)_selChip.classList.remove('sel');if(_selChip===btn){_selChip=null;btn.classList.remove('sel');return}_selChip=btn;btn.classList.add('sel')});wb.appendChild(btn)})}
+function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=(_currentView==='vChallE'?EW:QW).slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
+function _closePopup(){_popup.classList.remove('open');_popupTarget=null}
+document.addEventListener('click',function(){_closePopup()})
+function fillBlank(b){if(_selChip){b.textContent=_selChip.textContent;b.classList.remove('ok','ng','show');_selChip.classList.remove('sel');_selChip=null;_closePopup();return}if(b===_popupTarget&&_popup.classList.contains('open')){_closePopup();return}if(b.textContent.trim()!=''){b.textContent='';b.classList.remove('ok','ng','show');_closePopup();return}_openPopup(b)}
+function goChallE(){_showView('vChallE');document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_showWB();setPhase(1);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_show('bCheckE');_show('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_hideBanner()}
+function checkExplain(){var bls=[].slice.call(document.querySelectorAll('#vChallE .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);if(ok===bls.length){_showBanner(true,ok,bls.length);_show('bGoQ2');_startConf();setTimeout(_stopConf,4000)}else _showBanner(false,ok,bls.length)}
+function showHint(){document.querySelectorAll('#vChallE .blank').forEach(function(b){if(!b.classList.contains('ok')){b.textContent=b.dataset.ans;b.classList.remove('ng');b.classList.add('show')}});_hideBanner();_el('bCheckE').textContent='↺ もう一度';_el('bCheckE').onclick=reChallE}
+function reChallE(){document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_hide('spill');_hideBanner();_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain}
+function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(2);_startTimer();_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hideBanner()}
+function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);_show('bRetry');_show('bGoSeigo');if(ok===bls.length){_stopTimer();_showBanner(true,ok,bls.length);_startConf();setTimeout(_stopConf,5000)}else _showBanner(false,ok,bls.length)}
+function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
+function goSeigo(){_showView('vSeigo');setPhase(3);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoKakomon');_show('bBack');_hideBanner()}
+function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx);var btns=item.querySelectorAll('.seigo-btn');var isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
+function goKakomon(){_showView('vKakomon');setPhase(4);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
+function ansKakomon(groupId,selected,correct,explainId){var group=_el(groupId);if(!group)return;var btns=group.querySelectorAll('.kk-choice');btns.forEach(function(b,i){b.onclick=null;if(i===correct)b.classList.add('correct');else if(i===selected&&selected!==correct)b.classList.add('wrong')});showKkEx(explainId)}
+function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
+function goFlash(){_showView('vFlash');setPhase(5);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
+function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoQ');_show('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain;stopFc()}
+var _fcCards=[],_fcIdx=0,_fcFlipped=false,_fcSpeed=0,_fcMode='term';
+var _fcAutoTimer=null,_fcTmrInt=null,_fcOkSet=new Set(),_fcNgSet=new Set();
+function setFcSpeed(btn){document.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcSpeed=parseInt(btn.dataset.sec)*1000}
+function setFcMode(btn){document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcMode=btn.dataset.mode}
+function startFc(){_fcCards=FC_CARDS.slice().sort(function(){return Math.random()-.5});_fcIdx=0;_fcFlipped=false;_fcOkSet.clear();_fcNgSet.clear();_el('fcOkCnt').textContent='0';_el('fcNgCnt').textContent='0';_el('fcArena').classList.add('on');var sec=0;clearInterval(_fcTmrInt);_fcTmrInt=setInterval(function(){sec+=0.1;_el('fcTimerDisp').textContent=sec.toFixed(1)},100);showFcCard()}
+function stopFc(){clearInterval(_fcAutoTimer);clearInterval(_fcTmrInt);_el('fcArena').classList.remove('on');_el('fcAutoBar').style.transition='none';_el('fcAutoBar').style.width='0%'}
+function showFcCard(){if(!_fcCards.length)return;var c=_fcCards[_fcIdx];var card=_el('flashCard');card.classList.remove('flip-anim');void card.offsetWidth;card.classList.add('flip-anim');if(_fcMode==='term'){_el('fcSideTag').textContent='問題';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.q}else{_el('fcSideTag').textContent='意味→用語';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.a}_el('fcHint2').textContent='';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='block';_el('fcAnsTxt').textContent='';_el('fcCounter').textContent=(_fcIdx+1)+' / '+_fcCards.length;_el('fcProgFill').style.width=((_fcIdx+1)/_fcCards.length*100)+'%';_el('fcProgTxt').textContent=(_fcIdx+1)+' / '+_fcCards.length;_fcFlipped=false;if(_fcSpeed>0)_startFcAuto()}
+function fcFlip(){if(_fcFlipped)return;_fcFlipped=true;var c=_fcCards[_fcIdx];_el('fcAnsTxt').textContent=(_fcMode==='term'?c.a:c.q);_el('fcAnsArea').classList.add('on');_el('fcSideTag').textContent='答え';_el('fcSideTag').className='fc-side-tag2 a';_el('fcTapHint').style.display='none';_clearFcAuto()}
+function fcFlipOrNext(){if(!_el('fcArena').classList.contains('on'))return;if(!_fcFlipped)fcFlip();else fcNext()}
+function fcNext(){_clearFcAuto();if(_fcIdx<_fcCards.length-1){_fcIdx++;showFcCard()}else{clearInterval(_fcTmrInt);_el('fcMainText').textContent='🎉 全カード完了！お疲れさまでした！';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='none'}}
+function fcPrev(){_clearFcAuto();if(_fcIdx>0){_fcIdx--;showFcCard()}}
+function fcMarkOk(){_fcOkSet.add(_fcIdx);_fcNgSet.delete(_fcIdx);_el('fcOkCnt').textContent=_fcOkSet.size;_el('fcNgCnt').textContent=_fcNgSet.size;fcNext()}
+function fcMarkNg(){_fcNgSet.add(_fcIdx);_fcOkSet.delete(_fcIdx);_el('fcNgCnt').textContent=_fcNgSet.size;_el('fcOkCnt').textContent=_fcOkSet.size;fcNext()}
+function _startFcAuto(){_clearFcAuto();if(_fcSpeed===0)return;var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;bar.style.transition='width '+_fcSpeed+'ms linear';bar.style.width='100%';_fcAutoTimer=setTimeout(function(){if(!_fcFlipped)fcFlip();setTimeout(fcNext,700)},_fcSpeed)}
+function _clearFcAuto(){clearTimeout(_fcAutoTimer);var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%'}
+function _showBanner(pass,ok,tot){var b=_el('jbanner');b.className='jbanner '+(pass?'ban-pass':'ban-ng');b.textContent=pass?('🎉 合格！　全'+tot+'問正解！'):('おしい！　'+ok+' / '+tot+' 問　── もう一息！');b.style.display='block';if(!pass)setTimeout(_hideBanner,2800)}
+function _hideBanner(){var b=_el('jbanner');if(b)b.style.display='none'}
+function _showScore(ok,tot){var p=_el('spill');p.textContent=ok+' / '+tot+' 問正解';p.style.display='inline-block'}
+function _closePause(){_el('pauseModal').classList.remove('open')}
+function closePause(){_closePause();if(_tInt===null&&_t0>0){_t0=Date.now();_tInt=setInterval(_tick,200)}}
+var _cnv,_ctx,_pts=[],_raf=null;
+function _initCanvas(){_cnv=document.getElementById('cnv');_ctx=_cnv?_cnv.getContext('2d'):null}
+function _startConf(){_initCanvas();if(!_ctx)return;_cnv.width=innerWidth;_cnv.height=innerHeight;_pts=[];for(var i=0;i<180;i++)_pts.push({x:Math.random()*_cnv.width,y:Math.random()*_cnv.height-_cnv.height,s:Math.random()*9+4,c:'hsl('+Math.floor(Math.random()*360)+',70%,62%)',sp:Math.random()*3+2,r:Math.random()*Math.PI*2,dr:.05});_af()}
+function _af(){_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts.forEach(function(p){p.y+=p.sp;p.r+=p.dr;_ctx.save();_ctx.translate(p.x,p.y);_ctx.rotate(p.r);_ctx.fillStyle=p.c;_ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);_ctx.restore();if(p.y>_cnv.height)p.y=-20});_raf=requestAnimationFrame(_af)}
+function _stopConf(){if(_raf){cancelAnimationFrame(_raf);_raf=null}if(_ctx)_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts=[]}
+</script>
+</body>
+</html>

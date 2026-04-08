@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治経済 GAMBA ⑦ 基本的人権・平等権</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;--gold:#c8972a;--gold2:#f0c040;--red:#c0392b;--blue:#1a3a6b;--green:#1a6b3a;--orange:#e67e22;--purple:#7b2d8b;--muted:#6b7a99;--border:#d8d3c8;--drop:#fffbe6;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.9}
+.hdr{background:var(--ink);color:#fff;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;box-shadow:0 3px 14px rgba(0,0,0,.45)}
+.hdr-info{display:flex;flex-direction:column;gap:1px}
+.hdr-sub{font-size:.65em;opacity:.5;letter-spacing:.12em}
+.hdr-title{font-size:.95em;font-weight:700;letter-spacing:.03em}
+.hdr-timer{font-size:1.15em;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums;min-width:66px;text-align:right}
+.tab-bar{background:#1d2f5a;border-bottom:2px solid var(--gold);display:flex;gap:4px;padding:6px 10px;flex-wrap:wrap;position:sticky;top:52px;z-index:290;overflow-x:auto}
+.tab-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.72em;font-weight:700;padding:5px 11px;border:none;border-radius:4px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.58);cursor:pointer;transition:.14s;white-space:nowrap;text-decoration:none;display:inline-block}
+.tab-btn:hover{background:rgba(255,255,255,.22);color:#fff}.tab-btn.active{background:var(--gold);color:var(--ink)}
+.phase-bar{background:#fff;border-bottom:2px solid var(--border);padding:7px 14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;position:sticky;top:96px;z-index:280}
+.pdot{width:11px;height:11px;border-radius:50%;background:var(--border);transition:.3s;flex-shrink:0}.pdot.on{background:var(--gold)}
+.ptxt{font-size:.75em;color:var(--muted);font-weight:700}.ptxt.on{color:var(--ink)}
+.parr{font-size:.82em;color:var(--border);margin:0 3px}.plbl{font-size:.72em;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.wb-bar{background:#fff;border-bottom:2px solid var(--border);padding:9px 14px;display:none;position:sticky;top:132px;z-index:270;box-shadow:0 4px 10px rgba(0,0,0,.07)}
+.wb-lbl{font-size:.68em;color:var(--muted);font-weight:700;letter-spacing:.08em;margin-bottom:6px}
+.wb-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:32px;align-items:center}
+.chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;transition:.12s}
+.chip:hover{background:#253060;transform:translateY(-1px)}.chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink);transform:scale(1.05)}
+.main{max-width:860px;margin:0 auto;padding:20px 13px 160px}
+.view{display:none}.view.on{display:block}
+.s-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.s-head-e{background:var(--blue);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-q{background:var(--red);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-fc{background:linear-gradient(135deg,#1a3a6b,#2d5ea8);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-kakomon{background:linear-gradient(135deg,#1a6b3a,#27ae60);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-seigo{background:linear-gradient(135deg,#7b2d8b,#9b59b6);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-icon{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
+.s-ht{font-size:.92em;font-weight:700;letter-spacing:.03em;flex:1}
+.s-body{padding:16px 18px}
+.person-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed var(--border)}
+.person-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pbadge{background:var(--blue);color:#fff;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:3px;flex-shrink:0}
+.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.purple{background:var(--purple)}
+.pcont{flex:1;font-size:.93em}.pcont p{margin-bottom:8px}.pcont strong{color:var(--blue)}
+.pt{display:inline-block;background:var(--blue);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.blank{display:inline-flex;align-items:center;justify-content:center;min-width:90px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.blank:hover{background:#fff3b0}.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
+.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.85em}
+.gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
+.gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
+.verdict-card{background:#f8f5ff;border:1.5px solid var(--purple);border-radius:9px;padding:13px 16px;margin-bottom:14px}
+.verdict-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.68em;font-weight:700;padding:2px 9px;border-radius:4px;margin-bottom:7px;letter-spacing:.05em}
+.verdict-title{font-size:.9em;font-weight:700;margin-bottom:5px;line-height:1.6}
+.verdict-body{font-size:.85em;color:#333;line-height:1.75}
+.note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
+.q-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--border);font-size:.93em;line-height:1.85}
+.q-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.qt{display:inline-block;background:var(--red);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.seigo-item{margin-bottom:14px;padding:12px 14px;background:#f8f8f5;border-radius:8px;border:1.5px solid var(--border)}
+.seigo-q{font-size:.92em;margin-bottom:10px;line-height:1.8}
+.seigo-btns{display:flex;gap:8px}
+.seigo-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:7px 18px;border:2px solid var(--border);border-radius:6px;background:#f0f0ee;cursor:pointer;transition:.13s}
+.seigo-btn.correct{background:var(--green);color:#fff;border-color:var(--green)}.seigo-btn.wrong{background:var(--red);color:#fff;border-color:var(--red)}
+.seigo-explain{display:none;margin-top:8px;font-size:.82em;background:#f0f8ff;border-left:3px solid var(--blue);padding:8px 12px;border-radius:4px;line-height:1.7}.seigo-explain.on{display:block}
+.kk-choices{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.kk-choice{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#f8f8f5;cursor:pointer;transition:.13s;text-align:left;line-height:1.5}
+.kk-choice:hover{border-color:var(--blue);background:#eef3ff}.kk-choice.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}.kk-choice.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.kk-explain{display:none;font-size:.83em;background:#f0f8ff;border-radius:6px;padding:10px 13px;border-left:3px solid var(--blue);line-height:1.75;margin-top:7px}.kk-explain.on{display:block}
+.kk-ans-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.76em;font-weight:700;padding:5px 13px;border:none;border-radius:5px;background:var(--blue);color:#fff;cursor:pointer;margin-top:6px}
+.kk-year-tag{font-size:.7em;font-weight:700;background:var(--gold);color:var(--ink);padding:2px 8px;border-radius:4px;margin-bottom:8px;display:inline-block}
+.fc-settings{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:16px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:9px}
+.fc-set-lbl{font-size:.76em;font-weight:700;color:var(--muted);white-space:nowrap}
+.spd-btns,.mode-btns{display:flex;gap:5px}
+.spd-btn,.mode-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:6px 14px;border:2px solid var(--border);border-radius:5px;background:#f5f5f2;cursor:pointer;transition:.12s}
+.spd-btn:hover{border-color:var(--blue)}.spd-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mode-btn:hover{border-color:var(--red)}.mode-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.fc-start-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;font-weight:700;padding:9px 24px;border:none;border-radius:7px;background:var(--red);color:#fff;cursor:pointer;margin-left:auto}
+.fc-arena{display:none}.fc-arena.on{display:block}
+.fc-prog-wrap{margin-bottom:12px}.fc-prog-bar{background:var(--border);border-radius:20px;height:8px;overflow:hidden;margin-bottom:3px}.fc-prog-fill{background:linear-gradient(90deg,var(--blue),var(--gold));height:100%;border-radius:20px;transition:.4s}.fc-prog-txt{font-size:.72em;color:var(--muted);text-align:right;font-weight:700}
+.flash-card{min-height:200px;background:var(--card);border:2px solid var(--border);border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.1);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;text-align:center;position:relative;transition:transform .14s;user-select:none;-webkit-user-select:none;margin-bottom:14px}
+.flash-card:hover{transform:translateY(-2px)}.flash-card.flip-anim{animation:fcFlip .28s ease}
+@keyframes fcFlip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(.95)}}
+.fc-unit-tag2{position:absolute;top:10px;left:12px;font-size:.64em;font-weight:700;background:var(--blue);color:#fff;padding:2px 7px;border-radius:3px}
+.fc-side-tag2{position:absolute;top:10px;right:12px;font-size:.64em;font-weight:700;padding:2px 7px;border-radius:3px}
+.fc-side-tag2.q{background:#fde8e8;color:var(--red)}.fc-side-tag2.a{background:#d4f5e2;color:var(--green)}
+.fc-counter2{position:absolute;bottom:10px;right:12px;font-size:.68em;color:var(--muted);font-weight:700}
+.fc-auto-bar2{position:absolute;bottom:0;left:0;height:4px;background:var(--gold);border-radius:0 0 12px 12px;transition:none}
+.fc-main-text2{font-family:'Noto Serif JP',serif;font-size:1.05em;font-weight:700;line-height:1.75;color:var(--ink)}
+.fc-hint2{font-size:.8em;color:var(--muted);margin-top:8px}.fc-tap-hint2{font-size:.7em;color:var(--muted);opacity:.7;margin-top:10px}
+.fc-ans-area{display:none;width:100%;background:#f0f8ff;border-top:1px dashed var(--border);margin-top:12px;padding-top:12px;text-align:left}.fc-ans-area.on{display:block}
+.fc-ans-lbl{font-size:.66em;font-weight:700;color:var(--green);letter-spacing:.08em;margin-bottom:4px}.fc-ans-txt{font-size:.93em;font-weight:700;color:var(--ink);line-height:1.65}
+.fc-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
+.fc-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:9px 20px;border:none;border-radius:7px;cursor:pointer;transition:.12s}.fc-btn:hover{opacity:.88;transform:translateY(-1px)}
+.btn-prev2{background:#d0d5e0;color:var(--ink)}.btn-flip2{background:var(--blue);color:#fff}.btn-next2{background:var(--green);color:#fff}.btn-stop2{background:var(--muted);color:#fff}
+.fc-mark-row{display:flex;gap:8px;justify-content:center}
+.fc-stat-row2{display:flex;gap:14px;justify-content:center;font-size:.76em;color:var(--muted);font-weight:700;flex-wrap:wrap;margin-bottom:10px}
+.foot{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid var(--border);padding:9px 13px;display:flex;gap:7px;justify-content:center;align-items:center;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.09);flex-wrap:wrap}
+.fbtn{font-family:'BIZ UDPGothic',sans-serif;font-size:.86em;font-weight:700;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;transition:.12s}.fbtn:hover{transform:translateY(-1px);opacity:.88}
+.f-expl{background:var(--orange);color:#fff}.f-check{background:var(--green);color:#fff}.f-hint{background:#8e44ad;color:#fff}.f-next{background:var(--blue);color:#fff}.f-retry{background:var(--blue);color:#fff}.f-back{background:var(--muted);color:#fff}.f-judge{background:var(--green);color:#fff}
+.score-pill{background:var(--ink);color:#fff;padding:5px 13px;border-radius:18px;font-size:.82em;font-weight:700}
+.jbanner{display:none;position:fixed;top:62px;left:50%;transform:translateX(-50%);z-index:600;padding:14px 32px;border-radius:11px;font-size:1.18em;font-weight:700;text-align:center;white-space:nowrap;box-shadow:0 6px 26px rgba(0,0,0,.28);animation:pop .3s cubic-bezier(.17,.67,.37,1.4)}
+@keyframes pop{from{transform:translateX(-50%) scale(.5);opacity:0}to{transform:translateX(-50%) scale(1);opacity:1}}
+.ban-pass{background:#1e7a4a;color:#fff}.ban-ng{background:#c0392b;color:#fff}
+.blank-popup{display:none;position:fixed;z-index:1000;background:#fff;border:2px solid var(--blue);border-radius:8px;padding:9px 11px;box-shadow:0 6px 22px rgba(0,0,0,.22);max-width:320px;flex-wrap:wrap;gap:6px}.blank-popup.open{display:flex}
+.bp-arrow{position:absolute;top:-8px;left:14px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:8px solid var(--blue)}
+.bp-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.83em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:5px 11px;border-radius:4px;cursor:pointer;transition:.11s;white-space:nowrap}.bp-chip:hover{background:var(--blue)}
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;align-items:center;justify-content:center}.modal-ov.open{display:flex}
+.modal-box{background:#fff;border-radius:14px;padding:26px 30px;max-width:330px;width:90%;box-shadow:0 8px 38px rgba(0,0,0,.3);text-align:center}
+.modal-title{font-size:1.06em;font-weight:700;color:var(--ink);margin-bottom:16px}
+.modal-btns{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.modal-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;border:none;border-radius:7px;padding:11px 0;cursor:pointer}
+.mb-resume{background:var(--green);color:#fff}.mb-back{background:var(--muted);color:#fff}.mb-cancel{background:#eee;color:var(--ink)}
+#cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.home-btn{position:fixed;bottom:130px;right:14px;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:22px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;transition:.14s;z-index:500;text-decoration:none}.home-btn:hover{background:#253060;transform:translateY(-2px)}
+</style>
+</head>
+<body>
+<canvas id="cnv"></canvas>
+<header class="hdr">
+  <div class="hdr-info">
+    <div class="hdr-sub">政治経済 GAMBA</div>
+    <div class="hdr-title">⑦ 基本的人権・平等権</div>
+  </div>
+  <div class="hdr-timer" id="timerDisp">00:00</div>
+</header>
+<nav class="tab-bar">
+  <a class="tab-btn" href="seikei05.html">⑤ 各国の政治制度</a>
+  <a class="tab-btn" href="seikei06.html">⑥ 大日本帝国・日本国憲法</a>
+  <a class="tab-btn active" href="seikei07.html">⑦ 基本的人権・平等権</a>
+  <a class="tab-btn" href="seikei08.html">⑧ 自由権</a>
+  <a class="tab-btn" href="seikei_index.html">📋 単元表</a>
+</nav>
+<div class="phase-bar">
+  <span class="plbl">STEP</span>
+  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明</span>
+  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②確認</span>
+  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③テスト</span>
+  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④正誤</span>
+  <span class="parr">▶</span><div class="pdot" id="d4"></div><span class="ptxt" id="t4">⑤過去問</span>
+  <span class="parr">▶</span><div class="pdot" id="d5"></div><span class="ptxt" id="t5">⑥フラッシュ</span>
+</div>
+<div class="wb-bar" id="wbBar">
+  <div class="wb-lbl">▶ 語句をタップして選択 → 空欄をタップで入力　／　入力済み空欄をタップするとクリア</div>
+  <div class="wb-chips" id="wbChips"></div>
+</div>
+<div class="main">
+
+<!-- ①説明 -->
+<div class="view on" id="vRead">
+
+  <!-- 基本的人権の体系 -->
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">基本的人権の体系</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">97条</div>
+        <div class="pcont">
+          <p>日本国憲法97条は基本的人権を「<span class="blank show" data-ans="永久不可侵">永久不可侵</span>の権利」と定めています。人権は<span class="blank show" data-ans="公共の福祉">公共の福祉</span>（社会全体の利益）に反しない限り尊重されます（12条・13条）。</p>
+        </div>
+      </div>
+      <table class="gtbl">
+        <thead><tr><th style="width:20%">権利の種類</th><th>内 容</th><th style="width:22%">主な条文</th></tr></thead>
+        <tbody>
+          <tr><td><strong><span class="blank show" data-ans="平等権">平等権</span></strong></td><td>法の下の平等（14条）。差別の禁止。</td><td>14条</td></tr>
+          <tr><td><strong><span class="blank show" data-ans="自由権">自由権</span></strong></td><td>精神の自由・身体の自由・経済活動の自由</td><td>19〜29条</td></tr>
+          <tr><td><strong><span class="blank show" data-ans="社会権">社会権</span></strong></td><td>生存権・教育を受ける権利・労働権・労働基本権</td><td>25〜28条</td></tr>
+          <tr><td><strong><span class="blank show" data-ans="参政権">参政権</span></strong></td><td>選挙権・被選挙権・国民審査・憲法改正の国民投票</td><td>15条・79条</td></tr>
+          <tr><td><strong><span class="blank show" data-ans="請求権">請求権</span></strong><br>（受益権）</td><td>裁判を受ける権利・刑事補償請求権・国家賠償請求権・請願権</td><td>16・17・32・40条</td></tr>
+          <tr><td colspan="3" style="background:#f0f8ff;font-size:.85em">※ 上記に加え「<strong><span class="blank show" data-ans="新しい人権">新しい人権</span></strong>」として、プライバシーの権利・環境権・知る権利・自己決定権などが憲法13条・25条を根拠に認められつつある。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 法の下の平等 -->
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">法の下の平等（14条）</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">形式的平等 vs 実質的平等</div>
+        <div class="pcont">
+          <div class="pt">形式的平等</div>
+          <p>すべての人を<span class="blank show" data-ans="機械的に同一">機械的に同一</span>に扱う平等。「みんな同じルール」。ただし、もともとの格差が是正されないという問題があります。</p>
+          <div class="pt">実質的平等</div>
+          <p>それぞれの状況に応じて<span class="blank show" data-ans="合理的な差別（区別）">合理的な差別（区別）</span>を認める平等。例えば累進課税（所得が多いほど税率が高い）など、結果の平等を目指す考え方です。</p>
+          <div class="pt">アファーマティブ・アクション（積極的格差是正措置）</div>
+          <p>社会的弱者（女性・少数民族など）の実質的平等を実現するために、<span class="blank show" data-ans="積極的格差是正措置">積極的格差是正措置</span>（アファーマティブ・アクション）をとることも認められています。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge green">14条の禁止事項</div>
+        <div class="pcont">
+          <p>憲法14条は「人種・<span class="blank show" data-ans="信条">信条</span>・性別・<span class="blank show" data-ans="社会的身分">社会的身分</span>・<span class="blank show" data-ans="門地">門地</span>（家柄）」による差別を禁じています。</p>
+          <p>また同条は、①<span class="blank show" data-ans="華族">華族</span>（爵位）制度の廃止、②選挙における平等（普通選挙・<span class="blank show" data-ans="一票の平等">一票の平等</span>）を定めます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 平等権に関する重要判決 -->
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">平等権に関する重要判決 ─ 違憲判決3件</div></div>
+    <div class="s-body">
+
+      <div class="verdict-card">
+        <div class="verdict-tag">違憲判決①　1973年</div>
+        <div class="verdict-title"><span class="blank show" data-ans="尊属殺人重罰規定">尊属殺人重罰規定</span>違憲判決（最高裁）</div>
+        <div class="verdict-body">
+          旧刑法200条は、親・祖父母などの<span class="blank show" data-ans="尊属">尊属</span>を殺した場合を、一般の殺人より<strong>極めて重く処罰</strong>していました。最高裁は、尊属を卑属（子孫）より重く処罰することは<span class="blank show" data-ans="法の下の平等">法の下の平等</span>（14条）に違反すると判断し<strong>違憲</strong>としました。これは最高裁が初めて法律の規定を違憲と判断した事件です。
+        </div>
+      </div>
+
+      <div class="verdict-card">
+        <div class="verdict-tag">違憲判決②　1995年</div>
+        <div class="verdict-title"><span class="blank show" data-ans="非嫡出子相続分規定">非嫡出子相続分規定</span>違憲決定（最高裁）</div>
+        <div class="verdict-body">
+          旧民法900条4号は、婚姻関係にない男女の間に生まれた<span class="blank show" data-ans="非嫡出子">非嫡出子</span>（婚外子）の相続分を嫡出子の<span class="blank show" data-ans="2分の1">2分の1</span>と定めていました。最高裁2013年の大法廷決定で<strong>違憲</strong>とされ、民法が改正されました。<br>
+          ※試験では「1995年に問題となり2013年に違憲」と整理してください。
+        </div>
+      </div>
+
+      <div class="verdict-card">
+        <div class="verdict-tag">違憲判決③　2015年</div>
+        <div class="verdict-title"><span class="blank show" data-ans="女性の再婚禁止期間規定">女性の再婚禁止期間規定</span>違憲判決（最高裁）</div>
+        <div class="verdict-body">
+          旧民法733条は、女性だけに離婚後<span class="blank show" data-ans="6か月">6か月</span>の再婚禁止期間を設けていました。最高裁は、父子関係を確定するのに必要な<span class="blank show" data-ans="100日">100日</span>を超える禁止期間は<span class="blank show" data-ans="法の下の平等">法の下の平等</span>（14条）・<span class="blank show" data-ans="婚姻の自由">婚姻の自由</span>（24条）に違反するとして<strong>違憲</strong>としました。その後民法が改正されました。
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 法の下の平等に関連する制度 -->
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">平等に関連する主な制度・法律</div></div>
+    <div class="s-body">
+      <table class="gtbl">
+        <thead><tr><th>制度・法律</th><th>年</th><th>内 容</th></tr></thead>
+        <tbody>
+          <tr><td><span class="blank show" data-ans="男女雇用機会均等法">男女雇用機会均等法</span></td><td>1985年</td><td>雇用における男女差別の禁止。募集・採用・配置・昇進などでの性差別を禁止。</td></tr>
+          <tr><td><span class="blank show" data-ans="男女共同参画社会基本法">男女共同参画社会基本法</span></td><td>1999年</td><td>男女が対等なパートナーとして社会に参加できる社会の形成を目指す。</td></tr>
+          <tr><td><span class="blank show" data-ans="障害者基本法">障害者基本法</span></td><td>1993年</td><td>障害者の自立と社会参加の支援。ノーマライゼーションの理念。</td></tr>
+          <tr><td><span class="blank show" data-ans="部落差別解消推進法">部落差別解消推進法</span></td><td>2016年</td><td>部落差別（同和問題）の解消を推進する法律。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /vRead -->
+
+<!-- ②確認 -->
+<div class="view" id="vChallE">
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">基本的人権の体系・法の下の平等 ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">人権の体系</div>
+        <div class="pcont">
+          <p>憲法97条は基本的人権を「<span class="blank" data-ans="永久不可侵" onclick="fillBlank(this)"></span>の権利」と定める。基本的人権は<span class="blank" data-ans="公共の福祉" onclick="fillBlank(this)"></span>に反しない限り尊重される（12・13条）。</p>
+          <p>権利の5種類：<span class="blank" data-ans="平等権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="自由権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="社会権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="参政権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="請求権" onclick="fillBlank(this)"></span></p>
+          <p>憲法13条・25条を根拠にプライバシーの権利・環境権・知る権利などの「<span class="blank" data-ans="新しい人権" onclick="fillBlank(this)"></span>」も認められつつある。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge green">法の下の平等（14条）</div>
+        <div class="pcont">
+          <p>全員を機械的に同一に扱う平等を<span class="blank" data-ans="形式的平等" onclick="fillBlank(this)"></span>、状況に応じた合理的な区別を認める平等を<span class="blank" data-ans="実質的平等" onclick="fillBlank(this)"></span>という。</p>
+          <p>14条は「人種・<span class="blank" data-ans="信条" onclick="fillBlank(this)"></span>・性別・<span class="blank" data-ans="社会的身分" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="門地" onclick="fillBlank(this)"></span>」による差別を禁ずる。また<span class="blank" data-ans="華族" onclick="fillBlank(this)"></span>制度の廃止も定める。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">平等権の重要判決 ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge purple">違憲①1973年</div>
+        <div class="pcont">
+          <p><span class="blank" data-ans="尊属殺人重罰規定" onclick="fillBlank(this)"></span>違憲判決。旧刑法200条が<span class="blank" data-ans="尊属" onclick="fillBlank(this)"></span>（親・祖父母）殺を一般殺人より極めて重く処罰することは<span class="blank" data-ans="法の下の平等" onclick="fillBlank(this)"></span>（14条）に違反すると最高裁が判断。最高裁<strong>初の</strong>法律規定違憲判断。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge purple">違憲②2013年</div>
+        <div class="pcont">
+          <p><span class="blank" data-ans="非嫡出子相続分規定" onclick="fillBlank(this)"></span>違憲決定。婚外子の相続分を嫡出子の<span class="blank" data-ans="2分の1" onclick="fillBlank(this)"></span>とした旧民法が違憲とされ、民法が改正された。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge purple">違憲③2015年</div>
+        <div class="pcont">
+          <p><span class="blank" data-ans="女性の再婚禁止期間規定" onclick="fillBlank(this)"></span>違憲判決。女性だけに離婚後<span class="blank" data-ans="6か月" onclick="fillBlank(this)"></span>の再婚禁止期間を設けた旧民法が、父子関係確定に必要な<span class="blank" data-ans="100日" onclick="fillBlank(this)"></span>を超える部分は<span class="blank" data-ans="法の下の平等" onclick="fillBlank(this)"></span>（14条）・<span class="blank" data-ans="婚姻の自由" onclick="fillBlank(this)"></span>（24条）に違反と判断。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vChallE -->
+
+<!-- ③テスト -->
+<div class="view" id="vQ">
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問1</div>日本国憲法97条は基本的人権をどのように定めているか。→ 「<span class="blank" data-ans="永久不可侵" onclick="fillBlank(this)"></span>の権利」</div>
+      <div class="q-item"><div class="qt">問2</div>基本的人権は何に反しない限り尊重されるか（12条・13条）。→ <span class="blank" data-ans="公共の福祉" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問3</div>すべての人を機械的に同一に扱う平等の考え方を何というか。→ <span class="blank" data-ans="形式的平等" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問4</div>状況に応じた合理的な区別を認め、結果の平等を目指す考え方を何というか。→ <span class="blank" data-ans="実質的平等" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問5</div>社会的弱者の実質的平等実現のために優遇措置をとる取り組みを何というか。→ <span class="blank" data-ans="アファーマティブ・アクション" onclick="fillBlank(this)"></span>（積極的格差是正措置）</div>
+      <div class="q-item"><div class="qt">問6</div>憲法14条が禁止する差別の根拠となる5つの要素を答えよ。→ 人種・<span class="blank" data-ans="信条" onclick="fillBlank(this)"></span>・性別・<span class="blank" data-ans="社会的身分" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="門地" onclick="fillBlank(this)"></span>（家柄）</div>
+      <div class="q-item"><div class="qt">問7</div>日本国憲法14条で廃止が定められた爵位等の制度を何というか。→ <span class="blank" data-ans="華族" onclick="fillBlank(this)"></span>制度</div>
+      <div class="q-item"><div class="qt">問8</div>プライバシーの権利・環境権・知る権利・自己決定権などをまとめて何というか。→ <span class="blank" data-ans="新しい人権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問9</div>「新しい人権」の主な根拠条文は何条か（2つ）。→ 憲法<span class="blank" data-ans="13条" onclick="fillBlank(this)"></span>（幸福追求権）・<span class="blank" data-ans="25条" onclick="fillBlank(this)"></span>（生存権）</div>
+      <div class="q-item"><div class="qt">問10</div>雇用における男女差別を禁止した1985年制定の法律は何か。→ <span class="blank" data-ans="男女雇用機会均等法" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群①〜⑩】永久不可侵　公共の福祉　形式的平等　実質的平等　アファーマティブ・アクション　信条　社会的身分　門地　華族　新しい人権　13条　25条　男女雇用機会均等法</div>
+    </div>
+  </div>
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問11</div>1973年の尊属殺人重罰規定違憲判決で違反した条文（根拠）は何か。→ 憲法<span class="blank" data-ans="14条" onclick="fillBlank(this)"></span>（法の下の平等）</div>
+      <div class="q-item"><div class="qt">問12</div>尊属殺人重罰規定違憲判決の意義を答えよ。→ 最高裁が<strong>初めて</strong>法律の規定を<span class="blank" data-ans="違憲" onclick="fillBlank(this)"></span>と判断した事件</div>
+      <div class="q-item"><div class="qt">問13</div>非嫡出子（婚外子）の相続分を嫡出子の何分の何と定めていた規定が違憲とされたか。→ <span class="blank" data-ans="2分の1" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問14</div>非嫡出子相続分規定が最高裁大法廷決定で違憲とされた年は？→ <span class="blank" data-ans="2013年" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問15</div>2015年の再婚禁止期間違憲判決で、旧民法が定めていた再婚禁止期間は何か月か。→ <span class="blank" data-ans="6か月" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問16</div>2015年の再婚禁止期間違憲判決で、最高裁が違反としなかった（合憲とした）期間は何日か。→ <span class="blank" data-ans="100日" onclick="fillBlank(this)"></span>以内の部分は合憲</div>
+      <div class="q-item"><div class="qt">問17</div>2015年の再婚禁止期間違憲判決で違反した条文（2つ）は何か。→ 憲法<span class="blank" data-ans="14条" onclick="fillBlank(this)"></span>（法の下の平等）・<span class="blank" data-ans="24条" onclick="fillBlank(this)"></span>（婚姻の自由）</div>
+      <div class="q-item"><div class="qt">問18</div>男女が対等なパートナーとして社会に参加できる社会の形成を目指す1999年の法律は何か。→ <span class="blank" data-ans="男女共同参画社会基本法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問19</div>部落差別（同和問題）の解消を推進するため2016年に制定された法律は何か。→ <span class="blank" data-ans="部落差別解消推進法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問20</div>所得が多いほど税率が高くなる累進課税は、形式的平等・実質的平等のどちらの考えに基づくか。→ <span class="blank" data-ans="実質的平等" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群⑪〜⑳】14条　違憲　2分の1　2013年　6か月　100日　24条　男女共同参画社会基本法　部落差別解消推進法　実質的平等</div>
+    </div>
+  </div>
+</div><!-- /vQ -->
+
+<!-- ④正誤 -->
+<div class="view" id="vSeigo">
+  <div class="s-card">
+    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
+    <div class="s-body">
+      <div class="seigo-item" id="sg0">
+        <div class="seigo-q">① 日本国憲法は基本的人権を「永久不可侵の権利」と定め、いかなる場合でも制限することを認めていない。</div>
+        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,false,'誤り。基本的人権は永久不可侵の権利とされるが、憲法12条・13条は「公共の福祉」に反しない限り尊重されると定めており、他者の権利を侵害する場合などには一定の制限が認められる。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,false,'誤り。基本的人権は永久不可侵の権利とされるが、憲法12条・13条は「公共の福祉」に反しない限り尊重されると定めており、他者の権利を侵害する場合などには一定の制限が認められる。')">× 誤り</button></div>
+        <div class="seigo-explain" id="sgex0"></div>
+      </div>
+      <div class="seigo-item" id="sg1">
+        <div class="seigo-q">② 形式的平等とは、すべての人を機械的に同一に扱う平等のことで、もともとの格差が是正されないという問題点がある。</div>
+        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,true,'正しい。形式的平等（機会の平等）はすべての人に同じルールを適用するが、そもそもの出発点の格差が埋まらないという問題がある。これを補うのが実質的平等（結果の平等）の考え方で、アファーマティブ・アクションなどがその例。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,true,'正しい。形式的平等（機会の平等）はすべての人に同じルールを適用するが、そもそもの出発点の格差が埋まらないという問題がある。これを補うのが実質的平等（結果の平等）の考え方で、アファーマティブ・アクションなどがその例。')">× 誤り</button></div>
+        <div class="seigo-explain" id="sgex1"></div>
+      </div>
+      <div class="seigo-item" id="sg2">
+        <div class="seigo-q">③ 憲法14条は「人種・信条・性別・社会的身分・門地」による差別を禁じており、この条文によって貴族（華族）制度も廃止された。</div>
+        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,true,'正しい。憲法14条は「人種・信条・性別・社会的身分・門地（家柄）」による差別を禁ずる。また同条2項で貴族（華族）などの栄典制度を廃止し、3項で選挙における平等を定めている。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,true,'正しい。憲法14条は「人種・信条・性別・社会的身分・門地（家柄）」による差別を禁ずる。また同条2項で貴族（華族）などの栄典制度を廃止し、3項で選挙における平等を定めている。')">× 誤り</button></div>
+        <div class="seigo-explain" id="sgex2"></div>
+      </div>
+      <div class="seigo-item" id="sg3">
+        <div class="seigo-q">④ 1973年の尊属殺人重罰規定違憲判決は、最高裁が初めて条約を違憲と判断した事件である。</div>
+        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。尊属殺人重罰規定違憲判決は、最高裁が初めて「法律の規定」を違憲と判断した事件である（条約ではなく旧刑法200条の規定）。旧刑法200条の尊属殺重罰規定が憲法14条に違反すると判断した。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。尊属殺人重罰規定違憲判決は、最高裁が初めて「法律の規定」を違憲と判断した事件である（条約ではなく旧刑法200条の規定）。旧刑法200条の尊属殺重罰規定が憲法14条に違反すると判断した。')">× 誤り</button></div>
+        <div class="seigo-explain" id="sgex3"></div>
+      </div>
+      <div class="seigo-item" id="sg4">
+        <div class="seigo-q">⑤ 非嫡出子（婚外子）の相続分を嫡出子の2分の1とした規定は、2013年の最高裁大法廷決定で憲法14条に違反すると判断された。</div>
+        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,true,'正しい。旧民法900条4号が定めていた非嫡出子の相続分（嫡出子の2分の1）は、2013年の最高裁大法廷決定で憲法14条（法の下の平等）に違反すると判断され、民法が改正された。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,true,'正しい。旧民法900条4号が定めていた非嫡出子の相続分（嫡出子の2分の1）は、2013年の最高裁大法廷決定で憲法14条（法の下の平等）に違反すると判断され、民法が改正された。')">× 誤り</button></div>
+        <div class="seigo-explain" id="sgex4"></div>
+      </div>
+      <div class="seigo-item" id="sg5">
+        <div class="seigo-q">⑥ 2015年の再婚禁止期間違憲判決では、6か月全部が違憲と判断された。</div>
+        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,false,'誤り。最高裁は、父子関係確定のために必要な100日を超える再婚禁止期間（残りの約80日分）が違憲と判断した。100日以内の部分は合憲とされた。6か月（180日）全部が違憲ではない点が重要。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,false,'誤り。最高裁は、父子関係確定のために必要な100日を超える再婚禁止期間（残りの約80日分）が違憲と判断した。100日以内の部分は合憲とされた。6か月（180日）全部が違憲ではない点が重要。')">× 誤り</button></div>
+        <div class="seigo-explain" id="sgex5"></div>
+      </div>
+      <div class="seigo-item" id="sg6">
+        <div class="seigo-q">⑦ 2015年の再婚禁止期間違憲判決は、憲法14条（法の下の平等）のみに違反するとして違憲とされた。</div>
+        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,false,'誤り。2015年の判決では、憲法14条（法の下の平等）と憲法24条（婚姻の自由）の両方に違反するとして違憲と判断された。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,false,'誤り。2015年の判決では、憲法14条（法の下の平等）と憲法24条（婚姻の自由）の両方に違反するとして違憲と判断された。')">× 誤り</button></div>
+        <div class="seigo-explain" id="sgex6"></div>
+      </div>
+      <div class="seigo-item" id="sg7">
+        <div class="seigo-q">⑧ プライバシーの権利・環境権・知る権利などの「新しい人権」は、憲法に明文規定はないが、主に憲法13条（幸福追求権）や25条（生存権）を根拠に認められている。</div>
+        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,true,'正しい。プライバシーの権利・環境権・知る権利・自己決定権などの「新しい人権」は憲法に明文規定がないが、憲法13条（個人の尊重・幸福追求権）や25条（生存権）を根拠に認められつつある。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,true,'正しい。プライバシーの権利・環境権・知る権利・自己決定権などの「新しい人権」は憲法に明文規定がないが、憲法13条（個人の尊重・幸福追求権）や25条（生存権）を根拠に認められつつある。')">× 誤り</button></div>
+        <div class="seigo-explain" id="sgex7"></div>
+      </div>
+      <div class="seigo-item" id="sg8">
+        <div class="seigo-q">⑨ 男女雇用機会均等法（1985年）は、雇用における男女差別を禁止しており、募集・採用・配置・昇進などでの性差別が対象となる。</div>
+        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,true,'正しい。1985年制定の男女雇用機会均等法は、雇用における男女差別を禁止する法律で、募集・採用・配置・昇進・教育訓練・福利厚生・定年・解雇などにおける性差別が禁止の対象となる。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,true,'正しい。1985年制定の男女雇用機会均等法は、雇用における男女差別を禁止する法律で、募集・採用・配置・昇進・教育訓練・福利厚生・定年・解雇などにおける性差別が禁止の対象となる。')">× 誤り</button></div>
+        <div class="seigo-explain" id="sgex8"></div>
+      </div>
+      <div class="seigo-item" id="sg9">
+        <div class="seigo-q">⑩ アファーマティブ・アクション（積極的格差是正措置）は、形式的平等の実現を目的として社会的強者を優遇する制度である。</div>
+        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,false,'誤り。アファーマティブ・アクションは「実質的平等」の実現を目的として、社会的弱者（女性・少数民族・障害者など）を積極的に優遇・支援する措置である。社会的強者を優遇するものではない。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,false,'誤り。アファーマティブ・アクションは「実質的平等」の実現を目的として、社会的弱者（女性・少数民族・障害者など）を積極的に優遇・支援する措置である。社会的強者を優遇するものではない。')">× 誤り</button></div>
+        <div class="seigo-explain" id="sgex9"></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vSeigo -->
+
+<!-- ⑤過去問 -->
+<div class="view" id="vKakomon">
+  <div class="s-card">
+    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">共通テスト・センター試験 過去問 ─ 政治経済⑦</div></div>
+    <div class="s-body">
+
+      <div class="q-item">
+        <span class="kk-year-tag">2024年 共通テスト</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 法の下の平等に関する記述として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc0">
+          <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 形式的平等とは、状況に応じた合理的な差異を認め、結果の平等を目指す考え方である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',1,2,'kkex0')">② アファーマティブ・アクションは形式的平等の実現を目的として社会的強者を優遇する制度である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 実質的平等は状況に応じた合理的な区別を認め、累進課税などがその例として挙げられる。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ 憲法14条は「人種・信条・性別・社会的身分・門地」による差別を禁じ、これにより勤務成績による賃金格差も一切禁止された。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex0"><strong>正解：③</strong><br>実質的平等は状況に応じた合理的区別を認め、累進課税・障害者への配慮などが例として挙げられる。①は実質的平等の説明（形式的平等は機械的同一扱い）。②アファーマティブ・アクションは実質的平等のため社会的弱者を優遇。④勤務成績による差別は「合理的区別」として許容される。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">2022年 共通テスト</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 平等権に関する最高裁判決の説明として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc1">
+          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 1973年の尊属殺人重罰規定違憲判決は、最高裁が条約を初めて違憲と判断した事件である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 非嫡出子の相続分を嫡出子の3分の1とした規定が違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 1973年の尊属殺人重罰規定違憲判決は、最高裁が法律の規定を初めて違憲と判断した事件である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 2015年の再婚禁止期間違憲判決では、6か月の禁止期間すべてが違憲とされた。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex1"><strong>正解：③</strong><br>1973年の尊属殺人重罰規定違憲判決（旧刑法200条）は、最高裁が初めて法律の規定を違憲と判断した事件として重要。①条約ではなく法律の規定。②2分の1（3分の1ではない）。④100日を超える部分のみ違憲（全部ではない）。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">2023年 共通テスト</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 2015年の女性の再婚禁止期間違憲判決に関する記述として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc2">
+          <button class="kk-choice" onclick="ansKakomon('kkc2',0,2,'kkex2')">① 旧民法が定めていた再婚禁止期間は3か月で、その全部が違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',1,2,'kkex2')">② 再婚禁止期間規定は憲法24条（婚姻の自由）のみに違反するとして違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',2,2,'kkex2')">③ 父子関係確定に必要な100日を超える部分が憲法14条・24条に違反するとして違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 再婚禁止期間の規定は男性にも同様に適用されていたが違憲とされた。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex2"><strong>正解：③</strong><br>旧民法733条は女性のみに6か月の再婚禁止期間を設けていた。最高裁は父子関係確定に必要な100日を超える部分が、憲法14条（法の下の平等）・24条（婚姻の自由）に違反するとした。①6か月・全部ではない。②14条・24条の両方。④女性のみへの規定。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験 2019年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. 「新しい人権」に関する記述として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc3">
+          <button class="kk-choice" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 「新しい人権」はすべて憲法に明文で規定されている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',1,1,'kkex3')">② プライバシーの権利・環境権・知る権利・自己決定権などが「新しい人権」に含まれ、主に憲法13条・25条を根拠とする。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',2,1,'kkex3')">③ 「新しい人権」のうち知る権利は憲法14条を根拠とする。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ 環境権は日本国憲法に明文規定があり、裁判上当然に認められる。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex3"><strong>正解：②</strong><br>新しい人権（プライバシー・環境権・知る権利・自己決定権）は憲法に明文規定はないが、主に憲法13条（幸福追求権）・25条（生存権）を根拠に主張・認められつつある。①明文規定なし。③知る権利は13条・21条が根拠。④環境権は明文規定なし。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験 2021年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 平等に関する法律の説明として<strong>誤っているもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc4">
+          <button class="kk-choice" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 男女雇用機会均等法（1985年）は、雇用における男女差別を禁止している。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',1,3,'kkex4')">② 男女共同参画社会基本法（1999年）は、男女が対等なパートナーとして社会に参加できる社会を目指す。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 部落差別解消推進法（2016年）は、部落差別を犯罪として刑事罰を定めた法律である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ 障害者基本法（1993年）は、障害者の自立と社会参加の支援を定める法律である。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex4"><strong>正解：③</strong><br>部落差別解消推進法（2016年）は部落差別の解消を推進するための法律だが、部落差別を犯罪として刑事罰を定めたものではない（理念法・推進法の性格）。①②④はすべて正しい。</div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /vKakomon -->
+
+<!-- ⑥フラッシュカード -->
+<div class="view" id="vFlash">
+  <div class="s-card">
+    <div class="s-head-fc"><div class="s-icon">⚡</div><div class="s-ht">フラッシュカード ─ 基本的人権・平等権</div></div>
+    <div class="s-body">
+      <div class="fc-settings">
+        <span class="fc-set-lbl">⏱ 速度：</span>
+        <div class="spd-btns"><button class="spd-btn active" data-sec="0" onclick="setFcSpeed(this)">手動</button><button class="spd-btn" data-sec="2" onclick="setFcSpeed(this)">2秒</button><button class="spd-btn" data-sec="3" onclick="setFcSpeed(this)">3秒</button><button class="spd-btn" data-sec="4" onclick="setFcSpeed(this)">4秒</button></div>
+        <span class="fc-set-lbl" style="margin-left:8px">📌 モード：</span>
+        <div class="mode-btns"><button class="mode-btn active" data-mode="term" onclick="setFcMode(this)">用語→意味</button><button class="mode-btn" data-mode="def" onclick="setFcMode(this)">意味→用語</button></div>
+        <button class="fc-start-btn" onclick="startFc()">▶ スタート</button>
+      </div>
+      <div class="fc-arena" id="fcArena">
+        <div class="fc-prog-wrap"><div class="fc-prog-bar"><div class="fc-prog-fill" id="fcProgFill" style="width:0%"></div></div><div class="fc-prog-txt" id="fcProgTxt">0 / 0</div></div>
+        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた：<span id="fcOkCnt">0</span></span><span>❌ もう一度：<span id="fcNgCnt">0</span></span></div>
+        <div class="flash-card" id="flashCard" onclick="fcFlipOrNext()">
+          <div class="fc-unit-tag2">⑦ 基本的人権・平等権</div>
+          <div class="fc-side-tag2 q" id="fcSideTag">問題</div>
+          <div class="fc-main-text2" id="fcMainText">スタートボタンを押してください</div>
+          <div class="fc-hint2" id="fcHint2"></div>
+          <div class="fc-ans-area" id="fcAnsArea"><div class="fc-ans-lbl">▶ 答え</div><div class="fc-ans-txt" id="fcAnsTxt"></div></div>
+          <div class="fc-tap-hint2" id="fcTapHint">タップで答えを見る</div>
+          <div class="fc-counter2" id="fcCounter">-</div>
+          <div class="fc-auto-bar2" id="fcAutoBar" style="width:0%"></div>
+        </div>
+        <div class="fc-btns"><button class="fc-btn btn-prev2" onclick="fcPrev()">◀ 前へ</button><button class="fc-btn btn-flip2" onclick="fcFlip()">🔄 裏返す</button><button class="fc-btn btn-next2" onclick="fcNext()">次へ ▶</button><button class="fc-btn btn-stop2" onclick="stopFc()">■ 終了</button></div>
+        <div class="fc-mark-row"><button class="fc-btn" style="background:var(--green);color:#fff" onclick="fcMarkOk()">✅ 覚えた</button><button class="fc-btn" style="background:var(--red);color:#fff" onclick="fcMarkNg()">❌ もう一度</button></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vFlash -->
+
+</div><!-- /main -->
+<div class="jbanner" id="jbanner"></div>
+<div class="foot">
+  <button class="fbtn f-expl"   id="bExpl"      onclick="goChallE()">📝 確認する</button>
+  <button class="fbtn f-next"   id="bGoQ"        onclick="goTest()">▶ テストへ</button>
+  <button class="fbtn f-next"   id="bGoFlashTop" onclick="goFlash()" style="background:var(--blue)">⚡ フラッシュカード</button>
+  <button class="fbtn f-check"  id="bCheckE"     onclick="checkExplain()" style="display:none">✔ 確　認</button>
+  <button class="fbtn f-hint"   id="bHint"       onclick="showHint()" style="display:none">📖 お手本</button>
+  <button class="fbtn f-next"   id="bGoQ2"       onclick="goTest()" style="display:none">▶ テストへ</button>
+  <button class="fbtn f-judge"  id="bJudge"      onclick="judgeAll()" style="display:none">✔ 判　定</button>
+  <button class="fbtn f-retry"  id="bRetry"      onclick="retryQ()" style="display:none">↺ やり直し</button>
+  <button class="fbtn f-next"   id="bGoSeigo"    onclick="goSeigo()" style="display:none">▶ 正誤問題へ</button>
+  <button class="fbtn f-next"   id="bGoKakomon"  onclick="goKakomon()" style="display:none">▶ 過去問へ</button>
+  <button class="fbtn f-next"   id="bGoFlash"    onclick="goFlash()" style="display:none">⚡ フラッシュカードへ</button>
+  <button class="fbtn f-back"   id="bBack"       onclick="backToRead()" style="display:none">📖 説明に戻る</button>
+  <div class="score-pill" id="spill" style="display:none"></div>
+</div>
+<div class="blank-popup" id="popup"><div class="bp-arrow"></div></div>
+<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか？</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
+<a class="home-btn" href="seikei_index.html">🏠 単元表</a>
+
+<script>
+const EW=['永久不可侵','公共の福祉','平等権','自由権','社会権','参政権','請求権','新しい人権','形式的平等','実質的平等','積極的格差是正措置','アファーマティブ・アクション','機械的に同一','合理的な差別（区別）','信条','社会的身分','門地','華族','一票の平等','尊属','法の下の平等','尊属殺人重罰規定','非嫡出子相続分規定','非嫡出子','2分の1','女性の再婚禁止期間規定','6か月','100日','婚姻の自由','男女雇用機会均等法','男女共同参画社会基本法','障害者基本法','部落差別解消推進法'];
+const QW=['永久不可侵','公共の福祉','形式的平等','実質的平等','アファーマティブ・アクション','信条','社会的身分','門地','華族','新しい人権','13条','25条','男女雇用機会均等法','14条','違憲','2分の1','2013年','6か月','100日','24条','男女共同参画社会基本法','部落差別解消推進法'];
+
+const FC_CARDS=[
+  {q:'日本国憲法97条は基本的人権をどう定めているか？',a:'「永久不可侵の権利」として保障（ただし公共の福祉に反しない限り）'},
+  {q:'基本的人権の5種類を答えよ。',a:'平等権・自由権・社会権・参政権・請求権（受益権）'},
+  {q:'「新しい人権」の具体例と根拠条文は？',a:'プライバシーの権利・環境権・知る権利・自己決定権。根拠：憲法13条・25条'},
+  {q:'形式的平等とは？問題点は？',a:'すべての人を機械的に同一に扱う平等。もともとの格差が是正されない問題がある'},
+  {q:'実質的平等とは？例は？',a:'状況に応じた合理的な区別を認め結果の平等を目指す考え方。例：累進課税'},
+  {q:'アファーマティブ・アクションとは？',a:'社会的弱者（女性・少数民族など）の実質的平等実現のための積極的格差是正措置'},
+  {q:'憲法14条が禁じる差別の5つの根拠は？',a:'人種・信条・性別・社会的身分・門地（家柄）'},
+  {q:'憲法14条で廃止された制度は？',a:'華族（爵位・貴族）制度'},
+  {q:'1973年の尊属殺人重罰規定違憲判決の内容と意義は？',a:'旧刑法200条（尊属殺重罰）が憲法14条違反。最高裁が初めて法律の規定を違憲と判断した事件'},
+  {q:'非嫡出子相続分規定違憲決定の内容は？年は？',a:'婚外子の相続分を嫡出子の2分の1とした旧民法900条4号が憲法14条違反。2013年大法廷決定'},
+  {q:'2015年の再婚禁止期間違憲判決の内容は？',a:'女性のみの6か月の再婚禁止期間のうち、父子関係確定に必要な100日を超える部分が憲法14条・24条に違反'},
+  {q:'2015年再婚禁止期間判決で合憲とされた期間は？',a:'100日以内の部分は合憲（父子関係確定に必要）'},
+  {q:'男女雇用機会均等法の制定年と内容は？',a:'1985年。雇用における男女差別を禁止（募集・採用・配置・昇進など）'},
+  {q:'男女共同参画社会基本法の制定年と内容は？',a:'1999年。男女が対等なパートナーとして社会に参加できる社会の形成を目指す'},
+  {q:'障害者基本法の制定年と理念は？',a:'1993年。障害者の自立と社会参加の支援。ノーマライゼーションの理念'},
+  {q:'部落差別解消推進法の制定年と内容は？',a:'2016年。部落差別（同和問題）の解消を推進する法律（刑事罰を定めたものではない）'},
+  {q:'平等権に関する違憲判決3件を年順に答えよ。',a:'①1973年 尊属殺人重罰規定　②2013年 非嫡出子相続分規定　③2015年 女性の再婚禁止期間規定'},
+  {q:'「尊属」とは何か？「卑属」とは？',a:'尊属＝親・祖父母など目上の血族　卑属＝子・孫など目下の血族'},
+  {q:'「非嫡出子」とは何か？',a:'法律上の婚姻関係にない男女の間に生まれた子（婚外子）'},
+  {q:'累進課税は形式的平等・実質的平等のどちらの考えに基づくか？',a:'実質的平等（所得が多いほど高い税率で、結果の平等に近づける）'},
+];
+
+var _selChip=null,_tInt=null,_t0=0,_pausedMs=0;
+var _popup=document.getElementById('popup'),_popupTarget=null,_currentView='vRead';
+var _sgAnswered=new Array(10).fill(false),_sgScore=0;
+function _el(id){return document.getElementById(id)}
+function _show(id){var e=_el(id);if(e)e.style.display='inline-block'}
+function _hide(id){var e=_el(id);if(e)e.style.display='none'}
+function _tick(){var ms=_pausedMs+(Date.now()-_t0);var m=String(Math.floor(ms/60000)).padStart(2,'0');var s=String(Math.floor((ms%60000)/1000)).padStart(2,'0');_el('timerDisp').textContent=m+':'+s}
+function _startTimer(){_t0=Date.now();_tInt=setInterval(_tick,200)}
+function _stopTimer(){clearInterval(_tInt);_tInt=null}
+function _resetTimer(){_stopTimer();_pausedMs=0;_el('timerDisp').textContent='00:00'}
+function setPhase(n){for(var i=0;i<6;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
+function _showView(id){['vRead','vChallE','vQ','vSeigo','vKakomon','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
+function _showWB(){_el('wbBar').style.display='block'}
+function _hideWB(){_el('wbBar').style.display='none'}
+function buildChips(words){var wb=_el('wbChips');wb.innerHTML='';_selChip=null;words.slice().sort(function(){return Math.random()-.5}).forEach(function(w){var btn=document.createElement('button');btn.className='chip';btn.textContent=w;btn.addEventListener('click',function(e){e.stopPropagation();if(_selChip&&_selChip!==btn)_selChip.classList.remove('sel');if(_selChip===btn){_selChip=null;btn.classList.remove('sel');return}_selChip=btn;btn.classList.add('sel')});wb.appendChild(btn)})}
+function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=(_currentView==='vChallE'?EW:QW).slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
+function _closePopup(){_popup.classList.remove('open');_popupTarget=null}
+document.addEventListener('click',function(){_closePopup()});
+function fillBlank(b){if(_selChip){b.textContent=_selChip.textContent;b.classList.remove('ok','ng','show');_selChip.classList.remove('sel');_selChip=null;_closePopup();return}if(b===_popupTarget&&_popup.classList.contains('open')){_closePopup();return}if(b.textContent.trim()!=''){b.textContent='';b.classList.remove('ok','ng','show');_closePopup();return}_openPopup(b)}
+function goChallE(){_showView('vChallE');document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_showWB();setPhase(1);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_show('bCheckE');_show('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_hideBanner()}
+function checkExplain(){var bls=[].slice.call(document.querySelectorAll('#vChallE .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);if(ok===bls.length){_showBanner(true,ok,bls.length);_show('bGoQ2');_startConf();setTimeout(_stopConf,4000)}else _showBanner(false,ok,bls.length)}
+function showHint(){document.querySelectorAll('#vChallE .blank').forEach(function(b){if(!b.classList.contains('ok')){b.textContent=b.dataset.ans;b.classList.remove('ng');b.classList.add('show')}});_hideBanner();_el('bCheckE').textContent='↺ もう一度';_el('bCheckE').onclick=reChallE}
+function reChallE(){document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_hide('spill');_hideBanner();_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain}
+function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(2);_startTimer();_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hideBanner()}
+function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);_show('bRetry');_show('bGoSeigo');if(ok===bls.length){_stopTimer();_showBanner(true,ok,bls.length);_startConf();setTimeout(_stopConf,5000)}else _showBanner(false,ok,bls.length)}
+function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
+function goSeigo(){_showView('vSeigo');setPhase(3);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoKakomon');_show('bBack');_hideBanner()}
+function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
+function goKakomon(){_showView('vKakomon');setPhase(4);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
+function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
+function goFlash(){_showView('vFlash');setPhase(5);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
+function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoQ');_show('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain;stopFc()}
+var _fcCards=[],_fcIdx=0,_fcFlipped=false,_fcSpeed=0,_fcMode='term';
+var _fcAutoTimer=null,_fcTmrInt=null,_fcOkSet=new Set(),_fcNgSet=new Set();
+function setFcSpeed(btn){document.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcSpeed=parseInt(btn.dataset.sec)*1000}
+function setFcMode(btn){document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcMode=btn.dataset.mode}
+function startFc(){_fcCards=FC_CARDS.slice().sort(function(){return Math.random()-.5});_fcIdx=0;_fcFlipped=false;_fcOkSet.clear();_fcNgSet.clear();_el('fcOkCnt').textContent='0';_el('fcNgCnt').textContent='0';_el('fcArena').classList.add('on');var sec=0;clearInterval(_fcTmrInt);_fcTmrInt=setInterval(function(){sec+=0.1;_el('fcTimerDisp').textContent=sec.toFixed(1)},100);showFcCard()}
+function stopFc(){clearInterval(_fcAutoTimer);clearInterval(_fcTmrInt);_el('fcArena').classList.remove('on');_el('fcAutoBar').style.transition='none';_el('fcAutoBar').style.width='0%'}
+function showFcCard(){if(!_fcCards.length)return;var c=_fcCards[_fcIdx];var card=_el('flashCard');card.classList.remove('flip-anim');void card.offsetWidth;card.classList.add('flip-anim');if(_fcMode==='term'){_el('fcSideTag').textContent='問題';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.q}else{_el('fcSideTag').textContent='意味→用語';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.a}_el('fcHint2').textContent='';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='block';_el('fcAnsTxt').textContent='';_el('fcCounter').textContent=(_fcIdx+1)+' / '+_fcCards.length;_el('fcProgFill').style.width=((_fcIdx+1)/_fcCards.length*100)+'%';_el('fcProgTxt').textContent=(_fcIdx+1)+' / '+_fcCards.length;_fcFlipped=false;if(_fcSpeed>0)_startFcAuto()}
+function fcFlip(){if(_fcFlipped)return;_fcFlipped=true;var c=_fcCards[_fcIdx];_el('fcAnsTxt').textContent=(_fcMode==='term'?c.a:c.q);_el('fcAnsArea').classList.add('on');_el('fcSideTag').textContent='答え';_el('fcSideTag').className='fc-side-tag2 a';_el('fcTapHint').style.display='none';_clearFcAuto()}
+function fcFlipOrNext(){if(!_el('fcArena').classList.contains('on'))return;if(!_fcFlipped)fcFlip();else fcNext()}
+function fcNext(){_clearFcAuto();if(_fcIdx<_fcCards.length-1){_fcIdx++;showFcCard()}else{clearInterval(_fcTmrInt);_el('fcMainText').textContent='🎉 全カード完了！お疲れさまでした！';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='none'}}
+function fcPrev(){_clearFcAuto();if(_fcIdx>0){_fcIdx--;showFcCard()}}
+function fcMarkOk(){_fcOkSet.add(_fcIdx);_fcNgSet.delete(_fcIdx);_el('fcOkCnt').textContent=_fcOkSet.size;_el('fcNgCnt').textContent=_fcNgSet.size;fcNext()}
+function fcMarkNg(){_fcNgSet.add(_fcIdx);_fcOkSet.delete(_fcIdx);_el('fcNgCnt').textContent=_fcNgSet.size;_el('fcOkCnt').textContent=_fcOkSet.size;fcNext()}
+function _startFcAuto(){_clearFcAuto();if(_fcSpeed===0)return;var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;bar.style.transition='width '+_fcSpeed+'ms linear';bar.style.width='100%';_fcAutoTimer=setTimeout(function(){if(!_fcFlipped)fcFlip();setTimeout(fcNext,700)},_fcSpeed)}
+function _clearFcAuto(){clearTimeout(_fcAutoTimer);var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%'}
+function _showBanner(pass,ok,tot){var b=_el('jbanner');b.className='jbanner '+(pass?'ban-pass':'ban-ng');b.textContent=pass?('🎉 合格！　全'+tot+'問正解！'):('おしい！　'+ok+' / '+tot+' 問　── もう一息！');b.style.display='block';if(!pass)setTimeout(_hideBanner,2800)}
+function _hideBanner(){var b=_el('jbanner');if(b)b.style.display='none'}
+function _showScore(ok,tot){var p=_el('spill');p.textContent=ok+' / '+tot+' 問正解';p.style.display='inline-block'}
+function _closePause(){_el('pauseModal').classList.remove('open')}
+function closePause(){_closePause();if(_tInt===null&&_t0>0){_t0=Date.now();_tInt=setInterval(_tick,200)}}
+var _cnv,_ctx,_pts=[],_raf=null;
+function _initCanvas(){_cnv=document.getElementById('cnv');_ctx=_cnv?_cnv.getContext('2d'):null}
+function _startConf(){_initCanvas();if(!_ctx)return;_cnv.width=innerWidth;_cnv.height=innerHeight;_pts=[];for(var i=0;i<180;i++)_pts.push({x:Math.random()*_cnv.width,y:Math.random()*_cnv.height-_cnv.height,s:Math.random()*9+4,c:'hsl('+Math.floor(Math.random()*360)+',70%,62%)',sp:Math.random()*3+2,r:Math.random()*Math.PI*2,dr:.05});_af()}
+function _af(){_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts.forEach(function(p){p.y+=p.sp;p.r+=p.dr;_ctx.save();_ctx.translate(p.x,p.y);_ctx.rotate(p.r);_ctx.fillStyle=p.c;_ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);_ctx.restore();if(p.y>_cnv.height)p.y=-20});_raf=requestAnimationFrame(_af)}
+function _stopConf(){if(_raf){cancelAnimationFrame(_raf);_raf=null}if(_ctx)_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts=[]}
+</script>
+</body>
+</html>

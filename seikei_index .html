@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治経済 GAMBA ─ 単元表</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;
+  --gold:#c8972a;--gold2:#f0c040;--accent:#1a3a6b;
+  --red:#c0392b;--green:#1a6b3a;--orange:#e67e22;
+  --muted:#6b7a99;--border:#d8d3c8;
+  --A:#27ae60;--B:#2980b9;--C:#e67e22;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;min-height:100vh}
+
+/* ── ヘッダー ── */
+.hdr{background:var(--ink);color:#fff;padding:0 20px;height:58px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 3px 16px rgba(0,0,0,.5);position:sticky;top:0;z-index:400}
+.hdr-left h1{font-family:'Noto Serif JP',serif;font-size:1.1em;font-weight:700;letter-spacing:.04em}
+.hdr-left h1 span{color:var(--gold2)}
+.hdr-left p{font-size:.64em;opacity:.5;letter-spacing:.14em;margin-top:2px}
+.streak-badge{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:5px 13px}
+.streak-badge .flame{font-size:1.2em}
+.streak-badge .days{font-size:.76em;font-weight:700;color:var(--gold2)}
+
+/* ── サマリーバー ── */
+.sbar{background:#1d2f5a;padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-bottom:3px solid var(--gold)}
+.sbi{display:flex;flex-direction:column;align-items:center;gap:1px}
+.sbi-n{font-size:1.35em;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums}
+.sbi-l{font-size:.62em;color:rgba(255,255,255,.6);letter-spacing:.05em}
+.sbd{width:1px;background:rgba(255,255,255,.2);height:34px;flex-shrink:0}
+.pw{flex:1;min-width:180px}
+.pl{font-size:.67em;color:rgba(255,255,255,.6);margin-bottom:4px}
+.pb{background:rgba(255,255,255,.15);border-radius:20px;height:10px;overflow:hidden}
+.pf{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;border-radius:20px;transition:.6s}
+.pp{font-size:.7em;color:var(--gold2);margin-top:3px;font-weight:700}
+
+/* ── タブナビ ── */
+.tab-nav{background:#253060;border-bottom:2px solid var(--gold);padding:6px 14px;display:flex;gap:5px;flex-wrap:wrap;position:sticky;top:58px;z-index:300}
+.tnav{font-family:'BIZ UDPGothic',sans-serif;font-size:.76em;font-weight:700;padding:5px 14px;border:none;border-radius:5px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.64);cursor:pointer;transition:.14s;letter-spacing:.03em}
+.tnav:hover{background:rgba(255,255,255,.22);color:#fff}
+.tnav.on{background:var(--gold);color:var(--ink)}
+
+/* ── メイン ── */
+.main{max-width:920px;margin:0 auto;padding:22px 14px 80px}
+.tab-sec{display:none}.tab-sec.on{display:block}
+
+/* ── セクション見出し ── */
+.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+.sec-bar{width:5px;height:34px;border-radius:3px;flex-shrink:0;background:var(--red)}
+.sec-title{font-family:'Noto Serif JP',serif;font-size:1.05em;font-weight:700;letter-spacing:.03em}
+.sec-note{font-size:.74em;color:var(--muted);margin-left:auto;font-weight:700}
+
+/* ── 単元カード ── */
+.unit-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:.15s}
+.unit-card:hover{box-shadow:0 5px 20px rgba(0,0,0,.1);transform:translateY(-1px)}
+
+.unit-top{display:flex;align-items:center;gap:12px;padding:13px 16px}
+.unit-num{width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
+.unit-title-wrap{flex:1}
+.unit-title{font-size:.95em;font-weight:700;line-height:1.4}
+.unit-sub{font-size:.75em;color:var(--muted);margin-top:2px}
+.unit-step-badge{font-size:.65em;padding:3px 9px;border-radius:10px;font-weight:700;white-space:nowrap;background:#f0f0ee;color:var(--muted);border:1px solid var(--border)}
+.unit-step-badge.done{background:#d4f5e2;color:var(--green);border-color:var(--green)}
+.unit-step-badge.partial{background:#fff3cd;color:#856404;border-color:#ffc107}
+
+/* 理解度ボタン行 */
+.abc-row{display:flex;gap:6px;padding:0 16px 10px;align-items:center;flex-wrap:wrap}
+.abc-lbl{font-size:.7em;color:var(--muted);font-weight:700;margin-right:3px;letter-spacing:.06em}
+.abc-btn{width:36px;height:28px;border:2px solid var(--border);border-radius:6px;font-family:'BIZ UDPGothic',sans-serif;font-weight:700;font-size:.82em;background:#f5f5f2;color:var(--muted);cursor:pointer;transition:.15s}
+.abc-btn:hover{border-color:var(--muted);transform:scale(1.05)}
+.abc-btn.A{background:var(--A);color:#fff;border-color:var(--A)}
+.abc-btn.B{background:var(--B);color:#fff;border-color:var(--B)}
+.abc-btn.C{background:var(--C);color:#fff;border-color:var(--C)}
+.abc-hint{font-size:.67em;color:var(--muted);margin-left:6px}
+
+/* 統計行 */
+.stat-row{display:flex;gap:12px;padding:0 16px 10px;align-items:center;flex-wrap:wrap}
+.stat-item{display:flex;align-items:center;gap:3px;font-size:.73em;color:var(--muted)}
+.stat-val{font-weight:700;color:var(--ink)}
+.rdots{display:flex;gap:3px;align-items:center}
+.rdot{width:9px;height:9px;border-radius:50%;background:var(--border)}
+.rdot.done{background:var(--gold)}
+.rdot.done.perf{background:var(--green)}
+
+/* リンクボタン行 */
+.link-row{display:flex;gap:7px;padding:0 16px 14px;flex-wrap:wrap}
+.plink{text-decoration:none;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:8px 16px;border-radius:7px;border:1.5px solid var(--border);color:var(--ink);background:#f8f8f5;transition:.13s;display:inline-flex;align-items:center;gap:5px}
+.plink:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.plink.go{background:var(--accent);color:#fff;border-color:var(--accent)}
+.plink.go:hover{background:#122d56}
+.plink.fc{background:var(--green);color:#fff;border-color:var(--green)}
+.plink.fc:hover{background:#125a2e}
+
+/* ── バッジエリア ── */
+.badge-sec{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.badge-ttl{font-size:.78em;font-weight:700;color:var(--muted);letter-spacing:.1em;margin-bottom:12px}
+.badges{display:flex;flex-wrap:wrap;gap:9px}
+.badge{display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 12px;border-radius:9px;border:2px solid var(--border);background:#f8f8f5;min-width:74px;transition:.2s}
+.badge.earned{border-color:var(--gold);background:linear-gradient(135deg,#fffbea,#fff8d0);box-shadow:0 2px 8px rgba(200,151,42,.2)}
+.badge.locked{opacity:.3;filter:grayscale(1)}
+.badge-icon{font-size:1.55em}
+.badge-name{font-size:.64em;font-weight:700;color:var(--ink);text-align:center;line-height:1.3}
+
+/* ── 学習記録タブ ── */
+.prog-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.prog-card-ttl{font-size:.78em;font-weight:700;color:var(--muted);letter-spacing:.1em;margin-bottom:14px}
+.prog-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--border)}
+.prog-row:last-child{border-bottom:none}
+.prog-num{width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.72em;font-weight:700;flex-shrink:0}
+.prog-title{flex:1;font-size:.88em;font-weight:700}
+.prog-grade{font-size:.76em;font-weight:700;padding:2px 9px;border-radius:10px;background:#f0f0ee;color:var(--muted);border:1px solid var(--border)}
+.prog-grade.A{background:var(--A);color:#fff;border-color:var(--A)}
+.prog-grade.B{background:var(--B);color:#fff;border-color:var(--B)}
+.prog-grade.C{background:var(--C);color:#fff;border-color:var(--C)}
+.prog-meta{font-size:.7em;color:var(--muted)}
+
+/* ── カレンダー ── */
+.cal-sec{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.cal-ttl{font-size:.78em;font-weight:700;color:var(--muted);letter-spacing:.1em;margin-bottom:12px}
+.cal-grid{display:flex;flex-wrap:wrap;gap:4px}
+.cal-day{width:15px;height:15px;border-radius:3px;background:var(--border)}
+.cal-day.s1{background:#c6e48b}.cal-day.s2{background:#7bc96f}
+.cal-day.s3{background:#239a3b}.cal-day.s4{background:#196127}
+.cal-lbl{display:flex;gap:5px;align-items:center;margin-top:8px;font-size:.68em;color:var(--muted)}
+.cld{width:11px;height:11px;border-radius:2px}
+
+/* ── 達成モーダル ── */
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:900;align-items:center;justify-content:center}
+.modal-ov.open{display:flex}
+.modal-box{background:#fff;border-radius:18px;padding:32px 36px;text-align:center;max-width:340px;width:90%;box-shadow:0 12px 48px rgba(0,0,0,.3);position:relative;overflow:hidden}
+.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold))}
+.modal-emoji{font-size:2.8em;margin-bottom:10px}
+.modal-title{font-size:1.2em;font-weight:700;margin-bottom:8px}
+.modal-sub{font-size:.85em;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.modal-close{font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:10px 28px;cursor:pointer}
+
+#cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+</style>
+</head>
+<body>
+
+<canvas id="cnv"></canvas>
+
+<!-- ── ヘッダー ── -->
+<header class="hdr">
+  <div class="hdr-left">
+    <h1>政治経済 <span>GAMBA</span></h1>
+    <p>頑張れ！完全習得システム</p>
+  </div>
+  <div class="streak-badge">
+    <span class="flame">🔥</span>
+    <span class="days" id="streakDisp">0日連続</span>
+  </div>
+</header>
+
+<!-- ── サマリーバー ── -->
+<div class="sbar">
+  <div class="sbi"><div class="sbi-n" id="sumTotal">0</div><div class="sbi-l">総学習回数</div></div>
+  <div class="sbd"></div>
+  <div class="sbi"><div class="sbi-n" id="sumA" style="color:#4be890">0</div><div class="sbi-l">理解A（完璧）</div></div>
+  <div class="sbi"><div class="sbi-n" id="sumB" style="color:#6bb5ff">0</div><div class="sbi-l">理解B（良好）</div></div>
+  <div class="sbi"><div class="sbi-n" id="sumC" style="color:#ffb347">0</div><div class="sbi-l">理解C（要復習）</div></div>
+  <div class="sbd"></div>
+  <div class="pw">
+    <div class="pl">全10単元　習熟度</div>
+    <div class="pb"><div class="pf" id="progFill" style="width:0%"></div></div>
+    <div class="pp" id="progPct">0%</div>
+  </div>
+</div>
+
+<!-- ── タブナビ ── -->
+<nav class="tab-nav">
+  <button class="tnav on" onclick="switchTab('tab-units',this)">📋 単元表</button>
+  <button class="tnav"    onclick="switchTab('tab-record',this)">📅 学習記録</button>
+</nav>
+
+<div class="main">
+
+<!-- ══════ 単元表タブ ══════ -->
+<div class="tab-sec on" id="tab-units">
+
+  <div class="badge-sec">
+    <div class="badge-ttl">🏅 達成バッジ</div>
+    <div class="badges" id="badgeArea"></div>
+  </div>
+
+  <div class="sec-hdr">
+    <div class="sec-bar"></div>
+    <div class="sec-title">政治経済　全10単元</div>
+    <div class="sec-note" id="secNote"></div>
+  </div>
+
+  <div id="cardsWrap"></div>
+
+</div>
+
+<!-- ══════ 学習記録タブ ══════ -->
+<div class="tab-sec" id="tab-record">
+
+  <div class="prog-card">
+    <div class="prog-card-ttl">📊 単元別　理解度一覧</div>
+    <div id="progList"></div>
+  </div>
+
+  <div class="cal-sec">
+    <div class="cal-ttl">📅 学習カレンダー（過去84日）</div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-lbl">
+      <span>少</span>
+      <div class="cld" style="background:var(--border)"></div>
+      <div class="cld cal-day s1"></div>
+      <div class="cld cal-day s2"></div>
+      <div class="cld cal-day s3"></div>
+      <div class="cld cal-day s4"></div>
+      <span>多</span>
+    </div>
+  </div>
+
+</div>
+
+</div><!-- /main -->
+
+<!-- 達成モーダル -->
+<div class="modal-ov" id="achieveModal">
+  <div class="modal-box">
+    <div class="modal-emoji" id="achEmoji">🎉</div>
+    <div class="modal-title" id="achTitle">達成！</div>
+    <div class="modal-sub"   id="achSub"></div>
+    <button class="modal-close" onclick="closeAchieve()">とじる</button>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+/* ── 単元データ ── */
+const UNITS = [
+  {id:'sk01', num:'①', title:'国家と法(1)',            sub:'法の分類・国家の領域',            file:'seikei01.html'},
+  {id:'sk02', num:'②', title:'国家と法(2)',            sub:'国家の在り方・支配の類型',        file:'seikei02.html'},
+  {id:'sk03', num:'③', title:'国家と法(3)',            sub:'法の支配・社会契約説',            file:'seikei03.html'},
+  {id:'sk04', num:'④', title:'人権獲得の歴史',         sub:'市民革命・国際人権',              file:'seikei04.html'},
+  {id:'sk05', num:'⑤', title:'各国の政治制度',         sub:'議院内閣制・大統領制',            file:'seikei05.html'},
+  {id:'sk06', num:'⑥', title:'大日本帝国憲法と日本国憲法', sub:'欽定憲法・民定憲法・大正デモクラシー', file:'seikei06.html'},
+  {id:'sk07', num:'⑦', title:'基本的人権　平等権',     sub:'法の下の平等・違憲判決',          file:'seikei07.html'},
+  {id:'sk08', num:'⑧', title:'自由権',                 sub:'精神・身体の自由',                file:'seikei08.html'},
+  {id:'sk09', num:'⑨', title:'自由権・参政権・請求権', sub:'社会権・労働基本権',              file:'seikei09.html'},
+  {id:'sk10', num:'⑩', title:'平和主義',               sub:'自衛隊・安全保障',                file:'seikei10.html'},
+];
+
+/* ── バッジ定義 ── */
+const BADGES = [
+  {id:'first',  icon:'🌱', name:'初回学習',   cond: d => UNITS.some(u => getCount(d,u.id) > 0)},
+  {id:'study3', icon:'📖', name:'3単元学習',  cond: d => UNITS.filter(u => getCount(d,u.id) > 0).length >= 3},
+  {id:'study10',icon:'📚', name:'全単元学習', cond: d => UNITS.every(u => getCount(d,u.id) > 0)},
+  {id:'c5',     icon:'✨', name:'C評価5単元', cond: d => UNITS.filter(u => getGrade(d,u.id)==='C').length >= 5},
+  {id:'b5',     icon:'⭐', name:'B評価5単元', cond: d => UNITS.filter(u => getGrade(d,u.id)==='B').length >= 5},
+  {id:'a3',     icon:'🥉', name:'A評価3単元', cond: d => UNITS.filter(u => getGrade(d,u.id)==='A').length >= 3},
+  {id:'a7',     icon:'🥇', name:'A評価7単元', cond: d => UNITS.filter(u => getGrade(d,u.id)==='A').length >= 7},
+  {id:'allA',   icon:'🏆', name:'全単元Ａ！', cond: d => UNITS.every(u => getGrade(d,u.id)==='A')},
+  {id:'str3',   icon:'🔥', name:'3日連続',    cond: _ => getStreak() >= 3},
+  {id:'str7',   icon:'💫', name:'7日連続',    cond: _ => getStreak() >= 7},
+  {id:'str14',  icon:'🌟', name:'14日連続',   cond: _ => getStreak() >= 14},
+];
+
+/* ── LocalStorage ── */
+const LS_KEY   = 'seikei_gamba_v1';
+const LS_CAL   = 'seikei_cal_v1';
+const LS_BADGE = 'seikei_badges_v1';
+
+function loadData()      { try{return JSON.parse(localStorage.getItem(LS_KEY)||'{}')}catch(e){return{}} }
+function saveData(d)     { try{localStorage.setItem(LS_KEY,JSON.stringify(d))}catch(e){} }
+function getGrade(d,id)  { return(d[id]||{}).grade||'' }
+function getCount(d,id)  { return(d[id]||{}).count||0 }
+function getLast(d,id)   { return(d[id]||{}).last||'' }
+
+function setGrade(btn) {
+  const id=btn.dataset.id, grade=btn.dataset.grade;
+  const d=loadData();
+  if(!d[id]) d[id]={};
+  d[id].grade = (d[id].grade===grade) ? '' : grade;
+  d[id].count = (d[id].count||0) + 1;
+  d[id].last  = new Date().toISOString().slice(0,10);
+  saveData(d);
+  recordCal();
+  render();
+  checkBadges(d);
+}
+
+function recordCal() {
+  try{
+    const cal=JSON.parse(localStorage.getItem(LS_CAL)||'{}');
+    const today=new Date().toISOString().slice(0,10);
+    cal[today]=(cal[today]||0)+1;
+    localStorage.setItem(LS_CAL,JSON.stringify(cal));
+  }catch(e){}
+}
+
+function getStreak() {
+  try{
+    const cal=JSON.parse(localStorage.getItem(LS_CAL)||'{}');
+    let s=0;
+    for(let i=0;i<365;i++){
+      const d=new Date(); d.setDate(d.getDate()-i);
+      const k=d.toISOString().slice(0,10);
+      if(cal[k]>0) s++; else if(i>0) break;
+    }
+    return s;
+  }catch(e){return 0}
+}
+
+/* ── カード生成 ── */
+function buildCards() {
+  const wrap = document.getElementById('cardsWrap');
+  wrap.innerHTML = UNITS.map(u => `
+  <div class="unit-card" id="uc-${u.id}">
+    <div class="unit-top">
+      <div class="unit-num">${u.num}</div>
+      <div class="unit-title-wrap">
+        <div class="unit-title">${u.title}</div>
+        <div class="unit-sub">${u.sub}</div>
+      </div>
+      <div class="unit-step-badge" id="badge-${u.id}">未学習</div>
+    </div>
+    <div class="abc-row">
+      <span class="abc-lbl">理解度</span>
+      <button class="abc-btn" data-id="${u.id}" data-grade="A" onclick="setGrade(this)">A</button>
+      <button class="abc-btn" data-id="${u.id}" data-grade="B" onclick="setGrade(this)">B</button>
+      <button class="abc-btn" data-id="${u.id}" data-grade="C" onclick="setGrade(this)">C</button>
+      <span class="abc-hint">A=完璧　B=良好　C=要復習</span>
+    </div>
+    <div class="stat-row">
+      <div class="stat-item">学習回数：<span class="stat-val" id="cnt-${u.id}">0</span>回</div>
+      <div class="rdots" id="dots-${u.id}"></div>
+      <div class="stat-item">最終：<span class="stat-val" id="last-${u.id}">─</span></div>
+    </div>
+    <div class="link-row">
+      <a class="plink go" href="${u.file}">📖 学習する</a>
+      <a class="plink fc" href="${u.file}">⚡ フラッシュカード</a>
+    </div>
+  </div>`).join('');
+}
+
+/* ── ドット描画 ── */
+function renderDots(id,cnt,grade) {
+  const el=document.getElementById('dots-'+id);
+  if(!el) return;
+  const max=7;
+  let html='';
+  for(let i=0;i<max;i++){
+    const done=i<cnt;
+    const cls=done?(grade==='A'?'done perf':'done'):'';
+    html+=`<div class="rdot ${cls}"></div>`;
+  }
+  if(cnt>max) html+=`<span style="font-size:.68em;color:var(--muted);margin-left:2px">+${cnt-max}</span>`;
+  el.innerHTML=html;
+}
+
+/* ── メインレンダリング ── */
+function render() {
+  const d=loadData();
+  let cntA=0,cntB=0,cntC=0,total=0;
+
+  UNITS.forEach(u=>{
+    const grade=getGrade(d,u.id);
+    const cnt  =getCount(d,u.id);
+    const last =getLast(d,u.id);
+    total+=cnt;
+    if(grade==='A') cntA++;
+    else if(grade==='B') cntB++;
+    else if(grade==='C') cntC++;
+
+    // ABCボタン色
+    document.querySelectorAll(`[data-id="${u.id}"]`).forEach(btn=>{
+      btn.className='abc-btn'+(grade===btn.dataset.grade?' '+grade:'');
+    });
+
+    // 統計
+    const ce=document.getElementById('cnt-'+u.id);  if(ce) ce.textContent=cnt;
+    const le=document.getElementById('last-'+u.id); if(le) le.textContent=last||'─';
+    renderDots(u.id,cnt,grade);
+
+    // カード左ボーダー
+    const card=document.getElementById('uc-'+u.id);
+    if(card) card.style.borderLeft=grade?`4px solid var(--${grade})`:'';
+
+    // ステップバッジ
+    const sb=document.getElementById('badge-'+u.id);
+    if(sb){
+      if(!grade&&cnt===0){ sb.textContent='未学習';   sb.className='unit-step-badge'; }
+      else if(grade==='A'){ sb.textContent='✅ 完璧';  sb.className='unit-step-badge done'; }
+      else if(grade==='B'){ sb.textContent='📘 良好';  sb.className='unit-step-badge partial'; }
+      else if(grade==='C'){ sb.textContent='📌 要復習';sb.className='unit-step-badge partial'; }
+      else if(cnt>0)       { sb.textContent='学習中';  sb.className='unit-step-badge partial'; }
+    }
+  });
+
+  // サマリーバー
+  document.getElementById('sumTotal').textContent=total;
+  document.getElementById('sumA').textContent=cntA;
+  document.getElementById('sumB').textContent=cntB;
+  document.getElementById('sumC').textContent=cntC;
+
+  // 習熟度バー（A=100 B=60 C=30）
+  const pct=Math.round(
+    UNITS.reduce((s,u)=>{
+      const g=getGrade(d,u.id);
+      return s+(g==='A'?100:g==='B'?60:g==='C'?30:0);
+    },0)/UNITS.length
+  );
+  document.getElementById('progFill').style.width=pct+'%';
+  document.getElementById('progPct').textContent=pct+'%';
+
+  // セクション注釈
+  const chk=UNITS.filter(u=>getGrade(d,u.id)).length;
+  document.getElementById('secNote').textContent=`${chk} / 10 単元チェック済`;
+
+  // 連続日数
+  document.getElementById('streakDisp').textContent=getStreak()+'日連続';
+
+  // バッジ・カレンダー・進捗一覧
+  renderBadges(d);
+  renderCalendar();
+  renderProgList(d);
+}
+
+/* ── 進捗一覧 ── */
+function renderProgList(d) {
+  const list=document.getElementById('progList');
+  if(!list) return;
+  list.innerHTML=UNITS.map(u=>{
+    const grade=getGrade(d,u.id);
+    const cnt  =getCount(d,u.id);
+    const last =getLast(d,u.id);
+    return `
+    <div class="prog-row">
+      <div class="prog-num">${u.num}</div>
+      <div class="prog-title">${u.title}</div>
+      <span class="prog-grade ${grade}">${grade||'─'}</span>
+      <span class="prog-meta">${cnt}回　最終:${last||'─'}</span>
+    </div>`;
+  }).join('');
+}
+
+/* ── バッジ ── */
+function renderBadges(d) {
+  const area=document.getElementById('badgeArea');
+  area.innerHTML=BADGES.map(b=>{
+    const earned=b.cond(d);
+    return `<div class="badge ${earned?'earned':'locked'}" title="${b.name}">
+      <div class="badge-icon">${b.icon}</div>
+      <div class="badge-name">${b.name}</div>
+    </div>`;
+  }).join('');
+}
+
+function checkBadges(d) {
+  const prev=JSON.parse(localStorage.getItem(LS_BADGE)||'[]');
+  BADGES.forEach(b=>{
+    if(!prev.includes(b.id)&&b.cond(d)){
+      prev.push(b.id);
+      localStorage.setItem(LS_BADGE,JSON.stringify(prev));
+      showAchieve(b.icon, b.name+' を獲得！', 'おめでとうございます！🎊');
+    }
+  });
+}
+
+/* ── カレンダー ── */
+function renderCalendar() {
+  const cal=JSON.parse(localStorage.getItem(LS_CAL)||'{}');
+  const grid=document.getElementById('calGrid');
+  let html='';
+  for(let i=83;i>=0;i--){
+    const d=new Date(); d.setDate(d.getDate()-i);
+    const k=d.toISOString().slice(0,10);
+    const v=cal[k]||0;
+    const cls=v>=4?'s4':v>=3?'s3':v>=2?'s2':v>=1?'s1':'';
+    html+=`<div class="cal-day ${cls}" title="${k}：${v}回"></div>`;
+  }
+  grid.innerHTML=html;
+}
+
+/* ── タブ切替 ── */
+function switchTab(id,btn) {
+  document.querySelectorAll('.tab-sec').forEach(s=>s.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  document.querySelectorAll('.tnav').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  window.scrollTo(0,0);
+}
+
+/* ── 達成モーダル ── */
+function showAchieve(emoji,title,sub) {
+  document.getElementById('achEmoji').textContent=emoji;
+  document.getElementById('achTitle').textContent=title;
+  document.getElementById('achSub').textContent=sub;
+  document.getElementById('achieveModal').classList.add('open');
+  startConf();
+  setTimeout(stopConf,4000);
+}
+function closeAchieve() {
+  document.getElementById('achieveModal').classList.remove('open');
+  stopConf();
+}
+
+/* ── 紙吹雪 ── */
+const cv=document.getElementById('cnv');
+const cx=cv.getContext('2d');
+let pts=[],raf=null;
+function startConf(){
+  cv.width=innerWidth;cv.height=innerHeight;pts=[];
+  for(let i=0;i<200;i++) pts.push({
+    x:Math.random()*cv.width,
+    y:Math.random()*cv.height-cv.height,
+    s:Math.random()*10+4,
+    c:`hsl(${Math.random()*360},70%,62%)`,
+    sp:Math.random()*3+2,
+    r:Math.random()*Math.PI*2,
+    dr:.05
+  });
+  af();
+}
+function af(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  pts.forEach(p=>{
+    p.y+=p.sp;p.r+=p.dr;
+    cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);
+    cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/2,p.s,p.s);
+    cx.restore();
+    if(p.y>cv.height)p.y=-20;
+  });
+  raf=requestAnimationFrame(af);
+}
+function stopConf(){
+  if(raf){cancelAnimationFrame(raf);raf=null;}
+  cx.clearRect(0,0,cv.width,cv.height);pts=[];
+}
+
+/* ── 初期化 ── */
+buildCards();
+render();
+</script>
+</body>
+</html>
