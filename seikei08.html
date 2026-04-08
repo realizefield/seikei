@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治経済 GAMBA ⑧ 自由権</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;--gold:#c8972a;--gold2:#f0c040;--red:#c0392b;--blue:#1a3a6b;--green:#1a6b3a;--orange:#e67e22;--purple:#7b2d8b;--muted:#6b7a99;--border:#d8d3c8;--drop:#fffbe6;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.9}
+.hdr{background:var(--ink);color:#fff;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;box-shadow:0 3px 14px rgba(0,0,0,.45)}
+.hdr-info{display:flex;flex-direction:column;gap:1px}
+.hdr-sub{font-size:.65em;opacity:.5;letter-spacing:.12em}
+.hdr-title{font-size:.95em;font-weight:700;letter-spacing:.03em}
+.hdr-timer{font-size:1.15em;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums;min-width:66px;text-align:right}
+.tab-bar{background:#1d2f5a;border-bottom:2px solid var(--gold);display:flex;gap:4px;padding:6px 10px;flex-wrap:wrap;position:sticky;top:52px;z-index:290;overflow-x:auto}
+.tab-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.72em;font-weight:700;padding:5px 11px;border:none;border-radius:4px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.58);cursor:pointer;transition:.14s;white-space:nowrap;text-decoration:none;display:inline-block}
+.tab-btn:hover{background:rgba(255,255,255,.22);color:#fff}.tab-btn.active{background:var(--gold);color:var(--ink)}
+.phase-bar{background:#fff;border-bottom:2px solid var(--border);padding:7px 14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;position:sticky;top:96px;z-index:280}
+.pdot{width:11px;height:11px;border-radius:50%;background:var(--border);transition:.3s;flex-shrink:0}.pdot.on{background:var(--gold)}
+.ptxt{font-size:.75em;color:var(--muted);font-weight:700}.ptxt.on{color:var(--ink)}
+.parr{font-size:.82em;color:var(--border);margin:0 3px}.plbl{font-size:.72em;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.wb-bar{background:#fff;border-bottom:2px solid var(--border);padding:9px 14px;display:none;position:sticky;top:132px;z-index:270;box-shadow:0 4px 10px rgba(0,0,0,.07)}
+.wb-lbl{font-size:.68em;color:var(--muted);font-weight:700;letter-spacing:.08em;margin-bottom:6px}
+.wb-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:32px;align-items:center}
+.chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;transition:.12s}
+.chip:hover{background:#253060;transform:translateY(-1px)}.chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink);transform:scale(1.05)}
+.main{max-width:860px;margin:0 auto;padding:20px 13px 160px}
+.view{display:none}.view.on{display:block}
+.s-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.s-head-e{background:var(--blue);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-q{background:var(--red);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-fc{background:linear-gradient(135deg,#1a3a6b,#2d5ea8);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-kakomon{background:linear-gradient(135deg,#1a6b3a,#27ae60);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-seigo{background:linear-gradient(135deg,#7b2d8b,#9b59b6);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-icon{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
+.s-ht{font-size:.92em;font-weight:700;letter-spacing:.03em;flex:1}
+.s-body{padding:16px 18px}
+.person-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed var(--border)}
+.person-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pbadge{background:var(--blue);color:#fff;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:3px;flex-shrink:0}
+.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.purple{background:var(--purple)}
+.pcont{flex:1;font-size:.93em}.pcont p{margin-bottom:8px}.pcont strong{color:var(--blue)}
+.pt{display:inline-block;background:var(--blue);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.blank{display:inline-flex;align-items:center;justify-content:center;min-width:90px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.blank:hover{background:#fff3b0}.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
+.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.84em}
+.gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
+.gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
+.verdict-card{background:#f8f5ff;border:1.5px solid var(--purple);border-radius:9px;padding:12px 15px;margin-bottom:12px}
+.verdict-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.67em;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:6px;letter-spacing:.05em}
+.verdict-tag.green{background:var(--green)}.verdict-tag.blue{background:var(--blue)}.verdict-tag.red{background:var(--red)}
+.verdict-title{font-size:.9em;font-weight:700;margin-bottom:5px;line-height:1.5}
+.verdict-body{font-size:.84em;color:#333;line-height:1.75}
+.note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
+.q-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--border);font-size:.93em;line-height:1.85}
+.q-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.qt{display:inline-block;background:var(--red);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.seigo-item{margin-bottom:14px;padding:12px 14px;background:#f8f8f5;border-radius:8px;border:1.5px solid var(--border)}
+.seigo-q{font-size:.92em;margin-bottom:10px;line-height:1.8}
+.seigo-btns{display:flex;gap:8px}
+.seigo-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:7px 18px;border:2px solid var(--border);border-radius:6px;background:#f0f0ee;cursor:pointer;transition:.13s}
+.seigo-btn.correct{background:var(--green);color:#fff;border-color:var(--green)}.seigo-btn.wrong{background:var(--red);color:#fff;border-color:var(--red)}
+.seigo-explain{display:none;margin-top:8px;font-size:.82em;background:#f0f8ff;border-left:3px solid var(--blue);padding:8px 12px;border-radius:4px;line-height:1.7}.seigo-explain.on{display:block}
+.kk-choices{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.kk-choice{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#f8f8f5;cursor:pointer;transition:.13s;text-align:left;line-height:1.5}
+.kk-choice:hover{border-color:var(--blue);background:#eef3ff}.kk-choice.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}.kk-choice.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.kk-explain{display:none;font-size:.83em;background:#f0f8ff;border-radius:6px;padding:10px 13px;border-left:3px solid var(--blue);line-height:1.75;margin-top:7px}.kk-explain.on{display:block}
+.kk-ans-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.76em;font-weight:700;padding:5px 13px;border:none;border-radius:5px;background:var(--blue);color:#fff;cursor:pointer;margin-top:6px}
+.kk-year-tag{font-size:.7em;font-weight:700;background:var(--gold);color:var(--ink);padding:2px 8px;border-radius:4px;margin-bottom:8px;display:inline-block}
+.fc-settings{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:16px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:9px}
+.fc-set-lbl{font-size:.76em;font-weight:700;color:var(--muted);white-space:nowrap}
+.spd-btns,.mode-btns{display:flex;gap:5px}
+.spd-btn,.mode-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:6px 14px;border:2px solid var(--border);border-radius:5px;background:#f5f5f2;cursor:pointer;transition:.12s}
+.spd-btn:hover{border-color:var(--blue)}.spd-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mode-btn:hover{border-color:var(--red)}.mode-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.fc-start-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;font-weight:700;padding:9px 24px;border:none;border-radius:7px;background:var(--red);color:#fff;cursor:pointer;margin-left:auto}
+.fc-arena{display:none}.fc-arena.on{display:block}
+.fc-prog-wrap{margin-bottom:12px}.fc-prog-bar{background:var(--border);border-radius:20px;height:8px;overflow:hidden;margin-bottom:3px}.fc-prog-fill{background:linear-gradient(90deg,var(--blue),var(--gold));height:100%;border-radius:20px;transition:.4s}.fc-prog-txt{font-size:.72em;color:var(--muted);text-align:right;font-weight:700}
+.flash-card{min-height:200px;background:var(--card);border:2px solid var(--border);border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.1);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;text-align:center;position:relative;transition:transform .14s;user-select:none;-webkit-user-select:none;margin-bottom:14px}
+.flash-card:hover{transform:translateY(-2px)}.flash-card.flip-anim{animation:fcFlip .28s ease}
+@keyframes fcFlip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(.95)}}
+.fc-unit-tag2{position:absolute;top:10px;left:12px;font-size:.64em;font-weight:700;background:var(--blue);color:#fff;padding:2px 7px;border-radius:3px}
+.fc-side-tag2{position:absolute;top:10px;right:12px;font-size:.64em;font-weight:700;padding:2px 7px;border-radius:3px}
+.fc-side-tag2.q{background:#fde8e8;color:var(--red)}.fc-side-tag2.a{background:#d4f5e2;color:var(--green)}
+.fc-counter2{position:absolute;bottom:10px;right:12px;font-size:.68em;color:var(--muted);font-weight:700}
+.fc-auto-bar2{position:absolute;bottom:0;left:0;height:4px;background:var(--gold);border-radius:0 0 12px 12px;transition:none}
+.fc-main-text2{font-family:'Noto Serif JP',serif;font-size:1.05em;font-weight:700;line-height:1.75;color:var(--ink)}
+.fc-hint2{font-size:.8em;color:var(--muted);margin-top:8px}.fc-tap-hint2{font-size:.7em;color:var(--muted);opacity:.7;margin-top:10px}
+.fc-ans-area{display:none;width:100%;background:#f0f8ff;border-top:1px dashed var(--border);margin-top:12px;padding-top:12px;text-align:left}.fc-ans-area.on{display:block}
+.fc-ans-lbl{font-size:.66em;font-weight:700;color:var(--green);letter-spacing:.08em;margin-bottom:4px}.fc-ans-txt{font-size:.93em;font-weight:700;color:var(--ink);line-height:1.65}
+.fc-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
+.fc-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:9px 20px;border:none;border-radius:7px;cursor:pointer;transition:.12s}.fc-btn:hover{opacity:.88;transform:translateY(-1px)}
+.btn-prev2{background:#d0d5e0;color:var(--ink)}.btn-flip2{background:var(--blue);color:#fff}.btn-next2{background:var(--green);color:#fff}.btn-stop2{background:var(--muted);color:#fff}
+.fc-mark-row{display:flex;gap:8px;justify-content:center}
+.fc-stat-row2{display:flex;gap:14px;justify-content:center;font-size:.76em;color:var(--muted);font-weight:700;flex-wrap:wrap;margin-bottom:10px}
+.foot{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid var(--border);padding:9px 13px;display:flex;gap:7px;justify-content:center;align-items:center;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.09);flex-wrap:wrap}
+.fbtn{font-family:'BIZ UDPGothic',sans-serif;font-size:.86em;font-weight:700;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;transition:.12s}.fbtn:hover{transform:translateY(-1px);opacity:.88}
+.f-expl{background:var(--orange);color:#fff}.f-check{background:var(--green);color:#fff}.f-hint{background:#8e44ad;color:#fff}.f-next{background:var(--blue);color:#fff}.f-retry{background:var(--blue);color:#fff}.f-back{background:var(--muted);color:#fff}.f-judge{background:var(--green);color:#fff}
+.score-pill{background:var(--ink);color:#fff;padding:5px 13px;border-radius:18px;font-size:.82em;font-weight:700}
+.jbanner{display:none;position:fixed;top:62px;left:50%;transform:translateX(-50%);z-index:600;padding:14px 32px;border-radius:11px;font-size:1.18em;font-weight:700;text-align:center;white-space:nowrap;box-shadow:0 6px 26px rgba(0,0,0,.28);animation:pop .3s cubic-bezier(.17,.67,.37,1.4)}
+@keyframes pop{from{transform:translateX(-50%) scale(.5);opacity:0}to{transform:translateX(-50%) scale(1);opacity:1}}
+.ban-pass{background:#1e7a4a;color:#fff}.ban-ng{background:#c0392b;color:#fff}
+.blank-popup{display:none;position:fixed;z-index:1000;background:#fff;border:2px solid var(--blue);border-radius:8px;padding:9px 11px;box-shadow:0 6px 22px rgba(0,0,0,.22);max-width:320px;flex-wrap:wrap;gap:6px}.blank-popup.open{display:flex}
+.bp-arrow{position:absolute;top:-8px;left:14px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:8px solid var(--blue)}
+.bp-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.83em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:5px 11px;border-radius:4px;cursor:pointer;transition:.11s;white-space:nowrap}.bp-chip:hover{background:var(--blue)}
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;align-items:center;justify-content:center}.modal-ov.open{display:flex}
+.modal-box{background:#fff;border-radius:14px;padding:26px 30px;max-width:330px;width:90%;box-shadow:0 8px 38px rgba(0,0,0,.3);text-align:center}
+.modal-title{font-size:1.06em;font-weight:700;color:var(--ink);margin-bottom:16px}
+.modal-btns{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.modal-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;border:none;border-radius:7px;padding:11px 0;cursor:pointer}
+.mb-resume{background:var(--green);color:#fff}.mb-back{background:var(--muted);color:#fff}.mb-cancel{background:#eee;color:var(--ink)}
+#cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.home-btn{position:fixed;bottom:130px;right:14px;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:22px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;transition:.14s;z-index:500;text-decoration:none}.home-btn:hover{background:#253060;transform:translateY(-2px)}
+</style>
+</head>
+<body>
+<canvas id="cnv"></canvas>
+<header class="hdr">
+  <div class="hdr-info">
+    <div class="hdr-sub">政治経済 GAMBA</div>
+    <div class="hdr-title">⑧ 自由権 ─ 精神・身体・経済の自由</div>
+  </div>
+  <div class="hdr-timer" id="timerDisp">00:00</div>
+</header>
+<nav class="tab-bar">
+  <a class="tab-btn" href="seikei07.html">⑦ 基本的人権・平等権</a>
+  <a class="tab-btn active" href="seikei08.html">⑧ 自由権</a>
+  <a class="tab-btn" href="seikei09.html">⑨ 社会権・参政権・請求権</a>
+  <a class="tab-btn" href="seikei10.html">⑩ 平和主義</a>
+  <a class="tab-btn" href="seikei_index.html">📋 単元表</a>
+</nav>
+<div class="phase-bar">
+  <span class="plbl">STEP</span>
+  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明</span>
+  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②確認</span>
+  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③テスト</span>
+  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④正誤</span>
+  <span class="parr">▶</span><div class="pdot" id="d4"></div><span class="ptxt" id="t4">⑤過去問</span>
+  <span class="parr">▶</span><div class="pdot" id="d5"></div><span class="ptxt" id="t5">⑥フラッシュ</span>
+</div>
+<div class="wb-bar" id="wbBar">
+  <div class="wb-lbl">▶ 語句をタップして選択 → 空欄をタップで入力　／　入力済み空欄をタップするとクリア</div>
+  <div class="wb-chips" id="wbChips"></div>
+</div>
+<div class="main">
+
+<!-- ①説明 -->
+<div class="view on" id="vRead">
+
+  <!-- 精神の自由 -->
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">精神の自由の体系</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">2つの分類</div>
+        <div class="pcont">
+          <p>精神の自由は<span class="blank show" data-ans="内心">内心</span>の自由（思想・良心の自由・信教の自由・学問の自由）と<span class="blank show" data-ans="表現">表現</span>の自由の2つに大別されます。</p>
+          <p>内心にとどめている限りは他者を侵害しないため<span class="blank show" data-ans="絶対的">絶対的</span>に保障されます。表現の自由は外部に表されるため、<span class="blank show" data-ans="公共の福祉">公共の福祉</span>の観点から制約される場合があります。</p>
+        </div>
+      </div>
+      <table class="gtbl">
+        <thead><tr><th style="width:22%">権利の種類</th><th>条文</th><th>内 容</th></tr></thead>
+        <tbody>
+          <tr><td>思想・良心の自由</td><td>19条</td><td>内心の自由。<span class="blank show" data-ans="絶対的">絶対的</span>に保障。踏み絵・思想調査は違反。</td></tr>
+          <tr><td>信教の自由</td><td>20条</td><td>信仰・宗教的行為・宗教的結社の自由。<span class="blank show" data-ans="政教分離">政教分離</span>の原則（国は宗教に介入しない）。</td></tr>
+          <tr><td>表現の自由</td><td>21条</td><td>言論・出版・集会・結社・通信の自由。<span class="blank show" data-ans="検閲">検閲</span>の絶対的禁止（21条2項）。</td></tr>
+          <tr><td>学問の自由</td><td>23条</td><td>研究・発表・教授の自由。<span class="blank show" data-ans="大学の自治">大学の自治</span>が認められる。</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.85em;margin-top:8px;line-height:1.7">※明治憲法では<span class="blank show" data-ans="表現">表現</span>の自由・信教の自由は不十分ながら保障されていたが、<span class="blank show" data-ans="学問">学問</span>の自由と思想・良心の自由は保障されていなかった。</p>
+    </div>
+  </div>
+
+  <!-- 精神の自由の重要判例 -->
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">精神の自由に関する重要判例</div></div>
+    <div class="s-body">
+      <div class="verdict-card">
+        <div class="verdict-tag blue">思想良心の自由</div>
+        <div class="verdict-title">三菱樹脂事件（合憲）</div>
+        <div class="verdict-body">大学在学中の学生運動を理由に、企業が本採用を拒否したことが<span class="blank show" data-ans="思想良心の自由">思想良心の自由</span>侵害かどうかが争われた。最高裁は「<span class="blank show" data-ans="企業には採用の自由">企業には採用の自由</span>があり、思想良心の自由の侵害にはあたらない」として<strong>合憲</strong>とした。</div>
+      </div>
+      <div class="verdict-card">
+        <div class="verdict-tag green">信教の自由・政教分離</div>
+        <div class="verdict-title">津地鎮祭訴訟（合憲）／愛媛玉串料訴訟（違憲）</div>
+        <div class="verdict-body">
+          <strong>津地鎮祭訴訟</strong>：三重県津市が公費で神道式の地鎮祭を行ったことについて、最高裁は「世俗的な行事であり<span class="blank show" data-ans="政教分離">政教分離</span>に違反せず<strong>合憲</strong>」と判断。<br>
+          <strong>愛媛玉串料訴訟</strong>：愛媛県が靖国神社などへ玉串料を<span class="blank show" data-ans="公費">公費</span>から支出したことは「宗教的活動にあたり政教分離に反する」として最高裁は<strong>違憲</strong>と判断。<br>
+          <strong>空知太神社訴訟</strong>：北海道砂川市が神社に敷地を<span class="blank show" data-ans="無償">無償</span>で提供していたことは政教分離に違反するとして最高裁は<strong>違憲</strong>と判断。
+        </div>
+      </div>
+      <div class="verdict-card">
+        <div class="verdict-tag">表現の自由</div>
+        <div class="verdict-title">検閲・表現の自由に関する判例</div>
+        <div class="verdict-body">
+          <strong>家永教科書訴訟</strong>：文部科学省の教科書検定が「<span class="blank show" data-ans="検閲">検閲</span>」にあたるかが争点。最高裁は「不合格教科書も書店で販売できるので検閲にあたらず<strong>合憲</strong>」と判断。<br>
+          <strong>チャタレー事件</strong>：わいせつ物の頒布を禁止した刑法175条が表現の自由を侵害するかが争点。最高裁は「<span class="blank show" data-ans="公共の福祉">公共の福祉</span>による制限であり<strong>合憲</strong>」と判断。<br>
+          <strong>東大ポポロ劇団事件</strong>：大学内の演劇公演に私服警官が潜入した事件。最高裁は「学問的活動でなく<span class="blank show" data-ans="大学の自治">大学の自治</span>の範囲外」として警官の立ち入りを<strong>合憲</strong>とした。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 身体の自由 -->
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">身体の自由（人身の自由）</div></div>
+    <div class="s-body">
+      <table class="gtbl">
+        <thead><tr><th>条文</th><th>権利・原則</th><th>内 容</th></tr></thead>
+        <tbody>
+          <tr><td>18条</td><td><span class="blank show" data-ans="奴隷的拘束">奴隷的拘束</span>・苦役からの自由</td><td>いかなる場合も奴隷的拘束は禁止。本人の意に反した苦役は禁止。</td></tr>
+          <tr><td>31条</td><td><span class="blank show" data-ans="罪刑法定主義">罪刑法定主義</span></td><td>犯罪と刑罰はあらかじめ<strong>法律</strong>で定めなければならない。<span class="blank show" data-ans="遡及処罰の禁止">遡及処罰の禁止</span>。</td></tr>
+          <tr><td>33・35条</td><td><span class="blank show" data-ans="令状主義">令状主義</span></td><td>逮捕・捜索・押収には裁判官の発する<span class="blank show" data-ans="令状">令状</span>が必要。例外：<span class="blank show" data-ans="現行犯">現行犯</span>逮捕。</td></tr>
+          <tr><td>38条</td><td><span class="blank show" data-ans="黙秘権">黙秘権</span></td><td>自己に不利益な供述を強制されない権利。</td></tr>
+          <tr><td>—</td><td><span class="blank show" data-ans="無罪推定の原則">無罪推定の原則</span></td><td>有罪が確定するまでは無罪として扱われる。</td></tr>
+          <tr><td>—</td><td><span class="blank show" data-ans="一事不再理">一事不再理</span></td><td>無罪が確定した後、同一事件について再審理はできない。</td></tr>
+          <tr><td>—</td><td>国選弁護人制度</td><td>貧困などで弁護人を依頼できない<span class="blank show" data-ans="被告人">被告人</span>には<span class="blank show" data-ans="国選">国選</span>弁護人が選任される。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 経済の自由 -->
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">経済活動の自由と違憲判決</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge orange">経済の自由の体系</div>
+        <div class="pcont">
+          <p>経済活動の自由には①<span class="blank show" data-ans="居住・移転および職業選択の自由">居住・移転および職業選択の自由</span>（22条）②<span class="blank show" data-ans="財産権">財産権</span>の保障（29条）の2本柱があります。</p>
+          <p>ただし社会的弱者保護のため、<span class="blank show" data-ans="公共の福祉">公共の福祉</span>による制約を受けます。例：医師・弁護士には資格が必要、建築基準法による財産権への制約。</p>
+        </div>
+      </div>
+      <div class="verdict-card">
+        <div class="verdict-tag red">違憲判決①</div>
+        <div class="verdict-title">薬事法薬局距離制限違憲判決</div>
+        <div class="verdict-body">薬局を開設する場合に既存薬局から一定以上離れることを求めた<span class="blank show" data-ans="薬事法">薬事法</span>の距離制限は、<span class="blank show" data-ans="職業選択の自由">職業選択の自由</span>を侵害するとして最高裁が<strong>違憲</strong>と判断。2か月後に違憲条文が削除された。</div>
+      </div>
+      <div class="verdict-card">
+        <div class="verdict-tag red">違憲判決②</div>
+        <div class="verdict-title">森林法共有林分割制規定違憲判決</div>
+        <div class="verdict-body">共有林の分割を原則として認めていなかった<span class="blank show" data-ans="森林法">森林法</span>の規定は、<span class="blank show" data-ans="財産権">財産権</span>（所有権）を不当に侵害するとして最高裁が<strong>違憲</strong>と判断した。</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /vRead -->
+
+<!-- ②確認 -->
+<div class="view" id="vChallE">
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">精神の自由・身体の自由 ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">精神の自由</div>
+        <div class="pcont">
+          <p>精神の自由は<span class="blank" data-ans="内心" onclick="fillBlank(this)"></span>の自由と<span class="blank" data-ans="表現" onclick="fillBlank(this)"></span>の自由の2種類に大別される。内心の自由は<span class="blank" data-ans="絶対的" onclick="fillBlank(this)"></span>に保障される。</p>
+          <p>国は宗教に介入しないという<span class="blank" data-ans="政教分離" onclick="fillBlank(this)"></span>の原則が20条・89条に定められている。表現の自由への<span class="blank" data-ans="検閲" onclick="fillBlank(this)"></span>は絶対的に禁止（21条2項）。学問の自由には<span class="blank" data-ans="大学の自治" onclick="fillBlank(this)"></span>が認められる（23条）。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge red">身体の自由</div>
+        <div class="pcont">
+          <p>犯罪と刑罰をあらかじめ法律で定める<span class="blank" data-ans="罪刑法定主義" onclick="fillBlank(this)"></span>（31条）。逮捕・捜索には<span class="blank" data-ans="令状" onclick="fillBlank(this)"></span>が必要な<span class="blank" data-ans="令状主義" onclick="fillBlank(this)"></span>（例外：<span class="blank" data-ans="現行犯" onclick="fillBlank(this)"></span>）。自己に不利益な供述を強制されない<span class="blank" data-ans="黙秘権" onclick="fillBlank(this)"></span>（38条）。有罪確定まで無罪扱いの<span class="blank" data-ans="無罪推定の原則" onclick="fillBlank(this)"></span>。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge orange">経済の自由</div>
+        <div class="pcont">
+          <p>経済の自由の2本柱：<span class="blank" data-ans="職業選択の自由" onclick="fillBlank(this)"></span>（22条）と<span class="blank" data-ans="財産権" onclick="fillBlank(this)"></span>の保障（29条）。いずれも<span class="blank" data-ans="公共の福祉" onclick="fillBlank(this)"></span>による制約を受ける。</p>
+          <p>違憲判決①：<span class="blank" data-ans="薬事法" onclick="fillBlank(this)"></span>の薬局距離制限→職業選択の自由侵害で違憲。違憲判決②：<span class="blank" data-ans="森林法" onclick="fillBlank(this)"></span>の共有林分割制限→財産権侵害で違憲。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vChallE -->
+
+<!-- ③テスト -->
+<div class="view" id="vQ">
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問1</div>精神の自由のうち、内心にとどめている限り絶対的に保障され制約されない自由を何というか。→ <span class="blank" data-ans="内心の自由" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問2</div>国（公権力）が宗教に介入してはならないという原則を何というか（憲法20条・89条）。→ <span class="blank" data-ans="政教分離" onclick="fillBlank(this)"></span>の原則</div>
+      <div class="q-item"><div class="qt">問3</div>行政権が表現内容を事前に審査して発表を禁止することで、憲法21条2項が絶対的に禁止していることは何か。→ <span class="blank" data-ans="検閲" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問4</div>大学が権力の干渉を受けずに自主的に管理・運営できる権利を何というか（23条）。→ <span class="blank" data-ans="大学の自治" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問5</div>愛媛県が靖国神社に玉串料を公費支出したことを政教分離違反として違憲とした判例は何か。→ <span class="blank" data-ans="愛媛玉串料訴訟" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問6</div>津市が公費で行った神道式地鎮祭を政教分離に違反しないとして合憲とした判例は何か。→ <span class="blank" data-ans="津地鎮祭訴訟" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問7</div>犯罪と刑罰はあらかじめ法律で定めなければならないとする原則を何というか（31条）。→ <span class="blank" data-ans="罪刑法定主義" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問8</div>逮捕・捜索・押収には原則として裁判官が発する令状が必要とする原則を何というか。→ <span class="blank" data-ans="令状主義" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問9</div>自己に不利益な供述を強制されない権利を何というか（38条）。→ <span class="blank" data-ans="黙秘権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問10</div>有罪が確定するまでは無罪として扱われるという原則を何というか。→ <span class="blank" data-ans="無罪推定の原則" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群①〜⑩】内心の自由　政教分離　検閲　大学の自治　愛媛玉串料訴訟　津地鎮祭訴訟　罪刑法定主義　令状主義　黙秘権　無罪推定の原則</div>
+    </div>
+  </div>
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問11</div>無罪が確定した後、同一事件について再審理できないという原則を何というか。→ <span class="blank" data-ans="一事不再理" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問12</div>事件を起こした後に作られた法律で遡って処罰できないという原則を何というか。→ <span class="blank" data-ans="遡及処罰の禁止" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問13</div>逮捕前の捜査対象者を何というか。起訴された後は何というか。→ 逮捕前：<span class="blank" data-ans="被疑者" onclick="fillBlank(this)"></span>　起訴後：<span class="blank" data-ans="被告人" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問14</div>薬事法の薬局距離制限を職業選択の自由の侵害として違憲とした判決名は何か。→ <span class="blank" data-ans="薬事法薬局距離制限違憲判決" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問15</div>森林法の共有林分割制限を財産権侵害として違憲とした判決名は何か。→ <span class="blank" data-ans="森林法共有林分割制規定違憲判決" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問16</div>経済の自由の2本柱を答えよ（条文番号も）。→ <span class="blank" data-ans="職業選択の自由" onclick="fillBlank(this)"></span>（22条）・<span class="blank" data-ans="財産権の保障" onclick="fillBlank(this)"></span>（29条）</div>
+      <div class="q-item"><div class="qt">問17</div>企業が学生運動歴を理由に本採用を拒否したことが思想良心の自由侵害かどうかが争われ、合憲とされた判例は何か。→ <span class="blank" data-ans="三菱樹脂事件" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問18</div>文部科学省の教科書検定が検閲にあたるかが争われ、合憲とされた判例は何か。→ <span class="blank" data-ans="家永教科書訴訟" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問19</div>令状なしで逮捕できる例外的な場合は何か。→ <span class="blank" data-ans="現行犯" onclick="fillBlank(this)"></span>逮捕</div>
+      <div class="q-item"><div class="qt">問20</div>貧困などで弁護人を依頼できない被告人に対して国が選任する弁護人を何というか。→ <span class="blank" data-ans="国選弁護人" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群⑪〜⑳】一事不再理　遡及処罰の禁止　被疑者　被告人　薬事法薬局距離制限違憲判決　森林法共有林分割制規定違憲判決　職業選択の自由　財産権の保障　三菱樹脂事件　家永教科書訴訟　現行犯　国選弁護人</div>
+    </div>
+  </div>
+</div><!-- /vQ -->
+
+<!-- ④正誤 -->
+<div class="view" id="vSeigo">
+  <div class="s-card">
+    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
+    <div class="s-body">
+      <div class="seigo-item" id="sg0"><div class="seigo-q">① 思想・良心の自由は内心の自由であり、他者の権利を侵害しないため、絶対的に保障される。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,true,'正しい。思想・良心の自由（19条）は内心の自由であり、外部に表れない限り他者の権利を侵害しないため絶対的に保障される。内心の自由は公共の福祉による制約を受けない。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,true,'正しい。思想・良心の自由（19条）は内心の自由であり、外部に表れない限り他者の権利を侵害しないため絶対的に保障される。内心の自由は公共の福祉による制約を受けない。')">× 誤り</button></div><div class="seigo-explain" id="sgex0"></div></div>
+      <div class="seigo-item" id="sg1"><div class="seigo-q">② 津地鎮祭訴訟では、公費で行われた神道式地鎮祭が政教分離の原則に違反するとして違憲判決が出た。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,false,'誤り。津地鎮祭訴訟では、最高裁は「地鎮祭は世俗的な行事であり政教分離に違反しない」として合憲とした。違憲とされたのは愛媛玉串料訴訟や空知太神社訴訟である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,false,'誤り。津地鎮祭訴訟では、最高裁は「地鎮祭は世俗的な行事であり政教分離に違反しない」として合憲とした。違憲とされたのは愛媛玉串料訴訟や空知太神社訴訟である。')">× 誤り</button></div><div class="seigo-explain" id="sgex1"></div></div>
+      <div class="seigo-item" id="sg2"><div class="seigo-q">③ 憲法21条2項は検閲を絶対的に禁止しており、いかなる場合も例外なく禁止される。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,true,'正しい。検閲の禁止（憲法21条2項）は絶対的な禁止規定であり、「公共の福祉」などを理由とした例外も認められない。これは表現の自由の最も重要な保障の一つである。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,true,'正しい。検閲の禁止（憲法21条2項）は絶対的な禁止規定であり、「公共の福祉」などを理由とした例外も認められない。これは表現の自由の最も重要な保障の一つである。')">× 誤り</button></div><div class="seigo-explain" id="sgex2"></div></div>
+      <div class="seigo-item" id="sg3"><div class="seigo-q">④ 家永教科書訴訟において、最高裁は文部科学省の教科書検定は「検閲」にあたり違憲と判断した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。最高裁は「不合格になった教科書も書店で販売が許されているので、文部科学省の教科書検定は検閲にあたらず合憲」と判断した。違憲判決ではない。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。最高裁は「不合格になった教科書も書店で販売が許されているので、文部科学省の教科書検定は検閲にあたらず合憲」と判断した。違憲判決ではない。')">× 誤り</button></div><div class="seigo-explain" id="sgex3"></div></div>
+      <div class="seigo-item" id="sg4"><div class="seigo-q">⑤ 罪刑法定主義とは、犯罪と刑罰はあらかじめ法律で定めなければならないという原則で、事件後に作られた法律で遡って処罰することも禁止される。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,true,'正しい。罪刑法定主義（31条）は犯罪と刑罰の事前の法律による規定を要求する原則。これには遡及処罰の禁止（事後立法による処罰禁止）も含まれる。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,true,'正しい。罪刑法定主義（31条）は犯罪と刑罰の事前の法律による規定を要求する原則。これには遡及処罰の禁止（事後立法による処罰禁止）も含まれる。')">× 誤り</button></div><div class="seigo-explain" id="sgex4"></div></div>
+      <div class="seigo-item" id="sg5"><div class="seigo-q">⑥ 令状主義では、現行犯の場合でも必ず裁判官の令状が必要である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,false,'誤り。令状主義（33条・35条）の例外として、現行犯逮捕の場合は令状なしで逮捕できる。これは犯罪の明白性と緊急性から認められている例外である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,false,'誤り。令状主義（33条・35条）の例外として、現行犯逮捕の場合は令状なしで逮捕できる。これは犯罪の明白性と緊急性から認められている例外である。')">× 誤り</button></div><div class="seigo-explain" id="sgex5"></div></div>
+      <div class="seigo-item" id="sg6"><div class="seigo-q">⑦ 薬事法薬局距離制限違憲判決では、薬局の距離制限が財産権を侵害するとして違憲とされた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,false,'誤り。薬事法薬局距離制限違憲判決では「職業選択の自由」（22条）の侵害として違憲とされた。財産権（29条）侵害で違憲とされたのは森林法共有林分割制規定違憲判決である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,false,'誤り。薬事法薬局距離制限違憲判決では「職業選択の自由」（22条）の侵害として違憲とされた。財産権（29条）侵害で違憲とされたのは森林法共有林分割制規定違憲判決である。')">× 誤り</button></div><div class="seigo-explain" id="sgex6"></div></div>
+      <div class="seigo-item" id="sg7"><div class="seigo-q">⑧ 三菱樹脂事件では、企業が学生運動歴を理由に本採用を拒否したことが思想良心の自由の侵害にあたるとして違憲とされた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,false,'誤り。三菱樹脂事件では、最高裁は「企業には採用の自由があり、思想良心の自由の侵害にはあたらない」として合憲（企業側を支持）とした。違憲判断ではない。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,false,'誤り。三菱樹脂事件では、最高裁は「企業には採用の自由があり、思想良心の自由の侵害にはあたらない」として合憲（企業側を支持）とした。違憲判断ではない。')">× 誤り</button></div><div class="seigo-explain" id="sgex7"></div></div>
+      <div class="seigo-item" id="sg8"><div class="seigo-q">⑨ 無罪推定の原則とは、有罪が確定するまでは被告人を無罪として扱うという原則である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,true,'正しい。無罪推定の原則は、刑事手続において被告人・被疑者は有罪が確定するまでは無罪として扱われなければならないという原則で、人権保障の根幹の一つである。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,true,'正しい。無罪推定の原則は、刑事手続において被告人・被疑者は有罪が確定するまでは無罪として扱われなければならないという原則で、人権保障の根幹の一つである。')">× 誤り</button></div><div class="seigo-explain" id="sgex8"></div></div>
+      <div class="seigo-item" id="sg9"><div class="seigo-q">⑩ 明治憲法では、表現の自由・信教の自由・学問の自由・思想良心の自由はすべて保障されていた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,false,'誤り。明治憲法では表現の自由・信教の自由は不十分ながらも保障されていたが、「学問の自由」と「思想・良心の自由」は保障されていなかった。これらは日本国憲法で初めて明確に保障された。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,false,'誤り。明治憲法では表現の自由・信教の自由は不十分ながらも保障されていたが、「学問の自由」と「思想・良心の自由」は保障されていなかった。これらは日本国憲法で初めて明確に保障された。')">× 誤り</button></div><div class="seigo-explain" id="sgex9"></div></div>
+    </div>
+  </div>
+</div><!-- /vSeigo -->
+
+<!-- ⑤過去問 -->
+<div class="view" id="vKakomon">
+  <div class="s-card">
+    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">共通テスト・センター試験 過去問形式 ─ 政治経済⑧</div></div>
+    <div class="s-body">
+      <div class="q-item">
+        <span class="kk-year-tag">共通テスト 2024年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 政教分離の原則に関する判例の説明として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc0">
+          <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 津地鎮祭訴訟では、公費による地鎮祭が政教分離に反するとして違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',1,2,'kkex0')">② 愛媛玉串料訴訟では、公費による玉串料の支出が社会的儀礼の範囲内として合憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 愛媛玉串料訴訟では、玉串料の奉納は宗教的活動にあたるとして違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ 津地鎮祭訴訟と愛媛玉串料訴訟はどちらも違憲とされた。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex0"><strong>正解：③</strong><br>愛媛玉串料訴訟：愛媛県が靖国神社等への玉串料を公費支出→「宗教的活動にあたり政教分離に違反」→<strong>違憲</strong>。<br>①津地鎮祭訴訟は「世俗的行事で政教分離違反なし」→<strong>合憲</strong>。②逆（玉串料は違憲）。④津は合憲・愛媛は違憲。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験 2020年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 身体の自由（人身の自由）に関する記述として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc1">
+          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 令状主義では、現行犯の場合にも必ず裁判官の令状が必要である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 罪刑法定主義とは、犯罪と刑罰はあらかじめ法律で定めなければならないという原則である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 無罪推定の原則では、起訴された後は有罪として扱われる。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 一事不再理とは、有罪判決が確定した後は同一事件で再審理できないという原則である。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex1"><strong>正解：②</strong><br>罪刑法定主義（憲法31条）は犯罪と刑罰を事前に法律で定める原則→正しい。<br>①現行犯は令状不要（例外）。③起訴後も有罪確定までは無罪として扱われる（無罪推定の原則）。④一事不再理は「無罪確定後」の同一事件での再審理禁止。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">共通テスト 2022年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 経済活動の自由に関する違憲判決の説明として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc2">
+          <button class="kk-choice" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 薬事法薬局距離制限違憲判決では、財産権の侵害を理由として違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 薬事法薬局距離制限違憲判決では、職業選択の自由の侵害を理由として違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 森林法共有林分割制規定違憲判決では、職業選択の自由の侵害を理由として違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 経済活動の自由は公共の福祉による制約を受けず、いかなる規制も認められない。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex2"><strong>正解：②</strong><br>薬事法薬局距離制限→<strong>職業選択の自由（22条）</strong>の侵害→違憲。森林法共有林分割制→<strong>財産権（29条）</strong>の侵害→違憲。①と③は侵害された権利が逆。④経済の自由は公共の福祉による制約を受ける。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">共通テスト 2023年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. 表現の自由・学問の自由に関する判例の説明として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc3">
+          <button class="kk-choice" onclick="ansKakomon('kkc3',0,2,'kkex3')">① 家永教科書訴訟では、教科書検定が検閲にあたるとして違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',1,2,'kkex3')">② チャタレー事件では、刑法175条のわいせつ物頒布罪は表現の自由を侵害するとして違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',2,2,'kkex3')">③ 家永教科書訴訟では、不合格教科書も書店で販売できることを理由に教科書検定は検閲にあたらず合憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',3,2,'kkex3')">④ 東大ポポロ劇団事件では、大学の自治を侵害するとして私服警官の立ち入りが違憲とされた。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex3"><strong>正解：③</strong><br>家永教科書訴訟：不合格教科書も書店で販売できるため検閲にあたらず<strong>合憲</strong>。①は逆（合憲）。②チャタレー事件は「公共の福祉による制限で合憲」。④東大ポポロ劇団事件は「学問的活動でなく大学の自治範囲外」→私服警官立ち入りを<strong>合憲</strong>とした。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験 2019年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 精神の自由に関する記述として<strong>誤っているもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc4">
+          <button class="kk-choice" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 思想・良心の自由は内心の自由であり、絶対的に保障される。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',1,3,'kkex4')">② 検閲は憲法21条2項で絶対的に禁止されている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 大学の自治とは、大学が権力の干渉を受けずに自主的に管理・運営できる権利である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ 表現の自由は他の人権より優越的な地位を持ち、いかなる制約も認められない。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex4"><strong>正解：④</strong><br>表現の自由は「優越的地位」をもつ重要な権利とされるが、「いかなる制約も認められない」わけではなく、公共の福祉による制約を受ける場合がある（例：わいせつ表現の規制）。①②③はすべて正しい。</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vKakomon -->
+
+<!-- ⑥フラッシュカード -->
+<div class="view" id="vFlash">
+  <div class="s-card">
+    <div class="s-head-fc"><div class="s-icon">⚡</div><div class="s-ht">フラッシュカード ─ 自由権</div></div>
+    <div class="s-body">
+      <div class="fc-settings">
+        <span class="fc-set-lbl">⏱ 速度：</span>
+        <div class="spd-btns"><button class="spd-btn active" data-sec="0" onclick="setFcSpeed(this)">手動</button><button class="spd-btn" data-sec="2" onclick="setFcSpeed(this)">2秒</button><button class="spd-btn" data-sec="3" onclick="setFcSpeed(this)">3秒</button><button class="spd-btn" data-sec="4" onclick="setFcSpeed(this)">4秒</button></div>
+        <span class="fc-set-lbl" style="margin-left:8px">📌 モード：</span>
+        <div class="mode-btns"><button class="mode-btn active" data-mode="term" onclick="setFcMode(this)">用語→意味</button><button class="mode-btn" data-mode="def" onclick="setFcMode(this)">意味→用語</button></div>
+        <button class="fc-start-btn" onclick="startFc()">▶ スタート</button>
+      </div>
+      <div class="fc-arena" id="fcArena">
+        <div class="fc-prog-wrap"><div class="fc-prog-bar"><div class="fc-prog-fill" id="fcProgFill" style="width:0%"></div></div><div class="fc-prog-txt" id="fcProgTxt">0 / 0</div></div>
+        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた：<span id="fcOkCnt">0</span></span><span>❌ もう一度：<span id="fcNgCnt">0</span></span></div>
+        <div class="flash-card" id="flashCard" onclick="fcFlipOrNext()">
+          <div class="fc-unit-tag2">⑧ 自由権</div>
+          <div class="fc-side-tag2 q" id="fcSideTag">問題</div>
+          <div class="fc-main-text2" id="fcMainText">スタートボタンを押してください</div>
+          <div class="fc-hint2" id="fcHint2"></div>
+          <div class="fc-ans-area" id="fcAnsArea"><div class="fc-ans-lbl">▶ 答え</div><div class="fc-ans-txt" id="fcAnsTxt"></div></div>
+          <div class="fc-tap-hint2" id="fcTapHint">タップで答えを見る</div>
+          <div class="fc-counter2" id="fcCounter">-</div>
+          <div class="fc-auto-bar2" id="fcAutoBar" style="width:0%"></div>
+        </div>
+        <div class="fc-btns"><button class="fc-btn btn-prev2" onclick="fcPrev()">◀ 前へ</button><button class="fc-btn btn-flip2" onclick="fcFlip()">🔄 裏返す</button><button class="fc-btn btn-next2" onclick="fcNext()">次へ ▶</button><button class="fc-btn btn-stop2" onclick="stopFc()">■ 終了</button></div>
+        <div class="fc-mark-row"><button class="fc-btn" style="background:var(--green);color:#fff" onclick="fcMarkOk()">✅ 覚えた</button><button class="fc-btn" style="background:var(--red);color:#fff" onclick="fcMarkNg()">❌ もう一度</button></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vFlash -->
+
+</div><!-- /main -->
+<div class="jbanner" id="jbanner"></div>
+<div class="foot">
+  <button class="fbtn f-expl"   id="bExpl"      onclick="goChallE()">📝 確認する</button>
+  <button class="fbtn f-next"   id="bGoQ"        onclick="goTest()">▶ テストへ</button>
+  <button class="fbtn f-next"   id="bGoFlashTop" onclick="goFlash()" style="background:var(--blue)">⚡ フラッシュカード</button>
+  <button class="fbtn f-check"  id="bCheckE"     onclick="checkExplain()" style="display:none">✔ 確　認</button>
+  <button class="fbtn f-hint"   id="bHint"       onclick="showHint()" style="display:none">📖 お手本</button>
+  <button class="fbtn f-next"   id="bGoQ2"       onclick="goTest()" style="display:none">▶ テストへ</button>
+  <button class="fbtn f-judge"  id="bJudge"      onclick="judgeAll()" style="display:none">✔ 判　定</button>
+  <button class="fbtn f-retry"  id="bRetry"      onclick="retryQ()" style="display:none">↺ やり直し</button>
+  <button class="fbtn f-next"   id="bGoSeigo"    onclick="goSeigo()" style="display:none">▶ 正誤問題へ</button>
+  <button class="fbtn f-next"   id="bGoKakomon"  onclick="goKakomon()" style="display:none">▶ 過去問へ</button>
+  <button class="fbtn f-next"   id="bGoFlash"    onclick="goFlash()" style="display:none">⚡ フラッシュカードへ</button>
+  <button class="fbtn f-back"   id="bBack"       onclick="backToRead()" style="display:none">📖 説明に戻る</button>
+  <div class="score-pill" id="spill" style="display:none"></div>
+</div>
+<div class="blank-popup" id="popup"><div class="bp-arrow"></div></div>
+<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか？</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
+<a class="home-btn" href="seikei_index.html">🏠 単元表</a>
+
+<script>
+const EW=['内心','表現','絶対的','公共の福祉','政教分離','検閲','大学の自治','思想良心の自由','企業には採用の自由','公費','無償','罪刑法定主義','令状主義','令状','現行犯','黙秘権','無罪推定の原則','一事不再理','遡及処罰の禁止','被告人','国選','居住・移転および職業選択の自由','財産権','薬事法','職業選択の自由','森林法'];
+const QW=['内心の自由','政教分離','検閲','大学の自治','愛媛玉串料訴訟','津地鎮祭訴訟','罪刑法定主義','令状主義','黙秘権','無罪推定の原則','一事不再理','遡及処罰の禁止','被疑者','被告人','薬事法薬局距離制限違憲判決','森林法共有林分割制規定違憲判決','職業選択の自由','財産権の保障','三菱樹脂事件','家永教科書訴訟','現行犯','国選弁護人'];
+
+const FC_CARDS=[
+  {q:'精神の自由は何と何の2種類に大別されるか？',a:'内心の自由（思想・信教・学問）と表現の自由。内心の自由は絶対的保障、表現の自由は公共の福祉による制約あり'},
+  {q:'政教分離の原則とは何か？根拠条文は？',a:'国（公権力）は宗教に介入してはならず、宗教団体も国の政治権力を行使してはいけない原則（憲法20条・89条）'},
+  {q:'津地鎮祭訴訟の結論は？愛媛玉串料訴訟の結論は？',a:'津地鎮祭→「世俗的行事で政教分離違反なし」合憲　愛媛玉串料→「宗教的活動にあたり政教分離に違反」違憲'},
+  {q:'空知太神社訴訟の内容と結論は？',a:'北海道砂川市が神社に敷地を無償提供→政教分離に違反するとして違憲'},
+  {q:'検閲とは何か？憲法の扱いは？',a:'行政権が表現内容を事前に審査して発表を禁止すること。憲法21条2項で絶対的に禁止'},
+  {q:'家永教科書訴訟の内容と結論は？',a:'文部科学省の教科書検定が「検閲」か争われた。「不合格教科書も書店で販売できるため検閲にあたらず合憲」'},
+  {q:'三菱樹脂事件の内容と結論は？',a:'学生運動歴を理由に本採用拒否→思想良心の自由侵害かが争点。「企業には採用の自由がある」として合憲'},
+  {q:'大学の自治とは何か？根拠条文は？',a:'大学が権力の干渉を受けずに自主的に管理・運営できる権利（憲法23条・学問の自由）'},
+  {q:'罪刑法定主義とは何か？遡及処罰の禁止とは？',a:'犯罪と刑罰をあらかじめ法律で定めなければならない原則（31条）。事件後に作った法律で遡って処罰することは禁止'},
+  {q:'令状主義とは何か？例外は？',a:'逮捕・捜索・押収には裁判官が発する令状が必要（33・35条）。例外：現行犯逮捕は令状不要'},
+  {q:'黙秘権とは何か？根拠条文は？',a:'自己に不利益な供述を強制されない権利（憲法38条）'},
+  {q:'無罪推定の原則とは？一事不再理とは？',a:'無罪推定：有罪確定まで無罪として扱う原則。一事不再理：無罪確定後、同一事件で再審理できない原則'},
+  {q:'被疑者と被告人の違いは？',a:'被疑者＝逮捕前の捜査対象者　被告人＝起訴後の裁判被告者。どちらも有罪確定まで無罪推定の原則が適用'},
+  {q:'経済活動の自由の2本柱と条文は？',a:'①職業選択の自由（22条）　②財産権の保障（29条）。いずれも公共の福祉による制約を受ける'},
+  {q:'薬事法薬局距離制限違憲判決の内容は？',a:'薬局の距離制限が職業選択の自由（22条）を侵害するとして違憲。2か月後に違憲条文が削除された'},
+  {q:'森林法共有林分割制規定違憲判決の内容は？',a:'共有林の分割を認めない森林法の規定が財産権（29条）を侵害するとして違憲'},
+  {q:'経済の自由に関する違憲判決2件の侵害された権利の違いは？',a:'薬事法薬局距離制限→職業選択の自由（22条）違反　森林法共有林分割→財産権（29条）違反'},
+  {q:'国選弁護人制度とは何か？',a:'貧困などで弁護人を自ら依頼できない刑事事件の被告人に国が弁護人を選任する制度'},
+  {q:'東大ポポロ劇団事件の内容と結論は？',a:'大学内の演劇公演に私服警官が潜入した事件。「学問的活動でなく大学の自治範囲外」として合憲'},
+  {q:'明治憲法で保障されていた精神の自由は？されていなかったのは？',a:'保障されていた：表現の自由・信教の自由（不十分）　保障されていなかった：学問の自由・思想良心の自由'},
+];
+
+var _selChip=null,_tInt=null,_t0=0,_pausedMs=0;
+var _popup=document.getElementById('popup'),_popupTarget=null,_currentView='vRead';
+var _sgAnswered=new Array(10).fill(false),_sgScore=0;
+function _el(id){return document.getElementById(id)}
+function _show(id){var e=_el(id);if(e)e.style.display='inline-block'}
+function _hide(id){var e=_el(id);if(e)e.style.display='none'}
+function _tick(){var ms=_pausedMs+(Date.now()-_t0);var m=String(Math.floor(ms/60000)).padStart(2,'0');var s=String(Math.floor((ms%60000)/1000)).padStart(2,'0');_el('timerDisp').textContent=m+':'+s}
+function _startTimer(){_t0=Date.now();_tInt=setInterval(_tick,200)}
+function _stopTimer(){clearInterval(_tInt);_tInt=null}
+function _resetTimer(){_stopTimer();_pausedMs=0;_el('timerDisp').textContent='00:00'}
+function setPhase(n){for(var i=0;i<6;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
+function _showView(id){['vRead','vChallE','vQ','vSeigo','vKakomon','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
+function _showWB(){_el('wbBar').style.display='block'}
+function _hideWB(){_el('wbBar').style.display='none'}
+function buildChips(words){var wb=_el('wbChips');wb.innerHTML='';_selChip=null;words.slice().sort(function(){return Math.random()-.5}).forEach(function(w){var btn=document.createElement('button');btn.className='chip';btn.textContent=w;btn.addEventListener('click',function(e){e.stopPropagation();if(_selChip&&_selChip!==btn)_selChip.classList.remove('sel');if(_selChip===btn){_selChip=null;btn.classList.remove('sel');return}_selChip=btn;btn.classList.add('sel')});wb.appendChild(btn)})}
+function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=(_currentView==='vChallE'?EW:QW).slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
+function _closePopup(){_popup.classList.remove('open');_popupTarget=null}
+document.addEventListener('click',function(){_closePopup()});
+function fillBlank(b){if(_selChip){b.textContent=_selChip.textContent;b.classList.remove('ok','ng','show');_selChip.classList.remove('sel');_selChip=null;_closePopup();return}if(b===_popupTarget&&_popup.classList.contains('open')){_closePopup();return}if(b.textContent.trim()!=''){b.textContent='';b.classList.remove('ok','ng','show');_closePopup();return}_openPopup(b)}
+function goChallE(){_showView('vChallE');document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_showWB();setPhase(1);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_show('bCheckE');_show('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_hideBanner()}
+function checkExplain(){var bls=[].slice.call(document.querySelectorAll('#vChallE .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);if(ok===bls.length){_showBanner(true,ok,bls.length);_show('bGoQ2');_startConf();setTimeout(_stopConf,4000)}else _showBanner(false,ok,bls.length)}
+function showHint(){document.querySelectorAll('#vChallE .blank').forEach(function(b){if(!b.classList.contains('ok')){b.textContent=b.dataset.ans;b.classList.remove('ng');b.classList.add('show')}});_hideBanner();_el('bCheckE').textContent='↺ もう一度';_el('bCheckE').onclick=reChallE}
+function reChallE(){document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_hide('spill');_hideBanner();_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain}
+function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(2);_startTimer();_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hideBanner()}
+function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);_show('bRetry');_show('bGoSeigo');if(ok===bls.length){_stopTimer();_showBanner(true,ok,bls.length);_startConf();setTimeout(_stopConf,5000)}else _showBanner(false,ok,bls.length)}
+function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
+function goSeigo(){_showView('vSeigo');setPhase(3);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoKakomon');_show('bBack');_hideBanner()}
+function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
+function goKakomon(){_showView('vKakomon');setPhase(4);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
+function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
+function goFlash(){_showView('vFlash');setPhase(5);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
+function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoQ');_show('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain;stopFc()}
+var _fcCards=[],_fcIdx=0,_fcFlipped=false,_fcSpeed=0,_fcMode='term';
+var _fcAutoTimer=null,_fcTmrInt=null,_fcOkSet=new Set(),_fcNgSet=new Set();
+function setFcSpeed(btn){document.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcSpeed=parseInt(btn.dataset.sec)*1000}
+function setFcMode(btn){document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcMode=btn.dataset.mode}
+function startFc(){_fcCards=FC_CARDS.slice().sort(function(){return Math.random()-.5});_fcIdx=0;_fcFlipped=false;_fcOkSet.clear();_fcNgSet.clear();_el('fcOkCnt').textContent='0';_el('fcNgCnt').textContent='0';_el('fcArena').classList.add('on');var sec=0;clearInterval(_fcTmrInt);_fcTmrInt=setInterval(function(){sec+=0.1;_el('fcTimerDisp').textContent=sec.toFixed(1)},100);showFcCard()}
+function stopFc(){clearInterval(_fcAutoTimer);clearInterval(_fcTmrInt);_el('fcArena').classList.remove('on');_el('fcAutoBar').style.transition='none';_el('fcAutoBar').style.width='0%'}
+function showFcCard(){if(!_fcCards.length)return;var c=_fcCards[_fcIdx];var card=_el('flashCard');card.classList.remove('flip-anim');void card.offsetWidth;card.classList.add('flip-anim');if(_fcMode==='term'){_el('fcSideTag').textContent='問題';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.q}else{_el('fcSideTag').textContent='意味→用語';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.a}_el('fcHint2').textContent='';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='block';_el('fcAnsTxt').textContent='';_el('fcCounter').textContent=(_fcIdx+1)+' / '+_fcCards.length;_el('fcProgFill').style.width=((_fcIdx+1)/_fcCards.length*100)+'%';_el('fcProgTxt').textContent=(_fcIdx+1)+' / '+_fcCards.length;_fcFlipped=false;if(_fcSpeed>0)_startFcAuto()}
+function fcFlip(){if(_fcFlipped)return;_fcFlipped=true;var c=_fcCards[_fcIdx];_el('fcAnsTxt').textContent=(_fcMode==='term'?c.a:c.q);_el('fcAnsArea').classList.add('on');_el('fcSideTag').textContent='答え';_el('fcSideTag').className='fc-side-tag2 a';_el('fcTapHint').style.display='none';_clearFcAuto()}
+function fcFlipOrNext(){if(!_el('fcArena').classList.contains('on'))return;if(!_fcFlipped)fcFlip();else fcNext()}
+function fcNext(){_clearFcAuto();if(_fcIdx<_fcCards.length-1){_fcIdx++;showFcCard()}else{clearInterval(_fcTmrInt);_el('fcMainText').textContent='🎉 全カード完了！お疲れさまでした！';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='none'}}
+function fcPrev(){_clearFcAuto();if(_fcIdx>0){_fcIdx--;showFcCard()}}
+function fcMarkOk(){_fcOkSet.add(_fcIdx);_fcNgSet.delete(_fcIdx);_el('fcOkCnt').textContent=_fcOkSet.size;_el('fcNgCnt').textContent=_fcNgSet.size;fcNext()}
+function fcMarkNg(){_fcNgSet.add(_fcIdx);_fcOkSet.delete(_fcIdx);_el('fcNgCnt').textContent=_fcNgSet.size;_el('fcOkCnt').textContent=_fcOkSet.size;fcNext()}
+function _startFcAuto(){_clearFcAuto();if(_fcSpeed===0)return;var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;bar.style.transition='width '+_fcSpeed+'ms linear';bar.style.width='100%';_fcAutoTimer=setTimeout(function(){if(!_fcFlipped)fcFlip();setTimeout(fcNext,700)},_fcSpeed)}
+function _clearFcAuto(){clearTimeout(_fcAutoTimer);var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%'}
+function _showBanner(pass,ok,tot){var b=_el('jbanner');b.className='jbanner '+(pass?'ban-pass':'ban-ng');b.textContent=pass?('🎉 合格！　全'+tot+'問正解！'):('おしい！　'+ok+' / '+tot+' 問　── もう一息！');b.style.display='block';if(!pass)setTimeout(_hideBanner,2800)}
+function _hideBanner(){var b=_el('jbanner');if(b)b.style.display='none'}
+function _showScore(ok,tot){var p=_el('spill');p.textContent=ok+' / '+tot+' 問正解';p.style.display='inline-block'}
+function _closePause(){_el('pauseModal').classList.remove('open')}
+function closePause(){_closePause();if(_tInt===null&&_t0>0){_t0=Date.now();_tInt=setInterval(_tick,200)}}
+var _cnv,_ctx,_pts=[],_raf=null;
+function _initCanvas(){_cnv=document.getElementById('cnv');_ctx=_cnv?_cnv.getContext('2d'):null}
+function _startConf(){_initCanvas();if(!_ctx)return;_cnv.width=innerWidth;_cnv.height=innerHeight;_pts=[];for(var i=0;i<180;i++)_pts.push({x:Math.random()*_cnv.width,y:Math.random()*_cnv.height-_cnv.height,s:Math.random()*9+4,c:'hsl('+Math.floor(Math.random()*360)+',70%,62%)',sp:Math.random()*3+2,r:Math.random()*Math.PI*2,dr:.05});_af()}
+function _af(){_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts.forEach(function(p){p.y+=p.sp;p.r+=p.dr;_ctx.save();_ctx.translate(p.x,p.y);_ctx.rotate(p.r);_ctx.fillStyle=p.c;_ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);_ctx.restore();if(p.y>_cnv.height)p.y=-20});_raf=requestAnimationFrame(_af)}
+function _stopConf(){if(_raf){cancelAnimationFrame(_raf);_raf=null}if(_ctx)_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts=[]}
+</script>
+</body>
+</html>

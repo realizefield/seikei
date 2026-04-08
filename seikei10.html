@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治経済 GAMBA ⑩ 平和主義</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;--gold:#c8972a;--gold2:#f0c040;--red:#c0392b;--blue:#1a3a6b;--green:#1a6b3a;--orange:#e67e22;--purple:#7b2d8b;--muted:#6b7a99;--border:#d8d3c8;--drop:#fffbe6;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.9}
+.hdr{background:var(--ink);color:#fff;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;box-shadow:0 3px 14px rgba(0,0,0,.45)}
+.hdr-info{display:flex;flex-direction:column;gap:1px}
+.hdr-sub{font-size:.65em;opacity:.5;letter-spacing:.12em}
+.hdr-title{font-size:.95em;font-weight:700;letter-spacing:.03em}
+.hdr-timer{font-size:1.15em;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums;min-width:66px;text-align:right}
+.tab-bar{background:#1d2f5a;border-bottom:2px solid var(--gold);display:flex;gap:4px;padding:6px 10px;flex-wrap:wrap;position:sticky;top:52px;z-index:290;overflow-x:auto}
+.tab-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.72em;font-weight:700;padding:5px 11px;border:none;border-radius:4px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.58);cursor:pointer;transition:.14s;white-space:nowrap;text-decoration:none;display:inline-block}
+.tab-btn:hover{background:rgba(255,255,255,.22);color:#fff}.tab-btn.active{background:var(--gold);color:var(--ink)}
+.phase-bar{background:#fff;border-bottom:2px solid var(--border);padding:7px 14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;position:sticky;top:96px;z-index:280}
+.pdot{width:11px;height:11px;border-radius:50%;background:var(--border);transition:.3s;flex-shrink:0}.pdot.on{background:var(--gold)}
+.ptxt{font-size:.75em;color:var(--muted);font-weight:700}.ptxt.on{color:var(--ink)}
+.parr{font-size:.82em;color:var(--border);margin:0 3px}.plbl{font-size:.72em;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.wb-bar{background:#fff;border-bottom:2px solid var(--border);padding:9px 14px;display:none;position:sticky;top:132px;z-index:270;box-shadow:0 4px 10px rgba(0,0,0,.07)}
+.wb-lbl{font-size:.68em;color:var(--muted);font-weight:700;letter-spacing:.08em;margin-bottom:6px}
+.wb-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:32px;align-items:center}
+.chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;transition:.12s}
+.chip:hover{background:#253060;transform:translateY(-1px)}.chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink);transform:scale(1.05)}
+.main{max-width:860px;margin:0 auto;padding:20px 13px 160px}
+.view{display:none}.view.on{display:block}
+.s-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.s-head-e{background:var(--blue);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-q{background:var(--red);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-fc{background:linear-gradient(135deg,#1a3a6b,#2d5ea8);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-kakomon{background:linear-gradient(135deg,#1a6b3a,#27ae60);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-seigo{background:linear-gradient(135deg,#7b2d8b,#9b59b6);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-icon{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
+.s-ht{font-size:.92em;font-weight:700;letter-spacing:.03em;flex:1}
+.s-body{padding:16px 18px}
+.person-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed var(--border)}
+.person-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pbadge{background:var(--blue);color:#fff;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:3px;flex-shrink:0}
+.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.purple{background:var(--purple)}.pbadge.dk{background:#2c3e50}
+.pcont{flex:1;font-size:.93em}.pcont p{margin-bottom:8px}.pcont strong{color:var(--blue)}
+.pt{display:inline-block;background:var(--blue);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.blank{display:inline-flex;align-items:center;justify-content:center;min-width:90px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.blank:hover{background:#fff3b0}.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
+.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.84em}
+.gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
+.gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
+.case-card{background:#f8f5ff;border:1.5px solid #9b59b6;border-radius:9px;padding:12px 15px;margin-bottom:11px}
+.case-tag{display:inline-block;font-size:.67em;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:6px;letter-spacing:.04em;color:#fff}
+.case-tag.ken{background:var(--red)}.case-tag.gouken{background:var(--green)}.case-tag.kaiken{background:var(--muted)}
+.case-title{font-size:.9em;font-weight:700;margin-bottom:5px}
+.case-body{font-size:.84em;color:#333;line-height:1.75}
+.note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
+.q-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--border);font-size:.93em;line-height:1.85}
+.q-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.qt{display:inline-block;background:var(--red);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.seigo-item{margin-bottom:14px;padding:12px 14px;background:#f8f8f5;border-radius:8px;border:1.5px solid var(--border)}
+.seigo-q{font-size:.92em;margin-bottom:10px;line-height:1.8}
+.seigo-btns{display:flex;gap:8px}
+.seigo-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:7px 18px;border:2px solid var(--border);border-radius:6px;background:#f0f0ee;cursor:pointer;transition:.13s}
+.seigo-btn.correct{background:var(--green);color:#fff;border-color:var(--green)}.seigo-btn.wrong{background:var(--red);color:#fff;border-color:var(--red)}
+.seigo-explain{display:none;margin-top:8px;font-size:.82em;background:#f0f8ff;border-left:3px solid var(--blue);padding:8px 12px;border-radius:4px;line-height:1.7}.seigo-explain.on{display:block}
+.kk-choices{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.kk-choice{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#f8f8f5;cursor:pointer;transition:.13s;text-align:left;line-height:1.5}
+.kk-choice:hover{border-color:var(--blue);background:#eef3ff}.kk-choice.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}.kk-choice.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.kk-explain{display:none;font-size:.83em;background:#f0f8ff;border-radius:6px;padding:10px 13px;border-left:3px solid var(--blue);line-height:1.75;margin-top:7px}.kk-explain.on{display:block}
+.kk-ans-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.76em;font-weight:700;padding:5px 13px;border:none;border-radius:5px;background:var(--blue);color:#fff;cursor:pointer;margin-top:6px}
+.kk-year-tag{font-size:.7em;font-weight:700;background:var(--gold);color:var(--ink);padding:2px 8px;border-radius:4px;margin-bottom:8px;display:inline-block}
+.fc-settings{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:16px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:9px}
+.fc-set-lbl{font-size:.76em;font-weight:700;color:var(--muted);white-space:nowrap}
+.spd-btns,.mode-btns{display:flex;gap:5px}
+.spd-btn,.mode-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:6px 14px;border:2px solid var(--border);border-radius:5px;background:#f5f5f2;cursor:pointer;transition:.12s}
+.spd-btn:hover{border-color:var(--blue)}.spd-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mode-btn:hover{border-color:var(--red)}.mode-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.fc-start-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;font-weight:700;padding:9px 24px;border:none;border-radius:7px;background:var(--red);color:#fff;cursor:pointer;margin-left:auto}
+.fc-arena{display:none}.fc-arena.on{display:block}
+.fc-prog-wrap{margin-bottom:12px}.fc-prog-bar{background:var(--border);border-radius:20px;height:8px;overflow:hidden;margin-bottom:3px}.fc-prog-fill{background:linear-gradient(90deg,var(--blue),var(--gold));height:100%;border-radius:20px;transition:.4s}.fc-prog-txt{font-size:.72em;color:var(--muted);text-align:right;font-weight:700}
+.flash-card{min-height:200px;background:var(--card);border:2px solid var(--border);border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.1);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;text-align:center;position:relative;transition:transform .14s;user-select:none;-webkit-user-select:none;margin-bottom:14px}
+.flash-card:hover{transform:translateY(-2px)}.flash-card.flip-anim{animation:fcFlip .28s ease}
+@keyframes fcFlip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(.95)}}
+.fc-unit-tag2{position:absolute;top:10px;left:12px;font-size:.64em;font-weight:700;background:var(--blue);color:#fff;padding:2px 7px;border-radius:3px}
+.fc-side-tag2{position:absolute;top:10px;right:12px;font-size:.64em;font-weight:700;padding:2px 7px;border-radius:3px}
+.fc-side-tag2.q{background:#fde8e8;color:var(--red)}.fc-side-tag2.a{background:#d4f5e2;color:var(--green)}
+.fc-counter2{position:absolute;bottom:10px;right:12px;font-size:.68em;color:var(--muted);font-weight:700}
+.fc-auto-bar2{position:absolute;bottom:0;left:0;height:4px;background:var(--gold);border-radius:0 0 12px 12px;transition:none}
+.fc-main-text2{font-family:'Noto Serif JP',serif;font-size:1.05em;font-weight:700;line-height:1.75;color:var(--ink)}
+.fc-hint2{font-size:.8em;color:var(--muted);margin-top:8px}.fc-tap-hint2{font-size:.7em;color:var(--muted);opacity:.7;margin-top:10px}
+.fc-ans-area{display:none;width:100%;background:#f0f8ff;border-top:1px dashed var(--border);margin-top:12px;padding-top:12px;text-align:left}.fc-ans-area.on{display:block}
+.fc-ans-lbl{font-size:.66em;font-weight:700;color:var(--green);letter-spacing:.08em;margin-bottom:4px}.fc-ans-txt{font-size:.93em;font-weight:700;color:var(--ink);line-height:1.65}
+.fc-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
+.fc-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:9px 20px;border:none;border-radius:7px;cursor:pointer;transition:.12s}.fc-btn:hover{opacity:.88;transform:translateY(-1px)}
+.btn-prev2{background:#d0d5e0;color:var(--ink)}.btn-flip2{background:var(--blue);color:#fff}.btn-next2{background:var(--green);color:#fff}.btn-stop2{background:var(--muted);color:#fff}
+.fc-mark-row{display:flex;gap:8px;justify-content:center}
+.fc-stat-row2{display:flex;gap:14px;justify-content:center;font-size:.76em;color:var(--muted);font-weight:700;flex-wrap:wrap;margin-bottom:10px}
+.foot{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid var(--border);padding:9px 13px;display:flex;gap:7px;justify-content:center;align-items:center;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.09);flex-wrap:wrap}
+.fbtn{font-family:'BIZ UDPGothic',sans-serif;font-size:.86em;font-weight:700;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;transition:.12s}.fbtn:hover{transform:translateY(-1px);opacity:.88}
+.f-expl{background:var(--orange);color:#fff}.f-check{background:var(--green);color:#fff}.f-hint{background:#8e44ad;color:#fff}.f-next{background:var(--blue);color:#fff}.f-retry{background:var(--blue);color:#fff}.f-back{background:var(--muted);color:#fff}.f-judge{background:var(--green);color:#fff}
+.score-pill{background:var(--ink);color:#fff;padding:5px 13px;border-radius:18px;font-size:.82em;font-weight:700}
+.jbanner{display:none;position:fixed;top:62px;left:50%;transform:translateX(-50%);z-index:600;padding:14px 32px;border-radius:11px;font-size:1.18em;font-weight:700;text-align:center;white-space:nowrap;box-shadow:0 6px 26px rgba(0,0,0,.28);animation:pop .3s cubic-bezier(.17,.67,.37,1.4)}
+@keyframes pop{from{transform:translateX(-50%) scale(.5);opacity:0}to{transform:translateX(-50%) scale(1);opacity:1}}
+.ban-pass{background:#1e7a4a;color:#fff}.ban-ng{background:#c0392b;color:#fff}
+.blank-popup{display:none;position:fixed;z-index:1000;background:#fff;border:2px solid var(--blue);border-radius:8px;padding:9px 11px;box-shadow:0 6px 22px rgba(0,0,0,.22);max-width:320px;flex-wrap:wrap;gap:6px}.blank-popup.open{display:flex}
+.bp-arrow{position:absolute;top:-8px;left:14px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:8px solid var(--blue)}
+.bp-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.83em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:5px 11px;border-radius:4px;cursor:pointer;transition:.11s;white-space:nowrap}.bp-chip:hover{background:var(--blue)}
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;align-items:center;justify-content:center}.modal-ov.open{display:flex}
+.modal-box{background:#fff;border-radius:14px;padding:26px 30px;max-width:330px;width:90%;box-shadow:0 8px 38px rgba(0,0,0,.3);text-align:center}
+.modal-title{font-size:1.06em;font-weight:700;color:var(--ink);margin-bottom:16px}
+.modal-btns{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.modal-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;border:none;border-radius:7px;padding:11px 0;cursor:pointer}
+.mb-resume{background:var(--green);color:#fff}.mb-back{background:var(--muted);color:#fff}.mb-cancel{background:#eee;color:var(--ink)}
+#cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.home-btn{position:fixed;bottom:130px;right:14px;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:22px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;transition:.14s;z-index:500;text-decoration:none}.home-btn:hover{background:#253060;transform:translateY(-2px)}
+</style>
+</head>
+<body>
+<canvas id="cnv"></canvas>
+<header class="hdr">
+  <div class="hdr-info">
+    <div class="hdr-sub">政治経済 GAMBA</div>
+    <div class="hdr-title">⑩ 平和主義 ─ 憲法9条・自衛隊・安全保障</div>
+  </div>
+  <div class="hdr-timer" id="timerDisp">00:00</div>
+</header>
+<nav class="tab-bar">
+  <a class="tab-btn" href="seikei08.html">⑧ 自由権</a>
+  <a class="tab-btn" href="seikei09.html">⑨ 社会権・参政権・請求権</a>
+  <a class="tab-btn active" href="seikei10.html">⑩ 平和主義</a>
+  <a class="tab-btn" href="seikei_index.html">📋 単元表</a>
+</nav>
+<div class="phase-bar">
+  <span class="plbl">STEP</span>
+  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明</span>
+  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②確認</span>
+  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③テスト</span>
+  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④正誤</span>
+  <span class="parr">▶</span><div class="pdot" id="d4"></div><span class="ptxt" id="t4">⑤過去問</span>
+  <span class="parr">▶</span><div class="pdot" id="d5"></div><span class="ptxt" id="t5">⑥フラッシュ</span>
+</div>
+<div class="wb-bar" id="wbBar">
+  <div class="wb-lbl">▶ 語句をタップして選択 → 空欄をタップで入力　／　入力済み空欄をタップするとクリア</div>
+  <div class="wb-chips" id="wbChips"></div>
+</div>
+<div class="main">
+
+<!-- ①説明 -->
+<div class="view on" id="vRead">
+
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">憲法前文と9条</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">憲法前文</div>
+        <div class="pcont">
+          <p>憲法前文は「全世界の国民が、ひとしく<span class="blank show" data-ans="恐怖">恐怖</span>と<span class="blank show" data-ans="欠乏">欠乏</span>から免かれ、平和のうちに生存する権利を有する」と宣言。この権利を<span class="blank show" data-ans="平和的共存権">平和的共存権</span>といいます。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge red">憲法9条</div>
+        <div class="pcont">
+          <p>①<span class="blank show" data-ans="国権の発動たる戦争">国権の発動たる戦争</span>と、<span class="blank show" data-ans="武力による威嚇">武力による威嚇</span>または武力の行使は、<span class="blank show" data-ans="国際紛争">国際紛争</span>を解決する手段としては、<span class="blank show" data-ans="永久に">永久に</span>これを放棄する。</p>
+          <p>②前項の目的を達するため、<span class="blank show" data-ans="陸海空軍">陸海空軍</span>その他の<span class="blank show" data-ans="戦力">戦力</span>はこれを保持しない。国の<span class="blank show" data-ans="交戦権">交戦権</span>はこれを認めない。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">自衛隊の成立経緯</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">1950年〜</div>
+        <div class="pcont">
+          <div class="pt">警察予備隊の創設</div>
+          <p>1950年、<span class="blank show" data-ans="朝鮮">朝鮮</span>戦争勃発。GHQ総司令部の<span class="blank show" data-ans="マッカーサー">マッカーサー</span>が<span class="blank show" data-ans="吉田茂">吉田茂</span>首相に7万5千人の<span class="blank show" data-ans="警察予備隊">警察予備隊</span>の創設を許可。</p>
+          <div class="pt">保安隊→自衛隊</div>
+          <p>1952年 保安庁法により警察予備隊→<span class="blank show" data-ans="保安隊">保安隊</span>に改編。<br>1954年 <span class="blank show" data-ans="日米相互防衛援助協定">日米相互防衛援助協定</span>により日本は防衛力増強義務を負い、自衛隊法により保安隊→<span class="blank show" data-ans="自衛隊">自衛隊</span>となった。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge green">自衛隊の役割（3種類）</div>
+        <div class="pcont">
+          <table class="gtbl">
+            <thead><tr><th style="width:28%">出動の種類</th><th>内容</th><th>承認・命令</th></tr></thead>
+            <tbody>
+              <tr><td><span class="blank show" data-ans="防衛出動">防衛出動</span></td><td>外敵からの武力攻撃への防衛</td><td><span class="blank show" data-ans="内閣総理大臣">内閣総理大臣</span>の命令＋国会の承認</td></tr>
+              <tr><td><span class="blank show" data-ans="治安出動">治安出動</span></td><td>クーデター・テロなどへの対応</td><td>内閣総理大臣の命令＋国会の承認</td></tr>
+              <tr><td><span class="blank show" data-ans="災害派遣">災害派遣</span></td><td>災害時の人命・財産の保護</td><td><span class="blank show" data-ans="知事">知事</span>の要請＋<span class="blank show" data-ans="防衛大臣">防衛大臣</span>の命令</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">自衛隊の合憲性をめぐる判決4件</div></div>
+    <div class="s-body">
+      <div class="case-card">
+        <div class="case-tag kaiken">憲法判断回避</div>
+        <div class="case-title">砂川事件（1959年）</div>
+        <div class="case-body">東京都砂川町での米軍基地拡張反対闘争。東京地裁（<span class="blank show" data-ans="伊達判決">伊達判決</span>）は「米軍駐留は9条違反」として無罪。しかし最高裁は「外国軍隊は9条にいう戦力にあたらない」とし、<span class="blank show" data-ans="統治行為論">統治行為論</span>（政治性の高い問題は司法判断できない）で憲法判断を回避。</div>
+      </div>
+      <div class="case-card">
+        <div class="case-tag kaiken">「肩すかし判決」</div>
+        <div class="case-title">恵庭事件（1967年）</div>
+        <div class="case-body">北海道恵庭市の酪農家が自衛隊の電信線を切断した事件。札幌地裁は「通信回線は自衛隊法の『防衛の用に供する物』にあたらない」として被告人を<span class="blank show" data-ans="無罪">無罪</span>とし、「無罪である以上憲法判断は不要」として自衛隊の合憲性判断を回避。新聞は「<span class="blank show" data-ans="肩すかし判決">肩すかし判決</span>」と評した。</div>
+      </div>
+      <div class="case-card">
+        <div class="case-tag ken">一審違憲→二審は回避</div>
+        <div class="case-title">長沼ナイキ基地訴訟（1969年〜）</div>
+        <div class="case-body">北海道長沼町のナイキミサイル基地設置のための保安林指定解除をめぐる訴訟。第一審は「自衛隊は戦力にあたる」として<span class="blank show" data-ans="違憲">違憲</span>判決。第二審は<span class="blank show" data-ans="統治行為論">統治行為論</span>で憲法判断を回避。</div>
+      </div>
+      <div class="case-card">
+        <div class="case-tag kaiken">民事問題として処理</div>
+        <div class="case-title">百里基地訴訟（1989年）</div>
+        <div class="case-body">茨城県の航空自衛隊百里基地建設をめぐる土地の所有権争い。最高裁は「通常の土地売買と同じ」として<span class="blank show" data-ans="民事">民事</span>問題として処理し、憲法判断を回避。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">日本の防衛原則</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge orange">主な防衛原則</div>
+        <div class="pcont">
+          <table class="gtbl">
+            <thead><tr><th>原則・制度</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>政府見解</td><td>自衛隊は「自衛のための<span class="blank show" data-ans="必要最小限度">必要最小限度</span>の<span class="blank show" data-ans="実力">実力</span>」であり合憲</td></tr>
+              <tr><td><span class="blank show" data-ans="非核三原則">非核三原則</span>（1971年 佐藤栄作）</td><td>核兵器を「<span class="blank show" data-ans="持たず">持たず</span>・作らず・持ち込ませず」</td></tr>
+              <tr><td><span class="blank show" data-ans="武器輸出三原則">武器輸出三原則</span></td><td>共産圏・国連決議で禁止された国・国際紛争当事国への武器輸出禁止</td></tr>
+              <tr><td>防衛費<span class="blank show" data-ans="GNP1%">GNP1%</span>以内（1976年 三木内閣）</td><td>防衛費をGNP（国民総生産）の1%以内に抑制。その後<span class="blank show" data-ans="総額明示方式">総額明示方式</span>が導入</td></tr>
+              <tr><td><span class="blank show" data-ans="文民統制">文民統制</span>（シビリアンコントロール）</td><td>内閣総理大臣・防衛大臣など国務大臣はすべて<span class="blank show" data-ans="文民">文民</span>（職業軍人でない者）でなければならない</td></tr>
+              <tr><td>個別的・<span class="blank show" data-ans="集団的自衛権">集団的自衛権</span></td><td>2014年第二次安倍内閣が<span class="blank show" data-ans="存立危機事態">存立危機事態</span>の場合に集団的自衛権の行使を容認</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge purple">PKO五原則</div>
+        <div class="pcont">
+          <p>国連平和維持活動（PKO）への参加要件：①<span class="blank show" data-ans="停戦合意">停戦合意</span>が成立していること　②PKOと日本の参加に当事者が<span class="blank show" data-ans="同意">同意</span>していること　③PKOが<span class="blank show" data-ans="中立">中立</span>的立場を厳守していること　④条件が崩れた場合は<span class="blank show" data-ans="撤退">撤退</span>できること　⑤武器使用は必要最小限</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /vRead -->
+
+<!-- ②確認 -->
+<div class="view" id="vChallE">
+  <div class="s-card">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">平和主義・自衛隊 ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">憲法9条</div>
+        <div class="pcont">
+          <p>9条は<span class="blank" data-ans="国権の発動たる戦争" onclick="fillBlank(this)"></span>と<span class="blank" data-ans="武力による威嚇" onclick="fillBlank(this)"></span>を<span class="blank" data-ans="永久に" onclick="fillBlank(this)"></span>放棄し、<span class="blank" data-ans="戦力" onclick="fillBlank(this)"></span>の不保持と<span class="blank" data-ans="交戦権" onclick="fillBlank(this)"></span>の否認を定める。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge">自衛隊の成立</div>
+        <div class="pcont">
+          <p>1950年<span class="blank" data-ans="朝鮮" onclick="fillBlank(this)"></span>戦争→<span class="blank" data-ans="マッカーサー" onclick="fillBlank(this)"></span>が<span class="blank" data-ans="警察予備隊" onclick="fillBlank(this)"></span>の創設許可→1952年<span class="blank" data-ans="保安隊" onclick="fillBlank(this)"></span>に改編→1954年<span class="blank" data-ans="日米相互防衛援助協定" onclick="fillBlank(this)"></span>締結→<span class="blank" data-ans="自衛隊" onclick="fillBlank(this)"></span>発足。</p>
+          <p>自衛隊の3つの出動：<span class="blank" data-ans="防衛出動" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="治安出動" onclick="fillBlank(this)"></span>（内閣総理大臣＋国会の承認）・<span class="blank" data-ans="災害派遣" onclick="fillBlank(this)"></span>（知事の要請＋防衛大臣の命令）。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge purple">判例と防衛原則</div>
+        <div class="pcont">
+          <p><span class="blank" data-ans="砂川事件" onclick="fillBlank(this)"></span>：最高裁は<span class="blank" data-ans="統治行為論" onclick="fillBlank(this)"></span>で憲法判断を回避。<span class="blank" data-ans="恵庭事件" onclick="fillBlank(this)"></span>：「<span class="blank" data-ans="肩すかし判決" onclick="fillBlank(this)"></span>」と呼ばれる。<span class="blank" data-ans="長沼ナイキ基地訴訟" onclick="fillBlank(this)"></span>：一審<span class="blank" data-ans="違憲" onclick="fillBlank(this)"></span>→二審は統治行為論で回避。</p>
+          <p><span class="blank" data-ans="非核三原則" onclick="fillBlank(this)"></span>（<span class="blank" data-ans="佐藤栄作" onclick="fillBlank(this)"></span>、1971年）：「持たず・作らず・<span class="blank" data-ans="持ち込ませず" onclick="fillBlank(this)"></span>」。<span class="blank" data-ans="文民統制" onclick="fillBlank(this)"></span>：国務大臣はすべて<span class="blank" data-ans="文民" onclick="fillBlank(this)"></span>でなければならない。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vChallE -->
+
+<!-- ③テスト -->
+<div class="view" id="vQ">
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問1</div>憲法前文にある「恐怖と欠乏から免かれ平和のうちに生存する権利」を何というか。→ <span class="blank" data-ans="平和的共存権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問2</div>憲法9条1項が永久に放棄すると定めているものを2つ答えよ。→ <span class="blank" data-ans="国権の発動たる戦争" onclick="fillBlank(this)"></span>と<span class="blank" data-ans="武力による威嚇" onclick="fillBlank(this)"></span>または武力行使</div>
+      <div class="q-item"><div class="qt">問3</div>憲法9条2項が保持しないと定めているものは何か。→ <span class="blank" data-ans="戦力" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問4</div>1950年に朝鮮戦争を機に創設された組織は何か。その後どう変化したか。→ <span class="blank" data-ans="警察予備隊" onclick="fillBlank(this)"></span>→<span class="blank" data-ans="保安隊" onclick="fillBlank(this)"></span>（1952年）→<span class="blank" data-ans="自衛隊" onclick="fillBlank(this)"></span>（1954年）</div>
+      <div class="q-item"><div class="qt">問5</div>自衛隊の出動の種類（3つ）とそれぞれの承認手続きを答えよ。→ ①<span class="blank" data-ans="防衛出動" onclick="fillBlank(this)"></span>・②<span class="blank" data-ans="治安出動" onclick="fillBlank(this)"></span>（内閣総理大臣＋国会）　③<span class="blank" data-ans="災害派遣" onclick="fillBlank(this)"></span>（知事の要請＋防衛大臣）</div>
+      <div class="q-item"><div class="qt">問6</div>砂川事件の第一審（東京地裁）の判決名を何というか。→ <span class="blank" data-ans="伊達判決" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問7</div>砂川事件で最高裁が用いた、政治性の高い問題は司法判断できないという論理を何というか。→ <span class="blank" data-ans="統治行為論" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問8</div>恵庭事件の判決が「肩すかし判決」と呼ばれた理由は何か。→ 被告人を<span class="blank" data-ans="無罪" onclick="fillBlank(this)"></span>としたことを理由に<span class="blank" data-ans="憲法判断を回避" onclick="fillBlank(this)"></span>したから</div>
+      <div class="q-item"><div class="qt">問9</div>長沼ナイキ基地訴訟の一審の結論と、二審の結論はそれぞれ何か。→ 一審：自衛隊は<span class="blank" data-ans="違憲" onclick="fillBlank(this)"></span>　二審：<span class="blank" data-ans="統治行為論" onclick="fillBlank(this)"></span>で憲法判断を回避</div>
+      <div class="q-item"><div class="qt">問10</div>1971年、佐藤栄作首相が提唱した「持たず・作らず・持ち込ませず」という原則を何というか。→ <span class="blank" data-ans="非核三原則" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群①〜⑩】平和的共存権　国権の発動たる戦争　武力による威嚇　戦力　警察予備隊　保安隊　自衛隊　防衛出動　治安出動　災害派遣　伊達判決　統治行為論　無罪　憲法判断を回避　違憲　非核三原則</div>
+    </div>
+  </div>
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問11</div>内閣総理大臣や防衛大臣など国務大臣が職業軍人でない者（文民）でなければならないという原則を何というか。→ <span class="blank" data-ans="文民統制" onclick="fillBlank(this)"></span>（シビリアンコントロール）</div>
+      <div class="q-item"><div class="qt">問12</div>自衛隊に対する政府の合憲性の根拠は何か。→ 「自衛のための<span class="blank" data-ans="必要最小限度の実力" onclick="fillBlank(this)"></span>であり戦力ではない」</div>
+      <div class="q-item"><div class="qt">問13</div>共産圏・国連決議で禁止された国・紛争当事国への武器輸出を禁止する原則を何というか。→ <span class="blank" data-ans="武器輸出三原則" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問14</div>防衛費をGNPの1%以内に抑えることを決めた1976年の内閣は何か。→ <span class="blank" data-ans="三木武夫内閣" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問15</div>2014年、集団的自衛権の行使を容認した内閣は何か。その際の日本の「危機」を示す概念は何か。→ <span class="blank" data-ans="第二次安倍内閣" onclick="fillBlank(this)"></span>。<span class="blank" data-ans="存立危機事態" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問16</div>PKO参加の5原則のうち最初の2つを答えよ。→ ①<span class="blank" data-ans="停戦合意" onclick="fillBlank(this)"></span>が成立していること　②当事者の<span class="blank" data-ans="同意" onclick="fillBlank(this)"></span>があること</div>
+      <div class="q-item"><div class="qt">問17</div>百里基地訴訟で最高裁が憲法判断を回避した理由は？→ 土地の所有権をめぐる<span class="blank" data-ans="民事" onclick="fillBlank(this)"></span>問題として処理したため</div>
+      <div class="q-item"><div class="qt">問18</div>個別的自衛権と集団的自衛権の違いを答えよ。→ 個別的：<span class="blank" data-ans="自国への攻撃" onclick="fillBlank(this)"></span>に対して自衛する権利。集団的：同盟国への攻撃に対して集団で自衛する権利。</div>
+      <div class="q-item"><div class="qt">問19</div>自衛隊の最高指揮権は誰が持つか。また国防の重要事項を決定する機関は何か。→ <span class="blank" data-ans="内閣総理大臣" onclick="fillBlank(this)"></span>が最高指揮権。<span class="blank" data-ans="安全保障会議" onclick="fillBlank(this)"></span>で重要事項を決定。</div>
+      <div class="q-item"><div class="qt">問20</div>自衛隊の合憲性をめぐる4つの判決を年代順に答えよ。→ <span class="blank" data-ans="砂川事件" onclick="fillBlank(this)"></span>（1959）→<span class="blank" data-ans="恵庭事件" onclick="fillBlank(this)"></span>（1967）→<span class="blank" data-ans="長沼ナイキ基地訴訟" onclick="fillBlank(this)"></span>（1969〜）→<span class="blank" data-ans="百里基地訴訟" onclick="fillBlank(this)"></span>（1989）</div>
+      <div class="note-box">【語群⑪〜⑳】文民統制　必要最小限度の実力　武器輸出三原則　三木武夫内閣　第二次安倍内閣　存立危機事態　停戦合意　同意　民事　自国への攻撃　内閣総理大臣　安全保障会議　砂川事件　恵庭事件　長沼ナイキ基地訴訟　百里基地訴訟</div>
+    </div>
+  </div>
+</div><!-- /vQ -->
+
+<!-- ④正誤 -->
+<div class="view" id="vSeigo">
+  <div class="s-card">
+    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
+    <div class="s-body">
+      <div class="seigo-item" id="sg0"><div class="seigo-q">① 憲法9条は、国権の発動たる戦争と武力による威嚇または武力の行使を永久に放棄すると定めている。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,true,'正しい。憲法9条1項は「国権の発動たる戦争と、武力による威嚇または武力の行使は、国際紛争を解決する手段としては、永久にこれを放棄する」と定める。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,true,'正しい。憲法9条1項は「国権の発動たる戦争と、武力による威嚇または武力の行使は、国際紛争を解決する手段としては、永久にこれを放棄する」と定める。')">× 誤り</button></div><div class="seigo-explain" id="sgex0"></div></div>
+      <div class="seigo-item" id="sg1"><div class="seigo-q">② 自衛隊は1950年に朝鮮戦争を機に創設された警察予備隊が前身で、1952年に保安隊→1954年に自衛隊となった。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,true,'正しい。1950年朝鮮戦争勃発→マッカーサーが警察予備隊（7万5千人）創設許可→1952年保安庁法で保安隊に改編→1954年日米相互防衛援助協定締結・自衛隊法により自衛隊となった。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,true,'正しい。1950年朝鮮戦争勃発→マッカーサーが警察予備隊（7万5千人）創設許可→1952年保安庁法で保安隊に改編→1954年日米相互防衛援助協定締結・自衛隊法により自衛隊となった。')">× 誤り</button></div><div class="seigo-explain" id="sgex1"></div></div>
+      <div class="seigo-item" id="sg2"><div class="seigo-q">③ 自衛隊の「災害派遣」の出動には、内閣総理大臣の命令と国会の承認が必要である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,false,'誤り。災害派遣の出動には「知事の要請と防衛大臣の命令」が必要である。内閣総理大臣の命令と国会の承認が必要なのは「防衛出動」と「治安出動」である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,false,'誤り。災害派遣の出動には「知事の要請と防衛大臣の命令」が必要である。内閣総理大臣の命令と国会の承認が必要なのは「防衛出動」と「治安出動」である。')">× 誤り</button></div><div class="seigo-explain" id="sgex2"></div></div>
+      <div class="seigo-item" id="sg3"><div class="seigo-q">④ 砂川事件の東京地裁（伊達判決）は「米軍駐留は憲法9条に違反する」として無罪判決を出した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,true,'正しい。砂川事件の東京地裁は「第9条は自衛権を否定していないが自衛隊は戦力の保持にあたるので違憲であり、米軍駐留は憲法第9条違反である」として無罪判決を下した（伊達判決）。その後最高裁は統治行為論で憲法判断を回避した。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,true,'正しい。砂川事件の東京地裁は「第9条は自衛権を否定していないが自衛隊は戦力の保持にあたるので違憲であり、米軍駐留は憲法第9条違反である」として無罪判決を下した（伊達判決）。その後最高裁は統治行為論で憲法判断を回避した。')">× 誤り</button></div><div class="seigo-explain" id="sgex3"></div></div>
+      <div class="seigo-item" id="sg4"><div class="seigo-q">⑤ 長沼ナイキ基地訴訟の一審は自衛隊を合憲と判断し、二審は統治行為論で憲法判断を回避した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,false,'誤り。一審（札幌地裁）は「自衛隊は陸海空軍に相当し戦力にあたる」として違憲判決を出した（自衛隊を合憲とは判断していない）。二審は統治行為論で憲法判断を回避したのは正しい。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,false,'誤り。一審（札幌地裁）は「自衛隊は陸海空軍に相当し戦力にあたる」として違憲判決を出した（自衛隊を合憲とは判断していない）。二審は統治行為論で憲法判断を回避したのは正しい。')">× 誤り</button></div><div class="seigo-explain" id="sgex4"></div></div>
+      <div class="seigo-item" id="sg5"><div class="seigo-q">⑥ 非核三原則は1971年に佐藤栄作首相が提唱した「持たず・作らず・持ち込ませず」という原則である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,true,'正しい。非核三原則は1971年、佐藤栄作内閣総理大臣が衆議院で沖縄返還協定の付帯決議として提唱した「持たず・作らず・持ち込ませず」という核兵器に関する原則で、国是とされている。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,true,'正しい。非核三原則は1971年、佐藤栄作内閣総理大臣が衆議院で沖縄返還協定の付帯決議として提唱した「持たず・作らず・持ち込ませず」という核兵器に関する原則で、国是とされている。')">× 誤り</button></div><div class="seigo-explain" id="sgex5"></div></div>
+      <div class="seigo-item" id="sg6"><div class="seigo-q">⑦ 文民統制（シビリアンコントロール）とは、内閣総理大臣や防衛大臣など国務大臣はすべて現職自衛官でなければならないという原則である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,false,'誤り。逆である。文民統制は「国務大臣はすべて文民（職業軍人でない者＝現職自衛官は✕）でなければならない」という原則である。軍が政治を支配しないよう、文民（非軍人）が軍を統制する仕組みである。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,false,'誤り。逆である。文民統制は「国務大臣はすべて文民（職業軍人でない者＝現職自衛官は✕）でなければならない」という原則である。軍が政治を支配しないよう、文民（非軍人）が軍を統制する仕組みである。')">× 誤り</button></div><div class="seigo-explain" id="sgex6"></div></div>
+      <div class="seigo-item" id="sg7"><div class="seigo-q">⑧ 2014年に第二次安倍内閣は集団的自衛権の行使を容認し、「存立危機事態」という概念を導入した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,true,'正しい。2014年、第二次安倍内閣は閣議決定で集団的自衛権の行使を容認した。「武力行使の新3要件」の一つとして「存立危機事態（日本と密接な関係にある国への武力攻撃でわが国の存立が脅かされる場合）」を導入した。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,true,'正しい。2014年、第二次安倍内閣は閣議決定で集団的自衛権の行使を容認した。「武力行使の新3要件」の一つとして「存立危機事態（日本と密接な関係にある国への武力攻撃でわが国の存立が脅かされる場合）」を導入した。')">× 誤り</button></div><div class="seigo-explain" id="sgex7"></div></div>
+      <div class="seigo-item" id="sg8"><div class="seigo-q">⑨ 防衛費のGNP1%以内という方針は1976年に三木武夫内閣が定め、その後中曽根内閣でこれを超えたため総額明示方式が導入された。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,true,'正しい。1976年三木武夫内閣が防衛費をGNP（国民総生産）の1%以内に抑えることを決定。中曽根康弘内閣でこれを超えたため、数年にわたる総額を明示し年平均がGNPの1%を超えないようにする「総額明示方式」が導入された。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,true,'正しい。1976年三木武夫内閣が防衛費をGNP（国民総生産）の1%以内に抑えることを決定。中曽根康弘内閣でこれを超えたため、数年にわたる総額を明示し年平均がGNPの1%を超えないようにする「総額明示方式」が導入された。')">× 誤り</button></div><div class="seigo-explain" id="sgex8"></div></div>
+      <div class="seigo-item" id="sg9"><div class="seigo-q">⑩ PKO五原則の一つとして「紛争当事者間で停戦合意が成立していること」がある。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,true,'正しい。PKO五原則は①停戦合意が成立していること②PKOと日本の参加に当事者が同意していること③PKOが中立的立場を厳守していること④条件が崩れた場合は撤退できること⑤武器使用は必要最小限の5つである。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,true,'正しい。PKO五原則は①停戦合意が成立していること②PKOと日本の参加に当事者が同意していること③PKOが中立的立場を厳守していること④条件が崩れた場合は撤退できること⑤武器使用は必要最小限の5つである。')">× 誤り</button></div><div class="seigo-explain" id="sgex9"></div></div>
+    </div>
+  </div>
+</div><!-- /vSeigo -->
+
+<!-- ⑤過去問 -->
+<div class="view" id="vKakomon">
+  <div class="s-card">
+    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">共通テスト・センター試験 過去問形式 ─ 政治経済⑩</div></div>
+    <div class="s-body">
+      <div class="q-item">
+        <span class="kk-year-tag">共通テスト 2024年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 自衛隊に関する記述として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc0">
+          <button class="kk-choice" onclick="ansKakomon('kkc0',0,1,'kkex0')">① 自衛隊は1950年に日米相互防衛援助協定が締結されたことで創設された。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',1,1,'kkex0')">② 自衛隊の前身は警察予備隊で、1952年に保安隊、1954年に自衛隊となった。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',2,1,'kkex0')">③ 自衛隊の「災害派遣」の出動には内閣総理大臣の命令と国会の承認が必要である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',3,1,'kkex0')">④ 政府は自衛隊を「戦力」と認め、日本国憲法9条2項の例外として合憲と解釈している。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex0"><strong>正解：②</strong><br>1950年警察予備隊（朝鮮戦争契機）→1952年保安隊→1954年自衛隊（正しい）。①日米相互防衛援助協定は1954年。③災害派遣は「知事の要請＋防衛大臣の命令」。④政府は「自衛のための必要最小限度の実力」であり戦力ではないと解釈している。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験 2020年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 自衛隊の合憲性をめぐる判例の説明として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc1">
+          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 砂川事件の最高裁は「自衛隊は合憲」と明確に判断した。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 長沼ナイキ基地訴訟の一審は自衛隊を合憲とし、二審は違憲と判断した。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 砂川事件・恵庭事件・百里基地訴訟のいずれも、最高裁・上級裁は自衛隊の合憲性について明確な判断を示さなかった。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 恵庭事件では「被告人は有罪であるから憲法判断が必要」として自衛隊を違憲とした。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex1"><strong>正解：③</strong><br>砂川事件（統治行為論で回避）・恵庭事件（被告無罪で回避=「肩すかし判決」）・百里基地訴訟（民事問題として処理）、いずれも自衛隊の合憲性について明確な判断を示していない。①砂川最高裁は統治行為論で回避。②長沼一審は違憲・二審は回避（逆）。④恵庭は無罪として回避（違憲ではない）。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">共通テスト 2022年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 日本の防衛原則に関する記述として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc2">
+          <button class="kk-choice" onclick="ansKakomon('kkc2',0,2,'kkex2')">① 非核三原則は「持たず・作らず・使わず」という3つの原則である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',1,2,'kkex2')">② 文民統制とは、防衛大臣は現職の自衛官から選ばれなければならないという原則である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',2,2,'kkex2')">③ 非核三原則は1971年に佐藤栄作首相が提唱した「持たず・作らず・持ち込ませず」という原則である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 防衛費のGNP1%以内という方針は1976年に中曽根内閣が定めた。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex2"><strong>正解：③</strong><br>非核三原則は1971年佐藤栄作首相が提唱した「持たず・作らず・持ち込ませず」（正しい）。①「使わず」ではなく「持ち込ませず」。②文民統制は「現職自衛官ではない文民」が国務大臣を担うという原則（逆）。④GNP1%以内は三木武夫内閣（中曽根内閣はそれを超えた）。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">共通テスト 2023年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. 憲法9条に関する記述として<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc3">
+          <button class="kk-choice" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 憲法9条1項は戦争と武力行使を永久に放棄すると定め、2項は戦力の不保持と交戦権の否認を定めている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',1,1,'kkex3')">② 憲法9条は自衛のための戦力（自衛隊）の保持を明示的に認めている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',2,1,'kkex3')">③ 日本政府は「自衛隊は戦力であるが、9条の例外として合憲」と解釈している。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ 憲法前文は「恐怖と欠乏から免かれる権利」として社会権を規定している。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex3"><strong>正解：①</strong><br>9条1項：戦争・武力による威嚇・武力行使の永久放棄。9条2項：戦力の不保持・交戦権の否認（正しい）。②9条に自衛隊の明示規定なし。③政府は「自衛隊は必要最小限度の実力で戦力ではない」と解釈（戦力の例外ではない）。④平和的共存権は社会権ではなく平和主義の概念。</div>
+      </div>
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験 2019年</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. PKO五原則として<strong>誤っているもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc4">
+          <button class="kk-choice" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 紛争当事者間で停戦合意が成立していること</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',1,3,'kkex4')">② PKOの実施および日本の参加に当事者が同意していること</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ PKOが中立的立場を厳守していること</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ 国連の武力行使に積極的に参加すること</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex4"><strong>正解：④</strong><br>PKO五原則は①停戦合意②当事者の同意③中立的立場の厳守④条件が崩れた場合の撤退可能⑤武器使用は必要最小限。「国連の武力行使に積極的に参加すること」はPKO五原則には含まれず、むしろ「国連の武力行使と一体でなければ合憲」という解釈が前提にある。</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vKakomon -->
+
+<!-- ⑥フラッシュカード -->
+<div class="view" id="vFlash">
+  <div class="s-card">
+    <div class="s-head-fc"><div class="s-icon">⚡</div><div class="s-ht">フラッシュカード ─ 平和主義</div></div>
+    <div class="s-body">
+      <div class="fc-settings">
+        <span class="fc-set-lbl">⏱ 速度：</span>
+        <div class="spd-btns"><button class="spd-btn active" data-sec="0" onclick="setFcSpeed(this)">手動</button><button class="spd-btn" data-sec="2" onclick="setFcSpeed(this)">2秒</button><button class="spd-btn" data-sec="3" onclick="setFcSpeed(this)">3秒</button><button class="spd-btn" data-sec="4" onclick="setFcSpeed(this)">4秒</button></div>
+        <span class="fc-set-lbl" style="margin-left:8px">📌 モード：</span>
+        <div class="mode-btns"><button class="mode-btn active" data-mode="term" onclick="setFcMode(this)">用語→意味</button><button class="mode-btn" data-mode="def" onclick="setFcMode(this)">意味→用語</button></div>
+        <button class="fc-start-btn" onclick="startFc()">▶ スタート</button>
+      </div>
+      <div class="fc-arena" id="fcArena">
+        <div class="fc-prog-wrap"><div class="fc-prog-bar"><div class="fc-prog-fill" id="fcProgFill" style="width:0%"></div></div><div class="fc-prog-txt" id="fcProgTxt">0 / 0</div></div>
+        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた：<span id="fcOkCnt">0</span></span><span>❌ もう一度：<span id="fcNgCnt">0</span></span></div>
+        <div class="flash-card" id="flashCard" onclick="fcFlipOrNext()">
+          <div class="fc-unit-tag2">⑩ 平和主義</div>
+          <div class="fc-side-tag2 q" id="fcSideTag">問題</div>
+          <div class="fc-main-text2" id="fcMainText">スタートボタンを押してください</div>
+          <div class="fc-hint2" id="fcHint2"></div>
+          <div class="fc-ans-area" id="fcAnsArea"><div class="fc-ans-lbl">▶ 答え</div><div class="fc-ans-txt" id="fcAnsTxt"></div></div>
+          <div class="fc-tap-hint2" id="fcTapHint">タップで答えを見る</div>
+          <div class="fc-counter2" id="fcCounter">-</div>
+          <div class="fc-auto-bar2" id="fcAutoBar" style="width:0%"></div>
+        </div>
+        <div class="fc-btns"><button class="fc-btn btn-prev2" onclick="fcPrev()">◀ 前へ</button><button class="fc-btn btn-flip2" onclick="fcFlip()">🔄 裏返す</button><button class="fc-btn btn-next2" onclick="fcNext()">次へ ▶</button><button class="fc-btn btn-stop2" onclick="stopFc()">■ 終了</button></div>
+        <div class="fc-mark-row"><button class="fc-btn" style="background:var(--green);color:#fff" onclick="fcMarkOk()">✅ 覚えた</button><button class="fc-btn" style="background:var(--red);color:#fff" onclick="fcMarkNg()">❌ もう一度</button></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vFlash -->
+
+</div><!-- /main -->
+<div class="jbanner" id="jbanner"></div>
+<div class="foot">
+  <button class="fbtn f-expl"   id="bExpl"      onclick="goChallE()">📝 確認する</button>
+  <button class="fbtn f-next"   id="bGoQ"        onclick="goTest()">▶ テストへ</button>
+  <button class="fbtn f-next"   id="bGoFlashTop" onclick="goFlash()" style="background:var(--blue)">⚡ フラッシュカード</button>
+  <button class="fbtn f-check"  id="bCheckE"     onclick="checkExplain()" style="display:none">✔ 確　認</button>
+  <button class="fbtn f-hint"   id="bHint"       onclick="showHint()" style="display:none">📖 お手本</button>
+  <button class="fbtn f-next"   id="bGoQ2"       onclick="goTest()" style="display:none">▶ テストへ</button>
+  <button class="fbtn f-judge"  id="bJudge"      onclick="judgeAll()" style="display:none">✔ 判　定</button>
+  <button class="fbtn f-retry"  id="bRetry"      onclick="retryQ()" style="display:none">↺ やり直し</button>
+  <button class="fbtn f-next"   id="bGoSeigo"    onclick="goSeigo()" style="display:none">▶ 正誤問題へ</button>
+  <button class="fbtn f-next"   id="bGoKakomon"  onclick="goKakomon()" style="display:none">▶ 過去問へ</button>
+  <button class="fbtn f-next"   id="bGoFlash"    onclick="goFlash()" style="display:none">⚡ フラッシュカードへ</button>
+  <button class="fbtn f-back"   id="bBack"       onclick="backToRead()" style="display:none">📖 説明に戻る</button>
+  <div class="score-pill" id="spill" style="display:none"></div>
+</div>
+<div class="blank-popup" id="popup"><div class="bp-arrow"></div></div>
+<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか？</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
+<a class="home-btn" href="seikei_index.html">🏠 単元表</a>
+
+<script>
+const EW=['恐怖','欠乏','平和的共存権','国権の発動たる戦争','武力による威嚇','国際紛争','永久に','陸海空軍','戦力','交戦権','朝鮮','マッカーサー','吉田茂','警察予備隊','保安隊','日米相互防衛援助協定','自衛隊','防衛出動','内閣総理大臣','治安出動','災害派遣','知事','防衛大臣','伊達判決','統治行為論','無罪','肩すかし判決','違憲','民事','必要最小限度','実力','非核三原則','佐藤栄作','持ち込ませず','武器輸出三原則','GNP1%','総額明示方式','文民統制','文民','集団的自衛権','存立危機事態','停戦合意','同意','中立','撤退','砂川事件','恵庭事件','長沼ナイキ基地訴訟','百里基地訴訟'];
+const QW=['平和的共存権','国権の発動たる戦争','武力による威嚇','戦力','警察予備隊','保安隊','自衛隊','防衛出動','治安出動','災害派遣','伊達判決','統治行為論','無罪','憲法判断を回避','違憲','非核三原則','文民統制','必要最小限度の実力','武器輸出三原則','三木武夫内閣','第二次安倍内閣','存立危機事態','停戦合意','同意','民事','自国への攻撃','内閣総理大臣','安全保障会議','砂川事件','恵庭事件','長沼ナイキ基地訴訟','百里基地訴訟'];
+
+const FC_CARDS=[
+  {q:'憲法前文の「平和的共存権」とは何か？',a:'「全世界の国民が恐怖と欠乏から免かれ平和のうちに生存する権利」（憲法前文）'},
+  {q:'憲法9条1項の内容は？',a:'国権の発動たる戦争と武力による威嚇または武力の行使を国際紛争を解決する手段としては永久に放棄する'},
+  {q:'憲法9条2項の内容は？',a:'陸海空軍その他の戦力はこれを保持しない。国の交戦権はこれを認めない'},
+  {q:'自衛隊の成立経緯を年代順に答えよ。',a:'1950年 朝鮮戦争→マッカーサーが警察予備隊（7.5万人）創設許可→1952年 保安隊に改編→1954年 日米相互防衛援助協定→自衛隊発足'},
+  {q:'自衛隊の3種類の出動と、それぞれの手続きは？',a:'①防衛出動・②治安出動：内閣総理大臣の命令＋国会の承認　③災害派遣：知事の要請＋防衛大臣の命令'},
+  {q:'砂川事件の概要と判決は？（第一審・最高裁）',a:'米軍基地拡張反対事件。第一審（伊達判決）：米軍駐留は9条違反→無罪。最高裁：統治行為論で憲法判断を回避'},
+  {q:'統治行為論とは何か？',a:'政治性の高い問題は司法による判断になじまないとして、裁判所が憲法判断を回避する論理'},
+  {q:'恵庭事件が「肩すかし判決」と呼ばれた理由は？',a:'被告人を「防衛の用に供する物ではない」として無罪とし、「無罪である以上憲法判断不要」として自衛隊の合憲性判断を回避したため'},
+  {q:'長沼ナイキ基地訴訟の一審・二審の結論は？',a:'一審（札幌地裁）：自衛隊は戦力にあたるとして違憲判決　二審：統治行為論で憲法判断を回避'},
+  {q:'百里基地訴訟で最高裁が憲法判断を回避した方法は？',a:'土地の所有権をめぐる民事問題として処理し、自衛隊の合憲性判断を回避'},
+  {q:'4つの判決すべてに共通していることは何か？',a:'いずれも自衛隊の合憲性について最終的に明確な判断を示していない（すべて憲法判断を回避）'},
+  {q:'政府の自衛隊合憲論の根拠は？',a:'「自衛のための必要最小限度の実力」であり、9条2項の「戦力」にはあたらないため合憲'},
+  {q:'非核三原則の内容・提唱者・年は？',a:'「持たず・作らず・持ち込ませず」。1971年佐藤栄作首相が提唱。国是とされている'},
+  {q:'文民統制（シビリアンコントロール）とは何か？',a:'内閣総理大臣・防衛大臣など国務大臣はすべて文民（職業軍人でない者＝現職自衛官は不可）でなければならない原則'},
+  {q:'防衛費GNP1%以内を決めた内閣は？その後何が起きたか？',a:'1976年三木武夫内閣が決定。その後中曽根内閣で1%超え→総額明示方式が導入された'},
+  {q:'集団的自衛権とは何か？日本はいつから行使できるようになったか？',a:'同盟国への武力攻撃に対して集団で自衛する権利。2014年の第二次安倍内閣の閣議決定で「存立危機事態」の場合に行使容認'},
+  {q:'PKO五原則を答えよ。',a:'①停戦合意の成立②当事者の同意③中立的立場の厳守④条件崩壊時の撤退可能⑤武器使用は必要最小限'},
+  {q:'個別的自衛権と集団的自衛権の違いは？',a:'個別的自衛権＝自国への武力攻撃に対して単独で自衛する権利。集団的自衛権＝同盟・友好国への攻撃に対して集団で自衛する権利'},
+  {q:'自衛隊の最高指揮権は誰が持つか？国防の重要事項を決定する機関は？',a:'自衛隊の最高指揮権：内閣総理大臣　国防の重要事項の決定機関：安全保障会議'},
+  {q:'武器輸出三原則とはどんな原則か？',a:'共産圏・国連決議で禁止された国・国際紛争当事国またはそのおそれのある国への武器輸出を禁止する原則'},
+];
+
+var _selChip=null,_tInt=null,_t0=0,_pausedMs=0;
+var _popup=document.getElementById('popup'),_popupTarget=null,_currentView='vRead';
+var _sgAnswered=new Array(10).fill(false),_sgScore=0;
+function _el(id){return document.getElementById(id)}
+function _show(id){var e=_el(id);if(e)e.style.display='inline-block'}
+function _hide(id){var e=_el(id);if(e)e.style.display='none'}
+function _tick(){var ms=_pausedMs+(Date.now()-_t0);var m=String(Math.floor(ms/60000)).padStart(2,'0');var s=String(Math.floor((ms%60000)/1000)).padStart(2,'0');_el('timerDisp').textContent=m+':'+s}
+function _startTimer(){_t0=Date.now();_tInt=setInterval(_tick,200)}
+function _stopTimer(){clearInterval(_tInt);_tInt=null}
+function _resetTimer(){_stopTimer();_pausedMs=0;_el('timerDisp').textContent='00:00'}
+function setPhase(n){for(var i=0;i<6;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
+function _showView(id){['vRead','vChallE','vQ','vSeigo','vKakomon','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
+function _showWB(){_el('wbBar').style.display='block'}
+function _hideWB(){_el('wbBar').style.display='none'}
+function buildChips(words){var wb=_el('wbChips');wb.innerHTML='';_selChip=null;words.slice().sort(function(){return Math.random()-.5}).forEach(function(w){var btn=document.createElement('button');btn.className='chip';btn.textContent=w;btn.addEventListener('click',function(e){e.stopPropagation();if(_selChip&&_selChip!==btn)_selChip.classList.remove('sel');if(_selChip===btn){_selChip=null;btn.classList.remove('sel');return}_selChip=btn;btn.classList.add('sel')});wb.appendChild(btn)})}
+function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=(_currentView==='vChallE'?EW:QW).slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
+function _closePopup(){_popup.classList.remove('open');_popupTarget=null}
+document.addEventListener('click',function(){_closePopup()});
+function fillBlank(b){if(_selChip){b.textContent=_selChip.textContent;b.classList.remove('ok','ng','show');_selChip.classList.remove('sel');_selChip=null;_closePopup();return}if(b===_popupTarget&&_popup.classList.contains('open')){_closePopup();return}if(b.textContent.trim()!=''){b.textContent='';b.classList.remove('ok','ng','show');_closePopup();return}_openPopup(b)}
+function goChallE(){_showView('vChallE');document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_showWB();setPhase(1);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_show('bCheckE');_show('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_hideBanner()}
+function checkExplain(){var bls=[].slice.call(document.querySelectorAll('#vChallE .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);if(ok===bls.length){_showBanner(true,ok,bls.length);_show('bGoQ2');_startConf();setTimeout(_stopConf,4000)}else _showBanner(false,ok,bls.length)}
+function showHint(){document.querySelectorAll('#vChallE .blank').forEach(function(b){if(!b.classList.contains('ok')){b.textContent=b.dataset.ans;b.classList.remove('ng');b.classList.add('show')}});_hideBanner();_el('bCheckE').textContent='↺ もう一度';_el('bCheckE').onclick=reChallE}
+function reChallE(){document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_hide('spill');_hideBanner();_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain}
+function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(2);_startTimer();_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hideBanner()}
+function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);_show('bRetry');_show('bGoSeigo');if(ok===bls.length){_stopTimer();_showBanner(true,ok,bls.length);_startConf();setTimeout(_stopConf,5000)}else _showBanner(false,ok,bls.length)}
+function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
+function goSeigo(){_showView('vSeigo');setPhase(3);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoKakomon');_show('bBack');_hideBanner()}
+function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
+function goKakomon(){_showView('vKakomon');setPhase(4);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
+function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
+function goFlash(){_showView('vFlash');setPhase(5);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
+function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoQ');_show('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain;stopFc()}
+var _fcCards=[],_fcIdx=0,_fcFlipped=false,_fcSpeed=0,_fcMode='term';
+var _fcAutoTimer=null,_fcTmrInt=null,_fcOkSet=new Set(),_fcNgSet=new Set();
+function setFcSpeed(btn){document.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcSpeed=parseInt(btn.dataset.sec)*1000}
+function setFcMode(btn){document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcMode=btn.dataset.mode}
+function startFc(){_fcCards=FC_CARDS.slice().sort(function(){return Math.random()-.5});_fcIdx=0;_fcFlipped=false;_fcOkSet.clear();_fcNgSet.clear();_el('fcOkCnt').textContent='0';_el('fcNgCnt').textContent='0';_el('fcArena').classList.add('on');var sec=0;clearInterval(_fcTmrInt);_fcTmrInt=setInterval(function(){sec+=0.1;_el('fcTimerDisp').textContent=sec.toFixed(1)},100);showFcCard()}
+function stopFc(){clearInterval(_fcAutoTimer);clearInterval(_fcTmrInt);_el('fcArena').classList.remove('on');_el('fcAutoBar').style.transition='none';_el('fcAutoBar').style.width='0%'}
+function showFcCard(){if(!_fcCards.length)return;var c=_fcCards[_fcIdx];var card=_el('flashCard');card.classList.remove('flip-anim');void card.offsetWidth;card.classList.add('flip-anim');if(_fcMode==='term'){_el('fcSideTag').textContent='問題';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.q}else{_el('fcSideTag').textContent='意味→用語';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.a}_el('fcHint2').textContent='';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='block';_el('fcAnsTxt').textContent='';_el('fcCounter').textContent=(_fcIdx+1)+' / '+_fcCards.length;_el('fcProgFill').style.width=((_fcIdx+1)/_fcCards.length*100)+'%';_el('fcProgTxt').textContent=(_fcIdx+1)+' / '+_fcCards.length;_fcFlipped=false;if(_fcSpeed>0)_startFcAuto()}
+function fcFlip(){if(_fcFlipped)return;_fcFlipped=true;var c=_fcCards[_fcIdx];_el('fcAnsTxt').textContent=(_fcMode==='term'?c.a:c.q);_el('fcAnsArea').classList.add('on');_el('fcSideTag').textContent='答え';_el('fcSideTag').className='fc-side-tag2 a';_el('fcTapHint').style.display='none';_clearFcAuto()}
+function fcFlipOrNext(){if(!_el('fcArena').classList.contains('on'))return;if(!_fcFlipped)fcFlip();else fcNext()}
+function fcNext(){_clearFcAuto();if(_fcIdx<_fcCards.length-1){_fcIdx++;showFcCard()}else{clearInterval(_fcTmrInt);_el('fcMainText').textContent='🎉 全カード完了！お疲れさまでした！';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='none'}}
+function fcPrev(){_clearFcAuto();if(_fcIdx>0){_fcIdx--;showFcCard()}}
+function fcMarkOk(){_fcOkSet.add(_fcIdx);_fcNgSet.delete(_fcIdx);_el('fcOkCnt').textContent=_fcOkSet.size;_el('fcNgCnt').textContent=_fcNgSet.size;fcNext()}
+function fcMarkNg(){_fcNgSet.add(_fcIdx);_fcOkSet.delete(_fcIdx);_el('fcNgCnt').textContent=_fcNgSet.size;_el('fcOkCnt').textContent=_fcOkSet.size;fcNext()}
+function _startFcAuto(){_clearFcAuto();if(_fcSpeed===0)return;var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;bar.style.transition='width '+_fcSpeed+'ms linear';bar.style.width='100%';_fcAutoTimer=setTimeout(function(){if(!_fcFlipped)fcFlip();setTimeout(fcNext,700)},_fcSpeed)}
+function _clearFcAuto(){clearTimeout(_fcAutoTimer);var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%'}
+function _showBanner(pass,ok,tot){var b=_el('jbanner');b.className='jbanner '+(pass?'ban-pass':'ban-ng');b.textContent=pass?('🎉 合格！　全'+tot+'問正解！'):('おしい！　'+ok+' / '+tot+' 問　── もう一息！');b.style.display='block';if(!pass)setTimeout(_hideBanner,2800)}
+function _hideBanner(){var b=_el('jbanner');if(b)b.style.display='none'}
+function _showScore(ok,tot){var p=_el('spill');p.textContent=ok+' / '+tot+' 問正解';p.style.display='inline-block'}
+function _closePause(){_el('pauseModal').classList.remove('open')}
+function closePause(){_closePause();if(_tInt===null&&_t0>0){_t0=Date.now();_tInt=setInterval(_tick,200)}}
+var _cnv,_ctx,_pts=[],_raf=null;
+function _initCanvas(){_cnv=document.getElementById('cnv');_ctx=_cnv?_cnv.getContext('2d'):null}
+function _startConf(){_initCanvas();if(!_ctx)return;_cnv.width=innerWidth;_cnv.height=innerHeight;_pts=[];for(var i=0;i<180;i++)_pts.push({x:Math.random()*_cnv.width,y:Math.random()*_cnv.height-_cnv.height,s:Math.random()*9+4,c:'hsl('+Math.floor(Math.random()*360)+',70%,62%)',sp:Math.random()*3+2,r:Math.random()*Math.PI*2,dr:.05});_af()}
+function _af(){_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts.forEach(function(p){p.y+=p.sp;p.r+=p.dr;_ctx.save();_ctx.translate(p.x,p.y);_ctx.rotate(p.r);_ctx.fillStyle=p.c;_ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);_ctx.restore();if(p.y>_cnv.height)p.y=-20});_raf=requestAnimationFrame(_af)}
+function _stopConf(){if(_raf){cancelAnimationFrame(_raf);_raf=null}if(_ctx)_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts=[]}
+</script>
+</body>
+</html>
