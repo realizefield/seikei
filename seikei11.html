@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治経済 GAMBA ⑪ 国会</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;--gold:#c8972a;--gold2:#f0c040;--red:#c0392b;--blue:#1a3a6b;--green:#1a6b3a;--orange:#e67e22;--purple:#7b2d8b;--muted:#6b7a99;--border:#d8d3c8;--drop:#fffbe6;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.9}
+.hdr{background:var(--ink);color:#fff;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;box-shadow:0 3px 14px rgba(0,0,0,.45)}
+.hdr-info{display:flex;flex-direction:column;gap:1px}
+.hdr-sub{font-size:.65em;opacity:.5;letter-spacing:.12em}
+.hdr-title{font-size:.95em;font-weight:700;letter-spacing:.03em}
+.hdr-timer{font-size:1.15em;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums;min-width:66px;text-align:right}
+.tab-bar{background:#1d2f5a;border-bottom:2px solid var(--gold);display:flex;gap:4px;padding:6px 10px;flex-wrap:wrap;position:sticky;top:52px;z-index:290;overflow-x:auto}
+.tab-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.72em;font-weight:700;padding:5px 11px;border:none;border-radius:4px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.58);cursor:pointer;transition:.14s;white-space:nowrap;text-decoration:none;display:inline-block}
+.tab-btn:hover{background:rgba(255,255,255,.22);color:#fff}.tab-btn.active{background:var(--gold);color:var(--ink)}
+.phase-bar{background:#fff;border-bottom:2px solid var(--border);padding:7px 14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;position:sticky;top:96px;z-index:280}
+.pdot{width:11px;height:11px;border-radius:50%;background:var(--border);transition:.3s;flex-shrink:0}.pdot.on{background:var(--gold)}
+.ptxt{font-size:.75em;color:var(--muted);font-weight:700}.ptxt.on{color:var(--ink)}
+.parr{font-size:.82em;color:var(--border);margin:0 3px}.plbl{font-size:.72em;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.wb-bar{background:#fff;border-bottom:2px solid var(--border);padding:9px 14px;display:none;position:sticky;top:132px;z-index:270;box-shadow:0 4px 10px rgba(0,0,0,.07)}
+.wb-lbl{font-size:.68em;color:var(--muted);font-weight:700;letter-spacing:.08em;margin-bottom:6px}
+.wb-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:32px;align-items:center}
+.chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;transition:.12s}
+.chip:hover{background:#253060;transform:translateY(-1px)}.chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink);transform:scale(1.05)}
+.main{max-width:860px;margin:0 auto;padding:20px 13px 160px}
+.view{display:none}.view.on{display:block}
+.s-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.s-head-e{background:var(--blue);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-q{background:var(--red);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-fc{background:linear-gradient(135deg,#1a3a6b,#2d5ea8);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-kakomon{background:linear-gradient(135deg,#1a6b3a,#27ae60);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-seigo{background:linear-gradient(135deg,#7b2d8b,#9b59b6);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-icon{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
+.s-ht{font-size:.92em;font-weight:700;letter-spacing:.03em;flex:1}
+.s-body{padding:16px 18px}
+.person-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed var(--border)}
+.person-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pbadge{background:var(--blue);color:#fff;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:3px;flex-shrink:0}
+.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.purple{background:var(--purple)}.pbadge.dk{background:#2c3e50}
+.pcont{flex:1;font-size:.93em}.pcont p{margin-bottom:8px}.pcont strong{color:var(--blue)}
+.pt{display:inline-block;background:var(--blue);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.blank{display:inline-flex;align-items:center;justify-content:center;min-width:90px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.blank:hover{background:#fff3b0}.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
+.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.84em}
+.gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
+.gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
+.case-card{background:#f8f5ff;border:1.5px solid #9b59b6;border-radius:9px;padding:12px 15px;margin-bottom:11px}
+.case-tag{display:inline-block;font-size:.67em;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:6px;letter-spacing:.04em;color:#fff}
+.case-tag.ken{background:var(--red)}.case-tag.gouken{background:var(--green)}.case-tag.kaiken{background:var(--muted)}
+.case-title{font-size:.9em;font-weight:700;margin-bottom:5px}
+.case-body{font-size:.84em;color:#333;line-height:1.75}
+.note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
+.q-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--border);font-size:.93em;line-height:1.85}
+.q-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.qt{display:inline-block;background:var(--red);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.seigo-item{margin-bottom:14px;padding:12px 14px;background:#f8f8f5;border-radius:8px;border:1.5px solid var(--border)}
+.seigo-q{font-size:.92em;margin-bottom:10px;line-height:1.8}
+.seigo-btns{display:flex;gap:8px}
+.seigo-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:7px 18px;border:2px solid var(--border);border-radius:6px;background:#f0f0ee;cursor:pointer;transition:.13s}
+.seigo-btn.correct{background:var(--green);color:#fff;border-color:var(--green)}.seigo-btn.wrong{background:var(--red);color:#fff;border-color:var(--red)}
+.seigo-explain{display:none;margin-top:8px;font-size:.82em;background:#f0f8ff;border-left:3px solid var(--blue);padding:8px 12px;border-radius:4px;line-height:1.7}.seigo-explain.on{display:block}
+.kk-choices{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.kk-choice{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#f8f8f5;cursor:pointer;transition:.13s;text-align:left;line-height:1.5}
+.kk-choice:hover{border-color:var(--blue);background:#eef3ff}.kk-choice.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}.kk-choice.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.kk-explain{display:none;font-size:.83em;background:#f0f8ff;border-radius:6px;padding:10px 13px;border-left:3px solid var(--blue);line-height:1.75;margin-top:7px}.kk-explain.on{display:block}
+.kk-ans-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.76em;font-weight:700;padding:5px 13px;border:none;border-radius:5px;background:var(--blue);color:#fff;cursor:pointer;margin-top:6px}
+.kk-year-tag{font-size:.7em;font-weight:700;background:var(--gold);color:var(--ink);padding:2px 8px;border-radius:4px;margin-bottom:8px;display:inline-block}
+.fc-settings{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:16px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:9px}
+.fc-set-lbl{font-size:.76em;font-weight:700;color:var(--muted);white-space:nowrap}
+.spd-btns,.mode-btns{display:flex;gap:5px}
+.spd-btn,.mode-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:6px 14px;border:2px solid var(--border);border-radius:5px;background:#f5f5f2;cursor:pointer;transition:.12s}
+.spd-btn:hover{border-color:var(--blue)}.spd-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mode-btn:hover{border-color:var(--red)}.mode-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.fc-start-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;font-weight:700;padding:9px 24px;border:none;border-radius:7px;background:var(--red);color:#fff;cursor:pointer;margin-left:auto}
+.fc-arena{display:none}.fc-arena.on{display:block}
+.fc-prog-wrap{margin-bottom:12px}.fc-prog-bar{background:var(--border);border-radius:20px;height:8px;overflow:hidden;margin-bottom:3px}.fc-prog-fill{background:linear-gradient(90deg,var(--blue),var(--gold));height:100%;border-radius:20px;transition:.4s}.fc-prog-txt{font-size:.72em;color:var(--muted);text-align:right;font-weight:700}
+.flash-card{min-height:200px;background:var(--card);border:2px solid var(--border);border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.1);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;text-align:center;position:relative;transition:transform .14s;user-select:none;-webkit-user-select:none;margin-bottom:14px}
+.flash-card:hover{transform:translateY(-2px)}.flash-card.flip-anim{animation:fcFlip .28s ease}
+@keyframes fcFlip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(.95)}}
+.fc-unit-tag2{position:absolute;top:10px;left:12px;font-size:.64em;font-weight:700;background:var(--blue);color:#fff;padding:2px 7px;border-radius:3px}
+.fc-side-tag2{position:absolute;top:10px;right:12px;font-size:.64em;font-weight:700;padding:2px 7px;border-radius:3px}
+.fc-side-tag2.q{background:#fde8e8;color:var(--red)}.fc-side-tag2.a{background:#d4f5e2;color:var(--green)}
+.fc-counter2{position:absolute;bottom:10px;right:12px;font-size:.68em;color:var(--muted);font-weight:700}
+.fc-auto-bar2{position:absolute;bottom:0;left:0;height:4px;background:var(--gold);border-radius:0 0 12px 12px;transition:none}
+.fc-main-text2{font-family:'Noto Serif JP',serif;font-size:1.05em;font-weight:700;line-height:1.75;color:var(--ink)}
+.fc-hint2{font-size:.8em;color:var(--muted);margin-top:8px}.fc-tap-hint2{font-size:.7em;color:var(--muted);opacity:.7;margin-top:10px}
+.fc-ans-area{display:none;width:100%;background:#f0f8ff;border-top:1px dashed var(--border);margin-top:12px;padding-top:12px;text-align:left}.fc-ans-area.on{display:block}
+.fc-ans-lbl{font-size:.66em;font-weight:700;color:var(--green);letter-spacing:.08em;margin-bottom:4px}.fc-ans-txt{font-size:.93em;font-weight:700;color:var(--ink);line-height:1.65}
+.fc-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
+.fc-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:9px 20px;border:none;border-radius:7px;cursor:pointer;transition:.12s}.fc-btn:hover{opacity:.88;transform:translateY(-1px)}
+.btn-prev2{background:#d0d5e0;color:var(--ink)}.btn-flip2{background:var(--blue);color:#fff}.btn-next2{background:var(--green);color:#fff}.btn-stop2{background:var(--muted);color:#fff}
+.fc-mark-row{display:flex;gap:8px;justify-content:center}
+.fc-stat-row2{display:flex;gap:14px;justify-content:center;font-size:.76em;color:var(--muted);font-weight:700;flex-wrap:wrap;margin-bottom:10px}
+.foot{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid var(--border);padding:9px 13px;display:flex;gap:7px;justify-content:center;align-items:center;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.09);flex-wrap:wrap}
+.fbtn{font-family:'BIZ UDPGothic',sans-serif;font-size:.86em;font-weight:700;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;transition:.12s}.fbtn:hover{transform:translateY(-1px);opacity:.88}
+.f-expl{background:var(--orange);color:#fff}.f-check{background:var(--green);color:#fff}.f-hint{background:#8e44ad;color:#fff}.f-next{background:var(--blue);color:#fff}.f-retry{background:var(--blue);color:#fff}.f-back{background:var(--muted);color:#fff}.f-judge{background:var(--green);color:#fff}
+.score-pill{background:var(--ink);color:#fff;padding:5px 13px;border-radius:18px;font-size:.82em;font-weight:700}
+.jbanner{display:none;position:fixed;top:62px;left:50%;transform:translateX(-50%);z-index:600;padding:14px 32px;border-radius:11px;font-size:1.18em;font-weight:700;text-align:center;white-space:nowrap;box-shadow:0 6px 26px rgba(0,0,0,.28);animation:pop .3s cubic-bezier(.17,.67,.37,1.4)}
+@keyframes pop{from{transform:translateX(-50%) scale(.5);opacity:0}to{transform:translateX(-50%) scale(1);opacity:1}}
+.ban-pass{background:#1e7a4a;color:#fff}.ban-ng{background:#c0392b;color:#fff}
+.blank-popup{display:none;position:fixed;z-index:1000;background:#fff;border:2px solid var(--blue);border-radius:8px;padding:9px 11px;box-shadow:0 6px 22px rgba(0,0,0,.22);max-width:320px;flex-wrap:wrap;gap:6px}.blank-popup.open{display:flex}
+.bp-arrow{position:absolute;top:-8px;left:14px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:8px solid var(--blue)}
+.bp-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.83em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:5px 11px;border-radius:4px;cursor:pointer;transition:.11s;white-space:nowrap}.bp-chip:hover{background:var(--blue)}
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;align-items:center;justify-content:center}.modal-ov.open{display:flex}
+.modal-box{background:#fff;border-radius:14px;padding:26px 30px;max-width:330px;width:90%;box-shadow:0 8px 38px rgba(0,0,0,.3);text-align:center}
+.modal-title{font-size:1.06em;font-weight:700;color:var(--ink);margin-bottom:16px}
+.modal-btns{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.modal-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;border:none;border-radius:7px;padding:11px 0;cursor:pointer}
+.mb-resume{background:var(--green);color:#fff}.mb-back{background:var(--muted);color:#fff}.mb-cancel{background:#eee;color:var(--ink)}
+#cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.home-btn{position:fixed;bottom:130px;right:14px;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:22px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;transition:.14s;z-index:500;text-decoration:none}.home-btn:hover{background:#253060;transform:translateY(-2px)}
+/* 単元ごとのチャレンジ */
+.unit-wb{background:#fffbe9;border:2px dashed var(--gold);border-radius:8px;padding:10px 14px;margin-top:14px}
+.unit-wb-lbl{font-size:.7em;color:#b56a00;font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+.unit-wb-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.unit-wb-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.82em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 11px;border-radius:4px;cursor:pointer;transition:.12s}
+.unit-wb-chip:hover{background:#253060}.unit-wb-chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.unit-btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px;align-items:center}
+.unit-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.78em;font-weight:700;border:none;border-radius:5px;padding:6px 14px;cursor:pointer;transition:.12s}
+.unit-btn.challenge{background:var(--orange);color:#fff}
+.unit-btn.check{background:var(--green);color:#fff}
+.unit-btn.hint{background:#8e44ad;color:#fff}
+.unit-btn.retry{background:var(--blue);color:#fff}
+.unit-btn.quiz{background:var(--red);color:#fff}
+.unit-btn:hover{transform:translateY(-1px);opacity:.88}
+.unit-score{display:inline-block;background:var(--ink);color:#fff;font-size:.76em;font-weight:700;padding:3px 10px;border-radius:14px}
+/* 単元の4択問題 */
+.unit-quiz{display:none;margin-top:12px;padding:12px;background:#fff5f5;border:2px solid var(--red);border-radius:8px}
+.unit-quiz.on{display:block}
+.unit-quiz-title{font-size:.9em;font-weight:700;color:var(--red);margin-bottom:10px;border-bottom:1px solid #f5c6c6;padding-bottom:6px}
+.unit-quiz-q{margin-bottom:14px;padding-bottom:10px;border-bottom:1px dashed #ddd}
+.unit-quiz-q:last-child{border-bottom:none}
+.unit-quiz-qt{font-size:.86em;font-weight:700;margin-bottom:7px;line-height:1.6}
+.unit-quiz-num{display:inline-block;background:var(--red);color:#fff;font-size:.72em;padding:2px 8px;border-radius:3px;margin-right:6px}
+.unit-quiz-choices{display:flex;flex-direction:column;gap:5px}
+.uqc{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;padding:7px 11px;border:2px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;text-align:left;transition:.12s;line-height:1.5}
+.uqc:hover{border-color:var(--blue);background:#eef3ff}
+.uqc.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}
+.uqc.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.uqc-explain{display:none;margin-top:7px;font-size:.8em;background:#f0f8ff;border-left:3px solid var(--blue);padding:7px 11px;border-radius:4px;line-height:1.65}
+.uqc-explain.on{display:block}
+/* 単元内の過去問 */
+.unit-kakomon{display:none;margin-top:12px;padding:12px;background:#eef9f1;border:2px solid #1a6b3a;border-radius:8px}
+.unit-kakomon.on{display:block}
+.unit-kakomon-title{font-size:.9em;font-weight:700;color:#1a6b3a;margin-bottom:10px;border-bottom:1px solid #b8e0c5;padding-bottom:6px;display:flex;align-items:center;gap:8px}
+.unit-kakomon-tag{display:inline-block;background:var(--gold);color:var(--ink);font-size:.7em;font-weight:700;padding:2px 8px;border-radius:4px}
+.unit-btn.kakomon{background:#1a6b3a;color:#fff}
+/* チャレンジ中のblank */
+.blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
+.blank.cmode:hover{background:#fff3b0}
+</style>
+</head>
+<body>
+<canvas id="cnv"></canvas>
+<header class="hdr">
+  <div class="hdr-info">
+    <div class="hdr-sub">政治経済 GAMBA</div>
+    <div class="hdr-title">⑪ 国会 ─ 国会の地位・構成・権限・活動</div>
+  </div>
+  <div class="hdr-timer" id="timerDisp">00:00</div>
+</header>
+<nav class="tab-bar">
+  <a class="tab-btn" href="seikei10.html">⑩ 平和主義</a>
+  <a class="tab-btn active" href="seikei11.html">⑪ 国会</a>
+  <a class="tab-btn" href="seikei12.html">⑫ 内閣</a>
+  <a class="tab-btn" href="seikei13.html">⑬ 裁判所(1)</a>
+  <a class="tab-btn" href="seikei14.html">⑭ 裁判所(2)</a>
+  <a class="tab-btn" href="seikei_index.html">📋 単元表</a>
+</nav>
+<div class="phase-bar">
+  <span class="plbl">STEP</span>
+  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明・チャレンジ</span>
+  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②一問一答</span>
+  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③正誤</span>
+  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④フラッシュ</span>
+</div>
+<div class="wb-bar" id="wbBar">
+  <div class="wb-lbl">▶ 語句をタップして選択 → 空欄をタップで入力　／　入力済み空欄をタップするとクリア</div>
+  <div class="wb-chips" id="wbChips"></div>
+</div>
+<div class="main">
+
+<!-- ①説明 -->
+<div class="view on" id="vRead">
+
+  <div class="s-card" data-unit="u1">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">国会の地位 ─ 憲法41条</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">憲法41条</div>
+        <div class="pcont">
+          <p>「国会は<span class="blank show" data-ans="国権">国権</span>の最高機関であり、ゆいいつの<span class="blank show" data-ans="立法">立法</span>機関である」</p>
+          <p>① <strong>国権の最高機関</strong>……国会は国民の代表者で構成され、国政の中心となるということです。これを<span class="blank show" data-ans="国会中心主義">国会中心主義</span>といいます。</p>
+          <p>② <strong>ゆいいつの立法機関</strong>……国会は法律を作ることのできるただ一つの機関だということです。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge red">2つの立法原則</div>
+        <div class="pcont">
+          <p>(1) <span class="blank show" data-ans="国会中心立法">国会中心立法</span>の原則……立法は<strong>国会</strong>しかできないという原則です。(例外あり)</p>
+          <p>(2) <span class="blank show" data-ans="国会単独立法">国会単独立法</span>の原則……国会だけで法律を決めるという原則です。(例外あり)</p>
+          <table class="gtbl">
+            <thead><tr><th>原則</th><th>例外</th></tr></thead>
+            <tbody>
+              <tr><td>国会中心立法の例外</td><td>両議院の<span class="blank show" data-ans="規則">規則</span>制定権・内閣の<span class="blank show" data-ans="政令">政令</span>制定権・最高裁判所の規則制定権・地方公共団体の<span class="blank show" data-ans="条例">条例</span>制定権</td></tr>
+              <tr><td>国会単独立法の例外</td><td><span class="blank show" data-ans="地方特別法">地方特別法</span>の住民投票・<span class="blank show" data-ans="憲法改正">憲法改正</span>の国民投票</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u1">
+        <div class="unit-wb-lbl">▼ 単元①の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u1"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u1')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u1')" style="display:none" id="ub-check-u1">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u1')" style="display:none" id="ub-hint-u1">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u1')" style="display:none" id="ub-retry-u1">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u1')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u1" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u1">
+        <div class="unit-quiz-title">📝 確認問題(単元①国会の地位)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>憲法41条が定める国会の地位として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q0',0,1)">① 国会は行政権の最高機関であり、唯一の司法機関である</button>
+            <button class="uqc" onclick="ansUQ('u1q0',1,1)">② 国会は国権の最高機関であり、唯一の立法機関である</button>
+            <button class="uqc" onclick="ansUQ('u1q0',2,1)">③ 国会は司法権の最高機関であり、唯一の行政機関である</button>
+            <button class="uqc" onclick="ansUQ('u1q0',3,1)">④ 国会は立法権の最高機関であり、唯一の行政機関である</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q0"><strong>正解:②</strong><br>憲法41条は「国会は国権の最高機関であり、ゆいいつの立法機関である」と定めています。「国権」と「立法」の組み合わせが重要です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>国会中心立法の原則の例外にあたらないものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q1',0,3)">① 内閣の政令制定権</button>
+            <button class="uqc" onclick="ansUQ('u1q1',1,3)">② 地方公共団体の条例制定権</button>
+            <button class="uqc" onclick="ansUQ('u1q1',2,3)">③ 最高裁判所の規則制定権</button>
+            <button class="uqc" onclick="ansUQ('u1q1',3,3)">④ 憲法改正の国民投票</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q1"><strong>正解:④</strong><br>①〜③は「国会中心立法」(国会だけが立法できる)の例外です。④の憲法改正の国民投票は「国会<strong>単独</strong>立法」(国会だけで決める)の例外で、別の原則の例外です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>地方特別法の住民投票が定められている原則の例外として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q2',0,1)">① 国会中心立法の原則</button>
+            <button class="uqc" onclick="ansUQ('u1q2',1,1)">② 国会単独立法の原則</button>
+            <button class="uqc" onclick="ansUQ('u1q2',2,1)">③ 三権分立の原則</button>
+            <button class="uqc" onclick="ansUQ('u1q2',3,1)">④ 法の下の平等の原則</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q2"><strong>正解:②</strong><br>地方特別法の住民投票は、国会だけで法律を決められないという「国会単独立法の原則」の例外です。広島平和記念都市建設法などが該当します。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u1',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u1',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u1" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u2">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">国会の構成 ─ 二院制</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">二院制</div>
+        <div class="pcont">
+          <p>国会は、衆議院と参議院の<span class="blank show" data-ans="二院制">二院制</span>を取っています。</p>
+          <table class="gtbl">
+            <thead><tr><th></th><th>定数</th><th>任期</th><th>解散</th><th>被選挙権</th><th>選挙区</th><th>比例区</th></tr></thead>
+            <tbody>
+              <tr><td>衆議院</td><td><span class="blank show" data-ans="465">465</span>人</td><td><span class="blank show" data-ans="4">4</span>年</td><td>あり</td><td><span class="blank show" data-ans="25">25</span>歳以上</td><td>289</td><td>176</td></tr>
+              <tr><td>参議院</td><td><span class="blank show" data-ans="248">248</span>人</td><td><span class="blank show" data-ans="6">6</span>年</td><td>なし</td><td><span class="blank show" data-ans="30">30</span>歳以上</td><td>148</td><td>100</td></tr>
+            </tbody>
+          </table>
+          <div class="note-box">参議院は解散がない代わりに3年ごとに<span class="blank show" data-ans="半数">半数</span>改選されます。参議院の定数は2018年の公職選挙法改正で242人から段階的に増員され、2022年から248人(選挙区148・比例代表100)です。</div>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge orange">問責決議</div>
+        <div class="pcont">
+          <p>参議院は内閣不信任決議はできませんが、<span class="blank show" data-ans="問責決議">問責決議</span>案を提出できます。問責決議案には<strong>法的拘束力はありません</strong>。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u2">
+        <div class="unit-wb-lbl">▼ 単元②の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u2"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u2')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u2')" style="display:none" id="ub-check-u2">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u2')" style="display:none" id="ub-hint-u2">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u2')" style="display:none" id="ub-retry-u2">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u2')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u2" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u2">
+        <div class="unit-quiz-title">📝 確認問題(単元②国会の構成)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>衆議院議員の任期と被選挙権年齢の組み合わせとして正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q0',0,2)">① 任期6年・被選挙権30歳以上</button>
+            <button class="uqc" onclick="ansUQ('u2q0',1,2)">② 任期4年・被選挙権30歳以上</button>
+            <button class="uqc" onclick="ansUQ('u2q0',2,2)">③ 任期4年・被選挙権25歳以上</button>
+            <button class="uqc" onclick="ansUQ('u2q0',3,2)">④ 任期6年・被選挙権25歳以上</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q0"><strong>正解:③</strong><br>衆議院:任期4年・被選挙権25歳以上・解散あり。参議院:任期6年・被選挙権30歳以上・解散なし(3年ごと半数改選)。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>参議院に関する記述として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q1',0,2)">① 任期は4年で、解散がある。</button>
+            <button class="uqc" onclick="ansUQ('u2q1',1,2)">② 内閣不信任決議を可決できる。</button>
+            <button class="uqc" onclick="ansUQ('u2q1',2,2)">③ 3年ごとに半数が改選される。</button>
+            <button class="uqc" onclick="ansUQ('u2q1',3,2)">④ 定数は465人である。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q1"><strong>正解:③</strong><br>① 参議院の任期は6年で解散はない。② 内閣不信任決議は衆議院のみの権限で、参議院は問責決議案を出せるが法的拘束力はない。③ 正しい。④ 参議院の定数は248人(衆議院が465人)。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>問責決議についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q2',0,1)">① 衆議院が内閣に対して提出するもので、法的拘束力がある。</button>
+            <button class="uqc" onclick="ansUQ('u2q2',1,1)">② 参議院が提出するもので、法的拘束力はない。</button>
+            <button class="uqc" onclick="ansUQ('u2q2',2,1)">③ 参議院が提出するもので、可決されると内閣は総辞職しなければならない。</button>
+            <button class="uqc" onclick="ansUQ('u2q2',3,1)">④ 衆議院・参議院のいずれも提出可能で、法的拘束力がある。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q2"><strong>正解:②</strong><br>参議院は内閣不信任決議の権限がないため、問責決議案で代用します。ただし問責決議案には法的拘束力がなく、可決されても内閣総辞職や衆議院解散には結びつきません。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u2',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u2',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u2" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u3">
+    <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">衆議院の優越</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge red">優越の理由</div>
+        <div class="pcont">
+          <p>衆議院は任期が参議院に比べて短く、解散もあるので<strong>民意が反映されやすい</strong>ということで、下記事項について衆議院の<span class="blank show" data-ans="優越">優越</span>が認められています。</p>
+          <table class="gtbl">
+            <thead><tr><th>区分</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>衆議院だけの権限</td><td>① <span class="blank show" data-ans="予算">予算</span>の先議権　② <span class="blank show" data-ans="内閣不信任">内閣不信任</span>決議</td></tr>
+              <tr><td>衆議院の議決が国会の議決となる</td><td>① 予算の議決　② <span class="blank show" data-ans="条約">条約</span>の承認　③ <span class="blank show" data-ans="内閣総理大臣">内閣総理大臣</span>の指名</td></tr>
+              <tr><td>衆議院の再可決</td><td><span class="blank show" data-ans="法律案">法律案</span>の議決</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge purple">議決ルール</div>
+        <div class="pcont">
+          <div class="pt">法律案</div>
+          <p>衆参の議決が不一致 → 必要なら<span class="blank show" data-ans="両院協議会">両院協議会</span> → 参議院が<span class="blank show" data-ans="60">60</span>日以内に議決しないとき → 衆議院の出席議員の<span class="blank show" data-ans="3分の2">3分の2</span>以上で再可決すれば成立。</p>
+          <div class="pt">予算・条約・総理指名</div>
+          <p>衆参の議決が不一致 → 両院協議会 → 参議院が<span class="blank show" data-ans="30">30</span>日以内(首相指名は<span class="blank show" data-ans="10">10</span>日以内)に議決しないとき → 衆議院の議決が国会の議決となる。</p>
+          <div class="note-box">両院協議会:衆参各10名ずつの協議委員による話し合い。出席協議委員の3分の2以上で議決され成案となります。</div>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u3">
+        <div class="unit-wb-lbl">▼ 単元③の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u3"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u3')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u3')" style="display:none" id="ub-check-u3">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u3')" style="display:none" id="ub-hint-u3">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u3')" style="display:none" id="ub-retry-u3">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u3')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u3" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u3">
+        <div class="unit-quiz-title">📝 確認問題(単元③衆議院の優越)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>衆議院だけに認められている権限の組み合わせとして正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q0',0,0)">① 予算の先議権・内閣不信任決議</button>
+            <button class="uqc" onclick="ansUQ('u3q0',1,0)">② 条約の承認・内閣総理大臣の指名</button>
+            <button class="uqc" onclick="ansUQ('u3q0',2,0)">③ 弾劾裁判所の設置・憲法改正の発議</button>
+            <button class="uqc" onclick="ansUQ('u3q0',3,0)">④ 法律案の議決・国政調査権</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q0"><strong>正解:①</strong><br>衆議院だけの権限は「予算の先議権」と「内閣不信任決議権」の2つです。②③は両院共通、④の法律案の議決と国政調査権はどちらの院でも行使できます。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>法律案について衆参の議決が異なる場合、衆議院が再可決するために必要な要件として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q1',0,1)">① 衆議院の出席議員の過半数の賛成</button>
+            <button class="uqc" onclick="ansUQ('u3q1',1,1)">② 衆議院の出席議員の3分の2以上の賛成</button>
+            <button class="uqc" onclick="ansUQ('u3q1',2,1)">③ 衆議院の総議員の過半数の賛成</button>
+            <button class="uqc" onclick="ansUQ('u3q1',3,1)">④ 衆参両院の総議員の3分の2以上の賛成</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q1"><strong>正解:②</strong><br>法律案の再可決には「衆議院の出席議員の3分の2以上」の賛成が必要です。「総議員」ではなく「出席議員」である点に注意。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>予算について参議院が議決しない場合、衆議院の議決が国会の議決となるまでの日数として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q2',0,2)">① 10日以内</button>
+            <button class="uqc" onclick="ansUQ('u3q2',1,2)">② 20日以内</button>
+            <button class="uqc" onclick="ansUQ('u3q2',2,2)">③ 30日以内</button>
+            <button class="uqc" onclick="ansUQ('u3q2',3,2)">④ 60日以内</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q2"><strong>正解:③</strong><br>予算・条約・総理指名は「30日以内」(ただし首相指名は10日以内)に議決しないとき衆議院の議決が国会の議決となります。法律案は「60日以内」で参議院が否決とみなされ、衆議院が3分の2以上で再可決する形です。日数の違いに注意。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>両院協議会についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q3',0,2)">① 衆参各5名ずつの協議委員による話し合い。</button>
+            <button class="uqc" onclick="ansUQ('u3q3',1,2)">② 全国会議員による合同会議。</button>
+            <button class="uqc" onclick="ansUQ('u3q3',2,2)">③ 衆参各10名ずつの協議委員による話し合い。出席協議委員の3分の2以上で成案となる。</button>
+            <button class="uqc" onclick="ansUQ('u3q3',3,2)">④ 衆参各10名ずつの協議委員による話し合い。出席協議委員の過半数で成案となる。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q3"><strong>正解:③</strong><br>両院協議会は衆参各10名ずつ計20名の協議委員による話し合い。出席協議委員の3分の2以上で成案となり、その後両院の本議会で議決されて初めて国会の意思となります。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u3',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u3',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u3" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u4">
+    <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">国会の権限</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">合同で行使</div>
+        <div class="pcont">
+          <p>両院が合同で一つの国会として行使する権限です。</p>
+          <p>・<span class="blank show" data-ans="法律">法律</span>の制定　・予算の議決　・条約の承認<br>
+          ・内閣総理大臣の指名　・<span class="blank show" data-ans="弾劾">弾劾</span>裁判所の設置　・憲法改正の発議</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge orange">別々に行使</div>
+        <div class="pcont">
+          <p>衆参両院がそれぞれ別々に行使する権限です。</p>
+          <p>・<span class="blank show" data-ans="国政調査">国政調査</span>権 … 国政全般の調査、証人の出頭(証言)などを求める権限<br>
+          ・議員の<span class="blank show" data-ans="資格">資格</span>争訟の裁判権<br>
+          ・議員の規則制定権<br>
+          ・議員の<span class="blank show" data-ans="懲罰">懲罰</span>権 … 議員の除名は出席議員の3分の2以上の賛成が必要</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge red">衆議院のみ</div>
+        <div class="pcont">
+          <p>・<span class="blank show" data-ans="内閣不信任決議">内閣不信任決議</span>権</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u4">
+        <div class="unit-wb-lbl">▼ 単元④の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u4"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u4')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u4')" style="display:none" id="ub-check-u4">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u4')" style="display:none" id="ub-hint-u4">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u4')" style="display:none" id="ub-retry-u4">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u4')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u4" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u4">
+        <div class="unit-quiz-title">📝 確認問題(単元④国会の権限)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>両院が合同して一つの国会として行使する権限にあたらないものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q0',0,3)">① 法律の制定</button>
+            <button class="uqc" onclick="ansUQ('u4q0',1,3)">② 内閣総理大臣の指名</button>
+            <button class="uqc" onclick="ansUQ('u4q0',2,3)">③ 弾劾裁判所の設置</button>
+            <button class="uqc" onclick="ansUQ('u4q0',3,3)">④ 内閣不信任決議</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q0"><strong>正解:④</strong><br>①〜③は両院が合同で一つの国会として行使する権限です。④の内閣不信任決議は<strong>衆議院のみ</strong>の権限なので、両院合同の権限ではありません。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>国政調査権についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q1',0,1)">① 衆議院だけが行使できる権限である。</button>
+            <button class="uqc" onclick="ansUQ('u4q1',1,1)">② 衆参両院がそれぞれ別々に行使できる権限である。</button>
+            <button class="uqc" onclick="ansUQ('u4q1',2,1)">③ 内閣の許可があってはじめて行使できる。</button>
+            <button class="uqc" onclick="ansUQ('u4q1',3,1)">④ 司法権の独立を理由に裁判所には及ばない権限である。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q1"><strong>正解:②</strong><br>国政調査権は衆参両院がそれぞれ別々に行使できる権限です。国政全般の調査、証人の出頭・証言を求めることができます。①衆議院のみではない。③内閣の許可は不要。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>議員の除名処分に必要な賛成数として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q2',0,2)">① 出席議員の過半数</button>
+            <button class="uqc" onclick="ansUQ('u4q2',1,2)">② 総議員の過半数</button>
+            <button class="uqc" onclick="ansUQ('u4q2',2,2)">③ 出席議員の3分の2以上</button>
+            <button class="uqc" onclick="ansUQ('u4q2',3,2)">④ 総議員の3分の2以上</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q2"><strong>正解:③</strong><br>議員の懲罰権のうち、除名処分には「出席議員の3分の2以上」の賛成が必要です。「総議員」ではなく「出席議員」、「過半数」ではなく「3分の2以上」である点に注意。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u4',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u4',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u4" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u5">
+    <div class="s-head-e"><div class="s-icon">5</div><div class="s-ht">国会議員の3つの特権</div></div>
+    <div class="s-body">
+      <table class="gtbl">
+        <thead><tr><th>特権</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><span class="blank show" data-ans="歳費">歳費</span>特権</td><td>国から相当額の歳費が支給されます。</td></tr>
+          <tr><td><span class="blank show" data-ans="不逮捕">不逮捕</span>特権</td><td>院外での現行犯逮捕、議員の許諾がある場合を除いて、国会の<strong>会期中</strong>には逮捕されません。所属する議員の要求があれば、会期中・会期前に逮捕された議員も会期中は釈放されます。</td></tr>
+          <tr><td><span class="blank show" data-ans="免責">免責</span>特権</td><td>院内での発言や表決について、院外で民事や刑事の法的責任を問われません。</td></tr>
+        </tbody>
+      </table>
+
+      <div class="unit-wb" id="uwb-u5">
+        <div class="unit-wb-lbl">▼ 単元⑤の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u5"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u5')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u5')" style="display:none" id="ub-check-u5">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u5')" style="display:none" id="ub-hint-u5">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u5')" style="display:none" id="ub-retry-u5">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u5')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u5" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u5">
+        <div class="unit-quiz-title">📝 確認問題(単元⑤国会議員の特権)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>国会議員の不逮捕特権についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q0',0,2)">① 国会議員はいかなる場合も逮捕されない。</button>
+            <button class="uqc" onclick="ansUQ('u5q0',1,2)">② 国会議員は会期外でも一切逮捕されない。</button>
+            <button class="uqc" onclick="ansUQ('u5q0',2,2)">③ 院外での現行犯逮捕、議員の許諾がある場合を除き、会期中は逮捕されない。</button>
+            <button class="uqc" onclick="ansUQ('u5q0',3,2)">④ 国会議員は院内のみ逮捕されない。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q0"><strong>正解:③</strong><br>不逮捕特権は「会期中」のみの特権で、院外での現行犯逮捕や議員の許諾がある場合は逮捕されます。会期前・会期中に逮捕された議員も、所属議院の要求があれば会期中は釈放されます。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>免責特権についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q1',0,1)">① 国会議員は院外での演説についても法的責任を問われない。</button>
+            <button class="uqc" onclick="ansUQ('u5q1',1,1)">② 国会議員は院内での発言・表決について院外で民事・刑事の責任を問われない。</button>
+            <button class="uqc" onclick="ansUQ('u5q1',2,1)">③ 国会議員は院内・院外を問わずすべての法的責任を免除される。</button>
+            <button class="uqc" onclick="ansUQ('u5q1',3,1)">④ 免責特権は会期中のみ認められる。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q1"><strong>正解:②</strong><br>免責特権は「院内」での発言・表決についての特権で、院外で民事・刑事の法的責任を問われません。①院外での発言は対象外。③・④いずれも誤り。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u5',2)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u5',2)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u5" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u6">
+    <div class="s-head-e"><div class="s-icon">6</div><div class="s-ht">国会の活動 ─ 会期と委員会</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">会期(3種類)</div>
+        <div class="pcont">
+          <table class="gtbl">
+            <thead><tr><th>種類</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td><span class="blank show" data-ans="常会">常会</span>(通常国会)</td><td>毎年1回、1月に新年度の予算審議のために召集されます。期間は<span class="blank show" data-ans="150">150</span>日です。</td></tr>
+              <tr><td><span class="blank show" data-ans="臨時会">臨時会</span>(臨時国会)</td><td>内閣またはいずれかの議院の総議員の<span class="blank show" data-ans="4分の1">4分の1</span>以上の要求があるとき臨時に召集されます。</td></tr>
+              <tr><td><span class="blank show" data-ans="特別会">特別会</span>(特別国会)</td><td>衆議院の解散後、総選挙から<span class="blank show" data-ans="30">30</span>日以内に内閣総理大臣の指名のために召集されます。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge orange">緊急集会</div>
+        <div class="pcont">
+          <p>衆議院の解散中に、緊急の必要性がある場合に内閣の要求によって開かれる<span class="blank show" data-ans="参議院">参議院</span>の<span class="blank show" data-ans="緊急集会">緊急集会</span>です。決定事項は国会開会後10日以内に衆議院の同意がなければ効力を失います。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge purple">委員会制度</div>
+        <div class="pcont">
+          <p>すべての議員はいずれかの委員会に属し、実質的な審議は<span class="blank show" data-ans="委員会">委員会</span>で行われます。これを<strong>委員会中心主義</strong>といいます。</p>
+          <p>・<span class="blank show" data-ans="常任">常任</span>委員会 … 常設の委員会(予算委員会・議員運営委員会など)<br>
+          ・<span class="blank show" data-ans="特別">特別</span>委員会 … 特別な必要性があり、会期ごとに設置される委員会</p>
+          <p>委員会では必要に応じ、学識経験者や利害関係者の意見を聴く<span class="blank show" data-ans="公聴会">公聴会</span>が開かれます。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge dk">本会議</div>
+        <div class="pcont">
+          <p>本会議は院として最終決定をする場です。公開が原則ですが、総議員の<span class="blank show" data-ans="3分の2">3分の2</span>以上の賛成があれば秘密会も可能です。<br>
+          定足数は総議員の<span class="blank show" data-ans="3分の1">3分の1</span>以上です。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u6">
+        <div class="unit-wb-lbl">▼ 単元⑥の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u6"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u6')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u6')" style="display:none" id="ub-check-u6">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u6')" style="display:none" id="ub-hint-u6">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u6')" style="display:none" id="ub-retry-u6">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u6')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u6" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u6">
+        <div class="unit-quiz-title">📝 確認問題(単元⑥国会の活動)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>毎年1月に予算審議のために召集される国会と、その期間として正しい組み合わせを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q0',0,1)">① 臨時会 ─ 90日</button>
+            <button class="uqc" onclick="ansUQ('u6q0',1,1)">② 常会 ─ 150日</button>
+            <button class="uqc" onclick="ansUQ('u6q0',2,1)">③ 特別会 ─ 150日</button>
+            <button class="uqc" onclick="ansUQ('u6q0',3,1)">④ 常会 ─ 90日</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q0"><strong>正解:②</strong><br>常会(通常国会)は毎年1回、1月に新年度の予算審議のために召集され、期間は150日です。臨時会は補正予算や重要案件の審議、特別会は衆議院解散後の総選挙から30日以内に総理指名のため召集されます。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>臨時会(臨時国会)の召集要件として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q1',0,1)">① 内閣の決定だけで召集できる。</button>
+            <button class="uqc" onclick="ansUQ('u6q1',1,1)">② 内閣またはいずれかの議院の総議員の4分の1以上の要求で召集される。</button>
+            <button class="uqc" onclick="ansUQ('u6q1',2,1)">③ いずれかの議院の総議員の過半数の要求で召集される。</button>
+            <button class="uqc" onclick="ansUQ('u6q1',3,1)">④ 内閣総理大臣の独断で召集できる。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q1"><strong>正解:②</strong><br>臨時会は内閣またはいずれかの議院の総議員の4分の1以上の要求で召集されます。「4分の1」という数字に注意。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>参議院の緊急集会についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q2',0,2)">① 衆議院議員任期満了時に開かれる。</button>
+            <button class="uqc" onclick="ansUQ('u6q2',1,2)">② 国会議員の過半数の要求で開かれる。</button>
+            <button class="uqc" onclick="ansUQ('u6q2',2,2)">③ 衆議院解散中に緊急の必要があるとき内閣の要求で開かれ、決定事項は国会開会後10日以内に衆議院の同意が必要。</button>
+            <button class="uqc" onclick="ansUQ('u6q2',3,2)">④ 通常国会の閉会中、参議院議員のみで開かれる定例会議。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q2"><strong>正解:③</strong><br>参議院の緊急集会は、衆議院解散中の緊急時に内閣の要求で開かれます。決定事項は後日、国会開会後10日以内に衆議院の同意がなければ効力を失います。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>本会議についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q3',0,3)">① 定足数は総議員の過半数以上である。</button>
+            <button class="uqc" onclick="ansUQ('u6q3',1,3)">② 出席議員の過半数の賛成で秘密会にできる。</button>
+            <button class="uqc" onclick="ansUQ('u6q3',2,3)">③ すべての法案は本会議でのみ審議される。</button>
+            <button class="uqc" onclick="ansUQ('u6q3',3,3)">④ 定足数は総議員の3分の1以上で、秘密会には総議員の3分の2以上の賛成が必要。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q3"><strong>正解:④</strong><br>本会議の定足数は総議員の3分の1以上です。秘密会には総議員の3分の2以上の賛成が必要です。①②は数字が誤り。③実質的審議は委員会で行うため誤り(委員会中心主義)。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u6',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u6',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u6" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u7">
+    <div class="s-head-e"><div class="s-icon">7</div><div class="s-ht">国会の改革 ─ 1999年 国会審議活性化法</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">3つの改革</div>
+        <div class="pcont">
+          <p>① <strong>政府委員制度の廃止</strong> … 官僚が大臣に代わって答弁することを原則禁止。</p>
+          <p>② <strong>副大臣・政務官の導入</strong> … 政務次官を廃止し、各省庁に<span class="blank show" data-ans="副大臣">副大臣</span>と<span class="blank show" data-ans="政務官">政務官</span>を配置。副大臣は天皇の認証が必要で、政務官は不要です。</p>
+          <p>③ <strong>党首討論の導入</strong> = <span class="blank show" data-ans="クエスチョン・タイム">クエスチョン・タイム</span>(イギリス議会の制度に由来)。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u7">
+        <div class="unit-wb-lbl">▼ 単元⑦の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u7"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u7')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u7')" style="display:none" id="ub-check-u7">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u7')" style="display:none" id="ub-hint-u7">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u7')" style="display:none" id="ub-retry-u7">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u7')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u7" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u7">
+        <div class="unit-quiz-title">📝 確認問題(単元⑦国会の改革)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>1999年の国会審議活性化法の内容として誤っているものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u7q0',0,3)">① 政府委員制度を廃止した。</button>
+            <button class="uqc" onclick="ansUQ('u7q0',1,3)">② 副大臣・政務官を導入した。</button>
+            <button class="uqc" onclick="ansUQ('u7q0',2,3)">③ 党首討論(クエスチョン・タイム)を導入した。</button>
+            <button class="uqc" onclick="ansUQ('u7q0',3,3)">④ 行政官庁の官僚が大臣に代わって答弁する制度を新設した。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u7q0"><strong>正解:④</strong><br>1999年の国会審議活性化法は政府委員制度を「廃止」しており、官僚が大臣に代わって答弁する制度を新設したわけではありません。代わりに副大臣・政務官の制度を導入しました。①②③はすべて正しい改革内容です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>党首討論(クエスチョン・タイム)の説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u7q1',0,2)">① アメリカ大統領制を参考にした制度。</button>
+            <button class="uqc" onclick="ansUQ('u7q1',1,2)">② フランス議会の制度を参考にしたもの。</button>
+            <button class="uqc" onclick="ansUQ('u7q1',2,2)">③ イギリス議会の制度を参考にしたもので、首相と野党党首が一対一で討論する。</button>
+            <button class="uqc" onclick="ansUQ('u7q1',3,2)">④ ドイツ議会の制度を参考にしたもの。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u7q1"><strong>正解:③</strong><br>党首討論(クエスチョン・タイム)はイギリス議会の制度を参考にしたもので、1999年の国会審議活性化法により導入されました。首相と野党各党の党首とが一対一で討論する制度です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>副大臣と政務官の違いとして正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u7q2',0,1)">① 副大臣は天皇の認証が不要で、政務官は必要。</button>
+            <button class="uqc" onclick="ansUQ('u7q2',1,1)">② 副大臣は天皇の認証が必要で、政務官は不要。</button>
+            <button class="uqc" onclick="ansUQ('u7q2',2,1)">③ どちらも天皇の認証が必要。</button>
+            <button class="uqc" onclick="ansUQ('u7q2',3,1)">④ どちらも天皇の認証は不要。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u7q2"><strong>正解:②</strong><br>副大臣は天皇の認証が必要(認証官)であり、政務官は天皇の認証が不要です。両者とも国会議員から選ばれ、政務次官に代わって導入されました。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u7',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u7',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u7" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">まとめ過去問 ─ センター試験(国会)</div></div>
+    <div class="s-body">
+      <p style="margin-bottom:14px;font-size:.9em;color:#444">これまでの学習の総仕上げです。実際のセンター試験の過去問にチャレンジしましょう。各選択肢をクリックすると正誤が表示されます。</p>
+
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 衆議院の優越に関連する記述として<strong>正しいもの</strong>を、次の①〜④のうちから一つ選べ。</div>
+        <div class="kk-choices" id="kkc0">
+          <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 衆参両院の議決が異なる法律案は、両院協議会でも成案が得られない場合、衆議院の議決が国会の議決となる。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',1,2,'kkex0')">② 参議院で否決された予算案は、衆議院の出席議員の3分の2以上の賛成で再可決された場合、成立する。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 内閣不信任の決議権は、衆議院のみに付与されている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ 衆議院は、条約の先議権を付与されている。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex0"><strong>正解:③</strong><br>① 法律案は両院協議会でも一致しない場合、衆議院の出席議員の3分の2以上で再可決すれば成立(国会の議決にそのままなるのは予算・条約・総理指名)。② 予算は再可決ではなく、両院協議会でも一致しないか参議院が30日以内に議決しないとき衆議院の議決がそのまま国会の議決となる。③ 正しい。④ 衆議院に先議権があるのは予算で、条約には先議権はない。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 日本の国会議員に認められている日本国憲法上の地位についての記述として<strong>誤っているもの</strong>を、次の①〜④のうちから一つ選べ。</div>
+        <div class="kk-choices" id="kkc1">
+          <button class="kk-choice" onclick="ansKakomon('kkc1',0,3,'kkex1')">① 法律の定める場合を除いて、国会の会期中逮捕されない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',1,3,'kkex1')">② 議院内で行った演説について、議院外で責任を問われない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',2,3,'kkex1')">③ 法律の定めるところにより、国庫から相当額の歳費を受ける。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',3,3,'kkex1')">④ 議員を除名するには、弾劾裁判所の裁判が必要となる。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex1"><strong>正解:④</strong><br>① 不逮捕特権の説明で正しい。② 免責特権の説明で正しい。③ 歳費特権の説明で正しい。④ 誤り。議員の除名には<strong>出席議員の3分の2以上の賛成</strong>が必要。弾劾裁判所は<strong>裁判官</strong>を裁判する機関であり、議員除名の機関ではない。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 国会の審議を活性化するために、日本において現在採用されている方策についての記述として<strong>正しいもの</strong>を、次の①〜④のうちから一つ選べ。</div>
+        <div class="kk-choices" id="kkc2">
+          <button class="kk-choice" onclick="ansKakomon('kkc2',0,0,'kkex2')">① 首相と野党各党の党首とが一対一で討論する党首討論制度(クエスチョン=タイム)が、国会に設けられている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',1,0,'kkex2')">② 首相は、国会の本会議のみならず、すべての常任委員会の審議に出席することが義務づけられている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',2,0,'kkex2')">③ 野党が国民に政策の選択肢を提示できるように、「影の内閣」を組織することが国会法で義務づけられている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',3,0,'kkex2')">④ 国会の審議において専門的な知識が活用されるように、行政官庁の官僚が大臣に代わって答弁する政府委員制度が設けられている。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex2"><strong>正解:①</strong><br>① 正しい。1999年の国会審議活性化法で党首討論(クエスチョン・タイム)が導入された。② 誤り。首相がすべての常任委員会に出席する義務はない。③ 誤り。「影の内閣(シャドーキャビネット)」は野党が独自に組織するもので、国会法上の義務ではない。④ 誤り。1999年の国会審議活性化法で政府委員制度は<strong>廃止</strong>されている。</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /vRead -->
+
+<!-- ③テスト -->
+<div class="view" id="vQ">
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問1</div>憲法41条の規定で、国会は「○○の最高機関であり、ゆいいつの△△機関である」とされている。○○と△△に入る語を答えよ。→ ○○:<span class="blank" data-ans="国権" onclick="fillBlank(this)"></span>　△△:<span class="blank" data-ans="立法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問2</div>立法は国会しかできないという原則を何というか。→ <span class="blank" data-ans="国会中心立法" onclick="fillBlank(this)"></span>の原則</div>
+      <div class="q-item"><div class="qt">問3</div>国会だけで法律を決めるという原則を何というか。→ <span class="blank" data-ans="国会単独立法" onclick="fillBlank(this)"></span>の原則</div>
+      <div class="q-item"><div class="qt">問4</div>内閣が制定する命令を何というか。→ <span class="blank" data-ans="政令" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問5</div>地方公共団体が定める法令を何というか。→ <span class="blank" data-ans="条例" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問6</div>衆議院の定数・任期・被選挙権年齢を答えよ。→ 定数<span class="blank" data-ans="465" onclick="fillBlank(this)"></span>人・任期<span class="blank" data-ans="4" onclick="fillBlank(this)"></span>年・被選挙権<span class="blank" data-ans="25" onclick="fillBlank(this)"></span>歳以上</div>
+      <div class="q-item"><div class="qt">問7</div>参議院の定数・任期・被選挙権年齢を答えよ。→ 定数<span class="blank" data-ans="248" onclick="fillBlank(this)"></span>人・任期<span class="blank" data-ans="6" onclick="fillBlank(this)"></span>年・被選挙権<span class="blank" data-ans="30" onclick="fillBlank(this)"></span>歳以上</div>
+      <div class="q-item"><div class="qt">問8</div>参議院は内閣不信任決議はできないが、法的拘束力のない決議案を提出できる。これを何というか。→ <span class="blank" data-ans="問責決議" onclick="fillBlank(this)"></span>案</div>
+      <div class="q-item"><div class="qt">問9</div>衆参の議決が異なる場合に、衆参各10名の協議委員によって開かれる話し合いを何というか。→ <span class="blank" data-ans="両院協議会" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問10</div>法律案について参議院が議決しないとき衆議院が再議決できる日数と、再可決に必要な議席は?→ <span class="blank" data-ans="60" onclick="fillBlank(this)"></span>日以内に議決しないとき、出席議員の<span class="blank" data-ans="3分の2" onclick="fillBlank(this)"></span>以上で再可決</div>
+      <div class="note-box">【語群①〜⑩】国権　立法　国会中心立法　国会単独立法　政令　条例　465　248　4　6　25　30　問責決議　両院協議会　60　3分の2</div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問11</div>予算・条約・総理指名について参議院が議決しないとき、衆議院の議決が国会の議決となる日数は何日?(首相指名は別)→ <span class="blank" data-ans="30" onclick="fillBlank(this)"></span>日以内(首相指名は<span class="blank" data-ans="10" onclick="fillBlank(this)"></span>日以内)</div>
+      <div class="q-item"><div class="qt">問12</div>国会議員の3つの特権を答えよ。→ <span class="blank" data-ans="歳費" onclick="fillBlank(this)"></span>特権・<span class="blank" data-ans="不逮捕" onclick="fillBlank(this)"></span>特権・<span class="blank" data-ans="免責" onclick="fillBlank(this)"></span>特権</div>
+      <div class="q-item"><div class="qt">問13</div>国政全般の調査や、証人の出頭・証言を求める衆参両院の権限を何というか。→ <span class="blank" data-ans="国政調査" onclick="fillBlank(this)"></span>権</div>
+      <div class="q-item"><div class="qt">問14</div>裁判官を罷免する裁判のために国会内に設置される機関を何というか。→ <span class="blank" data-ans="弾劾裁判所" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問15</div>毎年1月に予算審議のため召集される国会と、その期間は?→ <span class="blank" data-ans="常会" onclick="fillBlank(this)"></span>(通常国会)、<span class="blank" data-ans="150" onclick="fillBlank(this)"></span>日</div>
+      <div class="q-item"><div class="qt">問16</div>内閣またはいずれかの議院の総議員の4分の1以上の要求で召集される国会を何というか。→ <span class="blank" data-ans="臨時会" onclick="fillBlank(this)"></span>(臨時国会)</div>
+      <div class="q-item"><div class="qt">問17</div>衆議院解散後の総選挙から30日以内に総理指名のため召集される国会を何というか。→ <span class="blank" data-ans="特別会" onclick="fillBlank(this)"></span>(特別国会)</div>
+      <div class="q-item"><div class="qt">問18</div>衆議院解散中、緊急時に内閣の要求で開かれる参議院の集まりを何というか。→ 参議院の<span class="blank" data-ans="緊急集会" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問19</div>委員会で必要に応じ、学識経験者や利害関係者の意見を聴くために開かれる会を何というか。→ <span class="blank" data-ans="公聴会" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問20</div>1999年に制定された、副大臣・政務官の導入や党首討論導入を定めた法律と、党首討論の別称は?→ <span class="blank" data-ans="国会審議活性化法" onclick="fillBlank(this)"></span>。党首討論=<span class="blank" data-ans="クエスチョン・タイム" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群⑪〜⑳】30　10　歳費　不逮捕　免責　国政調査　弾劾裁判所　常会　150　臨時会　特別会　緊急集会　公聴会　国会審議活性化法　クエスチョン・タイム</div>
+    </div>
+  </div>
+</div><!-- /vQ -->
+
+<!-- ④正誤 -->
+<div class="view" id="vSeigo">
+  <div class="s-card">
+    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
+    <div class="s-body">
+      <div class="seigo-item" id="sg0"><div class="seigo-q">① 憲法41条は「国会は国権の最高機関であり、ゆいいつの立法機関である」と定めている。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,true,'正しい。憲法41条の規定です。「国権の最高機関」「ゆいいつの立法機関」の2つは必ず覚えましょう。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,true,'正しい。憲法41条の規定です。「国権の最高機関」「ゆいいつの立法機関」の2つは必ず覚えましょう。')">× 誤り</button></div><div class="seigo-explain" id="sgex0"></div></div>
+
+      <div class="seigo-item" id="sg1"><div class="seigo-q">② 内閣が制定する命令である政令や、地方公共団体が定める条例は、国会中心立法の原則の例外にあたる。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,true,'正しい。立法は国会のみが行うという国会中心立法の原則には例外があり、内閣の政令制定権、地方公共団体の条例制定権、両議院の規則制定権、最高裁判所の規則制定権が該当します。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,true,'正しい。立法は国会のみが行うという国会中心立法の原則には例外があり、内閣の政令制定権、地方公共団体の条例制定権、両議院の規則制定権、最高裁判所の規則制定権が該当します。')">× 誤り</button></div><div class="seigo-explain" id="sgex1"></div></div>
+
+      <div class="seigo-item" id="sg2"><div class="seigo-q">③ 衆議院議員の任期は4年・被選挙権25歳以上、参議院議員の任期は6年・被選挙権30歳以上である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,true,'正しい。衆議院は任期4年・25歳以上・解散あり、参議院は任期6年・30歳以上・解散なし(3年ごと半数改選)です。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,true,'正しい。衆議院は任期4年・25歳以上・解散あり、参議院は任期6年・30歳以上・解散なし(3年ごと半数改選)です。')">× 誤り</button></div><div class="seigo-explain" id="sgex2"></div></div>
+
+      <div class="seigo-item" id="sg3"><div class="seigo-q">④ 参議院は内閣不信任決議をすることができ、可決されれば内閣は10日以内に解散しなければならない。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。内閣不信任決議は衆議院のみの権限です。参議院は法的拘束力のない問責決議案を提出できますが、内閣総辞職や衆議院解散には結びつきません。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。内閣不信任決議は衆議院のみの権限です。参議院は法的拘束力のない問責決議案を提出できますが、内閣総辞職や衆議院解散には結びつきません。')">× 誤り</button></div><div class="seigo-explain" id="sgex3"></div></div>
+
+      <div class="seigo-item" id="sg4"><div class="seigo-q">⑤ 法律案について衆参の議決が異なる場合、参議院が60日以内に議決しないときは衆議院の出席議員の3分の2以上で再可決すれば成立する。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,true,'正しい。法律案は両院協議会を経るか、参議院が60日以内に議決しないとき(否決とみなす)、衆議院の出席議員の3分の2以上で再可決すれば成立します。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,true,'正しい。法律案は両院協議会を経るか、参議院が60日以内に議決しないとき(否決とみなす)、衆議院の出席議員の3分の2以上で再可決すれば成立します。')">× 誤り</button></div><div class="seigo-explain" id="sgex4"></div></div>
+
+      <div class="seigo-item" id="sg5"><div class="seigo-q">⑥ 予算・条約・総理指名について参議院が30日以内(首相指名は10日以内)に議決しないとき、衆議院の議決が国会の議決となる。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,true,'正しい。予算・条約・総理指名は衆議院の議決がそのまま国会の議決となります。法律案と異なり再可決は不要です。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,true,'正しい。予算・条約・総理指名は衆議院の議決がそのまま国会の議決となります。法律案と異なり再可決は不要です。')">× 誤り</button></div><div class="seigo-explain" id="sgex5"></div></div>
+
+      <div class="seigo-item" id="sg6"><div class="seigo-q">⑦ 国会議員は院内での発言・表決について院外で民事・刑事の責任を問われない。これを不逮捕特権という。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,false,'誤り。院内での発言・表決について院外で責任を問われない特権は「免責特権」です。「不逮捕特権」は会期中に逮捕されない特権で、別物です。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,false,'誤り。院内での発言・表決について院外で責任を問われない特権は「免責特権」です。「不逮捕特権」は会期中に逮捕されない特権で、別物です。')">× 誤り</button></div><div class="seigo-explain" id="sgex6"></div></div>
+
+      <div class="seigo-item" id="sg7"><div class="seigo-q">⑧ 議員の除名処分には、出席議員の過半数の賛成があれば足りる。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,false,'誤り。議員の除名には出席議員の3分の2以上の賛成が必要です。過半数では除名できません。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,false,'誤り。議員の除名には出席議員の3分の2以上の賛成が必要です。過半数では除名できません。')">× 誤り</button></div><div class="seigo-explain" id="sgex7"></div></div>
+
+      <div class="seigo-item" id="sg8"><div class="seigo-q">⑨ 衆議院解散後の総選挙から30日以内に内閣総理大臣の指名のために召集される国会を、特別会(特別国会)という。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,true,'正しい。衆議院解散→総選挙→30日以内に特別会召集→新内閣総理大臣の指名、という流れです。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,true,'正しい。衆議院解散→総選挙→30日以内に特別会召集→新内閣総理大臣の指名、という流れです。')">× 誤り</button></div><div class="seigo-explain" id="sgex8"></div></div>
+
+      <div class="seigo-item" id="sg9"><div class="seigo-q">⑩ 1999年の国会審議活性化法により、官僚が大臣に代わって答弁する政府委員制度が新たに導入された。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,false,'誤り。逆です。1999年の国会審議活性化法では政府委員制度は「廃止」され、代わりに副大臣・政務官が導入されました。また党首討論(クエスチョン・タイム)も導入されました。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,false,'誤り。逆です。1999年の国会審議活性化法では政府委員制度は「廃止」され、代わりに副大臣・政務官が導入されました。また党首討論(クエスチョン・タイム)も導入されました。')">× 誤り</button></div><div class="seigo-explain" id="sgex9"></div></div>
+    </div>
+  </div>
+</div><!-- /vSeigo -->
+
+<!-- ⑤フラッシュカード(過去問は各単元内に配置) -->
+<div class="view" id="vFlash">
+  <div class="s-card">
+    <div class="s-head-fc"><div class="s-icon">⚡</div><div class="s-ht">フラッシュカード ─ 国会</div></div>
+    <div class="s-body">
+      <div class="fc-settings">
+        <span class="fc-set-lbl">⏱ 速度:</span>
+        <div class="spd-btns"><button class="spd-btn active" data-sec="0" onclick="setFcSpeed(this)">手動</button><button class="spd-btn" data-sec="2" onclick="setFcSpeed(this)">2秒</button><button class="spd-btn" data-sec="3" onclick="setFcSpeed(this)">3秒</button><button class="spd-btn" data-sec="4" onclick="setFcSpeed(this)">4秒</button></div>
+        <span class="fc-set-lbl" style="margin-left:8px">📌 モード:</span>
+        <div class="mode-btns"><button class="mode-btn active" data-mode="term" onclick="setFcMode(this)">用語→意味</button><button class="mode-btn" data-mode="def" onclick="setFcMode(this)">意味→用語</button></div>
+        <button class="fc-start-btn" onclick="startFc()">▶ スタート</button>
+      </div>
+      <div class="fc-arena" id="fcArena">
+        <div class="fc-prog-wrap"><div class="fc-prog-bar"><div class="fc-prog-fill" id="fcProgFill" style="width:0%"></div></div><div class="fc-prog-txt" id="fcProgTxt">0 / 0</div></div>
+        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた:<span id="fcOkCnt">0</span></span><span>❌ もう一度:<span id="fcNgCnt">0</span></span></div>
+        <div class="flash-card" id="flashCard" onclick="fcFlipOrNext()">
+          <div class="fc-unit-tag2">⑪ 国会</div>
+          <div class="fc-side-tag2 q" id="fcSideTag">問題</div>
+          <div class="fc-main-text2" id="fcMainText">スタートボタンを押してください</div>
+          <div class="fc-hint2" id="fcHint2"></div>
+          <div class="fc-ans-area" id="fcAnsArea"><div class="fc-ans-lbl">▶ 答え</div><div class="fc-ans-txt" id="fcAnsTxt"></div></div>
+          <div class="fc-tap-hint2" id="fcTapHint">タップで答えを見る</div>
+          <div class="fc-counter2" id="fcCounter">-</div>
+          <div class="fc-auto-bar2" id="fcAutoBar" style="width:0%"></div>
+        </div>
+        <div class="fc-btns"><button class="fc-btn btn-prev2" onclick="fcPrev()">◀ 前へ</button><button class="fc-btn btn-flip2" onclick="fcFlip()">🔄 裏返す</button><button class="fc-btn btn-next2" onclick="fcNext()">次へ ▶</button><button class="fc-btn btn-stop2" onclick="stopFc()">■ 終了</button></div>
+        <div class="fc-mark-row"><button class="fc-btn" style="background:var(--green);color:#fff" onclick="fcMarkOk()">✅ 覚えた</button><button class="fc-btn" style="background:var(--red);color:#fff" onclick="fcMarkNg()">❌ もう一度</button></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vFlash -->
+
+</div><!-- /main -->
+<div class="jbanner" id="jbanner"></div>
+<div class="foot">
+  <button class="fbtn f-expl"   id="bExpl"      onclick="goTest()">▶ 一問一答テストへ</button>
+  <button class="fbtn f-next"   id="bGoFlashTop" onclick="goFlash()" style="background:var(--blue)">⚡ フラッシュカード</button>
+  <button class="fbtn f-judge"  id="bJudge"      onclick="judgeAll()" style="display:none">✔ 判　定</button>
+  <button class="fbtn f-retry"  id="bRetry"      onclick="retryQ()" style="display:none">↺ やり直し</button>
+  <button class="fbtn f-next"   id="bGoSeigo"    onclick="goSeigo()" style="display:none">▶ 正誤問題へ</button>
+  <button class="fbtn f-next"   id="bGoFlash"    onclick="goFlash()" style="display:none">⚡ フラッシュカードへ</button>
+  <button class="fbtn f-back"   id="bBack"       onclick="backToRead()" style="display:none">📖 説明に戻る</button>
+  <div class="score-pill" id="spill" style="display:none"></div>
+</div>
+<div class="blank-popup" id="popup"><div class="bp-arrow"></div></div>
+<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか?</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
+<a class="home-btn" href="seikei_index.html">🏠 単元表</a>
+
+<script>
+// 単元別の語群
+const UNIT_WORDS={
+  u1:['国権','立法','国会中心主義','国会中心立法','国会単独立法','規則','政令','条例','地方特別法','憲法改正'],
+  u2:['二院制','465','248','4','6','25','30','半数','問責決議'],
+  u3:['優越','予算','内閣不信任','条約','内閣総理大臣','法律案','両院協議会','60','30','10','3分の2'],
+  u4:['法律','弾劾','国政調査','資格','懲罰','内閣不信任決議'],
+  u5:['歳費','不逮捕','免責'],
+  u6:['常会','150','臨時会','4分の1','特別会','30','参議院','緊急集会','委員会','常任','特別','公聴会','3分の2','3分の1'],
+  u7:['副大臣','政務官','クエスチョン・タイム']
+};
+// 単元別の確認問題の正解インデックス
+const UQ_ANS={
+  u1:[1,3,1], u2:[2,2,1], u3:[0,1,2,2], u4:[3,1,2], u5:[2,1],
+  u6:[1,1,2,3], u7:[3,2,1]
+};
+
+// 単元の状態
+const _unitState={};
+
+// 単元の語群を初期化
+function _initUnitWb(uid){
+  var box=document.getElementById('uwb-chips-'+uid);
+  if(!box)return;
+  box.innerHTML='';
+  var words=UNIT_WORDS[uid].slice().sort(function(){return Math.random()-.5});
+  words.forEach(function(w){
+    var btn=document.createElement('button');
+    btn.className='unit-wb-chip';
+    btn.textContent=w;
+    btn.dataset.word=w;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var st=_unitState[uid];
+      if(!st||!st.active)return;
+      if(st.selChip&&st.selChip!==btn)st.selChip.classList.remove('sel');
+      if(st.selChip===btn){st.selChip=null;btn.classList.remove('sel');return}
+      st.selChip=btn;btn.classList.add('sel');
+    });
+    box.appendChild(btn);
+  });
+}
+
+// チャレンジ開始 - 該当単元の空欄を空にする
+function startUnitChallenge(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  _unitState[uid]={active:true,selChip:null};
+  // 空欄をクリア(unit-quiz内のものは除く)
+  card.querySelectorAll('.s-body > .person-row .blank, .s-body > .gtbl .blank, .s-body > table .blank').forEach(function(b){
+    b.textContent='';
+    b.classList.remove('show','ok','ng');
+    b.classList.add('cmode');
+    b.onclick=function(){_fillUnitBlank(uid,b)};
+  });
+  // 直接の子要素から取得し直し
+  var allBlanks=[];
+  card.querySelectorAll('.blank').forEach(function(b){
+    // unit-quiz内は除外
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    allBlanks.push(b);
+    b.textContent='';
+    b.classList.remove('show','ok','ng');
+    b.classList.add('cmode');
+    b.onclick=function(e){e.stopPropagation();_fillUnitBlank(uid,b)};
+  });
+  _initUnitWb(uid);
+  _hide('ub-check-'+uid);_hide('ub-hint-'+uid);_hide('ub-retry-'+uid);
+  _show('ub-check-'+uid);_show('ub-hint-'+uid);
+  document.getElementById('ub-score-'+uid).style.display='none';
+}
+
+// 単元の空欄に語を入れる
+function _fillUnitBlank(uid,blank){
+  var st=_unitState[uid];
+  if(!st)return;
+  if(st.selChip){
+    blank.textContent=st.selChip.textContent;
+    blank.classList.remove('ok','ng');
+    st.selChip.classList.remove('sel');
+    st.selChip=null;
+    return;
+  }
+  if(blank.textContent.trim()!=''){
+    blank.textContent='';
+    blank.classList.remove('ok','ng');
+  }
+}
+
+// 答え合わせ
+function checkUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  var ok=0,total=0;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    total++;
+    if(b.textContent.trim()===b.dataset.ans){
+      b.classList.add('ok');b.classList.remove('ng');ok++;
+    }else{
+      b.classList.add('ng');b.classList.remove('ok');
+    }
+  });
+  var sc=document.getElementById('ub-score-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解';sc.style.display='inline-block';
+  _show('ub-retry-'+uid);
+  if(ok===total&&total>0){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// お手本(全部見せる)
+function hintUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    if(!b.classList.contains('ok')){
+      b.textContent=b.dataset.ans;
+      b.classList.remove('ng');
+      b.classList.add('show');
+    }
+  });
+  _hideBanner();
+}
+
+// もう一度
+function retryUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    b.textContent='';
+    b.classList.remove('ok','ng','show');
+  });
+  _initUnitWb(uid);
+  document.getElementById('ub-score-'+uid).style.display='none';
+  _hideBanner();
+}
+
+// 単元の4択問題を開く
+function openUnitQuiz(uid){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  box.classList.toggle('on');
+  if(box.classList.contains('on')){
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+// 単元の過去問を開く
+function openUnitKakomon(uid){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  box.classList.toggle('on');
+  if(box.classList.contains('on')){
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+// 単元過去問の採点
+function judgeUnitKakomon(uid,total){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  var ok=0,answered=0;
+  qs.forEach(function(q){
+    if(q.dataset.answered){
+      answered++;
+      if(q.dataset.correct==='1')ok++;
+    }
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.add('on');
+  });
+  var sc=document.getElementById('uks-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解'+(answered<total?' (未回答 '+(total-answered)+'問)':'');
+  sc.style.display='inline-block';
+  if(ok===total){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// 単元過去問の再チャレンジ
+function resetUnitKakomon(uid,total){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  qs.forEach(function(q){
+    delete q.dataset.answered;
+    delete q.dataset.correct;
+    q.querySelectorAll('.uqc').forEach(function(b){
+      b.classList.remove('correct','wrong');
+      var attr=b.getAttribute('data-orig-onclick')||b.getAttribute('onclick');
+      if(attr){
+        b.onclick=new Function('event',attr);
+      }
+    });
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.remove('on');
+  });
+  var sc=document.getElementById('uks-'+uid);
+  if(sc)sc.style.display='none';
+  _hideBanner();
+}
+
+// 単元4択の解答
+function ansUQ(qid,sel,cor){
+  var qBox=document.getElementById('uqex-'+qid);
+  if(!qBox)return;
+  var parent=qBox.parentElement;
+  var btns=parent.querySelectorAll('.uqc');
+  if(parent.dataset.answered)return;
+  parent.dataset.answered='1';
+  parent.dataset.correct=(sel===cor)?'1':'0';
+  btns.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+  });
+  // 不正解時のみ解説を表示
+  if(sel!==cor){
+    qBox.classList.add('on');
+  }
+}
+
+// 単元4択の採点
+function judgeUnitQuiz(uid,total){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  var ok=0,answered=0;
+  qs.forEach(function(q){
+    if(q.dataset.answered){
+      answered++;
+      if(q.dataset.correct==='1')ok++;
+    }
+    // 全問の解説を表示
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.add('on');
+  });
+  var sc=document.getElementById('uqs-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解'+(answered<total?' (未回答 '+(total-answered)+'問)':'');
+  sc.style.display='inline-block';
+  if(ok===total){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// 単元4択の再チャレンジ
+function resetUnitQuiz(uid,total){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  qs.forEach(function(q){
+    delete q.dataset.answered;
+    delete q.dataset.correct;
+    q.querySelectorAll('.uqc').forEach(function(b,i){
+      b.classList.remove('correct','wrong');
+      // 元のonclick属性を再設定するために、元のhandler属性を復元
+      var orig=b.getAttribute('data-orig-onclick');
+      if(!orig){
+        // 初回:現在のonclickを保存
+        var attr=b.getAttribute('onclick');
+        if(attr)b.setAttribute('data-orig-onclick',attr);
+      }else{
+        b.setAttribute('onclick',orig);
+      }
+      // 再度onclick動作を有効化(setAttributeは効かない場合があるのでハンドラ再設定)
+    });
+    // 再bind: onclick属性の文字列からansUQ呼び出しを再現するのは複雑なので、
+    // ここでは shouldRebind 用にonclick属性を再評価する方法を使う
+    q.querySelectorAll('.uqc').forEach(function(b){
+      var attr=b.getAttribute('data-orig-onclick')||b.getAttribute('onclick');
+      if(attr){
+        b.onclick=new Function('event',attr);
+      }
+    });
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.remove('on');
+  });
+  var sc=document.getElementById('uqs-'+uid);
+  if(sc)sc.style.display='none';
+  _hideBanner();
+}
+
+// 初期化:確認問題ボタンに onclick属性を退避
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.uqc').forEach(function(b){
+    var attr=b.getAttribute('onclick');
+    if(attr)b.setAttribute('data-orig-onclick',attr);
+  });
+});
+</script>
+<script>
+const QW=['国権','立法','国会中心立法','国会単独立法','政令','条例','465','248','4','6','25','30','問責決議','両院協議会','60','3分の2','10','歳費','不逮捕','免責','国政調査','弾劾裁判所','常会','150','臨時会','特別会','緊急集会','公聴会','国会審議活性化法','クエスチョン・タイム'];
+
+const FC_CARDS=[
+  {q:'憲法41条が定める国会の地位は?',a:'「国会は国権の最高機関であり、ゆいいつの立法機関である」'},
+  {q:'国会中心立法の原則とは?',a:'立法は国会しかできないという原則。例外:両議院の規則制定権・内閣の政令制定権・最高裁判所の規則制定権・地方公共団体の条例制定権'},
+  {q:'国会単独立法の原則とは?',a:'国会だけで法律を決めるという原則。例外:地方特別法の住民投票・憲法改正の国民投票'},
+  {q:'内閣が制定する命令の名称は?',a:'政令(天皇が公布する)'},
+  {q:'地方公共団体が定める法令の名称は?',a:'条例(例:迷惑条例など)'},
+  {q:'衆議院の定数・任期・被選挙権・解散の有無は?',a:'定数465人・任期4年・被選挙権25歳以上・解散あり'},
+  {q:'参議院の定数・任期・被選挙権・解散の有無は?',a:'定数248人・任期6年・被選挙権30歳以上・解散なし(3年ごと半数改選)'},
+  {q:'参議院が出せる、内閣不信任決議に代わる決議は?',a:'問責決議案(法的拘束力なし)'},
+  {q:'衆議院だけの権限は?',a:'①予算の先議権　②内閣不信任決議'},
+  {q:'衆議院の議決がそのまま国会の議決となる事項は?',a:'①予算の議決　②条約の承認　③内閣総理大臣の指名'},
+  {q:'衆議院の再可決の対象と要件は?',a:'対象:法律案。要件:衆議院の出席議員の3分の2以上の賛成'},
+  {q:'両院協議会とは?',a:'衆参各10名ずつの協議委員による話し合い。出席協議委員の3分の2以上で議決され成案となる'},
+  {q:'法律案について参議院が議決しないとき衆議院が再議決できる日数は?',a:'60日以内に議決しないとき(否決とみなして再議決)'},
+  {q:'予算・条約・総理指名について参議院が議決しないとき衆議院の議決が国会の議決となる日数は?',a:'30日以内(首相指名は10日以内)'},
+  {q:'国会が両院合同で行使する権限は?',a:'法律の制定・予算の議決・条約の承認・内閣総理大臣の指名・弾劾裁判所の設置・憲法改正の発議'},
+  {q:'国政調査権とは?',a:'国政全般の調査、証人の出頭・証言などを求めることができる衆参両院の権限'},
+  {q:'議員の除名に必要な賛成は?',a:'出席議員の3分の2以上の賛成'},
+  {q:'国会議員の3つの特権は?',a:'①歳費特権　②不逮捕特権　③免責特権'},
+  {q:'不逮捕特権とは?',a:'院外での現行犯逮捕、議員の許諾がある場合を除き、国会の会期中は逮捕されない特権'},
+  {q:'免責特権とは?',a:'院内での発言・表決について院外で民事・刑事の法的責任を問われない特権'},
+  {q:'常会(通常国会)の召集時期と期間は?',a:'毎年1回、1月に新年度の予算審議のため召集。期間は150日'},
+  {q:'臨時会(臨時国会)はどのようなときに召集されるか?',a:'内閣またはいずれかの議院の総議員の4分の1以上の要求があるとき'},
+  {q:'特別会(特別国会)はいつ召集されるか?',a:'衆議院の解散後、総選挙から30日以内に内閣総理大臣の指名のため召集'},
+  {q:'参議院の緊急集会とは?',a:'衆議院解散中、緊急の必要性がある場合に内閣の要求で開かれる参議院の集まり。決定は10日以内に衆議院の同意がなければ効力を失う'},
+  {q:'委員会中心主義とは?',a:'実質的審議は委員会で行うという日本の国会の運営方式。常任委員会と特別委員会がある'},
+  {q:'公聴会とは?',a:'委員会で必要に応じ、学識経験者や利害関係者の意見を聴くために開かれる会'},
+  {q:'本会議の定足数と秘密会の要件は?',a:'定足数:総議員の3分の1以上。秘密会:総議員の3分の2以上の賛成で可能'},
+  {q:'1999年制定の国会改革の法律は?その3つの改革は?',a:'国会審議活性化法。①政府委員制度の廃止　②副大臣・政務官の導入　③党首討論(クエスチョン・タイム)の導入'},
+  {q:'党首討論の別称は?',a:'クエスチョン・タイム(イギリス議会の制度に由来)'},
+  {q:'副大臣と政務官の違いは?',a:'副大臣は天皇の認証が必要。政務官は天皇の認証は不要'},
+];
+
+var _selChip=null,_tInt=null,_t0=0,_pausedMs=0;
+var _popup=document.getElementById('popup'),_popupTarget=null,_currentView='vRead';
+var _sgAnswered=new Array(10).fill(false),_sgScore=0;
+function _el(id){return document.getElementById(id)}
+function _show(id){var e=_el(id);if(e)e.style.display='inline-block'}
+function _hide(id){var e=_el(id);if(e)e.style.display='none'}
+function _tick(){var ms=_pausedMs+(Date.now()-_t0);var m=String(Math.floor(ms/60000)).padStart(2,'0');var s=String(Math.floor((ms%60000)/1000)).padStart(2,'0');_el('timerDisp').textContent=m+':'+s}
+function _startTimer(){_t0=Date.now();_tInt=setInterval(_tick,200)}
+function _stopTimer(){clearInterval(_tInt);_tInt=null}
+function _resetTimer(){_stopTimer();_pausedMs=0;_el('timerDisp').textContent='00:00'}
+function setPhase(n){for(var i=0;i<4;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
+function _showView(id){['vRead','vQ','vSeigo','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
+function _showWB(){_el('wbBar').style.display='block'}
+function _hideWB(){_el('wbBar').style.display='none'}
+function buildChips(words){var wb=_el('wbChips');wb.innerHTML='';_selChip=null;words.slice().sort(function(){return Math.random()-.5}).forEach(function(w){var btn=document.createElement('button');btn.className='chip';btn.textContent=w;btn.addEventListener('click',function(e){e.stopPropagation();if(_selChip&&_selChip!==btn)_selChip.classList.remove('sel');if(_selChip===btn){_selChip=null;btn.classList.remove('sel');return}_selChip=btn;btn.classList.add('sel')});wb.appendChild(btn)})}
+function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=QW.slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
+function _closePopup(){_popup.classList.remove('open');_popupTarget=null}
+document.addEventListener('click',function(){_closePopup()});
+function fillBlank(b){if(_selChip){b.textContent=_selChip.textContent;b.classList.remove('ok','ng','show');_selChip.classList.remove('sel');_selChip=null;_closePopup();return}if(b===_popupTarget&&_popup.classList.contains('open')){_closePopup();return}if(b.textContent.trim()!=''){b.textContent='';b.classList.remove('ok','ng','show');_closePopup();return}_openPopup(b)}
+function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(1);_startTimer();_hide('bExpl');_hide('bGoFlashTop');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hide('bGoSeigo');_hideBanner()}
+function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);_show('bRetry');_show('bGoSeigo');if(ok===bls.length){_stopTimer();_showBanner(true,ok,bls.length);_startConf();setTimeout(_stopConf,5000)}else _showBanner(false,ok,bls.length)}
+function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
+function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
+function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
+function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
+function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
+function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}
+var _fcCards=[],_fcIdx=0,_fcFlipped=false,_fcSpeed=0,_fcMode='term';
+var _fcAutoTimer=null,_fcTmrInt=null,_fcOkSet=new Set(),_fcNgSet=new Set();
+function setFcSpeed(btn){document.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcSpeed=parseInt(btn.dataset.sec)*1000}
+function setFcMode(btn){document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcMode=btn.dataset.mode}
+function startFc(){_fcCards=FC_CARDS.slice().sort(function(){return Math.random()-.5});_fcIdx=0;_fcFlipped=false;_fcOkSet.clear();_fcNgSet.clear();_el('fcOkCnt').textContent='0';_el('fcNgCnt').textContent='0';_el('fcArena').classList.add('on');var sec=0;clearInterval(_fcTmrInt);_fcTmrInt=setInterval(function(){sec+=0.1;_el('fcTimerDisp').textContent=sec.toFixed(1)},100);showFcCard()}
+function stopFc(){clearInterval(_fcAutoTimer);clearInterval(_fcTmrInt);_el('fcArena').classList.remove('on');_el('fcAutoBar').style.transition='none';_el('fcAutoBar').style.width='0%'}
+function showFcCard(){if(!_fcCards.length)return;var c=_fcCards[_fcIdx];var card=_el('flashCard');card.classList.remove('flip-anim');void card.offsetWidth;card.classList.add('flip-anim');if(_fcMode==='term'){_el('fcSideTag').textContent='問題';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.q}else{_el('fcSideTag').textContent='意味→用語';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.a}_el('fcHint2').textContent='';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='block';_el('fcAnsTxt').textContent='';_el('fcCounter').textContent=(_fcIdx+1)+' / '+_fcCards.length;_el('fcProgFill').style.width=((_fcIdx+1)/_fcCards.length*100)+'%';_el('fcProgTxt').textContent=(_fcIdx+1)+' / '+_fcCards.length;_fcFlipped=false;if(_fcSpeed>0)_startFcAuto()}
+function fcFlip(){if(_fcFlipped)return;_fcFlipped=true;var c=_fcCards[_fcIdx];_el('fcAnsTxt').textContent=(_fcMode==='term'?c.a:c.q);_el('fcAnsArea').classList.add('on');_el('fcSideTag').textContent='答え';_el('fcSideTag').className='fc-side-tag2 a';_el('fcTapHint').style.display='none';_clearFcAuto()}
+function fcFlipOrNext(){if(!_el('fcArena').classList.contains('on'))return;if(!_fcFlipped)fcFlip();else fcNext()}
+function fcNext(){_clearFcAuto();if(_fcIdx<_fcCards.length-1){_fcIdx++;showFcCard()}else{clearInterval(_fcTmrInt);_el('fcMainText').textContent='🎉 全カード完了！お疲れさまでした！';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='none'}}
+function fcPrev(){_clearFcAuto();if(_fcIdx>0){_fcIdx--;showFcCard()}}
+function fcMarkOk(){_fcOkSet.add(_fcIdx);_fcNgSet.delete(_fcIdx);_el('fcOkCnt').textContent=_fcOkSet.size;_el('fcNgCnt').textContent=_fcNgSet.size;fcNext()}
+function fcMarkNg(){_fcNgSet.add(_fcIdx);_fcOkSet.delete(_fcIdx);_el('fcNgCnt').textContent=_fcNgSet.size;_el('fcOkCnt').textContent=_fcOkSet.size;fcNext()}
+function _startFcAuto(){_clearFcAuto();if(_fcSpeed===0)return;var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;bar.style.transition='width '+_fcSpeed+'ms linear';bar.style.width='100%';_fcAutoTimer=setTimeout(function(){if(!_fcFlipped)fcFlip();setTimeout(fcNext,700)},_fcSpeed)}
+function _clearFcAuto(){clearTimeout(_fcAutoTimer);var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%'}
+function _showBanner(pass,ok,tot){var b=_el('jbanner');b.className='jbanner '+(pass?'ban-pass':'ban-ng');b.textContent=pass?('🎉 合格！　全'+tot+'問正解！'):('おしい！　'+ok+' / '+tot+' 問　── もう一息！');b.style.display='block';if(!pass)setTimeout(_hideBanner,2800)}
+function _hideBanner(){var b=_el('jbanner');if(b)b.style.display='none'}
+function _showScore(ok,tot){var p=_el('spill');p.textContent=ok+' / '+tot+' 問正解';p.style.display='inline-block'}
+function _closePause(){_el('pauseModal').classList.remove('open')}
+function closePause(){_closePause();if(_tInt===null&&_t0>0){_t0=Date.now();_tInt=setInterval(_tick,200)}}
+var _cnv,_ctx,_pts=[],_raf=null;
+function _initCanvas(){_cnv=document.getElementById('cnv');_ctx=_cnv?_cnv.getContext('2d'):null}
+function _startConf(){_initCanvas();if(!_ctx)return;_cnv.width=innerWidth;_cnv.height=innerHeight;_pts=[];for(var i=0;i<180;i++)_pts.push({x:Math.random()*_cnv.width,y:Math.random()*_cnv.height-_cnv.height,s:Math.random()*9+4,c:'hsl('+Math.floor(Math.random()*360)+',70%,62%)',sp:Math.random()*3+2,r:Math.random()*Math.PI*2,dr:.05});_af()}
+function _af(){_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts.forEach(function(p){p.y+=p.sp;p.r+=p.dr;_ctx.save();_ctx.translate(p.x,p.y);_ctx.rotate(p.r);_ctx.fillStyle=p.c;_ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);_ctx.restore();if(p.y>_cnv.height)p.y=-20});_raf=requestAnimationFrame(_af)}
+function _stopConf(){if(_raf){cancelAnimationFrame(_raf);_raf=null}if(_ctx)_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts=[]}
+</script>
+</body>
+</html>

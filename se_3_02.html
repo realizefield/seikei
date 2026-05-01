@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>古典文法 02.歴史的仮名遣い（完全再現版）</title>
+    <style>
+        :root {
+            --bg-color: #fdfaf5;
+            --main-blue: #8b0000; 
+            --ans-color: #d32f2f;
+            --ans-bg: #fff9c4;
+            --success-green: #4caf50;
+            --container-width: 1000px;
+        }
+        body { background-color: var(--bg-color); font-family: "Hiragino Sans", "Meiryo", sans-serif; margin: 0; padding: 0; line-height: 2.2; }
+        .wrapper { max-width: var(--container-width); margin: 0 auto; }
+
+        /* ① タイムトライアル表示 */
+        .timer-header { 
+            background: #333; color: white; padding: 12px 25px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            box-sizing: border-box;
+        }
+        .timer-main { font-size: 26px; color: #ffeb3b; font-family: monospace; font-weight: bold; }
+        .reset-btn { background: #666; color: white; border: 1px solid #999; padding: 5px 12px; border-radius: 4px; cursor: pointer; margin-left: 15px; }
+
+        /* ① 単元ボタン */
+        .nav-tabs { 
+            background: white; padding: 15px 20px; border-bottom: 2px solid #ddd; 
+            display: flex; gap: 10px; box-sizing: border-box;
+        }
+        .tab { padding: 12px 20px; border: 1px solid #ccc; border-radius: 5px; background: #f5f5f5; cursor: pointer; color: #333; font-size: 14px; font-weight: bold; flex: 1; text-align: center; }
+        .tab.active { background: var(--main-blue); color: white; border-color: var(--main-blue); }
+
+        .container { padding: 30px 0; }
+        .content-card { background: white; padding: 50px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative; box-sizing: border-box; }
+
+        /* 空欄デザイン */
+        .blank { display: inline-block; min-width: 110px; border-bottom: 2px solid #999; text-align: center; margin: 0 4px; padding: 0 5px; min-height: 1.5em; vertical-align: bottom; cursor: pointer; }
+        .blank.initial { background-color: var(--ans-bg); color: var(--ans-color); font-weight: bold; }
+        .blank.challenge { background-color: #fffde7; color: #333; border-bottom: 2px solid var(--main-blue); }
+        .blank.filled { color: var(--main-blue); background-color: transparent; font-weight: bold; }
+        .blank.correct { color: var(--success-green); border-bottom: 3px solid var(--success-green); }
+
+        /* 問いかけボタンと吹き出し */
+        h2 { border-left: 8px solid var(--main-blue); padding-left: 15px; font-size: 22px; margin-top: 50px; display: flex; align-items: center; gap: 20px; clear: both; }
+        .q-wrapper { position: relative; display: inline-block; }
+        .q-ask-btn { background: #fffde7; border: 1px solid #fbc02d; border-radius: 20px; padding: 6px 18px; cursor: pointer; font-size: 15px; font-weight: bold; color: #555; }
+
+        .balloon {
+            position: absolute; left: 100%; top: 50%; transform: translateY(-50%);
+            margin-left: 20px; width: 480px; background: #fffde7; border: 2px solid #fbc02d;
+            padding: 22px; border-radius: 12px; font-size: 15px; line-height: 1.8; z-index: 100;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.15); display: none; color: #333;
+        }
+        .balloon::before {
+            content: ""; position: absolute; left: -14px; top: 50%; transform: translateY(-50%);
+            border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-right: 14px solid #fbc02d;
+        }
+        .close-btn { display: block; text-align: right; margin-top: 12px; color: #d32f2f; font-weight: bold; cursor: pointer; border: none; background: none; width: 100%; }
+
+        /* 語群固定エリア */
+        #word-bank { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 85%; background: rgba(255,255,255,0.98); border: 4px solid var(--main-blue); padding: 35px; border-radius: 20px; display: none; flex-wrap: wrap; gap: 12px; z-index: 2000; justify-content: center; box-shadow: 0 15px 60px rgba(0,0,0,0.4); }
+        .word-item { background: white; border: 2px solid var(--main-blue); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; color: var(--ans-color); }
+        .word-item.selected { background: var(--main-blue); color: white; }
+        .word-item.used { display: none; } 
+
+        .bottom-controls { text-align: center; margin-top: 60px; display: flex; justify-content: center; gap: 30px; }
+        .btn-action { padding: 18px 50px; border-radius: 10px; border: none; cursor: pointer; font-weight: bold; color: white; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="timer-header">
+        <div class="timer-main">TIME: <span id="timer">00:00.0</span></div>
+        <div class="records-box">
+            1回目 <span id="r1">●</span>秒 ／ 2回目 <span id="r2">●</span>秒 ／ 3回目 <span id="r3">●</span>秒
+            <button class="reset-btn" onclick="resetGame()">タイマーのリセット</button>
+        </div>
+    </div>
+
+    <div class="nav-tabs">
+        <div class="tab">01.古文の基礎知識</div>
+        <div class="tab active">02.歴史的仮名遣い</div>
+        <div class="tab">03.いろは歌と五十音図</div>
+    </div>
+
+    <div class="container">
+        <div class="content-card">
+            <h1>歴史的仮名遣いの読み方（発音のしかた）</h1>
+            <p>現代文に使われている仮名遣いを「現代仮名遣い」といい、古文に使われている仮名遣いを「 <span class="blank initial" data-ans="歴史的仮名遣い">歴史的仮名遣い</span> 」といいます [cite: 4]。これは、 <span class="blank initial" data-ans="平安">平安</span> 時代中期ごろに実際に発音されていた形が基本になっています [cite: 4]。</p>
+
+            <h2>読み方の決まり
+                <div class="q-wrapper">
+                    <button class="q-ask-btn" onclick="toggleBalloon('B1')">Q1: 古語辞典の読み方と、テストでの答え方の違いは？</button>
+                    <div id="B1" class="balloon">
+                        古語辞典に載っている「こうい」などは「表記のしかた」を示しています 。一方で、テストなどで問われるのは「読み方（発音のしかた）」です 。書くときは、長音記号（ー）の代わりに「う」をあてはめると正しい現代仮名遣いの表記になります（例：シューク→<b>しゅうく</b>） 。
+                        <button class="close-btn" onclick="toggleBalloon('B1')">[ 閉じる ]</button>
+                    </div>
+                </div>
+            </h2>
+
+            <p><b>1) 語中・語末の「は行」</b>: 単語の最初を除いた「は・ひ・ふ・へ・ほ」は、 <span class="blank initial" data-ans="ワ・イ・ウ・エ・オ">ワ・イ・ウ・エ・オ</span> と読みます [cite: 7, 8]。<br>
+            例：にほひ → <span class="blank initial" data-ans="ニオイ">ニオイ</span> [cite: 9]、いふ → <span class="blank initial" data-ans="イウ">イウ</span> [cite: 44]、おもふ → <span class="blank initial" data-ans="オモウ">オモウ</span>。</p>
+            
+            <p><b>2) ワ行の「ゐ・ゑ・を」</b>: これらは、 <span class="blank initial" data-ans="イ・エ・オ">イ・エ・オ</span> と読みます [cite: 10]。<br>
+            例：ゐなか → <span class="blank initial" data-ans="イナカ">イナカ</span> [cite: 30]、ゑひ → <span class="blank initial" data-ans="エイ">エイ</span> [cite: 30]、をむな → <span class="blank initial" data-ans="オンナ">オンナ</span> [cite: 31]。</p>
+
+            <p><b>3) 「む」の読み方</b>: 語中の「む」、助動詞「む」「らむ」「けむ」、助詞の「なむ」の「む」は <span class="blank initial" data-ans="ン">ン</span> と読みます [cite: 11, 12]。<br>
+            例：らむ → <span class="blank initial" data-ans="ラン">ラン</span> [cite: 54]、なむ → <span class="blank initial" data-ans="ナン">ナン</span>。</p>
+
+            <p><b>4) 「ぢ・づ」</b>: <span class="blank initial" data-ans="ジ・ズ">ジ・ズ</span> と読みます [cite: 13]。<br>
+            例：なんぢ → <span class="blank initial" data-ans="ナンジ">ナンジ</span> [cite: 33]、ふみづき → <span class="blank initial" data-ans="フミズキ">フミズキ</span> [cite: 142]、はづき → <span class="blank initial" data-ans="ハズキ">ハズキ</span> [cite: 144]。</p>
+
+            <p><b>5) 「くわ・ぐわ」</b>: <span class="blank initial" data-ans="カ・ガ">カ・ガ</span> と読みます [cite: 14]。<br>
+            例：くわんぱく → <span class="blank initial" data-ans="カンパク">カンパク</span> [cite: 33]。</p>
+
+            <h2>長音の決まり
+                <div class="q-wrapper">
+                    <button class="q-ask-btn" onclick="toggleBalloon('B2')">Q2: 母音に「ふ」がつく場合は？</button>
+                    <div id="B2" class="balloon">
+                        母音に「ふ」がつく場合も、(1)と(6)の決まりにより<b>長音</b>で読みます [cite: 27]。nifudau（にふだう）は、決まりにより nifudau → niudau → nyūdō と変化し、 <span class="blank initial" data-ans="ニュードー">ニュードー</span> と発音します [cite: 27, 29]。
+                        <button class="close-btn" onclick="toggleBalloon('B2')">[ 閉じる ]</button>
+                    </div>
+                </div>
+            </h2>
+            <p><b>6) 母音の連続</b>: a・i・u・e・oが連続する場合は長音で読みます [cite: 15]。<br>
+            しうく → <span class="blank initial" data-ans="シューク">シューク</span> [cite: 16]、あふぎ → <span class="blank initial" data-ans="オーギ">オーギ</span> [cite: 31]、えうなし → <span class="blank initial" data-ans="ヨーナシ">ヨーナシ</span> [cite: 32]。</p>
+
+            <p><b>7) 特定の組み合わせ</b>: でうし → <span class="blank initial" data-ans="チョーシ">チョーシ</span> [cite: 26]、かうい → <span class="blank initial" data-ans="コーイ">コーイ</span> [cite: 201]、翁（おうな） → <span class="blank initial" data-ans="オーナ">オーナ</span> [cite: 26]。</p>
+
+            <div class="bottom-controls">
+                <button class="btn-action" style="background: #ff9800;" onclick="startChallenge()">チャレンジ開始</button>
+                <button class="btn-action" style="background: #4caf50;" onclick="checkAnswers()">判　定</button>
+                <button class="btn-action" style="background: #9e9e9e;" onclick="showAllAnswers()">一覧に戻る（答えを見る）</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="word-bank"></div>
+
+<script>
+    let startTime, timerInterval, records = [];
+    let selectedWordElement = null;
+
+    function toggleBalloon(id) {
+        const b = document.getElementById(id);
+        const isOpen = b.style.display === 'block';
+        document.querySelectorAll('.balloon').forEach(el => el.style.display = 'none');
+        b.style.display = isOpen ? 'none' : 'block';
+    }
+
+    function startChallenge() {
+        const blanks = document.querySelectorAll('.blank');
+        const bank = document.getElementById('word-bank');
+        bank.innerHTML = ''; bank.style.display = 'flex';
+        let words = [];
+        
+        // 1. 文中の全data-ansを収集し、空欄を初期化
+        blanks.forEach(b => {
+            words.push(b.getAttribute('data-ans'));
+            b.classList.remove('initial'); 
+            b.classList.add('challenge'); 
+            b.innerText = '';
+            b.onclick = function() {
+                if(this.innerText !== '') {
+                    const usedId = this.getAttribute('data-used-id');
+                    const returnItem = document.getElementById(usedId);
+                    if (returnItem) returnItem.classList.remove('used');
+                    this.innerText = ''; this.classList.remove('filled');
+                }
+                if(selectedWordElement) {
+                    this.innerText = selectedWordElement.innerText;
+                    this.classList.add('filled');
+                    this.setAttribute('data-used-id', selectedWordElement.id);
+                    selectedWordElement.classList.add('used');
+                    selectedWordElement.classList.remove('selected');
+                    selectedWordElement = null;
+                }
+            };
+        });
+
+        // 2. 語群（Word Bank）を生成してシャッフル
+        words.sort(() => Math.random() - 0.5).forEach((w, i) => {
+            const d = document.createElement('div');
+            d.className = 'word-item'; d.id = 'word-' + i; d.innerText = w;
+            d.onclick = function(e) {
+                e.stopPropagation();
+                document.querySelectorAll('.word-item').forEach(item => item.classList.remove('selected'));
+                selectedWordElement = this; this.classList.add('selected');
+            };
+            bank.appendChild(d);
+        });
+
+        // 3. タイマー開始
+        startTime = Date.now(); 
+        timerInterval = setInterval(updateTimer, 100);
+    }
+
+    function updateTimer() {
+        const diff = (Date.now() - startTime) / 1000;
+        document.getElementById('timer').innerText = diff.toFixed(1).padStart(6, '0');
+    }
+
+    function checkAnswers() {
+        let ok = true;
+        document.querySelectorAll('.blank').forEach(b => {
+            if(b.innerText === b.getAttribute('data-ans')) { b.classList.add('correct'); }
+            else {
+                const usedId = b.getAttribute('data-used-id');
+                const returnItem = document.getElementById(usedId);
+                if (returnItem) returnItem.classList.remove('used');
+                b.innerText = ''; b.classList.remove('filled'); ok = false;
+            }
+        });
+        if(ok) {
+            clearInterval(timerInterval);
+            records.push(document.getElementById('timer').innerText);
+            updateRecords();
+            alert("合格！歴史的仮名遣いの読み方をマスターしました。");
+        }
+    }
+
+    function updateRecords() {
+        if(records[0]) document.getElementById('r1').innerText = records[0];
+        if(records[1]) document.getElementById('r2').innerText = records[1];
+        if(records[2]) document.getElementById('r3').innerText = records[2];
+    }
+
+    function showAllAnswers() {
+        document.querySelectorAll('.blank').forEach(b => {
+            b.innerText = b.getAttribute('data-ans');
+            b.classList.add('initial'); b.classList.remove('challenge');
+            b.classList.remove('correct');
+        });
+        document.getElementById('word-bank').style.display = 'none';
+        clearInterval(timerInterval);
+    }
+
+    function resetGame() { location.reload(); }
+</script>
+</body>
+</html>

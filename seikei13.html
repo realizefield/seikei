@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治経済 GAMBA ⑬ 裁判所(1)</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;--gold:#c8972a;--gold2:#f0c040;--red:#c0392b;--blue:#1a3a6b;--green:#1a6b3a;--orange:#e67e22;--purple:#7b2d8b;--muted:#6b7a99;--border:#d8d3c8;--drop:#fffbe6;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.9}
+.hdr{background:var(--ink);color:#fff;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;box-shadow:0 3px 14px rgba(0,0,0,.45)}
+.hdr-info{display:flex;flex-direction:column;gap:1px}
+.hdr-sub{font-size:.65em;opacity:.5;letter-spacing:.12em}
+.hdr-title{font-size:.95em;font-weight:700;letter-spacing:.03em}
+.hdr-timer{font-size:1.15em;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums;min-width:66px;text-align:right}
+.tab-bar{background:#1d2f5a;border-bottom:2px solid var(--gold);display:flex;gap:4px;padding:6px 10px;flex-wrap:wrap;position:sticky;top:52px;z-index:290;overflow-x:auto}
+.tab-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.72em;font-weight:700;padding:5px 11px;border:none;border-radius:4px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.58);cursor:pointer;transition:.14s;white-space:nowrap;text-decoration:none;display:inline-block}
+.tab-btn:hover{background:rgba(255,255,255,.22);color:#fff}.tab-btn.active{background:var(--gold);color:var(--ink)}
+.phase-bar{background:#fff;border-bottom:2px solid var(--border);padding:7px 14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;position:sticky;top:96px;z-index:280}
+.pdot{width:11px;height:11px;border-radius:50%;background:var(--border);transition:.3s;flex-shrink:0}.pdot.on{background:var(--gold)}
+.ptxt{font-size:.75em;color:var(--muted);font-weight:700}.ptxt.on{color:var(--ink)}
+.parr{font-size:.82em;color:var(--border);margin:0 3px}.plbl{font-size:.72em;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.wb-bar{background:#fff;border-bottom:2px solid var(--border);padding:9px 14px;display:none;position:sticky;top:132px;z-index:270;box-shadow:0 4px 10px rgba(0,0,0,.07)}
+.wb-lbl{font-size:.68em;color:var(--muted);font-weight:700;letter-spacing:.08em;margin-bottom:6px}
+.wb-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:32px;align-items:center}
+.chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;transition:.12s}
+.chip:hover{background:#253060;transform:translateY(-1px)}.chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink);transform:scale(1.05)}
+.main{max-width:860px;margin:0 auto;padding:20px 13px 160px}
+.view{display:none}.view.on{display:block}
+.s-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.s-head-e{background:var(--blue);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-q{background:var(--red);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-fc{background:linear-gradient(135deg,#1a3a6b,#2d5ea8);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-kakomon{background:linear-gradient(135deg,#1a6b3a,#27ae60);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-head-seigo{background:linear-gradient(135deg,#7b2d8b,#9b59b6);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-icon{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
+.s-ht{font-size:.92em;font-weight:700;letter-spacing:.03em;flex:1}
+.s-body{padding:16px 18px}
+.person-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed var(--border)}
+.person-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pbadge{background:var(--blue);color:#fff;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:3px;flex-shrink:0}
+.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.purple{background:var(--purple)}.pbadge.dk{background:#2c3e50}
+.pcont{flex:1;font-size:.93em}.pcont p{margin-bottom:8px}.pcont strong{color:var(--blue)}
+.pt{display:inline-block;background:var(--blue);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.blank{display:inline-flex;align-items:center;justify-content:center;min-width:90px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.blank:hover{background:#fff3b0}.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
+.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.84em}
+.gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
+.gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
+.case-card{background:#f8f5ff;border:1.5px solid #9b59b6;border-radius:9px;padding:12px 15px;margin-bottom:11px}
+.case-tag{display:inline-block;font-size:.67em;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:6px;letter-spacing:.04em;color:#fff}
+.case-tag.ken{background:var(--red)}.case-tag.gouken{background:var(--green)}.case-tag.kaiken{background:var(--muted)}
+.case-title{font-size:.9em;font-weight:700;margin-bottom:5px}
+.case-body{font-size:.84em;color:#333;line-height:1.75}
+.note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
+.q-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--border);font-size:.93em;line-height:1.85}
+.q-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.qt{display:inline-block;background:var(--red);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
+.seigo-item{margin-bottom:14px;padding:12px 14px;background:#f8f8f5;border-radius:8px;border:1.5px solid var(--border)}
+.seigo-q{font-size:.92em;margin-bottom:10px;line-height:1.8}
+.seigo-btns{display:flex;gap:8px}
+.seigo-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:7px 18px;border:2px solid var(--border);border-radius:6px;background:#f0f0ee;cursor:pointer;transition:.13s}
+.seigo-btn.correct{background:var(--green);color:#fff;border-color:var(--green)}.seigo-btn.wrong{background:var(--red);color:#fff;border-color:var(--red)}
+.seigo-explain{display:none;margin-top:8px;font-size:.82em;background:#f0f8ff;border-left:3px solid var(--blue);padding:8px 12px;border-radius:4px;line-height:1.7}.seigo-explain.on{display:block}
+.kk-choices{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.kk-choice{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#f8f8f5;cursor:pointer;transition:.13s;text-align:left;line-height:1.5}
+.kk-choice:hover{border-color:var(--blue);background:#eef3ff}.kk-choice.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}.kk-choice.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.kk-explain{display:none;font-size:.83em;background:#f0f8ff;border-radius:6px;padding:10px 13px;border-left:3px solid var(--blue);line-height:1.75;margin-top:7px}.kk-explain.on{display:block}
+.kk-ans-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.76em;font-weight:700;padding:5px 13px;border:none;border-radius:5px;background:var(--blue);color:#fff;cursor:pointer;margin-top:6px}
+.kk-year-tag{font-size:.7em;font-weight:700;background:var(--gold);color:var(--ink);padding:2px 8px;border-radius:4px;margin-bottom:8px;display:inline-block}
+.fc-settings{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:16px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:9px}
+.fc-set-lbl{font-size:.76em;font-weight:700;color:var(--muted);white-space:nowrap}
+.spd-btns,.mode-btns{display:flex;gap:5px}
+.spd-btn,.mode-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:6px 14px;border:2px solid var(--border);border-radius:5px;background:#f5f5f2;cursor:pointer;transition:.12s}
+.spd-btn:hover{border-color:var(--blue)}.spd-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mode-btn:hover{border-color:var(--red)}.mode-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.fc-start-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;font-weight:700;padding:9px 24px;border:none;border-radius:7px;background:var(--red);color:#fff;cursor:pointer;margin-left:auto}
+.fc-arena{display:none}.fc-arena.on{display:block}
+.fc-prog-wrap{margin-bottom:12px}.fc-prog-bar{background:var(--border);border-radius:20px;height:8px;overflow:hidden;margin-bottom:3px}.fc-prog-fill{background:linear-gradient(90deg,var(--blue),var(--gold));height:100%;border-radius:20px;transition:.4s}.fc-prog-txt{font-size:.72em;color:var(--muted);text-align:right;font-weight:700}
+.flash-card{min-height:200px;background:var(--card);border:2px solid var(--border);border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.1);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;text-align:center;position:relative;transition:transform .14s;user-select:none;-webkit-user-select:none;margin-bottom:14px}
+.flash-card:hover{transform:translateY(-2px)}.flash-card.flip-anim{animation:fcFlip .28s ease}
+@keyframes fcFlip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(.95)}}
+.fc-unit-tag2{position:absolute;top:10px;left:12px;font-size:.64em;font-weight:700;background:var(--blue);color:#fff;padding:2px 7px;border-radius:3px}
+.fc-side-tag2{position:absolute;top:10px;right:12px;font-size:.64em;font-weight:700;padding:2px 7px;border-radius:3px}
+.fc-side-tag2.q{background:#fde8e8;color:var(--red)}.fc-side-tag2.a{background:#d4f5e2;color:var(--green)}
+.fc-counter2{position:absolute;bottom:10px;right:12px;font-size:.68em;color:var(--muted);font-weight:700}
+.fc-auto-bar2{position:absolute;bottom:0;left:0;height:4px;background:var(--gold);border-radius:0 0 12px 12px;transition:none}
+.fc-main-text2{font-family:'Noto Serif JP',serif;font-size:1.05em;font-weight:700;line-height:1.75;color:var(--ink)}
+.fc-hint2{font-size:.8em;color:var(--muted);margin-top:8px}.fc-tap-hint2{font-size:.7em;color:var(--muted);opacity:.7;margin-top:10px}
+.fc-ans-area{display:none;width:100%;background:#f0f8ff;border-top:1px dashed var(--border);margin-top:12px;padding-top:12px;text-align:left}.fc-ans-area.on{display:block}
+.fc-ans-lbl{font-size:.66em;font-weight:700;color:var(--green);letter-spacing:.08em;margin-bottom:4px}.fc-ans-txt{font-size:.93em;font-weight:700;color:var(--ink);line-height:1.65}
+.fc-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
+.fc-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:9px 20px;border:none;border-radius:7px;cursor:pointer;transition:.12s}.fc-btn:hover{opacity:.88;transform:translateY(-1px)}
+.btn-prev2{background:#d0d5e0;color:var(--ink)}.btn-flip2{background:var(--blue);color:#fff}.btn-next2{background:var(--green);color:#fff}.btn-stop2{background:var(--muted);color:#fff}
+.fc-mark-row{display:flex;gap:8px;justify-content:center}
+.fc-stat-row2{display:flex;gap:14px;justify-content:center;font-size:.76em;color:var(--muted);font-weight:700;flex-wrap:wrap;margin-bottom:10px}
+.foot{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid var(--border);padding:9px 13px;display:flex;gap:7px;justify-content:center;align-items:center;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.09);flex-wrap:wrap}
+.fbtn{font-family:'BIZ UDPGothic',sans-serif;font-size:.86em;font-weight:700;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;transition:.12s}.fbtn:hover{transform:translateY(-1px);opacity:.88}
+.f-expl{background:var(--orange);color:#fff}.f-check{background:var(--green);color:#fff}.f-hint{background:#8e44ad;color:#fff}.f-next{background:var(--blue);color:#fff}.f-retry{background:var(--blue);color:#fff}.f-back{background:var(--muted);color:#fff}.f-judge{background:var(--green);color:#fff}
+.score-pill{background:var(--ink);color:#fff;padding:5px 13px;border-radius:18px;font-size:.82em;font-weight:700}
+.jbanner{display:none;position:fixed;top:62px;left:50%;transform:translateX(-50%);z-index:600;padding:14px 32px;border-radius:11px;font-size:1.18em;font-weight:700;text-align:center;white-space:nowrap;box-shadow:0 6px 26px rgba(0,0,0,.28);animation:pop .3s cubic-bezier(.17,.67,.37,1.4)}
+@keyframes pop{from{transform:translateX(-50%) scale(.5);opacity:0}to{transform:translateX(-50%) scale(1);opacity:1}}
+.ban-pass{background:#1e7a4a;color:#fff}.ban-ng{background:#c0392b;color:#fff}
+.blank-popup{display:none;position:fixed;z-index:1000;background:#fff;border:2px solid var(--blue);border-radius:8px;padding:9px 11px;box-shadow:0 6px 22px rgba(0,0,0,.22);max-width:320px;flex-wrap:wrap;gap:6px}.blank-popup.open{display:flex}
+.bp-arrow{position:absolute;top:-8px;left:14px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:8px solid var(--blue)}
+.bp-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.83em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:5px 11px;border-radius:4px;cursor:pointer;transition:.11s;white-space:nowrap}.bp-chip:hover{background:var(--blue)}
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;align-items:center;justify-content:center}.modal-ov.open{display:flex}
+.modal-box{background:#fff;border-radius:14px;padding:26px 30px;max-width:330px;width:90%;box-shadow:0 8px 38px rgba(0,0,0,.3);text-align:center}
+.modal-title{font-size:1.06em;font-weight:700;color:var(--ink);margin-bottom:16px}
+.modal-btns{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.modal-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;border:none;border-radius:7px;padding:11px 0;cursor:pointer}
+.mb-resume{background:var(--green);color:#fff}.mb-back{background:var(--muted);color:#fff}.mb-cancel{background:#eee;color:var(--ink)}
+#cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.home-btn{position:fixed;bottom:130px;right:14px;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:22px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;transition:.14s;z-index:500;text-decoration:none}.home-btn:hover{background:#253060;transform:translateY(-2px)}
+/* 単元ごとのチャレンジ */
+.unit-wb{background:#fffbe9;border:2px dashed var(--gold);border-radius:8px;padding:10px 14px;margin-top:14px}
+.unit-wb-lbl{font-size:.7em;color:#b56a00;font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+.unit-wb-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.unit-wb-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.82em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 11px;border-radius:4px;cursor:pointer;transition:.12s}
+.unit-wb-chip:hover{background:#253060}.unit-wb-chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.unit-btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px;align-items:center}
+.unit-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.78em;font-weight:700;border:none;border-radius:5px;padding:6px 14px;cursor:pointer;transition:.12s}
+.unit-btn.challenge{background:var(--orange);color:#fff}
+.unit-btn.check{background:var(--green);color:#fff}
+.unit-btn.hint{background:#8e44ad;color:#fff}
+.unit-btn.retry{background:var(--blue);color:#fff}
+.unit-btn.quiz{background:var(--red);color:#fff}
+.unit-btn:hover{transform:translateY(-1px);opacity:.88}
+.unit-score{display:inline-block;background:var(--ink);color:#fff;font-size:.76em;font-weight:700;padding:3px 10px;border-radius:14px}
+/* 単元の4択問題 */
+.unit-quiz{display:none;margin-top:12px;padding:12px;background:#fff5f5;border:2px solid var(--red);border-radius:8px}
+.unit-quiz.on{display:block}
+.unit-quiz-title{font-size:.9em;font-weight:700;color:var(--red);margin-bottom:10px;border-bottom:1px solid #f5c6c6;padding-bottom:6px}
+.unit-quiz-q{margin-bottom:14px;padding-bottom:10px;border-bottom:1px dashed #ddd}
+.unit-quiz-q:last-child{border-bottom:none}
+.unit-quiz-qt{font-size:.86em;font-weight:700;margin-bottom:7px;line-height:1.6}
+.unit-quiz-num{display:inline-block;background:var(--red);color:#fff;font-size:.72em;padding:2px 8px;border-radius:3px;margin-right:6px}
+.unit-quiz-choices{display:flex;flex-direction:column;gap:5px}
+.uqc{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;padding:7px 11px;border:2px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;text-align:left;transition:.12s;line-height:1.5}
+.uqc:hover{border-color:var(--blue);background:#eef3ff}
+.uqc.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}
+.uqc.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.uqc-explain{display:none;margin-top:7px;font-size:.8em;background:#f0f8ff;border-left:3px solid var(--blue);padding:7px 11px;border-radius:4px;line-height:1.65}
+.uqc-explain.on{display:block}
+/* 単元内の過去問 */
+.unit-kakomon{display:none;margin-top:12px;padding:12px;background:#eef9f1;border:2px solid #1a6b3a;border-radius:8px}
+.unit-kakomon.on{display:block}
+.unit-kakomon-title{font-size:.9em;font-weight:700;color:#1a6b3a;margin-bottom:10px;border-bottom:1px solid #b8e0c5;padding-bottom:6px;display:flex;align-items:center;gap:8px}
+.unit-kakomon-tag{display:inline-block;background:var(--gold);color:var(--ink);font-size:.7em;font-weight:700;padding:2px 8px;border-radius:4px}
+.unit-btn.kakomon{background:#1a6b3a;color:#fff}
+/* チャレンジ中のblank */
+.blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
+.blank.cmode:hover{background:#fff3b0}
+</style>
+</head>
+<body>
+<canvas id="cnv"></canvas>
+<header class="hdr">
+  <div class="hdr-info">
+    <div class="hdr-sub">政治経済 GAMBA</div>
+    <div class="hdr-title">⑬ 裁判所(1) ─ 司法権の独立・裁判官・裁判の種類・違憲立法審査権</div>
+  </div>
+  <div class="hdr-timer" id="timerDisp">00:00</div>
+</header>
+<nav class="tab-bar">
+  <a class="tab-btn" href="seikei10.html">⑩ 平和主義</a>
+  <a class="tab-btn" href="seikei11.html">⑪ 国会</a>
+  <a class="tab-btn" href="seikei12.html">⑫ 内閣</a>
+  <a class="tab-btn active" href="seikei13.html">⑬ 裁判所(1)</a>
+  <a class="tab-btn" href="seikei14.html">⑭ 裁判所(2)</a>
+  <a class="tab-btn" href="seikei_index.html">📋 単元表</a>
+</nav>
+<div class="phase-bar">
+  <span class="plbl">STEP</span>
+  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明・チャレンジ</span>
+  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②一問一答</span>
+  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③正誤</span>
+  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④フラッシュ</span>
+</div>
+<div class="wb-bar" id="wbBar">
+  <div class="wb-lbl">▶ 語句をタップして選択 → 空欄をタップで入力　／　入力済み空欄をタップするとクリア</div>
+  <div class="wb-chips" id="wbChips"></div>
+</div>
+<div class="main">
+
+
+
+<!-- ①説明 -->
+<div class="view on" id="vRead">
+
+  <div class="s-card" data-unit="u1">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">司法権の独立 ─ 2つの独立</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">司法権の独立とは</div>
+        <div class="pcont">
+          <p>裁判所は、国や地方公共団体などの行政機関やその他の圧力によって判決が左右されてはなりません。そこで憲法では<span class="blank show" data-ans="司法権の独立">司法権の独立</span>が規定されています。</p>
+          <p>独立には、<strong>裁判所の独立</strong>と<strong>裁判官の独立</strong>の2つの独立があります。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u1">
+        <div class="unit-wb-lbl">▼ 単元①の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u1"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u1')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u1')" style="display:none" id="ub-check-u1">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u1')" style="display:none" id="ub-hint-u1">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u1')" style="display:none" id="ub-retry-u1">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u1')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u1" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u1">
+        <div class="unit-quiz-title">📝 確認問題(単元①司法権の独立)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>司法権の独立が必要とされる理由として最も適切なものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q0',0,2)">① 裁判官の収入を確保するため。</button>
+            <button class="uqc" onclick="ansUQ('u1q0',1,2)">② 裁判の効率を上げるため。</button>
+            <button class="uqc" onclick="ansUQ('u1q0',2,2)">③ 行政機関などの圧力によって判決が左右されないようにし、公正な裁判を行うため。</button>
+            <button class="uqc" onclick="ansUQ('u1q0',3,2)">④ 裁判官の人数を増やすため。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q0"><strong>正解:③</strong><br>司法権の独立は、行政機関やその他の圧力によって判決が左右されないようにし、公正な裁判を確保するために必要です。憲法で規定されている重要な原則です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>司法権の独立に含まれる「2つの独立」として正しい組み合わせを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q1',0,2)">① 裁判所の独立と国会の独立</button>
+            <button class="uqc" onclick="ansUQ('u1q1',1,2)">② 裁判所の独立と内閣の独立</button>
+            <button class="uqc" onclick="ansUQ('u1q1',2,2)">③ 裁判所の独立と裁判官の独立</button>
+            <button class="uqc" onclick="ansUQ('u1q1',3,2)">④ 裁判官の独立と検察官の独立</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q1"><strong>正解:③</strong><br>司法権の独立は「裁判所の独立」と「裁判官の独立」の2つの独立から成り立っています。前者は他の機関からの組織としての独立、後者は裁判官個人の職権行使の独立を指します。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u1',2)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u1',2)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u1" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u2">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">裁判所の独立 ─ 特別裁判所の禁止</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge red">特別裁判所の禁止</div>
+        <div class="pcont">
+          <p>明治憲法下では、裁判所は「<span class="blank show" data-ans="天皇の名">天皇の名</span>において」裁判する機関とされていました(天皇の代理として裁判)。また、裁判所とは別に<span class="blank show" data-ans="軍法">軍法</span>会議・<span class="blank show" data-ans="行政">行政</span>裁判所・<span class="blank show" data-ans="皇室">皇室</span>裁判所などの<span class="blank show" data-ans="特別裁判所">特別裁判所</span>がありました。</p>
+          <p>日本国憲法では、<strong>特別裁判所の設置が禁止</strong>されています。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge orange">行政裁判の制限</div>
+        <div class="pcont">
+          <p>特別裁判所など<strong>行政機関による<span class="blank show" data-ans="終審">終審</span>としての裁判</strong>は禁止されています。ただし、行政による裁判でも<strong>終審でない裁判</strong>は可能です。</p>
+          <p>例外的に認められる(行政機関等による)裁判:</p>
+          <p>・裁判官の<span class="blank show" data-ans="弾劾">弾劾</span>裁判所の裁判 … 国会に設置される、裁判官を弾劾する裁判所<br>
+          ・国会議員の<span class="blank show" data-ans="資格争訟">資格争訟</span> … 衆議院・参議院でふさわしくない議員の資格を剥奪<br>
+          ・公正取引委員会・人事院・労働委員会・海難審判所などの裁判<br>
+          <span style="color:#888;font-size:.9em">※行政機関の審判に不服があれば通常の裁判所で裁判を受けることができます。</span></p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge purple">最高裁判所の規則制定権</div>
+        <div class="pcont">
+          <p>最高裁判所には<span class="blank show" data-ans="規則制定権">規則制定権</span>があります。国会の干渉を受けずに、訴訟手続きや内部規律を定めることができます。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u2">
+        <div class="unit-wb-lbl">▼ 単元②の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u2"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u2')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u2')" style="display:none" id="ub-check-u2">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u2')" style="display:none" id="ub-hint-u2">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u2')" style="display:none" id="ub-retry-u2">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u2')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u2" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u2">
+        <div class="unit-quiz-title">📝 確認問題(単元②裁判所の独立)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>明治憲法下にあったが日本国憲法下では設置が禁止されている裁判所として誤っているものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q0',0,3)">① 軍法会議</button>
+            <button class="uqc" onclick="ansUQ('u2q0',1,3)">② 行政裁判所</button>
+            <button class="uqc" onclick="ansUQ('u2q0',2,3)">③ 皇室裁判所</button>
+            <button class="uqc" onclick="ansUQ('u2q0',3,3)">④ 高等裁判所</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q0"><strong>正解:④(誤っているもの)</strong><br>①軍法会議・②行政裁判所・③皇室裁判所は明治憲法下にあった特別裁判所で、日本国憲法下では設置が禁止されています。④高等裁判所は通常の(下級)裁判所で、現在も存在します。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>行政機関による裁判の扱いとして正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q1',0,2)">① 行政機関による裁判は一切認められない。</button>
+            <button class="uqc" onclick="ansUQ('u2q1',1,2)">② 行政機関は終審としての裁判のみ可能。</button>
+            <button class="uqc" onclick="ansUQ('u2q1',2,2)">③ 行政機関による終審としての裁判は禁止。終審でない裁判は可能。</button>
+            <button class="uqc" onclick="ansUQ('u2q1',3,2)">④ 内閣の許可があれば終審の裁判も可能。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q1"><strong>正解:③</strong><br>行政機関による「終審」としての裁判は禁止されますが、終審でない裁判(例:公正取引委員会・人事院・労働委員会・海難審判所など)は可能です。不服があれば通常の裁判所に訴えることができます。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>最高裁判所の規則制定権についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q2',0,1)">① 最高裁判所は法律と同等の効力をもつ規則を制定できる。</button>
+            <button class="uqc" onclick="ansUQ('u2q2',1,1)">② 国会の干渉を受けずに訴訟手続きや内部規律を定めることができる権限。</button>
+            <button class="uqc" onclick="ansUQ('u2q2',2,1)">③ 国会の議決を経て規則を制定できる。</button>
+            <button class="uqc" onclick="ansUQ('u2q2',3,1)">④ 内閣の同意があれば規則を改正できる。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q2"><strong>正解:②</strong><br>最高裁判所の規則制定権は、国会の干渉を受けずに訴訟手続きや内部規律を定めるための権限であり、司法権の独立を確保する重要な仕組みです。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u2',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u2',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u2" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u3">
+    <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">裁判官の独立 ─ 身分保障と例外</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">裁判官の職権の独立</div>
+        <div class="pcont">
+          <p>憲法は「すべて裁判官は、その<span class="blank show" data-ans="良心">良心</span>に従い独立してその職権を行い、この<span class="blank show" data-ans="憲法">憲法</span>および<span class="blank show" data-ans="法律">法律</span>のみに拘束される」と規定しています。すべての裁判官は他の機関から干渉を受けず、公正な判決を出せるよう独立しています。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge red">身分保障</div>
+        <div class="pcont">
+          <p>裁判官の身分は次の仕組みによって保障されています。</p>
+          <p>・行政機関による裁判官の解職などの<span class="blank show" data-ans="懲戒">懲戒</span>処分の禁止<br>
+          ・裁判官在任中の報酬の<span class="blank show" data-ans="減額">減額</span>の禁止(定期的に相当額の報酬を保障)</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge orange">罷免の3つの例外</div>
+        <div class="pcont">
+          <p>裁判官の身分保障にも例外があり、在任中でも罷免されることがあります。</p>
+          <table class="gtbl">
+            <thead><tr><th>3つの例外</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>① <span class="blank show" data-ans="心身">心身</span>の故障</td><td>心身の故障のために職務をとることができない場合。</td></tr>
+              <tr><td>② <span class="blank show" data-ans="弾劾">弾劾</span>裁判</td><td>国会内に作られる弾劾裁判所による裁判で罷免される場合。</td></tr>
+              <tr><td>③ <span class="blank show" data-ans="国民審査">国民審査</span></td><td>最高裁判所裁判官のみ。任命後初めての衆議院議員総選挙の際に審査され、その後は10年経過後の総選挙の際に再審査される。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u3">
+        <div class="unit-wb-lbl">▼ 単元③の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u3"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u3')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u3')" style="display:none" id="ub-check-u3">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u3')" style="display:none" id="ub-hint-u3">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u3')" style="display:none" id="ub-retry-u3">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u3')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u3" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u3">
+        <div class="unit-quiz-title">📝 確認問題(単元③裁判官の独立)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>裁判官が職権を行うときに従うべきものとして憲法に規定されているものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q0',0,2)">① 内閣の指示と国会の決議</button>
+            <button class="uqc" onclick="ansUQ('u3q0',1,2)">② 上司の指示と判例</button>
+            <button class="uqc" onclick="ansUQ('u3q0',2,2)">③ 自らの良心、憲法および法律のみ</button>
+            <button class="uqc" onclick="ansUQ('u3q0',3,2)">④ 世論と慣習</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q0"><strong>正解:③</strong><br>憲法76条3項:「すべて裁判官は、その良心に従ひ独立してその職権を行ひ、この憲法及び法律にのみ拘束される」と規定されています。これが裁判官の独立の核心です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>裁判官の身分保障として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q1',0,2)">① 行政機関も裁判官を懲戒できる。</button>
+            <button class="uqc" onclick="ansUQ('u3q1',1,2)">② 在任中も内閣の判断で報酬を減額できる。</button>
+            <button class="uqc" onclick="ansUQ('u3q1',2,2)">③ 行政機関による懲戒処分は禁止され、在任中の報酬減額も禁止されている。</button>
+            <button class="uqc" onclick="ansUQ('u3q1',3,2)">④ 裁判官は終身雇用が保障されている。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q1"><strong>正解:③</strong><br>裁判官の身分保障として、行政機関による懲戒処分の禁止と、在任中の報酬減額の禁止が定められています。これは司法権の独立を確保するための制度です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>裁判官が在任中に罷免される場合として誤っているものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q2',0,3)">① 心身の故障で職務をとれない場合。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',1,3)">② 弾劾裁判所での裁判による場合。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',2,3)">③ 国民審査で罷免される場合(最高裁判所裁判官のみ)。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',3,3)">④ 内閣の判断で罷免される場合。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q2"><strong>正解:④(誤っているもの)</strong><br>裁判官の罷免は①心身の故障、②弾劾裁判、③国民審査(最高裁判所裁判官のみ)の3つの場合に限られます。内閣の判断で罷免することはできません(司法権の独立を侵害するため)。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>最高裁判所裁判官の国民審査について正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q3',0,1)">① 任命後5年経過後の参議院通常選挙の際に審査される。</button>
+            <button class="uqc" onclick="ansUQ('u3q3',1,1)">② 任命後初めての衆議院議員総選挙の際に審査され、その後10年経過後の総選挙で再審査される。</button>
+            <button class="uqc" onclick="ansUQ('u3q3',2,1)">③ 毎年実施される。</button>
+            <button class="uqc" onclick="ansUQ('u3q3',3,1)">④ 国会議員による投票で行われる。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q3"><strong>正解:②</strong><br>最高裁判所裁判官の国民審査は、任命後初めての衆議院議員総選挙の際に行われ、その後は10年経過後の総選挙の際に再審査されます。「初めての衆議院総選挙」と「10年後」がポイント。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u3',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u3',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u3" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u4">
+    <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">司法権の独立が問題となった事件</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge red">3つの代表的事件</div>
+        <div class="pcont">
+          <table class="gtbl">
+            <thead><tr><th>事件</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td><span class="blank show" data-ans="大津">大津</span>事件<br>(1891年)</td><td><strong>内閣による干渉事件</strong>。来日中のロシア皇太子が、警備にあたっていた津田三蔵巡査に襲われ負傷した殺人未遂事件。政府はロシアとの関係悪化を恐れて死刑を求めて圧力をかけたが、大審院院長<span class="blank show" data-ans="児島惟謙">児島惟謙</span>は干渉を拒否し、刑法どおり無期徒刑(無期懲役)の判決を下した。</td></tr>
+              <tr><td><span class="blank show" data-ans="浦和">浦和</span>事件<br>(1948年)</td><td><strong>国会による干渉事件</strong>。無理心中事件の判決を参議院が国政調査をし、刑が軽いことを批判。最高裁判所は司法権の独立を侵すものとして激しく抗議した。</td></tr>
+              <tr><td><span class="blank show" data-ans="平賀">平賀</span>事件<br>(1969年)</td><td><strong>上席裁判官による干渉事件</strong>。<span class="blank show" data-ans="長沼ナイキ">長沼ナイキ</span>基地訴訟を審理する札幌地方裁判所(一審)で、平賀健太所長が担当裁判長に自衛隊の違憲判断回避を求める書簡を送り、裁判官職権行使の独立が問題となった。福島重雄裁判長は後日「自衛隊は違憲」との判決(福島判決)を出した。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u4">
+        <div class="unit-wb-lbl">▼ 単元④の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u4"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u4')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u4')" style="display:none" id="ub-check-u4">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u4')" style="display:none" id="ub-hint-u4">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u4')" style="display:none" id="ub-retry-u4">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u4')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u4" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u4">
+        <div class="unit-quiz-title">📝 確認問題(単元④司法権の独立が問題となった事件)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>大津事件の説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q0',0,1)">① 国会の国政調査による司法干渉事件。</button>
+            <button class="uqc" onclick="ansUQ('u4q0',1,1)">② 内閣がロシア皇太子襲撃事件で死刑を求めて圧力をかけたが、大審院院長児島惟謙が干渉を拒否した事件。</button>
+            <button class="uqc" onclick="ansUQ('u4q0',2,1)">③ 上級裁判官が下級裁判官に書簡を送って干渉した事件。</button>
+            <button class="uqc" onclick="ansUQ('u4q0',3,1)">④ 自衛隊の違憲判決が出された事件。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q0"><strong>正解:②</strong><br>大津事件(1891年)は、内閣による司法干渉に対して大審院院長児島惟謙が拒否し、司法権の独立を守った歴史的事件です。明治期の代表例です。①は浦和事件、③は平賀事件の説明です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>浦和事件で問題となった司法干渉の主体は次のうちどれか。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q1',0,1)">① 内閣</button>
+            <button class="uqc" onclick="ansUQ('u4q1',1,1)">② 参議院(国会)</button>
+            <button class="uqc" onclick="ansUQ('u4q1',2,1)">③ 上席裁判官</button>
+            <button class="uqc" onclick="ansUQ('u4q1',3,1)">④ 行政機関</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q1"><strong>正解:②</strong><br>浦和事件(1948年)は、参議院が国政調査の名目で判決(刑が軽いと批判)に介入したことで、最高裁が司法権の独立を侵すものとして激しく抗議した事件です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>平賀事件で関係する訴訟として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q2',0,2)">① 砂川事件訴訟</button>
+            <button class="uqc" onclick="ansUQ('u4q2',1,2)">② 恵庭事件訴訟</button>
+            <button class="uqc" onclick="ansUQ('u4q2',2,2)">③ 長沼ナイキ基地訴訟</button>
+            <button class="uqc" onclick="ansUQ('u4q2',3,2)">④ 砂川刑事特別法事件</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q2"><strong>正解:③</strong><br>平賀事件(1969年)は長沼ナイキ基地訴訟を審理中に発生しました。札幌地裁の平賀所長が担当裁判長に自衛隊の違憲判断回避を求める書簡を送ったことから、上席裁判官による職権干渉として問題化しました。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u4',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u4',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u4" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u5">
+    <div class="s-head-e"><div class="s-icon">5</div><div class="s-ht">裁判官の任命</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">最高裁判所(15名)の任命</div>
+        <div class="pcont">
+          <table class="gtbl">
+            <thead><tr><th>区分</th><th>指名</th><th>任命/認証</th></tr></thead>
+            <tbody>
+              <tr><td>最高裁判所長官(1名)</td><td><span class="blank show" data-ans="内閣">内閣</span>が指名</td><td><span class="blank show" data-ans="天皇">天皇</span>が任命</td></tr>
+              <tr><td>その他の最高裁判所裁判官(14名)</td><td>—</td><td><span class="blank show" data-ans="内閣">内閣</span>が任命、<span class="blank show" data-ans="天皇">天皇</span>が<span class="blank show" data-ans="認証">認証</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge orange">下級裁判所裁判官の任命</div>
+        <div class="pcont">
+          <p>最高裁判所を<span class="blank show" data-ans="上級">上級</span>裁判所、その他すべての裁判所を<span class="blank show" data-ans="下級">下級</span>裁判所といいます。</p>
+          <p>下級裁判所の裁判官は<span class="blank show" data-ans="最高">最高</span>裁判所が指名した人物の名簿をもとに、<span class="blank show" data-ans="内閣">内閣</span>が任命します。任期は<span class="blank show" data-ans="10">10</span>年で再任は妨げられません。</p>
+          <div class="note-box">名簿は最高裁判所が作成するため、実質的には最高裁判所が決定しています。</div>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u5">
+        <div class="unit-wb-lbl">▼ 単元⑤の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u5"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u5')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u5')" style="display:none" id="ub-check-u5">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u5')" style="display:none" id="ub-hint-u5">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u5')" style="display:none" id="ub-retry-u5">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u5')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u5" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u5">
+        <div class="unit-quiz-title">📝 確認問題(単元⑤裁判官の任命)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>最高裁判所長官の指名・任命を行うのは誰か。正しい組み合わせを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q0',0,1)">① 国会が指名し、天皇が任命する。</button>
+            <button class="uqc" onclick="ansUQ('u5q0',1,1)">② 内閣が指名し、天皇が任命する。</button>
+            <button class="uqc" onclick="ansUQ('u5q0',2,1)">③ 天皇が指名し、内閣が任命する。</button>
+            <button class="uqc" onclick="ansUQ('u5q0',3,1)">④ 国民が指名し、天皇が任命する。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q0"><strong>正解:②</strong><br>最高裁判所長官は内閣が指名し、天皇が任命します。「指名は内閣、任命は天皇」と覚えましょう。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>最高裁判所の長官以外の裁判官(14名)の任命について正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q1',0,1)">① 国会が任命し、天皇が認証する。</button>
+            <button class="uqc" onclick="ansUQ('u5q1',1,1)">② 内閣が任命し、天皇が認証する。</button>
+            <button class="uqc" onclick="ansUQ('u5q1',2,1)">③ 最高裁判所が任命する。</button>
+            <button class="uqc" onclick="ansUQ('u5q1',3,1)">④ 天皇が任命し、最高裁判所が認証する。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q1"><strong>正解:②</strong><br>最高裁判所長官以外の裁判官(14名)は、内閣が任命し、天皇が認証します。長官の場合は「指名→任命」、その他の裁判官は「任命→認証」と区別しましょう。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>下級裁判所裁判官の任命について正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q2',0,2)">① 国会が指名した者の名簿によって、天皇が任命する。</button>
+            <button class="uqc" onclick="ansUQ('u5q2',1,2)">② 内閣が指名した者の名簿によって、最高裁判所が任命する。</button>
+            <button class="uqc" onclick="ansUQ('u5q2',2,2)">③ 最高裁判所が指名した者の名簿によって、内閣が任命する。任期は10年で再任可。</button>
+            <button class="uqc" onclick="ansUQ('u5q2',3,2)">④ 内閣が任命し、任期は終身である。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q2"><strong>正解:③</strong><br>下級裁判所の裁判官は、最高裁判所が指名した者の名簿によって、内閣が任命します。任期は10年で再任は妨げられません。実質的には最高裁判所が決定していると言えます。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u5',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u5',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u5" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u6">
+    <div class="s-head-e"><div class="s-icon">6</div><div class="s-ht">裁判所の種類と三審制</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">5種類の裁判所</div>
+        <div class="pcont">
+          <table class="gtbl">
+            <thead><tr><th>裁判所</th><th>特徴</th></tr></thead>
+            <tbody>
+              <tr><td><span class="blank show" data-ans="最高">最高</span>裁判所</td><td>全国に1ヵ所、東京にある。<span class="blank show" data-ans="15">15</span>人の裁判官がいる。最終判決をする。<span class="blank show" data-ans="規則">規則</span>制定権がある。</td></tr>
+              <tr><td><span class="blank show" data-ans="高等">高等</span>裁判所</td><td>全国に8ヵ所。<br>2005年、特許権などの知的財産権に関する訴訟を専門的に扱う<span class="blank show" data-ans="知的財産">知的財産</span>高等裁判所が設置された。</td></tr>
+              <tr><td><span class="blank show" data-ans="地方">地方</span>裁判所</td><td>全国に50ヵ所。第一審となりやすい。</td></tr>
+              <tr><td><span class="blank show" data-ans="家庭">家庭</span>裁判所</td><td>地方裁判所と併設、全国に50ヵ所。少年事件・家庭内事件を扱う。</td></tr>
+              <tr><td><span class="blank show" data-ans="簡易">簡易</span>裁判所</td><td>① 民事裁判:訴額140万円以下<br>② 刑事裁判:罰金刑以下<br>小さな事件を扱う。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge red">三審制</div>
+        <div class="pcont">
+          <p>日本では公正な裁判を行うため、3回の審理を保障する<span class="blank show" data-ans="三審制">三審制</span>をとっています。</p>
+          <p><strong>例外</strong>:国家の政治機構を破壊する犯罪である<span class="blank show" data-ans="内乱罪">内乱罪</span>については、第一審が<span class="blank show" data-ans="高等">高等</span>裁判所からの<span class="blank show" data-ans="二審制">二審制</span>となっています。</p>
+          <table class="gtbl">
+            <thead><tr><th>用語</th><th>意味</th></tr></thead>
+            <tbody>
+              <tr><td><span class="blank show" data-ans="上訴">上訴</span></td><td>上級の裁判所に判断を求めること。</td></tr>
+              <tr><td><span class="blank show" data-ans="控訴">控訴</span></td><td>第一審から第二審へ上訴すること。</td></tr>
+              <tr><td><span class="blank show" data-ans="上告">上告</span></td><td>第二審から第三審へ上訴すること。</td></tr>
+              <tr><td><span class="blank show" data-ans="抗告">抗告</span></td><td>裁判所の下した決定や命令について不服がある場合の上訴。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u6">
+        <div class="unit-wb-lbl">▼ 単元⑥の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u6"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u6')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u6')" style="display:none" id="ub-check-u6">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u6')" style="display:none" id="ub-hint-u6">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u6')" style="display:none" id="ub-retry-u6">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u6')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u6" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u6">
+        <div class="unit-quiz-title">📝 確認問題(単元⑥裁判所の種類と三審制)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>最高裁判所についての説明として誤っているものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q0',0,3)">① 全国に1ヵ所、東京にある。</button>
+            <button class="uqc" onclick="ansUQ('u6q0',1,3)">② 15人の裁判官で構成される。</button>
+            <button class="uqc" onclick="ansUQ('u6q0',2,3)">③ 規則制定権がある。</button>
+            <button class="uqc" onclick="ansUQ('u6q0',3,3)">④ 全国に8ヵ所設置されている。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q0"><strong>正解:④(誤っているもの)</strong><br>最高裁判所は全国に1ヵ所、東京にあります。「全国に8ヵ所」は高等裁判所の説明です。①②③は最高裁判所の正しい説明です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>2005年に設置された、知的財産権に関する訴訟を専門的に扱う裁判所は?</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q1',0,2)">① 知的財産地方裁判所</button>
+            <button class="uqc" onclick="ansUQ('u6q1',1,2)">② 知的財産簡易裁判所</button>
+            <button class="uqc" onclick="ansUQ('u6q1',2,2)">③ 知的財産高等裁判所</button>
+            <button class="uqc" onclick="ansUQ('u6q1',3,2)">④ 知的財産特別裁判所</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q1"><strong>正解:③</strong><br>2005年に知的財産高等裁判所が設置されました。特許権などの知的財産権に関する訴訟を専門的に扱う、東京高等裁判所の特別の支部です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>三審制の例外として二審制となる事件を選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q2',0,1)">① 殺人罪</button>
+            <button class="uqc" onclick="ansUQ('u6q2',1,1)">② 内乱罪</button>
+            <button class="uqc" onclick="ansUQ('u6q2',2,1)">③ 詐欺罪</button>
+            <button class="uqc" onclick="ansUQ('u6q2',3,1)">④ 窃盗罪</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q2"><strong>正解:②</strong><br>国家の政治機構を破壊する犯罪である内乱罪については、第一審が高等裁判所からの二審制となっています(三審制の例外)。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>第二審から第三審へ上訴することを何というか。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q3',0,2)">① 控訴</button>
+            <button class="uqc" onclick="ansUQ('u6q3',1,2)">② 抗告</button>
+            <button class="uqc" onclick="ansUQ('u6q3',2,2)">③ 上告</button>
+            <button class="uqc" onclick="ansUQ('u6q3',3,2)">④ 再審</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q3"><strong>正解:③</strong><br>第一審→第二審が「控訴」、第二審→第三審が「上告」、決定や命令への上訴が「抗告」です。整理して覚えましょう。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u6',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u6',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u6" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u7">
+    <div class="s-head-e"><div class="s-icon">7</div><div class="s-ht">裁判の種類と公開・違憲立法審査権</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">2種類の裁判</div>
+        <div class="pcont">
+          <table class="gtbl">
+            <thead><tr><th>種類</th><th>内容</th><th>当事者</th></tr></thead>
+            <tbody>
+              <tr><td><span class="blank show" data-ans="民事">民事</span>裁判</td><td>金銭問題・相続・離婚など、私人(個人や会社)間の権利や義務をめぐる裁判。</td><td>訴えた当事者:<span class="blank show" data-ans="原告">原告</span><br>訴えられた当事者:<span class="blank show" data-ans="被告">被告</span></td></tr>
+              <tr><td><span class="blank show" data-ans="刑事">刑事</span>裁判</td><td>窃盗・殺人・放火・詐欺など、刑法に触れる犯罪行為に対して刑罰を要求する裁判。</td><td>訴える当事者(原告):<span class="blank show" data-ans="検察官">検察官</span><br>起訴前:<span class="blank show" data-ans="被疑者">被疑者</span><br>起訴後:<span class="blank show" data-ans="被告人">被告人</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge orange">裁判の公開</div>
+        <div class="pcont">
+          <p>裁判は<span class="blank show" data-ans="判決">判決</span>と、裁判官の前で主張しあう弁論である<span class="blank show" data-ans="対審">対審</span>とがあり、必ず<span class="blank show" data-ans="公開">公開</span>することになっています。</p>
+          <p>対審については、公序良俗を害するおそれがあると判断した場合、裁判官の全員一致により<strong>非公開</strong>とすることができます。</p>
+          <div class="note-box">ただし、政治犯罪・出版に関する犯罪・基本的人権が問題となっている事件については非公開は許されません。</div>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge red">違憲立法審査権</div>
+        <div class="pcont">
+          <p><span class="blank show" data-ans="違憲立法審査">違憲立法審査</span>権 … 法律や行政の命令、規則などの内容と運用について、憲法に違反していないかを審査する権利。<strong>すべての裁判所</strong>にあります。</p>
+          <p>憲法81条:「最高裁判所は、一切の法律・命令・規則又は処分が憲法に適合するかしないかを決定する権限を有する<span class="blank show" data-ans="終審裁判所">終審裁判所</span>である」と規定されており、最高裁判所は<span class="blank show" data-ans="憲法">憲法</span>の番人と言われています。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u7">
+        <div class="unit-wb-lbl">▼ 単元⑦の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u7"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u7')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u7')" style="display:none" id="ub-check-u7">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u7')" style="display:none" id="ub-hint-u7">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u7')" style="display:none" id="ub-retry-u7">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u7')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u7" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u7">
+        <div class="unit-quiz-title">📝 確認問題(単元⑦裁判の種類・公開・違憲立法審査権)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>民事裁判で訴えられた当事者を何というか。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u7q0',0,2)">① 検察官</button>
+            <button class="uqc" onclick="ansUQ('u7q0',1,2)">② 被疑者</button>
+            <button class="uqc" onclick="ansUQ('u7q0',2,2)">③ 被告</button>
+            <button class="uqc" onclick="ansUQ('u7q0',3,2)">④ 被告人</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u7q0"><strong>正解:③</strong><br>民事裁判では訴えた者を「原告」、訴えられた者を「被告」といいます。刑事裁判では起訴前を「被疑者」、起訴後を「被告人」というので混同しないように注意。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>刑事裁判で訴える当事者(原告)は誰か。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u7q1',0,1)">① 警察官</button>
+            <button class="uqc" onclick="ansUQ('u7q1',1,1)">② 検察官</button>
+            <button class="uqc" onclick="ansUQ('u7q1',2,1)">③ 被害者</button>
+            <button class="uqc" onclick="ansUQ('u7q1',3,1)">④ 弁護士</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u7q1"><strong>正解:②</strong><br>刑事裁判では検察官が原告として被疑者を起訴します。起訴された被疑者を被告人と呼びます。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>裁判の公開原則についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u7q2',0,2)">① 裁判は常にすべて非公開で行われる。</button>
+            <button class="uqc" onclick="ansUQ('u7q2',1,2)">② 判決のみ公開され、対審は常に非公開。</button>
+            <button class="uqc" onclick="ansUQ('u7q2',2,2)">③ 判決と対審は必ず公開が原則。ただし対審は公序良俗を害するおそれがある場合、裁判官の全員一致で非公開にできる。</button>
+            <button class="uqc" onclick="ansUQ('u7q2',3,2)">④ 政治犯罪は常に非公開。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u7q2"><strong>正解:③</strong><br>裁判の判決と対審は公開が原則です。対審のみ、公序良俗を害するおそれがあると判断した場合に裁判官全員一致で非公開にできます。ただし政治犯罪・出版に関する犯罪・基本的人権が問題となる事件は常に公開です(④は誤り)。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>違憲立法審査権についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u7q3',0,2)">① 最高裁判所だけが持つ権限である。</button>
+            <button class="uqc" onclick="ansUQ('u7q3',1,2)">② 高等裁判所以上の裁判所が持つ権限である。</button>
+            <button class="uqc" onclick="ansUQ('u7q3',2,2)">③ すべての裁判所が持つが、最終判断は最高裁判所が下す。</button>
+            <button class="uqc" onclick="ansUQ('u7q3',3,2)">④ 国会が持つ権限である。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u7q3"><strong>正解:③</strong><br>違憲立法審査権はすべての裁判所が持っていますが、最終的な判断は最高裁判所が下すため、最高裁判所は「憲法の番人」と呼ばれています(憲法81条:終審裁判所)。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u7',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u7',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u7" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">まとめ過去問 ─ センター試験(裁判所(1))</div></div>
+    <div class="s-body">
+      <p style="margin-bottom:14px;font-size:.9em;color:#444">これまでの学習の総仕上げです。実際のセンター試験の過去問にチャレンジしましょう。各選択肢をクリックすると正誤が表示されます。</p>
+
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 日本の司法制度の原則A〜Cと、それを必要とする主な理由ア〜ウとの組合せとして<strong>正しいもの</strong>を、次の①〜⑥のうちから一つ選べ。<br>
+        <span style="font-weight:normal">A 裁判の公開　B 裁判官の身分保障　C 三審制<br>
+        ア 司法権の独立　イ 慎重な審理　ウ 公正な裁判</span></div>
+        <div class="kk-choices" id="kkc0">
+          <button class="kk-choice" onclick="ansKakomon('kkc0',0,4,'kkex0')">① A-ア B-イ C-ウ</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',1,4,'kkex0')">② A-ア B-ウ C-イ</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',2,4,'kkex0')">③ A-イ B-ア C-ウ</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',3,4,'kkex0')">④ A-イ B-ウ C-ア</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',4,4,'kkex0')">⑤ A-ウ B-ア C-イ</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc0',5,4,'kkex0')">⑥ A-ウ B-イ C-ア</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex0"><strong>正解:⑤</strong><br>A 裁判の公開 — ウ <strong>公正な裁判</strong>:裁判を公開することで密室での恣意的な裁判を防ぐ。<br>B 裁判官の身分保障 — ア <strong>司法権の独立</strong>:裁判官が他の権力から圧力を受けず独立して職権を行使できるようにするため。<br>C 三審制 — イ <strong>慎重な審理</strong>:同じ事件を3回審理することで誤判を防ぎ慎重な審理を保障する。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 国民審査についての記述として<strong>適当でないもの</strong>を、次の①〜④のうちから一つ選べ。</div>
+        <div class="kk-choices" id="kkc1">
+          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 最高裁判所裁判官に対する最初の国民審査は、その任命後初めて行われる衆議院議員総選挙の際に実施される。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② ×の記号を記入しない投票は、投票者が罷免の意思をもたないものとみなされている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ ×の記号を記入した投票数が有権者の過半数である場合に、裁判官の罷免が成立する。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 国民審査は、憲法で保障されている国民による公務員の選定罷免権を具体化するものである。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex1"><strong>正解:③</strong><br>×印を記入した投票数が「<strong>投票者</strong>の過半数」に達した場合に罷免されます。「有権者の過半数」ではない点に注意。①②④はいずれも正しい記述です。</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /vRead -->
+<!-- ②一問一答テスト -->
+<div class="view" id="vQ">
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問1</div>裁判所が他の機関の圧力を受けずに公正な裁判を行うため、憲法で規定されている原則を何というか。→ <span class="blank" data-ans="司法権の独立" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問2</div>明治憲法下で存在したが、日本国憲法では設置が禁止されている裁判所を総称して何というか。→ <span class="blank" data-ans="特別裁判所" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問3</div>国会の干渉を受けずに、最高裁判所が訴訟手続きや内部規律を定めることのできる権限を何というか。→ <span class="blank" data-ans="規則制定権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問4</div>憲法76条「すべて裁判官は、その○○に従い独立してその職権を行い、この憲法および△△のみに拘束される」。○○・△△は?→ ○○:<span class="blank" data-ans="良心" onclick="fillBlank(this)"></span>　△△:<span class="blank" data-ans="法律" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問5</div>裁判官が在任中でも罷免される3つの場合のうち、最高裁判所裁判官のみに該当するものは?→ <span class="blank" data-ans="国民審査" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問6</div>国会内に設けられ、裁判官を罷免する裁判をする機関を何というか。→ <span class="blank" data-ans="弾劾裁判所" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問7</div>1891年、来日中のロシア皇太子が襲撃された事件で、内閣の干渉を拒否した大審院院長の名前と、この事件名を答えよ。→ 事件:<span class="blank" data-ans="大津事件" onclick="fillBlank(this)"></span>　大審院院長:<span class="blank" data-ans="児島惟謙" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問8</div>1969年、長沼ナイキ基地訴訟を審理する札幌地裁で所長が裁判長に書簡を送ったことから司法権の独立が問題となった事件は?→ <span class="blank" data-ans="平賀事件" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問9</div>最高裁判所長官の指名と任命をそれぞれ行うのは誰か。→ 指名:<span class="blank" data-ans="内閣" onclick="fillBlank(this)"></span>　任命:<span class="blank" data-ans="天皇" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問10</div>下級裁判所裁判官の任命の流れと任期を答えよ。→ <span class="blank" data-ans="最高" onclick="fillBlank(this)"></span>裁判所が指名した名簿により<span class="blank" data-ans="内閣" onclick="fillBlank(this)"></span>が任命。任期は<span class="blank" data-ans="10" onclick="fillBlank(this)"></span>年</div>
+      <div class="note-box">【語群①〜⑩】司法権の独立　特別裁判所　規則制定権　良心　法律　国民審査　弾劾裁判所　大津事件　児島惟謙　平賀事件　内閣　天皇　最高　10</div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問11</div>5種類の裁判所のうち、東京に1ヵ所だけある終審の裁判所と、その裁判官の人数は?→ <span class="blank" data-ans="最高裁判所" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="15" onclick="fillBlank(this)"></span>人</div>
+      <div class="q-item"><div class="qt">問12</div>2005年、特許権など知的財産権の訴訟を専門に扱う裁判所として設置されたのは?→ <span class="blank" data-ans="知的財産高等裁判所" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問13</div>少年事件・家庭内事件を扱う裁判所は?→ <span class="blank" data-ans="家庭裁判所" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問14</div>3回の審理を保障する制度と、その例外として二審制となる犯罪は?→ <span class="blank" data-ans="三審制" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="内乱罪" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問15</div>第一審→第二審へ上訴することと、第二審→第三審へ上訴することをそれぞれ何というか。→ 第一審→第二審:<span class="blank" data-ans="控訴" onclick="fillBlank(this)"></span>　第二審→第三審:<span class="blank" data-ans="上告" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問16</div>金銭・相続・離婚など、私人間の権利義務をめぐる裁判を何というか。また訴えた者と訴えられた者の呼び方は?→ <span class="blank" data-ans="民事裁判" onclick="fillBlank(this)"></span>　訴えた者:<span class="blank" data-ans="原告" onclick="fillBlank(this)"></span>　訴えられた者:<span class="blank" data-ans="被告" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問17</div>刑事裁判で原告となるのは誰か。また起訴前と起訴後の被疑者の呼び方は?→ 原告:<span class="blank" data-ans="検察官" onclick="fillBlank(this)"></span>　起訴前:<span class="blank" data-ans="被疑者" onclick="fillBlank(this)"></span>　起訴後:<span class="blank" data-ans="被告人" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問18</div>裁判は判決と○○とがあり、原則として△△する。○○・△△に入る語は?→ ○○:<span class="blank" data-ans="対審" onclick="fillBlank(this)"></span>　△△:<span class="blank" data-ans="公開" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問19</div>法律や行政の命令が憲法に違反していないか審査する権利を何というか。→ <span class="blank" data-ans="違憲立法審査権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問20</div>憲法81条で「終審裁判所」とされ、違憲立法審査について最終判断を下す立場から○○の番人と呼ばれる裁判所は?→ <span class="blank" data-ans="憲法" onclick="fillBlank(this)"></span>の番人(<span class="blank" data-ans="最高裁判所" onclick="fillBlank(this)"></span>)</div>
+      <div class="note-box">【語群⑪〜⑳】最高裁判所　15　知的財産高等裁判所　家庭裁判所　三審制　内乱罪　控訴　上告　民事裁判　原告　被告　検察官　被疑者　被告人　対審　公開　違憲立法審査権　憲法</div>
+    </div>
+  </div>
+</div><!-- /vQ -->
+
+<!-- ③正誤 -->
+<div class="view" id="vSeigo">
+  <div class="s-card">
+    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
+    <div class="s-body">
+      <div class="seigo-item" id="sg0"><div class="seigo-q">① 司法権の独立は、裁判所の独立と裁判官の独立の2つの独立から成り立っている。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,true,'正しい。司法権の独立は組織としての裁判所の独立と、裁判官個人の職権行使の独立の2つから成り立っています。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,true,'正しい。司法権の独立は組織としての裁判所の独立と、裁判官個人の職権行使の独立の2つから成り立っています。')">× 誤り</button></div><div class="seigo-explain" id="sgex0"></div></div>
+
+      <div class="seigo-item" id="sg1"><div class="seigo-q">② 日本国憲法下では特別裁判所(軍法会議・行政裁判所・皇室裁判所など)の設置は禁止されている。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,true,'正しい。明治憲法下にあった特別裁判所は日本国憲法では設置が禁止されています。司法権の独立を確保するための重要な原則です。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,true,'正しい。明治憲法下にあった特別裁判所は日本国憲法では設置が禁止されています。司法権の独立を確保するための重要な原則です。')">× 誤り</button></div><div class="seigo-explain" id="sgex1"></div></div>
+
+      <div class="seigo-item" id="sg2"><div class="seigo-q">③ 行政機関による終審としての裁判は、内閣の許可があれば認められる。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,false,'誤り。行政機関による「終審」としての裁判はいかなる場合も禁止されています。終審でない裁判(公正取引委員会・人事院・労働委員会など)は可能ですが、不服があれば通常の裁判所に訴えることができます。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,false,'誤り。行政機関による「終審」としての裁判はいかなる場合も禁止されています。終審でない裁判(公正取引委員会・人事院・労働委員会など)は可能ですが、不服があれば通常の裁判所に訴えることができます。')">× 誤り</button></div><div class="seigo-explain" id="sgex2"></div></div>
+
+      <div class="seigo-item" id="sg3"><div class="seigo-q">④ 裁判官は内閣の指示に従って職権を行使しなければならない。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。憲法76条3項により、裁判官は「その良心に従ひ独立してその職権を行ひ、この憲法及び法律にのみ拘束される」と規定されています。内閣の指示には従いません。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。憲法76条3項により、裁判官は「その良心に従ひ独立してその職権を行ひ、この憲法及び法律にのみ拘束される」と規定されています。内閣の指示には従いません。')">× 誤り</button></div><div class="seigo-explain" id="sgex3"></div></div>
+
+      <div class="seigo-item" id="sg4"><div class="seigo-q">⑤ 裁判官の在任中の報酬は減額することができない。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,true,'正しい。裁判官の身分保障の一環として、在任中の報酬の減額が禁止され、定期的に相当額の報酬が保障されています。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,true,'正しい。裁判官の身分保障の一環として、在任中の報酬の減額が禁止され、定期的に相当額の報酬が保障されています。')">× 誤り</button></div><div class="seigo-explain" id="sgex4"></div></div>
+
+      <div class="seigo-item" id="sg5"><div class="seigo-q">⑥ 大津事件は、参議院による国政調査が司法に介入したとして問題となった事件である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,false,'誤り。大津事件(1891年)は内閣による干渉事件です。来日中のロシア皇太子襲撃事件で内閣が死刑を求めて圧力をかけたが、大審院院長児島惟謙が拒否しました。参議院の国政調査による干渉は浦和事件(1948年)です。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,false,'誤り。大津事件(1891年)は内閣による干渉事件です。来日中のロシア皇太子襲撃事件で内閣が死刑を求めて圧力をかけたが、大審院院長児島惟謙が拒否しました。参議院の国政調査による干渉は浦和事件(1948年)です。')">× 誤り</button></div><div class="seigo-explain" id="sgex5"></div></div>
+
+      <div class="seigo-item" id="sg6"><div class="seigo-q">⑦ 最高裁判所長官は内閣が指名し、天皇が任命する。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,true,'正しい。「指名は内閣、任命は天皇」が最高裁判所長官の任命の流れです。その他の最高裁判所裁判官(14名)は内閣が任命し天皇が認証します。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,true,'正しい。「指名は内閣、任命は天皇」が最高裁判所長官の任命の流れです。その他の最高裁判所裁判官(14名)は内閣が任命し天皇が認証します。')">× 誤り</button></div><div class="seigo-explain" id="sgex6"></div></div>
+
+      <div class="seigo-item" id="sg7"><div class="seigo-q">⑧ 内乱罪については、第一審を高等裁判所とする二審制が採られている。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,true,'正しい。三審制の例外として、内乱罪は国家の政治機構を破壊する重大犯罪であるため、第一審が高等裁判所からの二審制となっています。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,true,'正しい。三審制の例外として、内乱罪は国家の政治機構を破壊する重大犯罪であるため、第一審が高等裁判所からの二審制となっています。')">× 誤り</button></div><div class="seigo-explain" id="sgex7"></div></div>
+
+      <div class="seigo-item" id="sg8"><div class="seigo-q">⑨ 刑事裁判では、起訴された被疑者を被告人と呼び、訴える原告は検察官である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,true,'正しい。刑事裁判では、起訴前を「被疑者」、起訴後を「被告人」と呼びます。訴える原告は検察官。民事裁判の「原告・被告」と区別しましょう。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,true,'正しい。刑事裁判では、起訴前を「被疑者」、起訴後を「被告人」と呼びます。訴える原告は検察官。民事裁判の「原告・被告」と区別しましょう。')">× 誤り</button></div><div class="seigo-explain" id="sgex8"></div></div>
+
+      <div class="seigo-item" id="sg9"><div class="seigo-q">⑩ 違憲立法審査権は最高裁判所のみに認められた権限である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,false,'誤り。違憲立法審査権はすべての裁判所にあります。ただし最終的な判断は最高裁判所が下すため、最高裁判所は「憲法の番人」と呼ばれています(憲法81条:終審裁判所)。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,false,'誤り。違憲立法審査権はすべての裁判所にあります。ただし最終的な判断は最高裁判所が下すため、最高裁判所は「憲法の番人」と呼ばれています(憲法81条:終審裁判所)。')">× 誤り</button></div><div class="seigo-explain" id="sgex9"></div></div>
+    </div>
+  </div>
+</div><!-- /vSeigo -->
+
+<!-- ④フラッシュカード -->
+<div class="view" id="vFlash">
+  <div class="s-card">
+    <div class="s-head-fc"><div class="s-icon">⚡</div><div class="s-ht">フラッシュカード ─ 裁判所(1)</div></div>
+    <div class="s-body">
+      <div class="fc-settings">
+        <span class="fc-set-lbl">⏱ 速度:</span>
+        <div class="spd-btns"><button class="spd-btn active" data-sec="0" onclick="setFcSpeed(this)">手動</button><button class="spd-btn" data-sec="2" onclick="setFcSpeed(this)">2秒</button><button class="spd-btn" data-sec="3" onclick="setFcSpeed(this)">3秒</button><button class="spd-btn" data-sec="4" onclick="setFcSpeed(this)">4秒</button></div>
+        <span class="fc-set-lbl" style="margin-left:8px">📌 モード:</span>
+        <div class="mode-btns"><button class="mode-btn active" data-mode="term" onclick="setFcMode(this)">用語→意味</button><button class="mode-btn" data-mode="def" onclick="setFcMode(this)">意味→用語</button></div>
+        <button class="fc-start-btn" onclick="startFc()">▶ スタート</button>
+      </div>
+      <div class="fc-arena" id="fcArena">
+        <div class="fc-prog-wrap"><div class="fc-prog-bar"><div class="fc-prog-fill" id="fcProgFill" style="width:0%"></div></div><div class="fc-prog-txt" id="fcProgTxt">0 / 0</div></div>
+        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた:<span id="fcOkCnt">0</span></span><span>❌ もう一度:<span id="fcNgCnt">0</span></span></div>
+        <div class="flash-card" id="flashCard" onclick="fcFlipOrNext()">
+          <div class="fc-unit-tag2">⑬ 裁判所(1)</div>
+          <div class="fc-side-tag2 q" id="fcSideTag">問題</div>
+          <div class="fc-main-text2" id="fcMainText">スタートボタンを押してください</div>
+          <div class="fc-hint2" id="fcHint2"></div>
+          <div class="fc-ans-area" id="fcAnsArea"><div class="fc-ans-lbl">▶ 答え</div><div class="fc-ans-txt" id="fcAnsTxt"></div></div>
+          <div class="fc-tap-hint2" id="fcTapHint">タップで答えを見る</div>
+          <div class="fc-counter2" id="fcCounter">-</div>
+          <div class="fc-auto-bar2" id="fcAutoBar" style="width:0%"></div>
+        </div>
+        <div class="fc-btns"><button class="fc-btn btn-prev2" onclick="fcPrev()">◀ 前へ</button><button class="fc-btn btn-flip2" onclick="fcFlip()">🔄 裏返す</button><button class="fc-btn btn-next2" onclick="fcNext()">次へ ▶</button><button class="fc-btn btn-stop2" onclick="stopFc()">■ 終了</button></div>
+        <div class="fc-mark-row"><button class="fc-btn" style="background:var(--green);color:#fff" onclick="fcMarkOk()">✅ 覚えた</button><button class="fc-btn" style="background:var(--red);color:#fff" onclick="fcMarkNg()">❌ もう一度</button></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /vFlash -->
+</div><!-- /main -->
+<div class="jbanner" id="jbanner"></div>
+<div class="foot">
+  <button class="fbtn f-expl"   id="bExpl"      onclick="goTest()">▶ 一問一答テストへ</button>
+  <button class="fbtn f-next"   id="bGoFlashTop" onclick="goFlash()" style="background:var(--blue)">⚡ フラッシュカード</button>
+  <button class="fbtn f-judge"  id="bJudge"      onclick="judgeAll()" style="display:none">✔ 判　定</button>
+  <button class="fbtn f-retry"  id="bRetry"      onclick="retryQ()" style="display:none">↺ やり直し</button>
+  <button class="fbtn f-next"   id="bGoSeigo"    onclick="goSeigo()" style="display:none">▶ 正誤問題へ</button>
+  <button class="fbtn f-next"   id="bGoFlash"    onclick="goFlash()" style="display:none">⚡ フラッシュカードへ</button>
+  <button class="fbtn f-back"   id="bBack"       onclick="backToRead()" style="display:none">📖 説明に戻る</button>
+  <div class="score-pill" id="spill" style="display:none"></div>
+</div>
+<div class="blank-popup" id="popup"><div class="bp-arrow"></div></div>
+<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか?</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
+<a class="home-btn" href="seikei_index.html">🏠 単元表</a>
+
+<script>
+// 単元別の語群
+const UNIT_WORDS={
+  u1:['司法権の独立'],
+  u2:['天皇の名','軍法','行政','皇室','特別裁判所','終審','弾劾','資格争訟','規則制定権'],
+  u3:['良心','憲法','法律','懲戒','減額','心身','弾劾','国民審査'],
+  u4:['大津','児島惟謙','浦和','平賀','長沼ナイキ'],
+  u5:['内閣','天皇','認証','上級','下級','最高','10'],
+  u6:['最高','15','規則','高等','知的財産','地方','家庭','簡易','三審制','内乱罪','二審制','上訴','控訴','上告','抗告'],
+  u7:['民事','原告','被告','刑事','検察官','被疑者','被告人','判決','対審','公開','違憲立法審査','終審裁判所','憲法']
+};
+// 単元別の確認問題の正解インデックス
+const UQ_ANS={
+  u1:[2,2], u2:[3,2,1], u3:[2,2,3,1], u4:[1,1,2], u5:[1,1,2],
+  u6:[3,2,1,2], u7:[2,1,2,2]
+};
+
+// 単元の状態
+const _unitState={};
+
+// 単元の語群を初期化
+function _initUnitWb(uid){
+  var box=document.getElementById('uwb-chips-'+uid);
+  if(!box)return;
+  box.innerHTML='';
+  var words=UNIT_WORDS[uid].slice().sort(function(){return Math.random()-.5});
+  words.forEach(function(w){
+    var btn=document.createElement('button');
+    btn.className='unit-wb-chip';
+    btn.textContent=w;
+    btn.dataset.word=w;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var st=_unitState[uid];
+      if(!st||!st.active)return;
+      if(st.selChip&&st.selChip!==btn)st.selChip.classList.remove('sel');
+      if(st.selChip===btn){st.selChip=null;btn.classList.remove('sel');return}
+      st.selChip=btn;btn.classList.add('sel');
+    });
+    box.appendChild(btn);
+  });
+}
+
+// チャレンジ開始 - 該当単元の空欄を空にする
+function startUnitChallenge(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  _unitState[uid]={active:true,selChip:null};
+  // 空欄をクリア(unit-quiz内のものは除く)
+  card.querySelectorAll('.s-body > .person-row .blank, .s-body > .gtbl .blank, .s-body > table .blank').forEach(function(b){
+    b.textContent='';
+    b.classList.remove('show','ok','ng');
+    b.classList.add('cmode');
+    b.onclick=function(){_fillUnitBlank(uid,b)};
+  });
+  // 直接の子要素から取得し直し
+  var allBlanks=[];
+  card.querySelectorAll('.blank').forEach(function(b){
+    // unit-quiz内は除外
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    allBlanks.push(b);
+    b.textContent='';
+    b.classList.remove('show','ok','ng');
+    b.classList.add('cmode');
+    b.onclick=function(e){e.stopPropagation();_fillUnitBlank(uid,b)};
+  });
+  _initUnitWb(uid);
+  _hide('ub-check-'+uid);_hide('ub-hint-'+uid);_hide('ub-retry-'+uid);
+  _show('ub-check-'+uid);_show('ub-hint-'+uid);
+  document.getElementById('ub-score-'+uid).style.display='none';
+}
+
+// 単元の空欄に語を入れる
+function _fillUnitBlank(uid,blank){
+  var st=_unitState[uid];
+  if(!st)return;
+  if(st.selChip){
+    blank.textContent=st.selChip.textContent;
+    blank.classList.remove('ok','ng');
+    st.selChip.classList.remove('sel');
+    st.selChip=null;
+    return;
+  }
+  if(blank.textContent.trim()!=''){
+    blank.textContent='';
+    blank.classList.remove('ok','ng');
+  }
+}
+
+// 答え合わせ
+function checkUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  var ok=0,total=0;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    total++;
+    if(b.textContent.trim()===b.dataset.ans){
+      b.classList.add('ok');b.classList.remove('ng');ok++;
+    }else{
+      b.classList.add('ng');b.classList.remove('ok');
+    }
+  });
+  var sc=document.getElementById('ub-score-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解';sc.style.display='inline-block';
+  _show('ub-retry-'+uid);
+  if(ok===total&&total>0){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// お手本(全部見せる)
+function hintUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    if(!b.classList.contains('ok')){
+      b.textContent=b.dataset.ans;
+      b.classList.remove('ng');
+      b.classList.add('show');
+    }
+  });
+  _hideBanner();
+}
+
+// もう一度
+function retryUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    b.textContent='';
+    b.classList.remove('ok','ng','show');
+  });
+  _initUnitWb(uid);
+  document.getElementById('ub-score-'+uid).style.display='none';
+  _hideBanner();
+}
+
+// 単元の4択問題を開く
+function openUnitQuiz(uid){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  box.classList.toggle('on');
+  if(box.classList.contains('on')){
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+// 単元の過去問を開く
+function openUnitKakomon(uid){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  box.classList.toggle('on');
+  if(box.classList.contains('on')){
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+// 単元過去問の採点
+function judgeUnitKakomon(uid,total){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  var ok=0,answered=0;
+  qs.forEach(function(q){
+    if(q.dataset.answered){
+      answered++;
+      if(q.dataset.correct==='1')ok++;
+    }
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.add('on');
+  });
+  var sc=document.getElementById('uks-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解'+(answered<total?' (未回答 '+(total-answered)+'問)':'');
+  sc.style.display='inline-block';
+  if(ok===total){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// 単元過去問の再チャレンジ
+function resetUnitKakomon(uid,total){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  qs.forEach(function(q){
+    delete q.dataset.answered;
+    delete q.dataset.correct;
+    q.querySelectorAll('.uqc').forEach(function(b){
+      b.classList.remove('correct','wrong');
+      var attr=b.getAttribute('data-orig-onclick')||b.getAttribute('onclick');
+      if(attr){
+        b.onclick=new Function('event',attr);
+      }
+    });
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.remove('on');
+  });
+  var sc=document.getElementById('uks-'+uid);
+  if(sc)sc.style.display='none';
+  _hideBanner();
+}
+
+// 単元4択の解答
+function ansUQ(qid,sel,cor){
+  var qBox=document.getElementById('uqex-'+qid);
+  if(!qBox)return;
+  var parent=qBox.parentElement;
+  var btns=parent.querySelectorAll('.uqc');
+  if(parent.dataset.answered)return;
+  parent.dataset.answered='1';
+  parent.dataset.correct=(sel===cor)?'1':'0';
+  btns.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+  });
+  // 不正解時のみ解説を表示
+  if(sel!==cor){
+    qBox.classList.add('on');
+  }
+}
+
+// 単元4択の採点
+function judgeUnitQuiz(uid,total){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  var ok=0,answered=0;
+  qs.forEach(function(q){
+    if(q.dataset.answered){
+      answered++;
+      if(q.dataset.correct==='1')ok++;
+    }
+    // 全問の解説を表示
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.add('on');
+  });
+  var sc=document.getElementById('uqs-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解'+(answered<total?' (未回答 '+(total-answered)+'問)':'');
+  sc.style.display='inline-block';
+  if(ok===total){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// 単元4択の再チャレンジ
+function resetUnitQuiz(uid,total){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  qs.forEach(function(q){
+    delete q.dataset.answered;
+    delete q.dataset.correct;
+    q.querySelectorAll('.uqc').forEach(function(b,i){
+      b.classList.remove('correct','wrong');
+      // 元のonclick属性を再設定するために、元のhandler属性を復元
+      var orig=b.getAttribute('data-orig-onclick');
+      if(!orig){
+        // 初回:現在のonclickを保存
+        var attr=b.getAttribute('onclick');
+        if(attr)b.setAttribute('data-orig-onclick',attr);
+      }else{
+        b.setAttribute('onclick',orig);
+      }
+      // 再度onclick動作を有効化(setAttributeは効かない場合があるのでハンドラ再設定)
+    });
+    // 再bind: onclick属性の文字列からansUQ呼び出しを再現するのは複雑なので、
+    // ここでは shouldRebind 用にonclick属性を再評価する方法を使う
+    q.querySelectorAll('.uqc').forEach(function(b){
+      var attr=b.getAttribute('data-orig-onclick')||b.getAttribute('onclick');
+      if(attr){
+        b.onclick=new Function('event',attr);
+      }
+    });
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.remove('on');
+  });
+  var sc=document.getElementById('uqs-'+uid);
+  if(sc)sc.style.display='none';
+  _hideBanner();
+}
+
+// 初期化:確認問題ボタンに onclick属性を退避
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.uqc').forEach(function(b){
+    var attr=b.getAttribute('onclick');
+    if(attr)b.setAttribute('data-orig-onclick',attr);
+  });
+});
+</script>
+<script>
+const QW=['司法権の独立','特別裁判所','規則制定権','良心','法律','国民審査','弾劾裁判所','大津事件','児島惟謙','平賀事件','内閣','天皇','最高','10','最高裁判所','15','知的財産高等裁判所','家庭裁判所','三審制','内乱罪','控訴','上告','民事裁判','原告','被告','検察官','被疑者','被告人','対審','公開','違憲立法審査権','憲法'];
+
+const FC_CARDS=[
+  {q:'司法権の独立とは?',a:'裁判所が国・地方公共団体・行政機関などの圧力によって判決が左右されないように、憲法で規定された原則。「裁判所の独立」と「裁判官の独立」の2つの独立から成る'},
+  {q:'明治憲法下、裁判所はどのような立場で裁判していたか?',a:'「天皇の名において」裁判する機関とされていた(天皇の代理として裁判)'},
+  {q:'特別裁判所とは?日本国憲法ではどう扱われているか?',a:'通常の裁判所と独立した特別な裁判所。明治憲法下では軍法会議・行政裁判所・皇室裁判所などがあった。日本国憲法では設置が禁止されている'},
+  {q:'行政機関による裁判はどこまで認められるか?',a:'終審としての裁判は禁止。終審でない裁判は可能(公正取引委員会・人事院・労働委員会・海難審判所など)。不服があれば通常の裁判所に訴えられる'},
+  {q:'弾劾裁判所とは?',a:'国会内に設けられる、裁判官を罷免する裁判をする機関'},
+  {q:'最高裁判所の規則制定権とは?',a:'国会の干渉を受けずに、訴訟手続きや内部規律を定めることのできる権限'},
+  {q:'裁判官の独立を保障する憲法76条の規定は?',a:'「すべて裁判官は、その良心に従い独立してその職権を行い、この憲法および法律のみに拘束される」'},
+  {q:'裁判官の身分保障の2つの仕組みは?',a:'①行政機関による懲戒処分の禁止　②在任中の報酬減額の禁止(定期的に相当額の報酬を保障)'},
+  {q:'裁判官が罷免される3つの場合は?',a:'①心身の故障で職務をとれない場合　②弾劾裁判による場合　③国民審査による場合(最高裁判所裁判官のみ)'},
+  {q:'国民審査の仕組みは?',a:'最高裁判所裁判官のみ。任命後初めての衆議院議員総選挙の際に審査され、その後は10年経過後の総選挙で再審査される'},
+  {q:'大津事件とは?(1891年)',a:'内閣による干渉事件。来日中のロシア皇太子襲撃事件で内閣が死刑を求めて圧力をかけたが、大審院院長児島惟謙が干渉を拒否し、刑法どおり無期徒刑とした'},
+  {q:'浦和事件とは?(1948年)',a:'国会(参議院)による干渉事件。無理心中事件の判決を参議院が国政調査で批判。最高裁が司法権の独立を侵すものとして抗議'},
+  {q:'平賀事件とは?(1969年)',a:'上席裁判官による干渉事件。長沼ナイキ基地訴訟を審理する札幌地裁で平賀健太所長が担当裁判長に自衛隊の違憲判断回避を求める書簡を送った事件'},
+  {q:'最高裁判所長官の指名・任命は?',a:'内閣が指名し、天皇が任命する'},
+  {q:'最高裁判所長官以外の裁判官(14名)の任命は?',a:'内閣が任命し、天皇が認証する'},
+  {q:'下級裁判所裁判官の任命の流れと任期は?',a:'最高裁判所が指名した者の名簿によって、内閣が任命する。任期は10年で再任は妨げられない'},
+  {q:'最高裁判所の構成は?',a:'全国に1ヵ所、東京にある。15人の裁判官で構成され、最終判決を行う。規則制定権がある'},
+  {q:'高等裁判所の設置数は?また2005年に新設された専門裁判所は?',a:'全国に8ヵ所。2005年に知的財産高等裁判所が設置され、特許権など知的財産権の訴訟を専門的に扱う'},
+  {q:'地方裁判所と家庭裁判所の特徴は?',a:'地方裁判所は全国50ヵ所で第一審となりやすい。家庭裁判所は地方裁と併設、全国50ヵ所で少年事件・家庭内事件を扱う'},
+  {q:'簡易裁判所が扱う事件の範囲は?',a:'①民事:訴額140万円以下　②刑事:罰金刑以下の小さな事件'},
+  {q:'三審制とその例外は?',a:'公正な裁判のため3回の審理を保障する制度。例外:内乱罪は第一審が高等裁判所からの二審制'},
+  {q:'控訴・上告・抗告とは?',a:'控訴=第一審→第二審への上訴。上告=第二審→第三審への上訴。抗告=決定や命令への不服による上訴'},
+  {q:'民事裁判とは?当事者の呼び方は?',a:'金銭問題・相続・離婚など私人間の権利義務をめぐる裁判。訴えた者を原告、訴えられた者を被告という'},
+  {q:'刑事裁判とは?当事者の呼び方は?',a:'刑法に触れる犯罪行為に対して刑罰を求める裁判。訴える原告は検察官。起訴前を被疑者、起訴後を被告人という'},
+  {q:'裁判の公開原則とは?',a:'裁判は判決と対審があり、必ず公開する。対審は公序良俗を害するおそれがあると裁判官全員一致で判断した場合非公開可能'},
+  {q:'裁判の対審が必ず公開されなければならない事件は?',a:'政治犯罪・出版に関する犯罪・基本的人権が問題となっている事件'},
+  {q:'違憲立法審査権とは?その権限はどこにあるか?',a:'法律や行政の命令・規則の内容と運用が憲法に違反していないかを審査する権利。すべての裁判所にある'},
+  {q:'「憲法の番人」とは何を指すか?根拠条文は?',a:'最高裁判所のこと。憲法81条で「最高裁判所は…憲法に適合するかしないかを決定する権限を有する終審裁判所である」と規定'},
+  {q:'対審とは?',a:'裁判官の前で当事者(原告と被告など)が主張しあう弁論のこと'},
+  {q:'裁判官に「在任中でも罷免」が認められるのは?身分保障の例外。',a:'①心身の故障　②弾劾裁判　③国民審査(最高裁判所裁判官のみ)の3つの例外'},
+];
+
+var _selChip=null,_tInt=null,_t0=0,_pausedMs=0;
+var _popup=document.getElementById('popup'),_popupTarget=null,_currentView='vRead';
+var _sgAnswered=new Array(10).fill(false),_sgScore=0;
+function _el(id){return document.getElementById(id)}
+function _show(id){var e=_el(id);if(e)e.style.display='inline-block'}
+function _hide(id){var e=_el(id);if(e)e.style.display='none'}
+function _tick(){var ms=_pausedMs+(Date.now()-_t0);var m=String(Math.floor(ms/60000)).padStart(2,'0');var s=String(Math.floor((ms%60000)/1000)).padStart(2,'0');_el('timerDisp').textContent=m+':'+s}
+function _startTimer(){_t0=Date.now();_tInt=setInterval(_tick,200)}
+function _stopTimer(){clearInterval(_tInt);_tInt=null}
+function _resetTimer(){_stopTimer();_pausedMs=0;_el('timerDisp').textContent='00:00'}
+function setPhase(n){for(var i=0;i<4;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
+function _showView(id){['vRead','vQ','vSeigo','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
+function _showWB(){_el('wbBar').style.display='block'}
+function _hideWB(){_el('wbBar').style.display='none'}
+function buildChips(words){var wb=_el('wbChips');wb.innerHTML='';_selChip=null;words.slice().sort(function(){return Math.random()-.5}).forEach(function(w){var btn=document.createElement('button');btn.className='chip';btn.textContent=w;btn.addEventListener('click',function(e){e.stopPropagation();if(_selChip&&_selChip!==btn)_selChip.classList.remove('sel');if(_selChip===btn){_selChip=null;btn.classList.remove('sel');return}_selChip=btn;btn.classList.add('sel')});wb.appendChild(btn)})}
+function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=QW.slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
+function _closePopup(){_popup.classList.remove('open');_popupTarget=null}
+document.addEventListener('click',function(){_closePopup()});
+function fillBlank(b){if(_selChip){b.textContent=_selChip.textContent;b.classList.remove('ok','ng','show');_selChip.classList.remove('sel');_selChip=null;_closePopup();return}if(b===_popupTarget&&_popup.classList.contains('open')){_closePopup();return}if(b.textContent.trim()!=''){b.textContent='';b.classList.remove('ok','ng','show');_closePopup();return}_openPopup(b)}
+function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(1);_startTimer();_hide('bExpl');_hide('bGoFlashTop');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hide('bGoSeigo');_hideBanner()}
+function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);_show('bRetry');_show('bGoSeigo');if(ok===bls.length){_stopTimer();_showBanner(true,ok,bls.length);_startConf();setTimeout(_stopConf,5000)}else _showBanner(false,ok,bls.length)}
+function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
+function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
+function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
+function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
+function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
+function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}
+var _fcCards=[],_fcIdx=0,_fcFlipped=false,_fcSpeed=0,_fcMode='term';
+var _fcAutoTimer=null,_fcTmrInt=null,_fcOkSet=new Set(),_fcNgSet=new Set();
+function setFcSpeed(btn){document.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcSpeed=parseInt(btn.dataset.sec)*1000}
+function setFcMode(btn){document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcMode=btn.dataset.mode}
+function startFc(){_fcCards=FC_CARDS.slice().sort(function(){return Math.random()-.5});_fcIdx=0;_fcFlipped=false;_fcOkSet.clear();_fcNgSet.clear();_el('fcOkCnt').textContent='0';_el('fcNgCnt').textContent='0';_el('fcArena').classList.add('on');var sec=0;clearInterval(_fcTmrInt);_fcTmrInt=setInterval(function(){sec+=0.1;_el('fcTimerDisp').textContent=sec.toFixed(1)},100);showFcCard()}
+function stopFc(){clearInterval(_fcAutoTimer);clearInterval(_fcTmrInt);_el('fcArena').classList.remove('on');_el('fcAutoBar').style.transition='none';_el('fcAutoBar').style.width='0%'}
+function showFcCard(){if(!_fcCards.length)return;var c=_fcCards[_fcIdx];var card=_el('flashCard');card.classList.remove('flip-anim');void card.offsetWidth;card.classList.add('flip-anim');if(_fcMode==='term'){_el('fcSideTag').textContent='問題';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.q}else{_el('fcSideTag').textContent='意味→用語';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.a}_el('fcHint2').textContent='';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='block';_el('fcAnsTxt').textContent='';_el('fcCounter').textContent=(_fcIdx+1)+' / '+_fcCards.length;_el('fcProgFill').style.width=((_fcIdx+1)/_fcCards.length*100)+'%';_el('fcProgTxt').textContent=(_fcIdx+1)+' / '+_fcCards.length;_fcFlipped=false;if(_fcSpeed>0)_startFcAuto()}
+function fcFlip(){if(_fcFlipped)return;_fcFlipped=true;var c=_fcCards[_fcIdx];_el('fcAnsTxt').textContent=(_fcMode==='term'?c.a:c.q);_el('fcAnsArea').classList.add('on');_el('fcSideTag').textContent='答え';_el('fcSideTag').className='fc-side-tag2 a';_el('fcTapHint').style.display='none';_clearFcAuto()}
+function fcFlipOrNext(){if(!_el('fcArena').classList.contains('on'))return;if(!_fcFlipped)fcFlip();else fcNext()}
+function fcNext(){_clearFcAuto();if(_fcIdx<_fcCards.length-1){_fcIdx++;showFcCard()}else{clearInterval(_fcTmrInt);_el('fcMainText').textContent='🎉 全カード完了！お疲れさまでした！';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='none'}}
+function fcPrev(){_clearFcAuto();if(_fcIdx>0){_fcIdx--;showFcCard()}}
+function fcMarkOk(){_fcOkSet.add(_fcIdx);_fcNgSet.delete(_fcIdx);_el('fcOkCnt').textContent=_fcOkSet.size;_el('fcNgCnt').textContent=_fcNgSet.size;fcNext()}
+function fcMarkNg(){_fcNgSet.add(_fcIdx);_fcOkSet.delete(_fcIdx);_el('fcNgCnt').textContent=_fcNgSet.size;_el('fcOkCnt').textContent=_fcOkSet.size;fcNext()}
+function _startFcAuto(){_clearFcAuto();if(_fcSpeed===0)return;var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;bar.style.transition='width '+_fcSpeed+'ms linear';bar.style.width='100%';_fcAutoTimer=setTimeout(function(){if(!_fcFlipped)fcFlip();setTimeout(fcNext,700)},_fcSpeed)}
+function _clearFcAuto(){clearTimeout(_fcAutoTimer);var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%'}
+function _showBanner(pass,ok,tot){var b=_el('jbanner');b.className='jbanner '+(pass?'ban-pass':'ban-ng');b.textContent=pass?('🎉 合格！　全'+tot+'問正解！'):('おしい！　'+ok+' / '+tot+' 問　── もう一息！');b.style.display='block';if(!pass)setTimeout(_hideBanner,2800)}
+function _hideBanner(){var b=_el('jbanner');if(b)b.style.display='none'}
+function _showScore(ok,tot){var p=_el('spill');p.textContent=ok+' / '+tot+' 問正解';p.style.display='inline-block'}
+function _closePause(){_el('pauseModal').classList.remove('open')}
+function closePause(){_closePause();if(_tInt===null&&_t0>0){_t0=Date.now();_tInt=setInterval(_tick,200)}}
+var _cnv,_ctx,_pts=[],_raf=null;
+function _initCanvas(){_cnv=document.getElementById('cnv');_ctx=_cnv?_cnv.getContext('2d'):null}
+function _startConf(){_initCanvas();if(!_ctx)return;_cnv.width=innerWidth;_cnv.height=innerHeight;_pts=[];for(var i=0;i<180;i++)_pts.push({x:Math.random()*_cnv.width,y:Math.random()*_cnv.height-_cnv.height,s:Math.random()*9+4,c:'hsl('+Math.floor(Math.random()*360)+',70%,62%)',sp:Math.random()*3+2,r:Math.random()*Math.PI*2,dr:.05});_af()}
+function _af(){_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts.forEach(function(p){p.y+=p.sp;p.r+=p.dr;_ctx.save();_ctx.translate(p.x,p.y);_ctx.rotate(p.r);_ctx.fillStyle=p.c;_ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);_ctx.restore();if(p.y>_cnv.height)p.y=-20});_raf=requestAnimationFrame(_af)}
+function _stopConf(){if(_raf){cancelAnimationFrame(_raf);_raf=null}if(_ctx)_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts=[]}
+</script>
+</body>
+</html>

@@ -6,50 +6,28 @@
 <title>政治経済 GAMBA ① 国家と法(1)</title>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;
-  --gold:#c8972a;--gold2:#f0c040;
-  --red:#c0392b;--blue:#1a3a6b;--green:#1a6b3a;--orange:#e67e22;
-  --muted:#6b7a99;--border:#d8d3c8;--drop:#fffbe6;
-}
+:root{--ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;--gold:#c8972a;--gold2:#f0c040;--red:#c0392b;--blue:#1a3a6b;--green:#1a6b3a;--orange:#e67e22;--purple:#7b2d8b;--muted:#6b7a99;--border:#d8d3c8;--drop:#fffbe6;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.9}
-
-/* ── ヘッダー ── */
 .hdr{background:var(--ink);color:#fff;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;box-shadow:0 3px 14px rgba(0,0,0,.45)}
 .hdr-info{display:flex;flex-direction:column;gap:1px}
 .hdr-sub{font-size:.65em;opacity:.5;letter-spacing:.12em}
 .hdr-title{font-size:.95em;font-weight:700;letter-spacing:.03em}
 .hdr-timer{font-size:1.15em;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums;min-width:66px;text-align:right}
-
-/* ── タブバー ── */
 .tab-bar{background:#1d2f5a;border-bottom:2px solid var(--gold);display:flex;gap:4px;padding:6px 10px;flex-wrap:wrap;position:sticky;top:52px;z-index:290;overflow-x:auto}
 .tab-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.72em;font-weight:700;padding:5px 11px;border:none;border-radius:4px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.58);cursor:pointer;transition:.14s;white-space:nowrap;text-decoration:none;display:inline-block}
-.tab-btn:hover{background:rgba(255,255,255,.22);color:#fff}
-.tab-btn.active{background:var(--gold);color:var(--ink)}
-
-/* ── フェーズバー ── */
+.tab-btn:hover{background:rgba(255,255,255,.22);color:#fff}.tab-btn.active{background:var(--gold);color:var(--ink)}
 .phase-bar{background:#fff;border-bottom:2px solid var(--border);padding:7px 14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;position:sticky;top:96px;z-index:280}
-.pdot{width:11px;height:11px;border-radius:50%;background:var(--border);transition:.3s;flex-shrink:0}
-.pdot.on{background:var(--gold)}
-.ptxt{font-size:.75em;color:var(--muted);font-weight:700}
-.ptxt.on{color:var(--ink)}
-.parr{font-size:.82em;color:var(--border);margin:0 3px}
-.plbl{font-size:.72em;font-weight:700;letter-spacing:.08em;color:var(--muted)}
-
-/* ── 語群バー ── */
+.pdot{width:11px;height:11px;border-radius:50%;background:var(--border);transition:.3s;flex-shrink:0}.pdot.on{background:var(--gold)}
+.ptxt{font-size:.75em;color:var(--muted);font-weight:700}.ptxt.on{color:var(--ink)}
+.parr{font-size:.82em;color:var(--border);margin:0 3px}.plbl{font-size:.72em;font-weight:700;letter-spacing:.08em;color:var(--muted)}
 .wb-bar{background:#fff;border-bottom:2px solid var(--border);padding:9px 14px;display:none;position:sticky;top:132px;z-index:270;box-shadow:0 4px 10px rgba(0,0,0,.07)}
 .wb-lbl{font-size:.68em;color:var(--muted);font-weight:700;letter-spacing:.08em;margin-bottom:6px}
 .wb-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:32px;align-items:center}
 .chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;transition:.12s}
-.chip:hover{background:#253060;transform:translateY(-1px)}
-.chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink);transform:scale(1.05)}
-
-/* ── メイン ── */
+.chip:hover{background:#253060;transform:translateY(-1px)}.chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink);transform:scale(1.05)}
 .main{max-width:860px;margin:0 auto;padding:20px 13px 160px}
 .view{display:none}.view.on{display:block}
-
-/* ── カード ── */
 .s-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .s-head-e{background:var(--blue);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
 .s-head-q{background:var(--red);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
@@ -59,165 +37,132 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 .s-icon{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
 .s-ht{font-size:.92em;font-weight:700;letter-spacing:.03em;flex:1}
 .s-body{padding:16px 18px}
-
-/* ── 人物行 ── */
 .person-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed var(--border)}
 .person-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .pbadge{background:var(--blue);color:#fff;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:3px;flex-shrink:0}
-.pbadge.red{background:var(--red)}
-.pbadge.green{background:var(--green)}
-.pcont{flex:1;font-size:.93em}
-.pcont p{margin-bottom:8px}
-.pcont strong{color:var(--blue)}
+.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.purple{background:var(--purple)}.pbadge.dk{background:#2c3e50}
+.pcont{flex:1;font-size:.93em}.pcont p{margin-bottom:8px}.pcont strong{color:var(--blue)}
 .pt{display:inline-block;background:var(--blue);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
-
-/* ── 空欄 ── */
-.blank{display:inline-flex;align-items:center;justify-content:center;min-width:100px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
-.blank:hover{background:#fff3b0}
-.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}
-.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}
-.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
-
-/* ── 表 ── */
-.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.88em}
-.gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:center}
-.gtbl thead th{background:var(--blue);color:#fff;font-weight:700}
-.gtbl td.ans-col{background:#e8f0ff;font-weight:700;color:var(--blue)}
-.tree-box{background:#f5f3ee;border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:.9em;line-height:2.1;margin:8px 0}
-.tree-box .node{display:block;margin-left:1em}
-.tree-box .leaf{display:block;margin-left:2em;color:var(--muted);font-size:.9em}
-
-/* ── ノートボックス ── */
+.blank{display:inline-flex;align-items:center;justify-content:center;min-width:90px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.blank:hover{background:#fff3b0}.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
+.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.84em}
+.gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
+.gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
+.case-card{background:#f8f5ff;border:1.5px solid #9b59b6;border-radius:9px;padding:12px 15px;margin-bottom:11px}
+.case-tag{display:inline-block;font-size:.67em;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:6px;letter-spacing:.04em;color:#fff}
+.case-tag.ken{background:var(--red)}.case-tag.gouken{background:var(--green)}.case-tag.kaiken{background:var(--muted)}
+.case-title{font-size:.9em;font-weight:700;margin-bottom:5px}
+.case-body{font-size:.84em;color:#333;line-height:1.75}
 .note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
-
-/* ── Q問題 ── */
 .q-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--border);font-size:.93em;line-height:1.85}
 .q-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
 .qt{display:inline-block;background:var(--red);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
-
-/* ── 正誤問題 ── */
 .seigo-item{margin-bottom:14px;padding:12px 14px;background:#f8f8f5;border-radius:8px;border:1.5px solid var(--border)}
 .seigo-q{font-size:.92em;margin-bottom:10px;line-height:1.8}
 .seigo-btns{display:flex;gap:8px}
 .seigo-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:7px 18px;border:2px solid var(--border);border-radius:6px;background:#f0f0ee;cursor:pointer;transition:.13s}
-.seigo-btn:hover{transform:translateY(-1px)}
-.seigo-btn.sel-o{background:#d4f5e2;border-color:var(--green);color:var(--green)}
-.seigo-btn.sel-x{background:#ffe0e0;border-color:var(--red);color:var(--red)}
-.seigo-btn.correct{background:var(--green);color:#fff;border-color:var(--green)}
-.seigo-btn.wrong{background:var(--red);color:#fff;border-color:var(--red)}
-.seigo-explain{display:none;margin-top:8px;font-size:.82em;background:#f0f8ff;border-left:3px solid var(--blue);padding:8px 12px;border-radius:4px;color:var(--ink);line-height:1.7}
-.seigo-explain.on{display:block}
-
-/* ── 過去問 ── */
+.seigo-btn.correct{background:var(--green);color:#fff;border-color:var(--green)}.seigo-btn.wrong{background:var(--red);color:#fff;border-color:var(--red)}
+.seigo-explain{display:none;margin-top:8px;font-size:.82em;background:#f0f8ff;border-left:3px solid var(--blue);padding:8px 12px;border-radius:4px;line-height:1.7}.seigo-explain.on{display:block}
 .kk-choices{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
 .kk-choice{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#f8f8f5;cursor:pointer;transition:.13s;text-align:left;line-height:1.5}
-.kk-choice:hover{border-color:var(--blue);background:#eef3ff}
-.kk-choice.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}
-.kk-choice.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
-.kk-choice.show-ans{background:#d4f5e2;border-color:var(--green)}
-.kk-explain{display:none;font-size:.83em;color:#333;background:#f0f8ff;border-radius:6px;padding:10px 13px;border-left:3px solid var(--blue);line-height:1.75;margin-top:7px}
-.kk-explain.on{display:block}
+.kk-choice:hover{border-color:var(--blue);background:#eef3ff}.kk-choice.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}.kk-choice.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.kk-explain{display:none;font-size:.83em;background:#f0f8ff;border-radius:6px;padding:10px 13px;border-left:3px solid var(--blue);line-height:1.75;margin-top:7px}.kk-explain.on{display:block}
 .kk-ans-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.76em;font-weight:700;padding:5px 13px;border:none;border-radius:5px;background:var(--blue);color:#fff;cursor:pointer;margin-top:6px}
 .kk-year-tag{font-size:.7em;font-weight:700;background:var(--gold);color:var(--ink);padding:2px 8px;border-radius:4px;margin-bottom:8px;display:inline-block}
-
-/* ── フラッシュカード ── */
 .fc-settings{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:16px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:9px}
 .fc-set-lbl{font-size:.76em;font-weight:700;color:var(--muted);white-space:nowrap}
-.spd-btns{display:flex;gap:5px}
-.spd-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:6px 14px;border:2px solid var(--border);border-radius:5px;background:#f5f5f2;cursor:pointer;transition:.12s}
-.spd-btn:hover{border-color:var(--blue)}
-.spd-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-.mode-btns{display:flex;gap:5px}
-.mode-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:6px 14px;border:2px solid var(--border);border-radius:5px;background:#f5f5f2;cursor:pointer;transition:.12s}
-.mode-btn:hover{border-color:var(--red)}
-.mode-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
-.fc-start-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;font-weight:700;padding:9px 24px;border:none;border-radius:7px;background:var(--red);color:#fff;cursor:pointer;transition:.12s;margin-left:auto}
-.fc-start-btn:hover{background:#9c2a1f}
-
-.fc-arena{display:none}
-.fc-arena.on{display:block}
-.fc-prog-wrap{margin-bottom:12px}
-.fc-prog-bar{background:var(--border);border-radius:20px;height:8px;overflow:hidden;margin-bottom:3px}
-.fc-prog-fill{background:linear-gradient(90deg,var(--blue),var(--gold));height:100%;border-radius:20px;transition:.4s}
-.fc-prog-txt{font-size:.72em;color:var(--muted);text-align:right;font-weight:700}
-
-.flash-card{min-height:220px;background:var(--card);border:2px solid var(--border);border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.1);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px 22px;text-align:center;position:relative;transition:transform .14s,box-shadow .14s;user-select:none;-webkit-user-select:none;margin-bottom:14px}
-.flash-card:hover{box-shadow:0 10px 34px rgba(0,0,0,.14);transform:translateY(-2px)}
-.flash-card.flip-anim{animation:fcFlip .28s ease}
-@keyframes fcFlip{0%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(.95)}100%{opacity:1;transform:scale(1)}}
+.spd-btns,.mode-btns{display:flex;gap:5px}
+.spd-btn,.mode-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:6px 14px;border:2px solid var(--border);border-radius:5px;background:#f5f5f2;cursor:pointer;transition:.12s}
+.spd-btn:hover{border-color:var(--blue)}.spd-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mode-btn:hover{border-color:var(--red)}.mode-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.fc-start-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;font-weight:700;padding:9px 24px;border:none;border-radius:7px;background:var(--red);color:#fff;cursor:pointer;margin-left:auto}
+.fc-arena{display:none}.fc-arena.on{display:block}
+.fc-prog-wrap{margin-bottom:12px}.fc-prog-bar{background:var(--border);border-radius:20px;height:8px;overflow:hidden;margin-bottom:3px}.fc-prog-fill{background:linear-gradient(90deg,var(--blue),var(--gold));height:100%;border-radius:20px;transition:.4s}.fc-prog-txt{font-size:.72em;color:var(--muted);text-align:right;font-weight:700}
+.flash-card{min-height:200px;background:var(--card);border:2px solid var(--border);border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.1);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;text-align:center;position:relative;transition:transform .14s;user-select:none;-webkit-user-select:none;margin-bottom:14px}
+.flash-card:hover{transform:translateY(-2px)}.flash-card.flip-anim{animation:fcFlip .28s ease}
+@keyframes fcFlip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(.95)}}
 .fc-unit-tag2{position:absolute;top:10px;left:12px;font-size:.64em;font-weight:700;background:var(--blue);color:#fff;padding:2px 7px;border-radius:3px}
 .fc-side-tag2{position:absolute;top:10px;right:12px;font-size:.64em;font-weight:700;padding:2px 7px;border-radius:3px}
-.fc-side-tag2.q{background:#fde8e8;color:var(--red)}
-.fc-side-tag2.a{background:#d4f5e2;color:var(--green)}
+.fc-side-tag2.q{background:#fde8e8;color:var(--red)}.fc-side-tag2.a{background:#d4f5e2;color:var(--green)}
 .fc-counter2{position:absolute;bottom:10px;right:12px;font-size:.68em;color:var(--muted);font-weight:700}
 .fc-auto-bar2{position:absolute;bottom:0;left:0;height:4px;background:var(--gold);border-radius:0 0 12px 12px;transition:none}
-.fc-main-text2{font-family:'Noto Serif JP',serif;font-size:1.12em;font-weight:700;line-height:1.75;color:var(--ink)}
-.fc-hint2{font-size:.8em;color:var(--muted);margin-top:8px;line-height:1.6}
-.fc-tap-hint2{font-size:.7em;color:var(--muted);opacity:.7;margin-top:10px}
-.fc-ans-area{display:none;width:100%;background:#f0f8ff;border-top:1px dashed var(--border);margin-top:12px;padding-top:12px;text-align:left}
-.fc-ans-area.on{display:block}
-.fc-ans-lbl{font-size:.66em;font-weight:700;color:var(--green);letter-spacing:.08em;margin-bottom:4px}
-.fc-ans-txt{font-size:.97em;font-weight:700;color:var(--ink);line-height:1.65}
-
+.fc-main-text2{font-family:'Noto Serif JP',serif;font-size:1.05em;font-weight:700;line-height:1.75;color:var(--ink)}
+.fc-hint2{font-size:.8em;color:var(--muted);margin-top:8px}.fc-tap-hint2{font-size:.7em;color:var(--muted);opacity:.7;margin-top:10px}
+.fc-ans-area{display:none;width:100%;background:#f0f8ff;border-top:1px dashed var(--border);margin-top:12px;padding-top:12px;text-align:left}.fc-ans-area.on{display:block}
+.fc-ans-lbl{font-size:.66em;font-weight:700;color:var(--green);letter-spacing:.08em;margin-bottom:4px}.fc-ans-txt{font-size:.93em;font-weight:700;color:var(--ink);line-height:1.65}
 .fc-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
-.fc-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:9px 20px;border:none;border-radius:7px;cursor:pointer;transition:.12s}
-.fc-btn:hover{transform:translateY(-1px);opacity:.88}
-.btn-prev2{background:#d0d5e0;color:var(--ink)}
-.btn-flip2{background:var(--blue);color:#fff}
-.btn-next2{background:var(--green);color:#fff}
-.btn-stop2{background:var(--muted);color:#fff}
+.fc-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;padding:9px 20px;border:none;border-radius:7px;cursor:pointer;transition:.12s}.fc-btn:hover{opacity:.88;transform:translateY(-1px)}
+.btn-prev2{background:#d0d5e0;color:var(--ink)}.btn-flip2{background:var(--blue);color:#fff}.btn-next2{background:var(--green);color:#fff}.btn-stop2{background:var(--muted);color:#fff}
 .fc-mark-row{display:flex;gap:8px;justify-content:center}
-.fc-stat-row2{display:flex;gap:14px;justify-content:center;font-size:.76em;color:var(--muted);font-weight:700;flex-wrap:wrap;margin-top:6px}
-
-/* ── フッター ── */
+.fc-stat-row2{display:flex;gap:14px;justify-content:center;font-size:.76em;color:var(--muted);font-weight:700;flex-wrap:wrap;margin-bottom:10px}
 .foot{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid var(--border);padding:9px 13px;display:flex;gap:7px;justify-content:center;align-items:center;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.09);flex-wrap:wrap}
-.fbtn{font-family:'BIZ UDPGothic',sans-serif;font-size:.86em;font-weight:700;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;transition:.12s;letter-spacing:.03em}
-.fbtn:hover{transform:translateY(-1px);opacity:.88}
-.f-expl{background:var(--orange);color:#fff}
-.f-check{background:var(--green);color:#fff}
-.f-hint{background:#8e44ad;color:#fff}
-.f-next{background:var(--blue);color:#fff}
-.f-retry{background:var(--blue);color:#fff}
-.f-back{background:var(--muted);color:#fff}
-.f-judge{background:var(--green);color:#fff}
+.fbtn{font-family:'BIZ UDPGothic',sans-serif;font-size:.86em;font-weight:700;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;transition:.12s}.fbtn:hover{transform:translateY(-1px);opacity:.88}
+.f-expl{background:var(--orange);color:#fff}.f-check{background:var(--green);color:#fff}.f-hint{background:#8e44ad;color:#fff}.f-next{background:var(--blue);color:#fff}.f-retry{background:var(--blue);color:#fff}.f-back{background:var(--muted);color:#fff}.f-judge{background:var(--green);color:#fff}
 .score-pill{background:var(--ink);color:#fff;padding:5px 13px;border-radius:18px;font-size:.82em;font-weight:700}
-
-/* ── バナー ── */
-.jbanner{display:none;position:fixed;top:62px;left:50%;transform:translateX(-50%);z-index:600;padding:14px 32px;border-radius:11px;font-size:1.18em;font-weight:700;letter-spacing:.05em;text-align:center;white-space:nowrap;box-shadow:0 6px 26px rgba(0,0,0,.28);animation:pop .3s cubic-bezier(.17,.67,.37,1.4)}
+.jbanner{display:none;position:fixed;top:62px;left:50%;transform:translateX(-50%);z-index:600;padding:14px 32px;border-radius:11px;font-size:1.18em;font-weight:700;text-align:center;white-space:nowrap;box-shadow:0 6px 26px rgba(0,0,0,.28);animation:pop .3s cubic-bezier(.17,.67,.37,1.4)}
 @keyframes pop{from{transform:translateX(-50%) scale(.5);opacity:0}to{transform:translateX(-50%) scale(1);opacity:1}}
 .ban-pass{background:#1e7a4a;color:#fff}.ban-ng{background:#c0392b;color:#fff}
-
-/* ── ポップアップ ── */
-.blank-popup{display:none;position:fixed;z-index:1000;background:#fff;border:2px solid var(--blue);border-radius:8px;padding:9px 11px;box-shadow:0 6px 22px rgba(0,0,0,.22);max-width:320px;flex-wrap:wrap;gap:6px}
-.blank-popup.open{display:flex}
+.blank-popup{display:none;position:fixed;z-index:1000;background:#fff;border:2px solid var(--blue);border-radius:8px;padding:9px 11px;box-shadow:0 6px 22px rgba(0,0,0,.22);max-width:320px;flex-wrap:wrap;gap:6px}.blank-popup.open{display:flex}
 .bp-arrow{position:absolute;top:-8px;left:14px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:8px solid var(--blue)}
-.bp-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.83em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:5px 11px;border-radius:4px;cursor:pointer;transition:.11s;white-space:nowrap}
-.bp-chip:hover{background:var(--blue);transform:translateY(-1px)}
-
-/* ── モーダル ── */
-.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;align-items:center;justify-content:center}
-.modal-ov.open{display:flex}
+.bp-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.83em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:5px 11px;border-radius:4px;cursor:pointer;transition:.11s;white-space:nowrap}.bp-chip:hover{background:var(--blue)}
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;align-items:center;justify-content:center}.modal-ov.open{display:flex}
 .modal-box{background:#fff;border-radius:14px;padding:26px 30px;max-width:330px;width:90%;box-shadow:0 8px 38px rgba(0,0,0,.3);text-align:center}
 .modal-title{font-size:1.06em;font-weight:700;color:var(--ink);margin-bottom:16px}
 .modal-btns{display:flex;flex-direction:column;gap:9px;margin-top:4px}
 .modal-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;border:none;border-radius:7px;padding:11px 0;cursor:pointer}
 .mb-resume{background:var(--green);color:#fff}.mb-back{background:var(--muted);color:#fff}.mb-cancel{background:#eee;color:var(--ink)}
-
 #cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
-.home-btn{position:fixed;bottom:130px;right:14px;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:22px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;transition:.14s;z-index:500;text-decoration:none}
-.home-btn:hover{background:#253060;transform:translateY(-2px)}
+.home-btn{position:fixed;bottom:130px;right:14px;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:22px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;transition:.14s;z-index:500;text-decoration:none}.home-btn:hover{background:#253060;transform:translateY(-2px)}
+/* 単元ごとのチャレンジ */
+.unit-wb{background:#fffbe9;border:2px dashed var(--gold);border-radius:8px;padding:10px 14px;margin-top:14px}
+.unit-wb-lbl{font-size:.7em;color:#b56a00;font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+.unit-wb-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.unit-wb-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.82em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 11px;border-radius:4px;cursor:pointer;transition:.12s}
+.unit-wb-chip:hover{background:#253060}.unit-wb-chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.unit-btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px;align-items:center}
+.unit-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.78em;font-weight:700;border:none;border-radius:5px;padding:6px 14px;cursor:pointer;transition:.12s}
+.unit-btn.challenge{background:var(--orange);color:#fff}
+.unit-btn.check{background:var(--green);color:#fff}
+.unit-btn.hint{background:#8e44ad;color:#fff}
+.unit-btn.retry{background:var(--blue);color:#fff}
+.unit-btn.quiz{background:var(--red);color:#fff}
+.unit-btn:hover{transform:translateY(-1px);opacity:.88}
+.unit-score{display:inline-block;background:var(--ink);color:#fff;font-size:.76em;font-weight:700;padding:3px 10px;border-radius:14px}
+/* 単元の4択問題 */
+.unit-quiz{display:none;margin-top:12px;padding:12px;background:#fff5f5;border:2px solid var(--red);border-radius:8px}
+.unit-quiz.on{display:block}
+.unit-quiz-title{font-size:.9em;font-weight:700;color:var(--red);margin-bottom:10px;border-bottom:1px solid #f5c6c6;padding-bottom:6px}
+.unit-quiz-q{margin-bottom:14px;padding-bottom:10px;border-bottom:1px dashed #ddd}
+.unit-quiz-q:last-child{border-bottom:none}
+.unit-quiz-qt{font-size:.86em;font-weight:700;margin-bottom:7px;line-height:1.6}
+.unit-quiz-num{display:inline-block;background:var(--red);color:#fff;font-size:.72em;padding:2px 8px;border-radius:3px;margin-right:6px}
+.unit-quiz-choices{display:flex;flex-direction:column;gap:5px}
+.uqc{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;padding:7px 11px;border:2px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;text-align:left;transition:.12s;line-height:1.5}
+.uqc:hover{border-color:var(--blue);background:#eef3ff}
+.uqc.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}
+.uqc.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.uqc-explain{display:none;margin-top:7px;font-size:.8em;background:#f0f8ff;border-left:3px solid var(--blue);padding:7px 11px;border-radius:4px;line-height:1.65}
+.uqc-explain.on{display:block}
+/* 単元内の過去問 */
+.unit-kakomon{display:none;margin-top:12px;padding:12px;background:#eef9f1;border:2px solid #1a6b3a;border-radius:8px}
+.unit-kakomon.on{display:block}
+.unit-kakomon-title{font-size:.9em;font-weight:700;color:#1a6b3a;margin-bottom:10px;border-bottom:1px solid #b8e0c5;padding-bottom:6px;display:flex;align-items:center;gap:8px}
+.unit-kakomon-tag{display:inline-block;background:var(--gold);color:var(--ink);font-size:.7em;font-weight:700;padding:2px 8px;border-radius:4px}
+.unit-btn.kakomon{background:#1a6b3a;color:#fff}
+/* チャレンジ中のblank */
+.blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
+.blank.cmode:hover{background:#fff3b0}
 </style>
 </head>
 <body>
-
+<canvas id="cnv"></canvas>
 <header class="hdr">
   <div class="hdr-info">
     <div class="hdr-sub">政治経済 GAMBA</div>
-    <div class="hdr-title">① 国家と法(1) ─ 法の分類・国家の領域</div>
+    <div class="hdr-title">① 国家と法(1) ─ 法の分類・国家の三要素・主権</div>
   </div>
   <div class="hdr-timer" id="timerDisp">00:00</div>
 </header>
-
 <nav class="tab-bar">
   <a class="tab-btn active" href="seikei01.html">① 国家と法(1)</a>
   <a class="tab-btn" href="seikei02.html">② 国家と法(2)</a>
@@ -226,34 +171,24 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
   <a class="tab-btn" href="seikei05.html">⑤ 各国の政治制度</a>
   <a class="tab-btn" href="seikei_index.html">📋 単元表</a>
 </nav>
-
 <div class="phase-bar">
   <span class="plbl">STEP</span>
-  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明</span>
-  <span class="parr">▶</span>
-  <div class="pdot" id="d1"></div><span class="ptxt" id="t1">②確認</span>
-  <span class="parr">▶</span>
-  <div class="pdot" id="d2"></div><span class="ptxt" id="t2">③テスト</span>
-  <span class="parr">▶</span>
-  <div class="pdot" id="d3"></div><span class="ptxt" id="t3">④過去問</span>
-  <span class="parr">▶</span>
-  <div class="pdot" id="d4"></div><span class="ptxt" id="t4">⑤フラッシュ</span>
+  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明・チャレンジ</span>
+  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②一問一答</span>
+  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③正誤</span>
+  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④フラッシュ</span>
 </div>
-
 <div class="wb-bar" id="wbBar">
   <div class="wb-lbl">▶ 語句をタップして選択 → 空欄をタップで入力　／　入力済み空欄をタップするとクリア</div>
   <div class="wb-chips" id="wbChips"></div>
 </div>
-
 <div class="main">
 
-<!-- ══════════════════════════════════════════
-     STEP①　説明ビュー
-══════════════════════════════════════════ -->
+
+<!-- ①説明 -->
 <div class="view on" id="vRead">
 
-  <!-- 社会規範と法の分類 -->
-  <div class="s-card">
+  <div class="s-card" data-unit="u1">
     <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">社会規範と法の分類</div></div>
     <div class="s-body">
       <div class="person-row">
@@ -264,33 +199,92 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <div class="pt" style="margin-top:8px">ポイント② 自然法と実定法</div>
           <p>社会契約説の自然状態のときに存在している理性に基づいて成り立ち、時代を超えて常に成り立つ法を<span class="blank show" data-ans="自然法">自然法</span>といいます。</p>
           <p>それに対し時代に応じて人間が作った法を<span class="blank show" data-ans="実定法">実定法</span>といい、その中で文章の形で制定された法を<span class="blank show" data-ans="成文法">成文法</span>といいます。</p>
-          <p>実定法のうち、社会生活の中でくりかえし行われることをもとにした<span class="blank show" data-ans="慣例法">慣例法</span>（慣習法）や、同じ内容の判決が繰り返し行われることで成立する<span class="blank show" data-ans="判例法">判例法</span>などの文章になっていない法を<span class="blank show" data-ans="不文法">不文法</span>といいます。</p>
+          <p>実定法のうち、社会生活の中でくりかえし行われることをもとにした<span class="blank show" data-ans="慣例法">慣例法</span>(慣習法)や、同じ内容の判決が繰り返し行われることで成立する<span class="blank show" data-ans="判例法">判例法</span>などの文章になっていない法を<span class="blank show" data-ans="不文法">不文法</span>といいます。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge red">法の体系</div>
+        <div class="pcont">
+          <table class="gtbl">
+            <thead><tr><th>法の種類</th><th>内容・例</th></tr></thead>
+            <tbody>
+              <tr><td><span class="blank show" data-ans="自然法">自然法</span></td><td>時代を超えた理性に基づく法</td></tr>
+              <tr><td rowspan="2"><span class="blank show" data-ans="実定法">実定法</span></td><td><span class="blank show" data-ans="成文法">成文法</span> → 公法・私法・社会法に分類</td></tr>
+              <tr><td><span class="blank show" data-ans="不文法">不文法</span> → 慣例法・判例法</td></tr>
+              <tr><td><span class="blank show" data-ans="公法">公法</span></td><td>例:憲法・刑法</td></tr>
+              <tr><td><span class="blank show" data-ans="私法">私法</span></td><td>例:民法・会社法</td></tr>
+              <tr><td><span class="blank show" data-ans="社会法">社会法</span></td><td>例:労働基準法</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u1">
+        <div class="unit-wb-lbl">▼ 単元①の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u1"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u1')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u1')" style="display:none" id="ub-check-u1">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u1')" style="display:none" id="ub-hint-u1">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u1')" style="display:none" id="ub-retry-u1">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u1')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u1" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u1">
+        <div class="unit-quiz-title">📝 確認問題(単元①社会規範と法の分類)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>社会規範のうち、国家権力による強制力を伴うものとして正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q0',0,2)">① 道徳</button>
+            <button class="uqc" onclick="ansUQ('u1q0',1,2)">② 宗教</button>
+            <button class="uqc" onclick="ansUQ('u1q0',2,2)">③ 法</button>
+            <button class="uqc" onclick="ansUQ('u1q0',3,2)">④ 慣習</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q0"><strong>正解:③</strong><br>社会規範には法・道徳・宗教・慣習などがありますが、国家権力による強制力を伴うのは「法」のみです。違反すれば刑罰や強制執行などが行われます。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>時代を超えて常に成り立つ理性に基づく法を何というか。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q1',0,1)">① 実定法</button>
+            <button class="uqc" onclick="ansUQ('u1q1',1,1)">② 自然法</button>
+            <button class="uqc" onclick="ansUQ('u1q1',2,1)">③ 成文法</button>
+            <button class="uqc" onclick="ansUQ('u1q1',3,1)">④ 慣例法</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q1"><strong>正解:②</strong><br>自然法とは社会契約説の自然状態のときに存在している理性に基づいて成り立ち、時代を超えて常に成り立つ法をいいます。実定法は時代に応じて人間が作った法です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>判例法と慣例法を含む、文章になっていない法の総称を何というか。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q2',0,2)">① 成文法</button>
+            <button class="uqc" onclick="ansUQ('u1q2',1,2)">② 自然法</button>
+            <button class="uqc" onclick="ansUQ('u1q2',2,2)">③ 不文法</button>
+            <button class="uqc" onclick="ansUQ('u1q2',3,2)">④ 公法</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q2"><strong>正解:③</strong><br>慣例法(慣習法)・判例法など、文章になっていない法をまとめて不文法といいます。実定法は文章で制定された成文法と、文章になっていない不文法に分けられます。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>労働基準法はどの法分類に該当するか。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q3',0,2)">① 公法</button>
+            <button class="uqc" onclick="ansUQ('u1q3',1,2)">② 私法</button>
+            <button class="uqc" onclick="ansUQ('u1q3',2,2)">③ 社会法</button>
+            <button class="uqc" onclick="ansUQ('u1q3',3,2)">④ 自然法</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q3"><strong>正解:③</strong><br>労働基準法は「社会法」に分類されます。公法は憲法・刑法など、私法は民法・会社法など。社会法は社会的弱者を保護する法律で、労働法・社会保障法などが含まれます。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u1',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u1',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u1" style="display:none"></span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 法の体系図 -->
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">法の体系（あてはめ）</div></div>
-    <div class="s-body">
-      <table class="gtbl">
-        <thead><tr><th>法の種類</th><th>内容・例</th></tr></thead>
-        <tbody>
-          <tr><td><span class="blank show" data-ans="自然法">自然法</span></td><td>時代を超えた理性に基づく法</td></tr>
-          <tr><td rowspan="2"><span class="blank show" data-ans="実定法">実定法</span></td><td><span class="blank show" data-ans="成文法">成文法</span>　→　公法・私法・社会法に分類</td></tr>
-          <tr><td><span class="blank show" data-ans="不文法">不文法</span>　→　慣例法・判例法</td></tr>
-          <tr><td><span class="blank show" data-ans="公法">公法</span></td><td>例：憲法・刑法</td></tr>
-          <tr><td><span class="blank show" data-ans="私法">私法</span></td><td>例：民法・会社法</td></tr>
-          <tr><td><span class="blank show" data-ans="社会法">社会法</span></td><td>例：労働基準法</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- アリストテレス -->
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">アリストテレスと国家・社会規範</div></div>
+  <div class="s-card" data-unit="u2">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">アリストテレスと国家・社会規範</div></div>
     <div class="s-body">
       <div class="person-row">
         <div class="pbadge">アリストテレス</div>
@@ -298,12 +292,53 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <p>ギリシアの哲学者<span class="blank show" data-ans="アリストテレス">アリストテレス</span>は、人間は家族や社会のなかで育つ社会性のある動物だという意味で「人間は<span class="blank show" data-ans="ポリス的動物">ポリス的動物</span>である」と主著<span class="blank show" data-ans="政治学">政治学</span>の中で述べました。</p>
         </div>
       </div>
+
+      <div class="unit-wb" id="uwb-u2">
+        <div class="unit-wb-lbl">▼ 単元②の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u2"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u2')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u2')" style="display:none" id="ub-check-u2">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u2')" style="display:none" id="ub-hint-u2">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u2')" style="display:none" id="ub-retry-u2">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u2')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u2" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u2">
+        <div class="unit-quiz-title">📝 確認問題(単元②アリストテレス)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>「人間はポリス的動物である」と述べたギリシアの哲学者は誰か。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q0',0,2)">① プラトン</button>
+            <button class="uqc" onclick="ansUQ('u2q0',1,2)">② ソクラテス</button>
+            <button class="uqc" onclick="ansUQ('u2q0',2,2)">③ アリストテレス</button>
+            <button class="uqc" onclick="ansUQ('u2q0',3,2)">④ ディオゲネス</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q0"><strong>正解:③</strong><br>アリストテレスは古代ギリシアの哲学者で、「人間は家族や社会のなかで育つ社会性のある動物」という意味で「人間はポリス的動物である」と述べました。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>アリストテレスが「人間はポリス的動物である」と述べた主著は何か。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q1',0,1)">① 形而上学</button>
+            <button class="uqc" onclick="ansUQ('u2q1',1,1)">② 政治学</button>
+            <button class="uqc" onclick="ansUQ('u2q1',2,1)">③ ニコマコス倫理学</button>
+            <button class="uqc" onclick="ansUQ('u2q1',3,1)">④ 国家論</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q1"><strong>正解:②</strong><br>アリストテレスの主著「政治学」の中で「人間はポリス的動物である」という名言が述べられています。古代ギリシアのポリス(都市国家)に生きる人間の本質を表した言葉です。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u2',2)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u2',2)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u2" style="display:none"></span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- 国家の三要素 -->
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">国家の三要素・主権・領域</div></div>
+  <div class="s-card" data-unit="u3">
+    <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">国家の三要素 ─ 領域・人民・主権</div></div>
     <div class="s-body">
       <div class="person-row">
         <div class="pbadge">イェリネック</div>
@@ -311,14 +346,72 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <div class="pt">国家の三要素</div>
           <p>ドイツの学者<span class="blank show" data-ans="イェリネック">イェリネック</span>は著書<span class="blank show" data-ans="一般国家学">一般国家学</span>で「国家の三要素」が必要と述べています。</p>
           <p>国家の三要素とは、<span class="blank show" data-ans="領域">領域</span>・<span class="blank show" data-ans="人民">人民</span>・<span class="blank show" data-ans="主権">主権</span>です。</p>
-          <p>国家の領域は、<strong>領土・領海・領空</strong>からなります。領海は沿岸から<span class="blank show" data-ans="12">12</span>海里まで。その外側の沿岸から<span class="blank show" data-ans="200">200</span>海里までの<span class="blank show" data-ans="排他的経済水域">排他的経済水域</span>（EEZ）が国連海洋法条約で定められています。</p>
+          <p>国家の領域は、<strong>領土・領海・領空</strong>からなります。領海は沿岸から<span class="blank show" data-ans="12">12</span>海里まで。その外側の沿岸から<span class="blank show" data-ans="200">200</span>海里までの<span class="blank show" data-ans="排他的経済水域">排他的経済水域</span>(EEZ)が国連海洋法条約で定められています。</p>
         </div>
       </div>
+
+      <div class="unit-wb" id="uwb-u3">
+        <div class="unit-wb-lbl">▼ 単元③の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u3"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u3')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u3')" style="display:none" id="ub-check-u3">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u3')" style="display:none" id="ub-hint-u3">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u3')" style="display:none" id="ub-retry-u3">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u3')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u3" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u3">
+        <div class="unit-quiz-title">📝 確認問題(単元③国家の三要素)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>著書『一般国家学』で「国家の三要素」を示したドイツの学者は誰か。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q0',0,1)">① グロチウス</button>
+            <button class="uqc" onclick="ansUQ('u3q0',1,1)">② イェリネック</button>
+            <button class="uqc" onclick="ansUQ('u3q0',2,1)">③ ジャン=ボーダン</button>
+            <button class="uqc" onclick="ansUQ('u3q0',3,1)">④ アリストテレス</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q0"><strong>正解:②</strong><br>イェリネックはドイツの公法学者で、著書『一般国家学』(1900年)で「国家の三要素=領域・人民・主権」を提示しました。これは現在も国家の構成要素の標準的定義となっています。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>国家の三要素として正しい組み合わせを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q1',0,2)">① 領域・人民・権力</button>
+            <button class="uqc" onclick="ansUQ('u3q1',1,2)">② 主権・国際連合加盟・人民</button>
+            <button class="uqc" onclick="ansUQ('u3q1',2,2)">③ 領域・人民・主権</button>
+            <button class="uqc" onclick="ansUQ('u3q1',3,2)">④ 主権・領域・議会</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q1"><strong>正解:③</strong><br>イェリネックが提示した国家の三要素は「領域・人民・主権」です。「権力」「議会」「国際連合加盟」は三要素には含まれません。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>排他的経済水域(EEZ)に関する記述として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q2',0,1)">① 沿岸から12海里の範囲で完全な主権が及ぶ。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',1,1)">② 沿岸から200海里で、漁業資源・鉱物資源などの権利を沿岸国が持つ。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',2,1)">③ 沿岸から200海里で、外国船舶は一切通航できない。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',3,1)">④ 国連海洋法条約ではなく双務条約で個別に定められる。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q2"><strong>正解:②</strong><br>排他的経済水域(EEZ)は国連海洋法条約により沿岸から200海里までと定められ、漁業資源・鉱物資源について沿岸国が権利を持ちます。①は領海(12海里)。③EEZ内でも外国船舶の通航は原則自由。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u3',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u3',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u3" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u4">
+    <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">主権論の祖と国際法の父</div></div>
+    <div class="s-body">
       <div class="person-row">
-        <div class="pbadge red">ジャン＝ボーダン</div>
+        <div class="pbadge red">ジャン=ボーダン</div>
         <div class="pcont">
           <div class="pt">主権の定義</div>
-          <p>「主権論の祖」と呼ばれるフランスの思想家<span class="blank show" data-ans="ジャン＝ボーダン">ジャン＝ボーダン</span>はじめて主権を定義しました。他国の意志に左右されず、自らの意志で国民や領土を統治する権利のことを<span class="blank show" data-ans="主権">主権</span>といいます。</p>
+          <p>「主権論の祖」と呼ばれるフランスの思想家<span class="blank show" data-ans="ジャン=ボーダン">ジャン=ボーダン</span>がはじめて主権を定義しました。他国の意志に左右されず、自らの意志で国民や領土を統治する権利のことを<span class="blank show" data-ans="主権">主権</span>といいます。</p>
         </div>
       </div>
       <div class="person-row">
@@ -328,309 +421,140 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <p>「国際法の父」と呼ばれるオランダの法学者<span class="blank show" data-ans="グロチウス">グロチウス</span>は「<span class="blank show" data-ans="海洋自由論">海洋自由論</span>」の中で、公海は自由航行ができるという公海上の自由を主張しました。現在は国際慣習法となっています。</p>
         </div>
       </div>
+
+      <div class="unit-wb" id="uwb-u4">
+        <div class="unit-wb-lbl">▼ 単元④の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u4"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u4')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u4')" style="display:none" id="ub-check-u4">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u4')" style="display:none" id="ub-hint-u4">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u4')" style="display:none" id="ub-retry-u4">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u4')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u4" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u4">
+        <div class="unit-quiz-title">📝 確認問題(単元④主権論の祖と国際法の父)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>「主権論の祖」と呼ばれるフランスの思想家は誰か。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q0',0,1)">① グロチウス</button>
+            <button class="uqc" onclick="ansUQ('u4q0',1,1)">② ジャン=ボーダン</button>
+            <button class="uqc" onclick="ansUQ('u4q0',2,1)">③ イェリネック</button>
+            <button class="uqc" onclick="ansUQ('u4q0',3,1)">④ ホッブズ</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q0"><strong>正解:②</strong><br>「主権論の祖」と呼ばれるフランスの思想家ジャン=ボーダンは、はじめて「主権」の概念を定義しました。他国の意志に左右されず、自らの意志で国民や領土を統治する権利のことです。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>「国際法の父」と呼ばれ、著書『海洋自由論』で公海の自由を主張した人物は誰か。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q1',0,1)">① ジャン=ボーダン</button>
+            <button class="uqc" onclick="ansUQ('u4q1',1,1)">② グロチウス</button>
+            <button class="uqc" onclick="ansUQ('u4q1',2,1)">③ イェリネック</button>
+            <button class="uqc" onclick="ansUQ('u4q1',3,1)">④ ロック</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q1"><strong>正解:②</strong><br>グロチウスはオランダの法学者で「国際法の父」と呼ばれます。著書『海洋自由論』(1609年)で公海は自由に航行できるとする公海自由の原則を主張し、現在の国際慣習法の基礎となっています。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>主権の定義として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q2',0,2)">① 領域内の人々を支配する権利のみ。</button>
+            <button class="uqc" onclick="ansUQ('u4q2',1,2)">② 他国の許可があれば国民を統治できる権利。</button>
+            <button class="uqc" onclick="ansUQ('u4q2',2,2)">③ 他国の意志に左右されず、自らの意志で国民や領土を統治する権利。</button>
+            <button class="uqc" onclick="ansUQ('u4q2',3,2)">④ 国際連合加盟国にのみ認められる権利。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q2"><strong>正解:③</strong><br>ジャン=ボーダンが定義した主権は、他国の意志に左右されず、自らの意志で国民や領土を統治する権利のことを指します。これは近代国家の基礎概念です。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u4',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u4',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u4" style="display:none"></span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- 主権の三要素 -->
-  <div class="s-card">
+  <div class="s-card" data-unit="u5">
     <div class="s-head-e"><div class="s-icon">5</div><div class="s-ht">現代の主権「主権の三要素」</div></div>
     <div class="s-body">
-      <table class="gtbl">
-        <thead><tr><th>主権の種類</th><th>内容</th><th>例</th></tr></thead>
-        <tbody>
-          <tr><td><span class="blank show" data-ans="国内統治権">国内統治権</span></td><td>領域内の人々を支配する権利</td><td>ポツダム宣言（領域の限定）</td></tr>
-          <tr><td><span class="blank show" data-ans="国家意思最終決定権">国家意思最終決定権</span></td><td>政治的最終決定をする権利<br>君主にあれば<span class="blank show" data-ans="君主権">君主権</span>、人民にあれば<span class="blank show" data-ans="人民主権">人民主権</span></td><td>憲法1条（国民主権）</td></tr>
-          <tr><td><span class="blank show" data-ans="対外独立権">対外独立権</span></td><td>外国の支配に服することなく国内政治を行う権利</td><td>憲法前文（対等関係）</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-</div><!-- /vRead -->
-
-<!-- ══════════════════════════════════════════
-     STEP②　確認ビュー（語群から選んで空欄埋め）
-══════════════════════════════════════════ -->
-<div class="view" id="vChallE">
-
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">社会規範と法の分類　─ 語群から選んで空欄を埋めよ</div></div>
-    <div class="s-body">
       <div class="person-row">
-        <div class="pbadge">社会規範</div>
+        <div class="pbadge">主権の三要素</div>
         <div class="pcont">
-          <p>法・道徳・宗教・慣習など人間の社会生活の基準となるものをまとめて<span class="blank" data-ans="社会規範" onclick="fillBlank(this)"></span>といいます。その中で法だけは国家権力による強制力を伴います。</p>
-          <p>時代を超えて常に成り立つ理性に基づく法を<span class="blank" data-ans="自然法" onclick="fillBlank(this)"></span>といいます。</p>
-          <p>時代に応じて人間が作った法を<span class="blank" data-ans="実定法" onclick="fillBlank(this)"></span>といい、文章の形で制定された法を<span class="blank" data-ans="成文法" onclick="fillBlank(this)"></span>といいます。</p>
-          <p>社会生活で繰り返し行われることをもとにした法を<span class="blank" data-ans="慣例法" onclick="fillBlank(this)"></span>、繰り返し行われた判決をもとにした法を<span class="blank" data-ans="判例法" onclick="fillBlank(this)"></span>といい、これらをまとめて<span class="blank" data-ans="不文法" onclick="fillBlank(this)"></span>といいます。</p>
-          <p>憲法・刑法などは<span class="blank" data-ans="公法" onclick="fillBlank(this)"></span>、民法・会社法などは<span class="blank" data-ans="私法" onclick="fillBlank(this)"></span>、労働基準法などは<span class="blank" data-ans="社会法" onclick="fillBlank(this)"></span>に分類されます。</p>
+          <table class="gtbl">
+            <thead><tr><th>主権の種類</th><th>内容</th><th>例</th></tr></thead>
+            <tbody>
+              <tr><td><span class="blank show" data-ans="国内統治権">国内統治権</span></td><td>領域内の人々を支配する権利</td><td>ポツダム宣言(領域の限定)</td></tr>
+              <tr><td><span class="blank show" data-ans="国家意思最終決定権">国家意思最終決定権</span></td><td>政治的最終決定をする権利<br>君主にあれば<span class="blank show" data-ans="君主主権">君主主権</span>、人民にあれば<span class="blank show" data-ans="人民主権">人民主権</span></td><td>憲法1条(国民主権)</td></tr>
+              <tr><td><span class="blank show" data-ans="対外独立権">対外独立権</span></td><td>外国の支配に服することなく国内政治を行う権利</td><td>憲法前文(対等関係)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u5">
+        <div class="unit-wb-lbl">▼ 単元⑤の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u5"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u5')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u5')" style="display:none" id="ub-check-u5">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u5')" style="display:none" id="ub-hint-u5">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u5')" style="display:none" id="ub-retry-u5">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u5')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u5" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u5">
+        <div class="unit-quiz-title">📝 確認問題(単元⑤主権の三要素)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>「領域内の人々を支配する権利」を意味する主権の種類を選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q0',0,2)">① 国家意思最終決定権</button>
+            <button class="uqc" onclick="ansUQ('u5q0',1,2)">② 対外独立権</button>
+            <button class="uqc" onclick="ansUQ('u5q0',2,2)">③ 国内統治権</button>
+            <button class="uqc" onclick="ansUQ('u5q0',3,2)">④ 人民主権</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q0"><strong>正解:③</strong><br>国内統治権は領域内の人々を支配する権利です。例:ポツダム宣言(「日本国の主権は本州・北海道・九州・四国に局限せらるべし」)は領域の限定として国内統治権の例にあたります。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>政治的最終決定をする権利が人民にある場合を何というか。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q1',0,1)">① 君主主権</button>
+            <button class="uqc" onclick="ansUQ('u5q1',1,1)">② 人民主権</button>
+            <button class="uqc" onclick="ansUQ('u5q1',2,1)">③ 国内統治権</button>
+            <button class="uqc" onclick="ansUQ('u5q1',3,1)">④ 対外独立権</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q1"><strong>正解:②</strong><br>国家意思最終決定権が君主にあれば「君主主権」、人民にあれば「人民主権」(国民主権)といいます。日本国憲法第1条は国民主権を規定しています。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>「外国の支配に服することなく、国内政治を行う権利」にあたる主権の種類を選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q2',0,2)">① 国内統治権</button>
+            <button class="uqc" onclick="ansUQ('u5q2',1,2)">② 国家意思最終決定権</button>
+            <button class="uqc" onclick="ansUQ('u5q2',2,2)">③ 対外独立権</button>
+            <button class="uqc" onclick="ansUQ('u5q2',3,2)">④ 君主主権</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q2"><strong>正解:③</strong><br>対外独立権は、他国に従属せず独立して国内政治を行うことができる権利です。日本国憲法前文の「対等関係」がこれにあたります。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u5',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u5',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u5" style="display:none"></span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">アリストテレスと国家・人物　─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">まとめ過去問 ─ 共通テスト・センター試験(国家と法)</div></div>
     <div class="s-body">
-      <div class="person-row">
-        <div class="pbadge">人物</div>
-        <div class="pcont">
-          <p>ギリシアの哲学者<span class="blank" data-ans="アリストテレス" onclick="fillBlank(this)"></span>は「人間は<span class="blank" data-ans="ポリス的動物" onclick="fillBlank(this)"></span>である」と主著<span class="blank" data-ans="政治学" onclick="fillBlank(this)"></span>の中で述べました。</p>
-          <p>ドイツの学者<span class="blank" data-ans="イェリネック" onclick="fillBlank(this)"></span>は著書<span class="blank" data-ans="一般国家学" onclick="fillBlank(this)"></span>で国家の三要素（<span class="blank" data-ans="領域" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="人民" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="主権" onclick="fillBlank(this)"></span>）が必要と述べました。</p>
-          <p>領海は沿岸から<span class="blank" data-ans="12" onclick="fillBlank(this)"></span>海里、<span class="blank" data-ans="排他的経済水域" onclick="fillBlank(this)"></span>は沿岸から<span class="blank" data-ans="200" onclick="fillBlank(this)"></span>海里までです。</p>
-          <p>「主権論の祖」<span class="blank" data-ans="ジャン＝ボーダン" onclick="fillBlank(this)"></span>は主権を定義し、「国際法の父」<span class="blank" data-ans="グロチウス" onclick="fillBlank(this)"></span>は著書「<span class="blank" data-ans="海洋自由論" onclick="fillBlank(this)"></span>」で公海の自由を主張しました。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /vChallE -->
-
-<!-- ══════════════════════════════════════════
-     STEP③　テスト（一問一答20問）
-══════════════════════════════════════════ -->
-<div class="view" id="vQ">
-
-  <!-- Q1〜Q10：語群から選ぶ一問一答 -->
-  <div class="s-card">
-    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩　─ 語群から選んで空欄を埋めよ</div></div>
-    <div class="s-body">
-
-      <div class="q-item">
-        <div class="qt">問1</div>
-        法・道徳・宗教・慣習など人間の社会生活の基準となるものをまとめて何というか。<br>
-        → <span class="blank" data-ans="社会規範" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問2</div>
-        時代を超えて常に成り立つ理性に基づく法を何というか。<br>
-        → <span class="blank" data-ans="自然法" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問3</div>
-        時代に応じて人間が作った法の総称を何というか。<br>
-        → <span class="blank" data-ans="実定法" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問4</div>
-        文章の形で制定された法を何というか。<br>
-        → <span class="blank" data-ans="成文法" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問5</div>
-        慣例法・判例法のように文章になっていない法をまとめて何というか。<br>
-        → <span class="blank" data-ans="不文法" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問6</div>
-        憲法・刑法などが属する法の分類は何か。<br>
-        → <span class="blank" data-ans="公法" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問7</div>
-        民法・会社法などが属する法の分類は何か。<br>
-        → <span class="blank" data-ans="私法" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問8</div>
-        労働基準法などが属する法の分類は何か。<br>
-        → <span class="blank" data-ans="社会法" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問9</div>
-        「人間はポリス的動物である」と述べたギリシアの哲学者は誰か。<br>
-        → <span class="blank" data-ans="アリストテレス" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問10</div>
-        アリストテレスが「人間はポリス的動物である」と述べた主著は何か。<br>
-        → <span class="blank" data-ans="政治学" onclick="fillBlank(this)"></span>
-      </div>
-
-      <div class="note-box">【語群①〜⑩】社会規範　自然法　実定法　成文法　不文法　公法　私法　社会法　アリストテレス　政治学</div>
-    </div>
-  </div>
-
-  <!-- Q11〜Q20：語群から選ぶ一問一答 -->
-  <div class="s-card">
-    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳　─ 語群から選んで空欄を埋めよ</div></div>
-    <div class="s-body">
-
-      <div class="q-item">
-        <div class="qt">問11</div>
-        著書『一般国家学』で「国家の三要素」を示したドイツの学者は誰か。<br>
-        → <span class="blank" data-ans="イェリネック" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問12</div>
-        国家の三要素とは何か。（3つ）<br>
-        → <span class="blank" data-ans="領域" onclick="fillBlank(this)"></span>　・　<span class="blank" data-ans="人民" onclick="fillBlank(this)"></span>　・　<span class="blank" data-ans="主権" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問13</div>
-        領海は沿岸から何海里か。<br>
-        → <span class="blank" data-ans="12" onclick="fillBlank(this)"></span> 海里
-      </div>
-      <div class="q-item">
-        <div class="qt">問14</div>
-        沿岸から200海里までで漁業・鉱物資源の権利をもつ水域を何というか。<br>
-        → <span class="blank" data-ans="排他的経済水域" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問15</div>
-        「主権論の祖」と呼ばれるフランスの思想家は誰か。<br>
-        → <span class="blank" data-ans="ジャン＝ボーダン" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問16</div>
-        「国際法の父」と呼ばれるオランダの法学者は誰か。<br>
-        → <span class="blank" data-ans="グロチウス" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問17</div>
-        グロチウスが公海の自由を主張した著書の名称は何か。<br>
-        → <span class="blank" data-ans="海洋自由論" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問18</div>
-        領域内の人々を支配する主権の種類を何というか。<br>
-        → <span class="blank" data-ans="国内統治権" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問19</div>
-        政治的最終決定をする主権の種類を何というか。人民にある場合の名称も答えよ。<br>
-        → <span class="blank" data-ans="国家意思最終決定権" onclick="fillBlank(this)"></span>　　人民の場合：<span class="blank" data-ans="人民主権" onclick="fillBlank(this)"></span>
-      </div>
-      <div class="q-item">
-        <div class="qt">問20</div>
-        外国の支配に服することなく国内政治を行う主権の種類を何というか。<br>
-        → <span class="blank" data-ans="対外独立権" onclick="fillBlank(this)"></span>
-      </div>
-
-      <div class="note-box">【語群⑪〜⑳】イェリネック　領域　人民　主権　12　排他的経済水域　ジャン＝ボーダン　グロチウス　海洋自由論　国内統治権　国家意思最終決定権　人民主権　対外独立権</div>
-    </div>
-  </div>
-
-</div><!-- /vQ -->
-
-<!-- ══════════════════════════════════════════
-     STEP④　正誤問題10問
-══════════════════════════════════════════ -->
-<div class="view" id="vSeigo">
-
-  <div class="s-card">
-    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題　── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
-    <div class="s-body">
-
-      <div class="seigo-item" id="sg0">
-        <div class="seigo-q">① 法・道徳・宗教・慣習など社会生活の基準をまとめて「社会規範」といい、法だけが国家権力による強制力を伴う。</div>
-        <div class="seigo-btns">
-          <button class="seigo-btn" onclick="ansSeigo(0,true,true,'正しい。法のみが国家権力の強制力を伴う点が他の社会規範と異なる。')">○ 正しい</button>
-          <button class="seigo-btn" onclick="ansSeigo(0,false,true,'正しい。法のみが国家権力の強制力を伴う点が他の社会規範と異なる。')">× 誤り</button>
-        </div>
-        <div class="seigo-explain" id="sgex0"></div>
-      </div>
-
-      <div class="seigo-item" id="sg1">
-        <div class="seigo-q">② 自然法とは、時代に応じて人間が作り出した実定法の一種である。</div>
-        <div class="seigo-btns">
-          <button class="seigo-btn" onclick="ansSeigo(1,true,false,'誤り。自然法は時代を超えて常に成り立つ理性に基づく法であり、実定法とは別のものである。')">○ 正しい</button>
-          <button class="seigo-btn" onclick="ansSeigo(1,false,false,'誤り。自然法は時代を超えて常に成り立つ理性に基づく法であり、実定法とは別のものである。')">× 誤り</button>
-        </div>
-        <div class="seigo-explain" id="sgex1"></div>
-      </div>
-
-      <div class="seigo-item" id="sg2">
-        <div class="seigo-q">③ 判例法は文章になっていない不文法の一種である。</div>
-        <div class="seigo-btns">
-          <button class="seigo-btn" onclick="ansSeigo(2,true,true,'正しい。判例法は同じ内容の判決が繰り返されることで成立する不文法であり、慣例法とともに不文法に分類される。')">○ 正しい</button>
-          <button class="seigo-btn" onclick="ansSeigo(2,false,true,'正しい。判例法は同じ内容の判決が繰り返されることで成立する不文法であり、慣例法とともに不文法に分類される。')">× 誤り</button>
-        </div>
-        <div class="seigo-explain" id="sgex2"></div>
-      </div>
-
-      <div class="seigo-item" id="sg3">
-        <div class="seigo-q">④ 労働基準法は「公法」に分類される。</div>
-        <div class="seigo-btns">
-          <button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。労働基準法は「社会法」に分類される。公法は憲法・刑法など、私法は民法・会社法などが該当する。')">○ 正しい</button>
-          <button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。労働基準法は「社会法」に分類される。公法は憲法・刑法など、私法は民法・会社法などが該当する。')">× 誤り</button>
-        </div>
-        <div class="seigo-explain" id="sgex3"></div>
-      </div>
-
-      <div class="seigo-item" id="sg4">
-        <div class="seigo-q">⑤ アリストテレスは主著『政治学』の中で「人間はポリス的動物である」と述べた。</div>
-        <div class="seigo-btns">
-          <button class="seigo-btn" onclick="ansSeigo(4,true,true,'正しい。アリストテレスは人間が社会のなかで育つ社会性のある動物であることを「ポリス的動物」と表現し、主著『政治学』で述べた。')">○ 正しい</button>
-          <button class="seigo-btn" onclick="ansSeigo(4,false,true,'正しい。アリストテレスは人間が社会のなかで育つ社会性のある動物であることを「ポリス的動物」と表現し、主著『政治学』で述べた。')">× 誤り</button>
-        </div>
-        <div class="seigo-explain" id="sgex4"></div>
-      </div>
-
-      <div class="seigo-item" id="sg5">
-        <div class="seigo-q">⑥ イェリネックは著書『海洋自由論』で国家の三要素（領域・人民・主権）を示した。</div>
-        <div class="seigo-btns">
-          <button class="seigo-btn" onclick="ansSeigo(5,true,false,'誤り。『海洋自由論』はグロチウスの著書である。イェリネックの著書は『一般国家学』で、国家の三要素を示した。')">○ 正しい</button>
-          <button class="seigo-btn" onclick="ansSeigo(5,false,false,'誤り。『海洋自由論』はグロチウスの著書である。イェリネックの著書は『一般国家学』で、国家の三要素を示した。')">× 誤り</button>
-        </div>
-        <div class="seigo-explain" id="sgex5"></div>
-      </div>
-
-      <div class="seigo-item" id="sg6">
-        <div class="seigo-q">⑦ 排他的経済水域（EEZ）は沿岸から200海里の範囲で、漁業資源や鉱物資源の権利を沿岸国が持つ。</div>
-        <div class="seigo-btns">
-          <button class="seigo-btn" onclick="ansSeigo(6,true,true,'正しい。排他的経済水域（EEZ）は国連海洋法条約で定められ、沿岸から200海里の範囲内の資源については沿岸国が権利を持つ。')">○ 正しい</button>
-          <button class="seigo-btn" onclick="ansSeigo(6,false,true,'正しい。排他的経済水域（EEZ）は国連海洋法条約で定められ、沿岸から200海里の範囲内の資源については沿岸国が権利を持つ。')">× 誤り</button>
-        </div>
-        <div class="seigo-explain" id="sgex6"></div>
-      </div>
-
-      <div class="seigo-item" id="sg7">
-        <div class="seigo-q">⑧ 「主権論の祖」と呼ばれるフランスの思想家グロチウスが、はじめて主権を定義した。</div>
-        <div class="seigo-btns">
-          <button class="seigo-btn" onclick="ansSeigo(7,true,false,'誤り。主権を最初に定義したのはジャン＝ボーダンである。グロチウスは「国際法の父」と呼ばれ、公海の自由を主張した。')">○ 正しい</button>
-          <button class="seigo-btn" onclick="ansSeigo(7,false,false,'誤り。主権を最初に定義したのはジャン＝ボーダンである。グロチウスは「国際法の父」と呼ばれ、公海の自由を主張した。')">× 誤り</button>
-        </div>
-        <div class="seigo-explain" id="sgex7"></div>
-      </div>
-
-      <div class="seigo-item" id="sg8">
-        <div class="seigo-q">⑨ 「対外独立権」とは、外国の支配に服することなく国内政治を行うことができるという主権の種類である。</div>
-        <div class="seigo-btns">
-          <button class="seigo-btn" onclick="ansSeigo(8,true,true,'正しい。対外独立権は外国との関係において、外国の支配権力に服することなく、国内の政治を行うことができるという権利で、主権の三要素の一つである。')">○ 正しい</button>
-          <button class="seigo-btn" onclick="ansSeigo(8,false,true,'正しい。対外独立権は外国との関係において、外国の支配権力に服することなく、国内の政治を行うことができるという権利で、主権の三要素の一つである。')">× 誤り</button>
-        </div>
-        <div class="seigo-explain" id="sgex8"></div>
-      </div>
-
-      <div class="seigo-item" id="sg9">
-        <div class="seigo-q">⑩ 領海は沿岸から12海里、排他的経済水域（EEZ）は沿岸から200海里であり、どちらも国家の主権が完全に及ぶ。</div>
-        <div class="seigo-btns">
-          <button class="seigo-btn" onclick="ansSeigo(9,true,false,'誤り。EEZは資源の利用権はあるが、領土・領海のような完全な主権は及ばない。あくまで資源の権利を保障した水域である。')">○ 正しい</button>
-          <button class="seigo-btn" onclick="ansSeigo(9,false,false,'誤り。EEZは資源の利用権はあるが、領土・領海のような完全な主権は及ばない。あくまで資源の権利を保障した水域である。')">× 誤り</button>
-        </div>
-        <div class="seigo-explain" id="sgex9"></div>
-      </div>
-
-    </div>
-  </div>
-
-</div><!-- /vSeigo -->
-
-<!-- ══════════════════════════════════════════
-     STEP⑤　共通テスト過去問
-══════════════════════════════════════════ -->
-<div class="view" id="vKakomon">
-
-  <div class="s-card">
-    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">共通テスト・センター試験 過去問　─ 政治経済①</div></div>
-    <div class="s-body">
+      <p style="margin-bottom:14px;font-size:.9em;color:#444">これまでの学習の総仕上げです。実際の過去問にチャレンジしましょう。各選択肢をクリックすると正誤が表示されます。</p>
 
       <div class="q-item">
         <span class="kk-year-tag">2023年 共通テスト</span>
-        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">
-          問1. 法に関する記述として<strong>正しいもの</strong>を①〜④から選べ。
-        </div>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 法に関する記述として<strong>正しいもの</strong>を①〜④から選べ。</div>
         <div class="kk-choices" id="kkc0">
           <button class="kk-choice" onclick="ansKakomon('kkc0',0,1,'kkex0')">① 自然法とは、特定の社会が独自に発展させた慣習に基づく法を指す。</button>
           <button class="kk-choice" onclick="ansKakomon('kkc0',1,1,'kkex0')">② 成文法とは、文章の形で制定された法のことをいう。</button>
@@ -638,20 +562,12 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <button class="kk-choice" onclick="ansKakomon('kkc0',3,1,'kkex0')">④ 判例法とは、議会が制定した成文法の一種である。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex0">
-          <strong>正解：②</strong><br>
-          ②成文法は文章の形で制定された法（法律・条例など）→正しい。<br>
-          ①自然法は時代を超えた理性に基づく法であり、慣習に基づく法（慣例法）とは異なる。<br>
-          ③は公法の説明。社会法は労働基準法など社会的弱者保護を目的とした法。<br>
-          ④判例法は同じ内容の判決が繰り返されることで成立する不文法であり、成文法ではない。
-        </div>
+        <div class="kk-explain" id="kkex0"><strong>正解:②</strong><br>②成文法は文章の形で制定された法(法律・条例など)→正しい。<br>①自然法は時代を超えた理性に基づく法であり、慣習に基づく法(慣例法)とは異なる。<br>③は公法の説明。社会法は労働基準法など社会的弱者保護を目的とした法。<br>④判例法は同じ内容の判決が繰り返されることで成立する不文法であり、成文法ではない。</div>
       </div>
 
       <div class="q-item">
         <span class="kk-year-tag">センター試験 2019年</span>
-        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">
-          問2. 国家の三要素として<strong>正しいもの</strong>を①〜④から選べ。
-        </div>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 国家の三要素として<strong>正しいもの</strong>を①〜④から選べ。</div>
         <div class="kk-choices" id="kkc1">
           <button class="kk-choice" onclick="ansKakomon('kkc1',0,1,'kkex1')">① 領域・人民・権力</button>
           <button class="kk-choice" onclick="ansKakomon('kkc1',1,1,'kkex1')">② 領域・主権・人民</button>
@@ -659,37 +575,25 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <button class="kk-choice" onclick="ansKakomon('kkc1',3,1,'kkex1')">④ 主権・領域・議会</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex1">
-          <strong>正解：②</strong><br>
-          イェリネックは著書『一般国家学』で国家の三要素を「<strong>領域・人民・主権</strong>」と定義した。<br>
-          「権力」ではなく「主権」、「国際連合加盟」「議会」は三要素に含まれない。
-        </div>
+        <div class="kk-explain" id="kkex1"><strong>正解:②</strong><br>イェリネックは著書『一般国家学』で国家の三要素を「<strong>領域・人民・主権</strong>」と定義した。「権力」ではなく「主権」、「国際連合加盟」「議会」は三要素に含まれない。</div>
       </div>
 
       <div class="q-item">
         <span class="kk-year-tag">共通テスト 2022年</span>
-        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">
-          問3. 排他的経済水域（EEZ）に関する記述として<strong>最も適当なもの</strong>を選べ。
-        </div>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 排他的経済水域(EEZ)に関する記述として<strong>最も適当なもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,2,'kkex2')">① 沿岸から12海里の範囲で、完全な主権が及ぶ水域である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,2,'kkex2')">② 沿岸から200海里で、漁業資源や鉱物資源などの権利を沿岸国が持つ水域である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,2,'kkex2')">③ 沿岸から200海里の範囲で、他国は一切通過できない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 国連海洋法条約ではなく、双務条約によって個別に定められる。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 沿岸から12海里の範囲で、完全な主権が及ぶ水域である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 沿岸から200海里で、漁業資源や鉱物資源などの権利を沿岸国が持つ水域である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 沿岸から200海里の範囲で、他国は一切通過できない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 国連海洋法条約ではなく、双務条約によって個別に定められる。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex2">
-          <strong>正解：②</strong><br>
-          EEZは沿岸から<strong>200海里</strong>の範囲で、<strong>漁業資源・鉱物資源</strong>などに関する権利を沿岸国が持つ水域。国連海洋法条約で定められている。<br>
-          ①は領海（12海里）の説明。③EEZ内でも外国船舶の通過は原則認められる。④は誤り。
-        </div>
+        <div class="kk-explain" id="kkex2"><strong>正解:②</strong><br>EEZは沿岸から<strong>200海里</strong>の範囲で、<strong>漁業資源・鉱物資源</strong>などに関する権利を沿岸国が持つ水域。国連海洋法条約で定められている。①は領海(12海里)の説明。③EEZ内でも外国船舶の通過は原則認められる。④は誤り。</div>
       </div>
 
       <div class="q-item">
         <span class="kk-year-tag">センター試験 2020年</span>
-        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">
-          問4. グロチウスについての記述として<strong>正しいもの</strong>を選べ。
-        </div>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. グロチウスについての記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc3">
           <button class="kk-choice" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 「主権論の祖」と呼ばれ、主権の概念を最初に定義した。</button>
           <button class="kk-choice" onclick="ansKakomon('kkc3',1,1,'kkex3')">② 「国際法の父」と呼ばれ、著書『海洋自由論』で公海の自由を主張した。</button>
@@ -697,199 +601,538 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <button class="kk-choice" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ 「人間はポリス的動物である」と述べたギリシアの哲学者である。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex3">
-          <strong>正解：②</strong><br>
-          グロチウスはオランダの法学者で「<strong>国際法の父</strong>」と呼ばれ、著書『<strong>海洋自由論</strong>』で公海は自由航行ができると主張した。現在は国際慣習法となっている。<br>
-          ①はジャン＝ボーダン。③はイェリネック。④はアリストテレス。
-        </div>
+        <div class="kk-explain" id="kkex3"><strong>正解:②</strong><br>グロチウスはオランダの法学者で「<strong>国際法の父</strong>」と呼ばれ、著書『<strong>海洋自由論</strong>』で公海は自由航行ができると主張した。現在は国際慣習法となっている。①はジャン=ボーダン。③はイェリネック。④はアリストテレス。</div>
       </div>
 
       <div class="q-item">
         <span class="kk-year-tag">共通テスト 2024年</span>
-        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">
-          問5. 主権の三要素に関する記述として<strong>誤っているもの</strong>を選べ。
-        </div>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 主権の三要素に関する記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc4">
-          <button class="kk-choice" onclick="ansKakomon('kkc4',0,2,'kkex4')">① 国内統治権とは、領域内の人々を支配する権利のことである。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',1,2,'kkex4')">② 国家意思最終決定権が人民にある場合を人民主権という。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',2,2,'kkex4')">③ 対外独立権とは、他国の支配に服さず国内政治を行う権利である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',3,2,'kkex4')">④ ポツダム宣言は国家意思最終決定権の例として挙げられる。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 国内統治権とは、領域内の人々を支配する権利のことである。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',1,3,'kkex4')">② 国家意思最終決定権が人民にある場合を人民主権という。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 対外独立権とは、他国の支配に服さず国内政治を行う権利である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ ポツダム宣言は国家意思最終決定権の例として挙げられる。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex4">
-          <strong>正解：④</strong><br>
-          ポツダム宣言（「日本国の主権は本州・北海道・九州・四国に局限せらるべし」）は<strong>国内統治権</strong>の例として挙げられる。国家意思最終決定権の例としては、憲法1条（主権の存する日本国民の総意）などが該当する。<br>
-          ①②③はすべて正しい。
-        </div>
+        <div class="kk-explain" id="kkex4"><strong>正解:④</strong><br>ポツダム宣言(「日本国の主権は本州・北海道・九州・四国に局限せらるべし」)は<strong>国内統治権</strong>の例として挙げられる。国家意思最終決定権の例としては、憲法1条(主権の存する日本国民の総意)などが該当する。①②③はすべて正しい。</div>
       </div>
+      <div class="q-item">
+        <span class="kk-year-tag">2015年 センター試験本試</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6.「国家の3要素」の一つとして「領域」がある。次のA〜Dのうち、残りの二つの要素の<strong>組合せ</strong>として正しいものを選べ。<br>A 人権　B 主権　C 領主　D 国民</div>
+        <div class="kk-choices" id="kkc5">
+          <button class="kk-choice" onclick="ansKakomon('kkc5',0,4,'kkex5')">① AとB</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',1,4,'kkex5')">② AとC</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',2,4,'kkex5')">③ AとD</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',3,4,'kkex5')">④ BとC</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',4,4,'kkex5')">⑤ BとD</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',5,4,'kkex5')">⑥ CとD</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex5"><strong>正解:⑤</strong><br>国家の3要素はイェリネックの学説に基づくもの。領域(領土・領海・領空)・国民(B以外でD)・主権(B)の3つを指します。「人権」「領主」は3要素ではない。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">2024年 共通テスト本試</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 生徒は近代国家の成立について調べ、国家の強制力に関する次の資料をみつけた。資料から読みとれる内容として<strong>最も適当なもの</strong>を選べ。<br><br><span style="display:block;background:#f5f3ed;padding:10px;border-left:3px solid var(--muted);font-size:.88em;line-height:1.7;margin:8px 0">「もちろん暴力行使は、国家にとってノーマルな手段でもまた唯一の手段でもない…が、おそらく国家に特有な手段ではあるだろう。…過去においては、氏族(ジッペ)を始めとする多種多様な団体が、物理的暴力をまったくノーマルな手段として認めていた。ところが今日では、次のように言わねばなるまい。国家とは、ある一定の領域の内部で…正当な物理的暴力行使の独占を(実効的に)要求する人間共同体である、と。…つまり国家が暴力行使への『権利』の唯一の源泉とみなされているということ、これは確かに現代に特有な現象である。」<br><span style="font-size:.85em;color:#666">(出所)マックス・ヴェーバー『職業としての政治』脇圭平訳</span></span></div>
+        <div class="kk-choices" id="kkc6">
+          <button class="kk-choice" onclick="ansKakomon('kkc6',0,2,'kkex6')">① 資料中の過去においては、暴力行使は国家に特有の手段であり、国家が用いる通常かつ唯一の手段でもある。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc6',1,2,'kkex6')">② 資料中の今日において、国家と暴力の関係は特別に緊密であるが、それ以前に暴力行使はいかなる団体にも認められたことがない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc6',2,2,'kkex6')">③ 資料中の今日において、国家はある一定の領域の内部における正当な物理的暴力行使の唯一の源泉とみなされている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc6',3,2,'kkex6')">④ 資料中の過去においては、国家の許容した範囲内でのみ、国家以外の団体や個人が物理的暴力を行使することが認められていた。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex6"><strong>正解:③</strong><br>資料の「国家とは…正当な物理的暴力の独占を要求する人間共同体である…つまり国家が暴力行使への『権利』の唯一の源泉とみなされている」に合致します。①過去にも国家以外の団体が暴力行使を認められていた。②過去には他団体にも認められていた。④国家の許容範囲内とされたのは「今日」のこと。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">2024年 共通テスト本試</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問8. 次の記述ア〜ウは、それぞれ『統治二論』『戦争と平和の法』『リヴァイアサン』のいずれかの一節である。記述ア〜ウと著者名a〜cとの<strong>組合せ</strong>として正しいものを選べ。<br><br>ア「自然状態はそれを支配する自然法をもち…何人も他人の生命、健康、自由、あるいは所有物を侵害すべきではない」<br>イ「人びとが、かれらすべてを威圧しておく共通の権力なしに、生活しているときには…なんの保証もなしに生きている」<br>ウ「戦の最中には、法は沈黙するかもしれないが…自然が定め、または万民の合意が定立したところのものは依然効力を有する」<br><br>a グロティウス　b ホッブズ　c ロック</div>
+        <div class="kk-choices" id="kkc7">
+          <button class="kk-choice" onclick="ansKakomon('kkc7',0,5,'kkex7')">① ア-a イ-b ウ-c</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',1,5,'kkex7')">② ア-a イ-c ウ-b</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',2,5,'kkex7')">③ ア-b イ-c ウ-a</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',3,5,'kkex7')">④ ア-b イ-a ウ-c</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',4,5,'kkex7')">⑤ ア-c イ-a ウ-b</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',5,5,'kkex7')">⑥ ア-c イ-b ウ-a</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex7')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex7"><strong>正解:⑥</strong><br>アは「他人の生命・健康・自由・所有物を侵害すべきでない」という自然法に言及→ロック『統治二論』。イは「共通の権力なしに生活する」状態の不安→ホッブズ『リヴァイアサン』(万人の万人に対する闘争)。ウは「戦争中も自然法・万民の合意は効力を有する」→グロティウス『戦争と平和の法』(国際法の父)。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">2016年 センター試験本試</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問9. 著書『国家論』において、主権の概念を提唱したフランスの思想家は誰か。<strong>正しいもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc8">
+          <button class="kk-choice" onclick="ansKakomon('kkc8',0,0,'kkex8')">① ボーダン</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc8',1,0,'kkex8')">② モンテスキュー</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc8',2,0,'kkex8')">③ ルソー</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc8',3,0,'kkex8')">④ ケネー</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex8')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex8"><strong>正解:①</strong><br>ボーダンは『国家論』で主権という概念を初めて用いました。②モンテスキューは『法の精神』で三権分立。③ルソーは『社会契約論』で一般意思に基づく直接民主制。④ケネーは『経済表』を著した重農主義者です。</div>
+      </div>
+
 
     </div>
   </div>
 
-</div><!-- /vKakomon -->
-
-<!-- ══════════════════════════════════════════
-     STEP⑥　フラッシュカード
-══════════════════════════════════════════ -->
-<div class="view" id="vFlash">
+</div><!-- /vRead -->
+<!-- ②一問一答テスト -->
+<div class="view" id="vQ">
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問1</div>法・道徳・宗教・慣習など人間の社会生活の基準となるものをまとめて何というか。→ <span class="blank" data-ans="社会規範" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問2</div>時代を超えて常に成り立つ理性に基づく法を何というか。→ <span class="blank" data-ans="自然法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問3</div>時代に応じて人間が作った法の総称を何というか。→ <span class="blank" data-ans="実定法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問4</div>文章の形で制定された法を何というか。→ <span class="blank" data-ans="成文法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問5</div>慣例法・判例法のように文章になっていない法をまとめて何というか。→ <span class="blank" data-ans="不文法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問6</div>憲法・刑法などが属する法の分類は何か。→ <span class="blank" data-ans="公法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問7</div>民法・会社法などが属する法の分類は何か。→ <span class="blank" data-ans="私法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問8</div>労働基準法などが属する法の分類は何か。→ <span class="blank" data-ans="社会法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問9</div>「人間はポリス的動物である」と述べたギリシアの哲学者は誰か。→ <span class="blank" data-ans="アリストテレス" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問10</div>アリストテレスが「人間はポリス的動物である」と述べた主著は何か。→ <span class="blank" data-ans="政治学" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群①〜⑩】社会規範　自然法　実定法　成文法　不文法　公法　私法　社会法　アリストテレス　政治学</div>
+    </div>
+  </div>
 
   <div class="s-card">
-    <div class="s-head-fc"><div class="s-icon">⚡</div><div class="s-ht">フラッシュカード　─ 国家と法(1)</div></div>
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問11</div>著書『一般国家学』で「国家の三要素」を示したドイツの学者は誰か。→ <span class="blank" data-ans="イェリネック" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問12</div>国家の三要素を3つ答えよ。→ <span class="blank" data-ans="領域" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="人民" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="主権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問13</div>領海は沿岸から何海里か。→ <span class="blank" data-ans="12" onclick="fillBlank(this)"></span>海里</div>
+      <div class="q-item"><div class="qt">問14</div>沿岸から200海里までで漁業・鉱物資源の権利をもつ水域を何というか。→ <span class="blank" data-ans="排他的経済水域" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問15</div>「主権論の祖」と呼ばれるフランスの思想家は誰か。→ <span class="blank" data-ans="ジャン=ボーダン" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問16</div>「国際法の父」と呼ばれるオランダの法学者は誰か。→ <span class="blank" data-ans="グロチウス" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問17</div>グロチウスが公海の自由を主張した著書の名称は何か。→ <span class="blank" data-ans="海洋自由論" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問18</div>領域内の人々を支配する主権の種類を何というか。→ <span class="blank" data-ans="国内統治権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問19</div>政治的最終決定をする主権の種類を何というか。人民にある場合の名称も答えよ。→ <span class="blank" data-ans="国家意思最終決定権" onclick="fillBlank(this)"></span>　人民の場合:<span class="blank" data-ans="人民主権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問20</div>外国の支配に服することなく国内政治を行う主権の種類を何というか。→ <span class="blank" data-ans="対外独立権" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群⑪〜⑳】イェリネック　領域　人民　主権　12　排他的経済水域　ジャン=ボーダン　グロチウス　海洋自由論　国内統治権　国家意思最終決定権　人民主権　対外独立権</div>
+    </div>
+  </div>
+</div><!-- /vQ -->
+
+<!-- ③正誤 -->
+<div class="view" id="vSeigo">
+  <div class="s-card">
+    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
+    <div class="s-body">
+      <div class="seigo-item" id="sg0"><div class="seigo-q">① 法・道徳・宗教・慣習など社会生活の基準をまとめて「社会規範」といい、法だけが国家権力による強制力を伴う。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,true,'正しい。法のみが国家権力の強制力を伴う点が他の社会規範と異なります。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,true,'正しい。法のみが国家権力の強制力を伴う点が他の社会規範と異なります。')">× 誤り</button></div><div class="seigo-explain" id="sgex0"></div></div>
+
+      <div class="seigo-item" id="sg1"><div class="seigo-q">② 自然法とは、時代に応じて人間が作り出した実定法の一種である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,false,'誤り。自然法は時代を超えて常に成り立つ理性に基づく法であり、実定法とは別のものです。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,false,'誤り。自然法は時代を超えて常に成り立つ理性に基づく法であり、実定法とは別のものです。')">× 誤り</button></div><div class="seigo-explain" id="sgex1"></div></div>
+
+      <div class="seigo-item" id="sg2"><div class="seigo-q">③ 判例法は文章になっていない不文法の一種である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,true,'正しい。判例法は同じ内容の判決が繰り返されることで成立する不文法であり、慣例法とともに不文法に分類されます。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,true,'正しい。判例法は同じ内容の判決が繰り返されることで成立する不文法であり、慣例法とともに不文法に分類されます。')">× 誤り</button></div><div class="seigo-explain" id="sgex2"></div></div>
+
+      <div class="seigo-item" id="sg3"><div class="seigo-q">④ 労働基準法は「公法」に分類される。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。労働基準法は「社会法」に分類されます。公法は憲法・刑法など、私法は民法・会社法などが該当します。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。労働基準法は「社会法」に分類されます。公法は憲法・刑法など、私法は民法・会社法などが該当します。')">× 誤り</button></div><div class="seigo-explain" id="sgex3"></div></div>
+
+      <div class="seigo-item" id="sg4"><div class="seigo-q">⑤ アリストテレスは主著『政治学』の中で「人間はポリス的動物である」と述べた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,true,'正しい。アリストテレスは人間が社会のなかで育つ社会性のある動物であることを「ポリス的動物」と表現し、主著『政治学』で述べました。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,true,'正しい。アリストテレスは人間が社会のなかで育つ社会性のある動物であることを「ポリス的動物」と表現し、主著『政治学』で述べました。')">× 誤り</button></div><div class="seigo-explain" id="sgex4"></div></div>
+
+      <div class="seigo-item" id="sg5"><div class="seigo-q">⑥ イェリネックは著書『海洋自由論』で国家の三要素(領域・人民・主権)を示した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,false,'誤り。『海洋自由論』はグロチウスの著書です。イェリネックの著書は『一般国家学』で、国家の三要素を示しました。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,false,'誤り。『海洋自由論』はグロチウスの著書です。イェリネックの著書は『一般国家学』で、国家の三要素を示しました。')">× 誤り</button></div><div class="seigo-explain" id="sgex5"></div></div>
+
+      <div class="seigo-item" id="sg6"><div class="seigo-q">⑦ 排他的経済水域(EEZ)は沿岸から200海里の範囲で、漁業資源や鉱物資源の権利を沿岸国が持つ。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,true,'正しい。排他的経済水域(EEZ)は国連海洋法条約で定められ、沿岸から200海里の範囲内の資源について沿岸国が権利を持ちます。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,true,'正しい。排他的経済水域(EEZ)は国連海洋法条約で定められ、沿岸から200海里の範囲内の資源について沿岸国が権利を持ちます。')">× 誤り</button></div><div class="seigo-explain" id="sgex6"></div></div>
+
+      <div class="seigo-item" id="sg7"><div class="seigo-q">⑧ 「主権論の祖」と呼ばれるフランスの思想家グロチウスが、はじめて主権を定義した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,false,'誤り。主権を最初に定義したのはジャン=ボーダンです。グロチウスは「国際法の父」と呼ばれ、公海の自由を主張しました。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,false,'誤り。主権を最初に定義したのはジャン=ボーダンです。グロチウスは「国際法の父」と呼ばれ、公海の自由を主張しました。')">× 誤り</button></div><div class="seigo-explain" id="sgex7"></div></div>
+
+      <div class="seigo-item" id="sg8"><div class="seigo-q">⑨ 「対外独立権」とは、外国の支配に服することなく国内政治を行うことができるという主権の種類である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,true,'正しい。対外独立権は外国との関係において、外国の支配権力に服することなく、国内の政治を行うことができるという権利で、主権の三要素の一つです。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,true,'正しい。対外独立権は外国との関係において、外国の支配権力に服することなく、国内の政治を行うことができるという権利で、主権の三要素の一つです。')">× 誤り</button></div><div class="seigo-explain" id="sgex8"></div></div>
+
+      <div class="seigo-item" id="sg9"><div class="seigo-q">⑩ 領海は沿岸から12海里、排他的経済水域(EEZ)は沿岸から200海里であり、どちらも国家の主権が完全に及ぶ。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,false,'誤り。EEZは資源の利用権はありますが、領土・領海のような完全な主権は及びません。あくまで資源の権利を保障した水域です。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,false,'誤り。EEZは資源の利用権はありますが、領土・領海のような完全な主権は及びません。あくまで資源の権利を保障した水域です。')">× 誤り</button></div><div class="seigo-explain" id="sgex9"></div></div>
+    </div>
+  </div>
+</div><!-- /vSeigo -->
+
+<!-- ④フラッシュカード -->
+<div class="view" id="vFlash">
+  <div class="s-card">
+    <div class="s-head-fc"><div class="s-icon">⚡</div><div class="s-ht">フラッシュカード ─ 国家と法(1)</div></div>
     <div class="s-body">
       <div class="fc-settings">
-        <span class="fc-set-lbl">⏱ 速度：</span>
-        <div class="spd-btns">
-          <button class="spd-btn active" data-sec="0" onclick="setFcSpeed(this)">手動</button>
-          <button class="spd-btn" data-sec="2" onclick="setFcSpeed(this)">2秒</button>
-          <button class="spd-btn" data-sec="3" onclick="setFcSpeed(this)">3秒</button>
-          <button class="spd-btn" data-sec="4" onclick="setFcSpeed(this)">4秒</button>
-        </div>
-        <span class="fc-set-lbl" style="margin-left:8px">📌 モード：</span>
-        <div class="mode-btns">
-          <button class="mode-btn active" data-mode="term" onclick="setFcMode(this)">用語→意味</button>
-          <button class="mode-btn" data-mode="def" onclick="setFcMode(this)">意味→用語</button>
-        </div>
+        <span class="fc-set-lbl">⏱ 速度:</span>
+        <div class="spd-btns"><button class="spd-btn active" data-sec="0" onclick="setFcSpeed(this)">手動</button><button class="spd-btn" data-sec="2" onclick="setFcSpeed(this)">2秒</button><button class="spd-btn" data-sec="3" onclick="setFcSpeed(this)">3秒</button><button class="spd-btn" data-sec="4" onclick="setFcSpeed(this)">4秒</button></div>
+        <span class="fc-set-lbl" style="margin-left:8px">📌 モード:</span>
+        <div class="mode-btns"><button class="mode-btn active" data-mode="term" onclick="setFcMode(this)">用語→意味</button><button class="mode-btn" data-mode="def" onclick="setFcMode(this)">意味→用語</button></div>
         <button class="fc-start-btn" onclick="startFc()">▶ スタート</button>
       </div>
-
       <div class="fc-arena" id="fcArena">
-        <div class="fc-prog-wrap">
-          <div class="fc-prog-bar"><div class="fc-prog-fill" id="fcProgFill" style="width:0%"></div></div>
-          <div class="fc-prog-txt" id="fcProgTxt">0 / 0</div>
-        </div>
-        <div class="fc-stat-row2" id="fcStatRow">
-          <span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span>
-          <span>✅ 覚えた：<span id="fcOkCnt">0</span></span>
-          <span>❌ もう一度：<span id="fcNgCnt">0</span></span>
-        </div>
+        <div class="fc-prog-wrap"><div class="fc-prog-bar"><div class="fc-prog-fill" id="fcProgFill" style="width:0%"></div></div><div class="fc-prog-txt" id="fcProgTxt">0 / 0</div></div>
+        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた:<span id="fcOkCnt">0</span></span><span>❌ もう一度:<span id="fcNgCnt">0</span></span></div>
         <div class="flash-card" id="flashCard" onclick="fcFlipOrNext()">
           <div class="fc-unit-tag2">① 国家と法(1)</div>
           <div class="fc-side-tag2 q" id="fcSideTag">問題</div>
           <div class="fc-main-text2" id="fcMainText">スタートボタンを押してください</div>
           <div class="fc-hint2" id="fcHint2"></div>
-          <div class="fc-ans-area" id="fcAnsArea">
-            <div class="fc-ans-lbl">▶ 答え</div>
-            <div class="fc-ans-txt" id="fcAnsTxt"></div>
-          </div>
+          <div class="fc-ans-area" id="fcAnsArea"><div class="fc-ans-lbl">▶ 答え</div><div class="fc-ans-txt" id="fcAnsTxt"></div></div>
           <div class="fc-tap-hint2" id="fcTapHint">タップで答えを見る</div>
           <div class="fc-counter2" id="fcCounter">-</div>
           <div class="fc-auto-bar2" id="fcAutoBar" style="width:0%"></div>
         </div>
-        <div class="fc-btns">
-          <button class="fc-btn btn-prev2" onclick="fcPrev()">◀ 前へ</button>
-          <button class="fc-btn btn-flip2" onclick="fcFlip()">🔄 裏返す</button>
-          <button class="fc-btn btn-next2" onclick="fcNext()">次へ ▶</button>
-          <button class="fc-btn btn-stop2" onclick="stopFc()">■ 終了</button>
-        </div>
-        <div class="fc-mark-row">
-          <button class="fc-btn" style="background:var(--green);color:#fff" onclick="fcMarkOk()">✅ 覚えた</button>
-          <button class="fc-btn" style="background:var(--red);color:#fff" onclick="fcMarkNg()">❌ もう一度</button>
-        </div>
+        <div class="fc-btns"><button class="fc-btn btn-prev2" onclick="fcPrev()">◀ 前へ</button><button class="fc-btn btn-flip2" onclick="fcFlip()">🔄 裏返す</button><button class="fc-btn btn-next2" onclick="fcNext()">次へ ▶</button><button class="fc-btn btn-stop2" onclick="stopFc()">■ 終了</button></div>
+        <div class="fc-mark-row"><button class="fc-btn" style="background:var(--green);color:#fff" onclick="fcMarkOk()">✅ 覚えた</button><button class="fc-btn" style="background:var(--red);color:#fff" onclick="fcMarkNg()">❌ もう一度</button></div>
       </div>
-
     </div>
   </div>
-
 </div><!-- /vFlash -->
 
 </div><!-- /main -->
-
-<!-- バナー -->
 <div class="jbanner" id="jbanner"></div>
-
-<!-- フッター -->
-<div class="foot" id="footBar">
-  <button class="fbtn f-expl"   id="bExpl"      onclick="goChallE()">📝 確認する</button>
-  <button class="fbtn f-next"   id="bGoQ"       onclick="goTest()">▶ テストへ</button>
+<div class="foot">
+  <button class="fbtn f-expl"   id="bExpl"      onclick="goTest()">▶ 一問一答テストへ</button>
   <button class="fbtn f-next"   id="bGoFlashTop" onclick="goFlash()" style="background:var(--blue)">⚡ フラッシュカード</button>
-  <button class="fbtn f-check"  id="bCheckE"    onclick="checkExplain()" style="display:none">✔ 確　認</button>
-  <button class="fbtn f-hint"   id="bHint"      onclick="showHint()" style="display:none">📖 お手本</button>
-  <button class="fbtn f-next"   id="bGoQ2"      onclick="goTest()" style="display:none">▶ テストへ</button>
-  <button class="fbtn f-judge"  id="bJudge"     onclick="judgeAll()" style="display:none">✔ 判　定</button>
-  <button class="fbtn f-retry"  id="bRetry"     onclick="retryQ()" style="display:none">↺ やり直し</button>
-  <button class="fbtn f-next"   id="bGoSeigo"   onclick="goSeigo()" style="display:none">▶ 正誤問題へ</button>
-  <button class="fbtn f-next"   id="bGoKakomon" onclick="goKakomon()" style="display:none">▶ 過去問へ</button>
-  <button class="fbtn f-next"   id="bGoFlash"   onclick="goFlash()" style="display:none">⚡ フラッシュカードへ</button>
-  <button class="fbtn f-back"   id="bBack"      onclick="backToRead()" style="display:none">📖 説明に戻る</button>
+  <button class="fbtn f-judge"  id="bJudge"      onclick="judgeAll()" style="display:none">✔ 判　定</button>
+  <button class="fbtn f-retry"  id="bRetry"      onclick="retryQ()" style="display:none">↺ やり直し</button>
+  <button class="fbtn f-next"   id="bGoSeigo"    onclick="goSeigo()" style="display:none">▶ 正誤問題へ</button>
+  <button class="fbtn f-next"   id="bGoFlash"    onclick="goFlash()" style="display:none">⚡ フラッシュカードへ</button>
+  <button class="fbtn f-back"   id="bBack"       onclick="backToRead()" style="display:none">📖 説明に戻る</button>
   <div class="score-pill" id="spill" style="display:none"></div>
 </div>
-
-<div class="blank-popup" id="popup">
-  <div class="bp-arrow"></div>
-</div>
-
-<div class="modal-ov" id="pauseModal">
-  <div class="modal-box">
-    <div class="modal-title">⏸ 中断しますか？</div>
-    <div class="modal-btns">
-      <button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button>
-      <button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button>
-      <button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button>
-    </div>
-  </div>
-</div>
-
+<div class="blank-popup" id="popup"><div class="bp-arrow"></div></div>
+<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか?</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
 <a class="home-btn" href="seikei_index.html">🏠 単元表</a>
-<canvas id="cnv"></canvas>
 
 <script>
-/* ─── 語群データ ─── */
-const EW=[
-  '社会規範','自然法','実定法','成文法','慣例法','判例法','不文法',
-  '公法','私法','社会法',
-  'アリストテレス','ポリス的動物','政治学',
-  'イェリネック','一般国家学','領域','人民','主権',
-  '12','200','排他的経済水域',
-  'ジャン＝ボーダン','グロチウス','海洋自由論',
-  '国内統治権','国家意思最終決定権','人民主権','対外独立権'
-];
-const QW=[
-  '社会規範','自然法','実定法','成文法','不文法','公法','私法','社会法',
-  'アリストテレス','政治学',
-  'イェリネック','領域','人民','主権','12','排他的経済水域',
-  'ジャン＝ボーダン','グロチウス','海洋自由論',
-  '国内統治権','国家意思最終決定権','人民主権','対外独立権',
-  '慣例法','判例法'
+// 単元別の語群
+const UNIT_WORDS={
+  u1:['社会規範','自然法','実定法','成文法','慣例法','判例法','不文法','公法','私法','社会法'],
+  u2:['アリストテレス','ポリス的動物','政治学'],
+  u3:['イェリネック','一般国家学','領域','人民','主権','12','200','排他的経済水域'],
+  u4:['ジャン=ボーダン','主権','グロチウス','海洋自由論'],
+  u5:['国内統治権','国家意思最終決定権','君主主権','人民主権','対外独立権']
+};
+// 単元別の確認問題の正解インデックス
+const UQ_ANS={
+  u1:[2,1,2,2], u2:[2,1], u3:[1,2,1], u4:[1,1,2], u5:[2,1,2]
+};
+
+// 単元の状態
+const _unitState={};
+
+// 単元の語群を初期化
+function _initUnitWb(uid){
+  var box=document.getElementById('uwb-chips-'+uid);
+  if(!box)return;
+  box.innerHTML='';
+  var words=UNIT_WORDS[uid].slice().sort(function(){return Math.random()-.5});
+  words.forEach(function(w){
+    var btn=document.createElement('button');
+    btn.className='unit-wb-chip';
+    btn.textContent=w;
+    btn.dataset.word=w;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var st=_unitState[uid];
+      if(!st||!st.active)return;
+      if(st.selChip&&st.selChip!==btn)st.selChip.classList.remove('sel');
+      if(st.selChip===btn){st.selChip=null;btn.classList.remove('sel');return}
+      st.selChip=btn;btn.classList.add('sel');
+    });
+    box.appendChild(btn);
+  });
+}
+
+// チャレンジ開始 - 該当単元の空欄を空にする
+function startUnitChallenge(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  _unitState[uid]={active:true,selChip:null};
+  // 空欄をクリア(unit-quiz内のものは除く)
+  card.querySelectorAll('.s-body > .person-row .blank, .s-body > .gtbl .blank, .s-body > table .blank').forEach(function(b){
+    b.textContent='';
+    b.classList.remove('show','ok','ng');
+    b.classList.add('cmode');
+    b.onclick=function(){_fillUnitBlank(uid,b)};
+  });
+  // 直接の子要素から取得し直し
+  var allBlanks=[];
+  card.querySelectorAll('.blank').forEach(function(b){
+    // unit-quiz内は除外
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    allBlanks.push(b);
+    b.textContent='';
+    b.classList.remove('show','ok','ng');
+    b.classList.add('cmode');
+    b.onclick=function(e){e.stopPropagation();_fillUnitBlank(uid,b)};
+  });
+  _initUnitWb(uid);
+  _hide('ub-check-'+uid);_hide('ub-hint-'+uid);_hide('ub-retry-'+uid);
+  _show('ub-check-'+uid);_show('ub-hint-'+uid);
+  document.getElementById('ub-score-'+uid).style.display='none';
+}
+
+// 単元の空欄に語を入れる
+function _fillUnitBlank(uid,blank){
+  var st=_unitState[uid];
+  if(!st)return;
+  if(st.selChip){
+    blank.textContent=st.selChip.textContent;
+    blank.classList.remove('ok','ng');
+    st.selChip.classList.remove('sel');
+    st.selChip=null;
+    return;
+  }
+  if(blank.textContent.trim()!=''){
+    blank.textContent='';
+    blank.classList.remove('ok','ng');
+  }
+}
+
+// 答え合わせ
+function checkUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  var ok=0,total=0;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    total++;
+    if(b.textContent.trim()===b.dataset.ans){
+      b.classList.add('ok');b.classList.remove('ng');ok++;
+    }else{
+      b.classList.add('ng');b.classList.remove('ok');
+    }
+  });
+  var sc=document.getElementById('ub-score-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解';sc.style.display='inline-block';
+  _show('ub-retry-'+uid);
+  if(ok===total&&total>0){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// お手本(全部見せる)
+function hintUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    if(!b.classList.contains('ok')){
+      b.textContent=b.dataset.ans;
+      b.classList.remove('ng');
+      b.classList.add('show');
+    }
+  });
+  _hideBanner();
+}
+
+// もう一度
+function retryUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    b.textContent='';
+    b.classList.remove('ok','ng','show');
+  });
+  _initUnitWb(uid);
+  document.getElementById('ub-score-'+uid).style.display='none';
+  _hideBanner();
+}
+
+// 単元の4択問題を開く
+function openUnitQuiz(uid){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  box.classList.toggle('on');
+  if(box.classList.contains('on')){
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+// 単元の過去問を開く
+function openUnitKakomon(uid){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  box.classList.toggle('on');
+  if(box.classList.contains('on')){
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+// 単元過去問の採点
+function judgeUnitKakomon(uid,total){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  var ok=0,answered=0;
+  qs.forEach(function(q){
+    if(q.dataset.answered){
+      answered++;
+      if(q.dataset.correct==='1')ok++;
+    }
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.add('on');
+  });
+  var sc=document.getElementById('uks-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解'+(answered<total?' (未回答 '+(total-answered)+'問)':'');
+  sc.style.display='inline-block';
+  if(ok===total){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// 単元過去問の再チャレンジ
+function resetUnitKakomon(uid,total){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  qs.forEach(function(q){
+    delete q.dataset.answered;
+    delete q.dataset.correct;
+    q.querySelectorAll('.uqc').forEach(function(b){
+      b.classList.remove('correct','wrong');
+      var attr=b.getAttribute('data-orig-onclick')||b.getAttribute('onclick');
+      if(attr){
+        b.onclick=new Function('event',attr);
+      }
+    });
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.remove('on');
+  });
+  var sc=document.getElementById('uks-'+uid);
+  if(sc)sc.style.display='none';
+  _hideBanner();
+}
+
+// 単元4択の解答
+function ansUQ(qid,sel,cor){
+  var qBox=document.getElementById('uqex-'+qid);
+  if(!qBox)return;
+  var parent=qBox.parentElement;
+  var btns=parent.querySelectorAll('.uqc');
+  if(parent.dataset.answered)return;
+  parent.dataset.answered='1';
+  parent.dataset.correct=(sel===cor)?'1':'0';
+  btns.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+  });
+  // 不正解時のみ解説を表示
+  if(sel!==cor){
+    qBox.classList.add('on');
+  }
+}
+
+// 単元4択の採点
+function judgeUnitQuiz(uid,total){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  var ok=0,answered=0;
+  qs.forEach(function(q){
+    if(q.dataset.answered){
+      answered++;
+      if(q.dataset.correct==='1')ok++;
+    }
+    // 全問の解説を表示
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.add('on');
+  });
+  var sc=document.getElementById('uqs-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解'+(answered<total?' (未回答 '+(total-answered)+'問)':'');
+  sc.style.display='inline-block';
+  if(ok===total){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// 単元4択の再チャレンジ
+function resetUnitQuiz(uid,total){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  qs.forEach(function(q){
+    delete q.dataset.answered;
+    delete q.dataset.correct;
+    q.querySelectorAll('.uqc').forEach(function(b,i){
+      b.classList.remove('correct','wrong');
+      // 元のonclick属性を再設定するために、元のhandler属性を復元
+      var orig=b.getAttribute('data-orig-onclick');
+      if(!orig){
+        // 初回:現在のonclickを保存
+        var attr=b.getAttribute('onclick');
+        if(attr)b.setAttribute('data-orig-onclick',attr);
+      }else{
+        b.setAttribute('onclick',orig);
+      }
+      // 再度onclick動作を有効化(setAttributeは効かない場合があるのでハンドラ再設定)
+    });
+    // 再bind: onclick属性の文字列からansUQ呼び出しを再現するのは複雑なので、
+    // ここでは shouldRebind 用にonclick属性を再評価する方法を使う
+    q.querySelectorAll('.uqc').forEach(function(b){
+      var attr=b.getAttribute('data-orig-onclick')||b.getAttribute('onclick');
+      if(attr){
+        b.onclick=new Function('event',attr);
+      }
+    });
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.remove('on');
+  });
+  var sc=document.getElementById('uqs-'+uid);
+  if(sc)sc.style.display='none';
+  _hideBanner();
+}
+
+// 初期化:確認問題ボタンに onclick属性を退避
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.uqc').forEach(function(b){
+    var attr=b.getAttribute('onclick');
+    if(attr)b.setAttribute('data-orig-onclick',attr);
+  });
+});
+</script>
+<script>
+const QW=['社会規範','自然法','実定法','成文法','不文法','公法','私法','社会法','アリストテレス','政治学','イェリネック','領域','人民','主権','12','排他的経済水域','ジャン=ボーダン','グロチウス','海洋自由論','国内統治権','国家意思最終決定権','人民主権','対外独立権'];
+
+const FC_CARDS=[
+  {q:'社会規範とは?',a:'法・道徳・宗教・慣習など人間の社会生活の基準となるもの。法のみが国家権力による強制力を伴う'},
+  {q:'自然法とは?',a:'時代を超えて常に成り立つ理性に基づく法。社会契約説の自然状態から存在'},
+  {q:'実定法とは?',a:'時代に応じて人間が作った法の総称。成文法と不文法に分けられる'},
+  {q:'成文法とは?',a:'文章の形で制定された法(法律・条例など)'},
+  {q:'不文法とは?',a:'文章になっていない法。慣例法(慣習法)・判例法など'},
+  {q:'慣例法(慣習法)とは?',a:'社会生活の中で繰り返し行われることをもとにした法'},
+  {q:'判例法とは?',a:'同じ内容の判決が繰り返し行われることで成立する不文法'},
+  {q:'公法とは?具体例は?',a:'公権力と国民の関係を定める法。例:憲法・刑法'},
+  {q:'私法とは?具体例は?',a:'私人間の権利義務を定める法。例:民法・会社法'},
+  {q:'社会法とは?具体例は?',a:'社会的弱者保護を目的とした法。例:労働基準法'},
+  {q:'アリストテレスの有名な言葉は?',a:'「人間はポリス的動物である」(主著『政治学』)'},
+  {q:'アリストテレスの主著は?',a:'『政治学』'},
+  {q:'ポリス的動物とは?',a:'人間は家族や社会のなかで育つ社会性のある動物だという意味'},
+  {q:'国家の三要素を提唱した学者と著書は?',a:'イェリネック(ドイツの学者)、著書『一般国家学』'},
+  {q:'国家の三要素は?',a:'領域・人民・主権'},
+  {q:'国家の領域は何から構成されるか?',a:'領土・領海・領空'},
+  {q:'領海は沿岸から何海里か?',a:'12海里'},
+  {q:'排他的経済水域(EEZ)の範囲と権利は?',a:'沿岸から200海里。漁業資源・鉱物資源について沿岸国が権利を持つ。国連海洋法条約で規定'},
+  {q:'「主権論の祖」と呼ばれる思想家は?',a:'ジャン=ボーダン(フランスの思想家)。はじめて主権を定義'},
+  {q:'主権の定義は?',a:'他国の意志に左右されず、自らの意志で国民や領土を統治する権利'},
+  {q:'「国際法の父」と呼ばれる人物と著書は?',a:'グロチウス(オランダの法学者)、著書『海洋自由論』'},
+  {q:'グロチウスの『海洋自由論』の主張は?',a:'公海は自由に航行できるという公海上の自由。現在は国際慣習法'},
+  {q:'主権の三要素は?',a:'①国内統治権　②国家意思最終決定権　③対外独立権'},
+  {q:'国内統治権とは?例は?',a:'領域内の人々を支配する権利。例:ポツダム宣言(領域の限定)'},
+  {q:'国家意思最終決定権とは?',a:'政治的最終決定をする権利。君主にあれば君主主権、人民にあれば人民主権'},
+  {q:'憲法1条で規定されている主権の所在は?',a:'国民主権(主権の存する日本国民の総意)'},
+  {q:'対外独立権とは?',a:'外国の支配に服することなく国内政治を行う権利。憲法前文の対等関係'},
+  {q:'人民主権・国民主権とは?',a:'国家意思最終決定権が人民(国民)にある場合の主権の在り方'},
+  {q:'君主主権とは?',a:'国家意思最終決定権が君主にある場合の主権の在り方。大日本帝国憲法は天皇主権'},
+  {q:'国連海洋法条約で定められているものは?',a:'領海(12海里)、排他的経済水域(EEZ)200海里など'},
 ];
 
-/* ─── フラッシュカードデータ ─── */
-const FC_CARDS = [
-  {q:'法・道徳・宗教・慣習など社会生活の基準となるものをまとめて何という？',a:'社会規範'},
-  {q:'社会規範の中で、唯一「国家権力による強制力」を伴うものは？',a:'法'},
-  {q:'時代を超えて常に成り立つ理性に基づく法を何という？',a:'自然法'},
-  {q:'時代に応じて人間が作った法の総称は？',a:'実定法'},
-  {q:'文章の形で制定された法を何という？',a:'成文法'},
-  {q:'慣例法・判例法のように文章になっていない法をまとめて何という？',a:'不文法'},
-  {q:'社会生活で繰り返し行われることをもとにした不文法は？',a:'慣例法（慣習法）'},
-  {q:'同じ内容の判決が繰り返されることで成立する不文法は？',a:'判例法'},
-  {q:'憲法・刑法などが属する法の分類は？',a:'公法'},
-  {q:'民法・会社法などが属する法の分類は？',a:'私法'},
-  {q:'労働基準法などが属する法の分類は？',a:'社会法'},
-  {q:'「人間はポリス的動物である」と述べたギリシアの哲学者は？',a:'アリストテレス'},
-  {q:'アリストテレスが「ポリス的動物」と述べた主著の名称は？',a:'政治学'},
-  {q:'著書『一般国家学』で「国家の三要素」を示したドイツの学者は？',a:'イェリネック'},
-  {q:'国家の三要素を3つ答えよ。',a:'領域・人民・主権'},
-  {q:'領海は沿岸から何海里か？',a:'12海里'},
-  {q:'沿岸から200海里で資源の権利を沿岸国が持つ水域は？',a:'排他的経済水域（EEZ）'},
-  {q:'EEZ（排他的経済水域）は沿岸から何海里か？',a:'200海里'},
-  {q:'「主権論の祖」と呼ばれるフランスの思想家は？',a:'ジャン＝ボーダン'},
-  {q:'「国際法の父」と呼ばれるオランダの法学者は？',a:'グロチウス'},
-  {q:'グロチウスが公海の自由を主張した著書は？',a:'海洋自由論'},
-  {q:'「領域内の人々を支配する権利」を指す主権の種類は？',a:'国内統治権'},
-  {q:'「政治的最終決定をする権利」を指す主権の種類は？',a:'国家意思最終決定権'},
-  {q:'国家意思最終決定権が人民にある場合を何という？',a:'人民主権'},
-  {q:'「外国の支配に服さず国内政治を行う権利」を指す主権の種類は？',a:'対外独立権'},
-];
 
-/* ─── 状態変数 ─── */
 var _selChip=null,_tInt=null,_t0=0,_pausedMs=0;
-var _popup=document.getElementById('popup');
-var _popupTarget=null;
-var _currentView='vRead';
-var _sgAnswered=new Array(10).fill(false);
-var _sgScore=0;
-
-/* ─── タイマー ─── */
+var _popup=document.getElementById('popup'),_popupTarget=null,_currentView='vRead';
+var _sgAnswered=new Array(10).fill(false),_sgScore=0;
 function _el(id){return document.getElementById(id)}
 function _show(id){var e=_el(id);if(e)e.style.display='inline-block'}
 function _hide(id){var e=_el(id);if(e)e.style.display='none'}
@@ -897,343 +1140,49 @@ function _tick(){var ms=_pausedMs+(Date.now()-_t0);var m=String(Math.floor(ms/60
 function _startTimer(){_t0=Date.now();_tInt=setInterval(_tick,200)}
 function _stopTimer(){clearInterval(_tInt);_tInt=null}
 function _resetTimer(){_stopTimer();_pausedMs=0;_el('timerDisp').textContent='00:00'}
-
-/* ─── フェーズ ─── */
-function setPhase(n){
-  for(var i=0;i<5;i++){
-    var d=_el('d'+i),t=_el('t'+i);
-    if(d)d.classList.toggle('on',i===n);
-    if(t)t.classList.toggle('on',i===n);
-  }
-}
-
-/* ─── ビュー切替 ─── */
-function _showView(id){
-  ['vRead','vChallE','vQ','vSeigo','vKakomon','vFlash'].forEach(function(v){
-    var el=_el(v);if(el)el.classList.toggle('on',v===id);
-  });
-  _currentView=id;
-  window.scrollTo(0,0);
-}
-
-/* ─── 語群 ─── */
+function setPhase(n){for(var i=0;i<4;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
+function _showView(id){['vRead','vQ','vSeigo','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
 function _showWB(){_el('wbBar').style.display='block'}
 function _hideWB(){_el('wbBar').style.display='none'}
-
-function buildChips(words){
-  var wb=_el('wbChips');wb.innerHTML='';_selChip=null;
-  var arr=words.slice().sort(function(){return Math.random()-.5});
-  arr.forEach(function(w){
-    var btn=document.createElement('button');
-    btn.className='chip';btn.textContent=w;
-    btn.addEventListener('click',function(e){
-      e.stopPropagation();
-      if(_selChip&&_selChip!==btn)_selChip.classList.remove('sel');
-      if(_selChip===btn){_selChip=null;btn.classList.remove('sel');return}
-      _selChip=btn;btn.classList.add('sel');
-    });
-    wb.appendChild(btn);
-  });
-}
-
-/* ─── ポップアップ ─── */
-function _openPopup(blank){
-  _popupTarget=blank;
-  _popup.innerHTML='<div class="bp-arrow"></div>';
-  var words=(_currentView==='vChallE'?EW:QW).slice().sort(function(){return Math.random()-.5});
-  words.forEach(function(w){
-    var b=document.createElement('button');
-    b.className='bp-chip';b.textContent=w;
-    b.addEventListener('click',function(e){
-      e.stopPropagation();
-      blank.textContent=w;
-      blank.classList.remove('ok','ng','show');
-      _closePopup();
-    });
-    _popup.appendChild(b);
-  });
-  var rect=blank.getBoundingClientRect();
-  _popup.style.top=(rect.bottom+window.scrollY+4)+'px';
-  _popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';
-  _popup.classList.add('open');
-}
+function buildChips(words){var wb=_el('wbChips');wb.innerHTML='';_selChip=null;words.slice().sort(function(){return Math.random()-.5}).forEach(function(w){var btn=document.createElement('button');btn.className='chip';btn.textContent=w;btn.addEventListener('click',function(e){e.stopPropagation();if(_selChip&&_selChip!==btn)_selChip.classList.remove('sel');if(_selChip===btn){_selChip=null;btn.classList.remove('sel');return}_selChip=btn;btn.classList.add('sel')});wb.appendChild(btn)})}
+function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=QW.slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
 function _closePopup(){_popup.classList.remove('open');_popupTarget=null}
 document.addEventListener('click',function(){_closePopup()});
-
-/* ─── 空欄クリック ─── */
-function fillBlank(b){
-  if(_selChip){
-    b.textContent=_selChip.textContent;
-    b.classList.remove('ok','ng','show');
-    _selChip.classList.remove('sel');_selChip=null;
-    _closePopup();return;
-  }
-  if(b===_popupTarget&&_popup.classList.contains('open')){_closePopup();return}
-  if(b.textContent.trim()!=''){b.textContent='';b.classList.remove('ok','ng','show');_closePopup();return}
-  _openPopup(b);
-}
-
-/* ─── STEP① → STEP② ─── */
-function goChallE(){
-  _showView('vChallE');
-  document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});
-  buildChips(EW);_showWB();setPhase(1);
-  _hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');
-  _show('bCheckE');_show('bHint');
-  _hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');
-  _hideBanner();
-}
-
-/* ─── 確認チェック ─── */
-function checkExplain(){
-  var bls=[].slice.call(document.querySelectorAll('#vChallE .blank')),ok=0;
-  bls.forEach(function(b){
-    if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}
-    else{b.classList.add('ng');b.classList.remove('ok')}
-  });
-  _showScore(ok,bls.length);
-  if(ok===bls.length){
-    _showBanner(true,ok,bls.length);
-    _show('bGoQ2');_startConf();setTimeout(_stopConf,4000);
-  } else {
-    _showBanner(false,ok,bls.length);
-  }
-}
-
-/* ─── お手本 ─── */
-function showHint(){
-  document.querySelectorAll('#vChallE .blank').forEach(function(b){
-    if(!b.classList.contains('ok')){b.textContent=b.dataset.ans;b.classList.remove('ng');b.classList.add('show')}
-  });
-  _hideBanner();
-  _el('bCheckE').textContent='↺ もう一度';_el('bCheckE').onclick=reChallE;
-}
-function reChallE(){
-  document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});
-  buildChips(EW);_hide('spill');_hideBanner();
-  _el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain;
-}
-
-/* ─── STEP③ テスト ─── */
-function goTest(){
-  _showView('vQ');
-  document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});
-  buildChips(QW);_showWB();setPhase(2);
-  _startTimer();
-  _hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');
-  _show('bJudge');_show('bBack');
-  _hide('bRetry');_hideBanner();
-}
-
-function judgeAll(){
-  var bls=[].slice.call(document.querySelectorAll('#vQ .blank')),ok=0;
-  bls.forEach(function(b){
-    if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}
-    else{b.classList.add('ng');b.classList.remove('ok')}
-  });
-  _showScore(ok,bls.length);_show('bRetry');_show('bGoSeigo');
-  if(ok===bls.length){_stopTimer();_showBanner(true,ok,bls.length);_startConf();setTimeout(_stopConf,5000)}
-  else _showBanner(false,ok,bls.length);
-}
-
-function retryQ(){
-  _hideBanner();_stopConf();
-  document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});
-  buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo');
-}
-
-/* ─── STEP④ 正誤問題 ─── */
-function goSeigo(){
-  _showView('vSeigo');setPhase(3);_stopTimer();
-  _sgAnswered=new Array(10).fill(false);_sgScore=0;
-  _hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');
-  _hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');
-  _show('bGoKakomon');_show('bBack');_hideBanner();
-}
-
-function ansSeigo(idx,selected,correct,explain){
-  if(_sgAnswered[idx])return;
-  _sgAnswered[idx]=true;
-  var item=_el('sg'+idx);
-  var btns=item.querySelectorAll('.seigo-btn');
-  var isCorrect=(selected===correct);
-  // ボタン着色
-  btns.forEach(function(btn){
-    var isO=btn.textContent.includes('○');
-    var isCorrectBtn=(isO===correct);
-    var isSelectedBtn=(isO===selected);
-    if(isCorrectBtn) btn.classList.add('correct');
-    else if(isSelectedBtn&&!isCorrect) btn.classList.add('wrong');
-    btn.onclick=null;
-  });
-  if(isCorrect)_sgScore++;
-  var exEl=_el('sgex'+idx);
-  if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}
-}
-
-/* ─── STEP⑤ 過去問 ─── */
-function goKakomon(){
-  _showView('vKakomon');setPhase(3);
-  _hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');
-  _hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('spill');
-  _show('bGoFlash');_show('bBack');_hideBanner();
-}
-
-function ansKakomon(groupId,selected,correct,explainId){
-  var group=_el(groupId);
-  if(!group)return;
-  var btns=group.querySelectorAll('.kk-choice');
-  btns.forEach(function(b,i){
-    b.onclick=null;
-    if(i===correct) b.classList.add('correct');
-    else if(i===selected&&selected!==correct) b.classList.add('wrong');
-  });
-  showKkEx(explainId);
-}
+function fillBlank(b){if(_selChip){b.textContent=_selChip.textContent;b.classList.remove('ok','ng','show');_selChip.classList.remove('sel');_selChip=null;_closePopup();return}if(b===_popupTarget&&_popup.classList.contains('open')){_closePopup();return}if(b.textContent.trim()!=''){b.textContent='';b.classList.remove('ok','ng','show');_closePopup();return}_openPopup(b)}
+function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(1);_startTimer();_hide('bExpl');_hide('bGoFlashTop');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hide('bGoSeigo');_hideBanner()}
+function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);_show('bRetry');_show('bGoSeigo');if(ok===bls.length){_stopTimer();_showBanner(true,ok,bls.length);_startConf();setTimeout(_stopConf,5000)}else _showBanner(false,ok,bls.length)}
+function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
+function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
+function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
+function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
-
-/* ─── STEP⑥ フラッシュカード ─── */
-function goFlash(){
-  _showView('vFlash');setPhase(4);
-  _hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');
-  _hide('bCheckE');_hide('bHint');_hide('bGoQ2');
-  _hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');
-  _show('bBack');_hideBanner();
-}
-
+function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
+function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}
 var _fcCards=[],_fcIdx=0,_fcFlipped=false,_fcSpeed=0,_fcMode='term';
 var _fcAutoTimer=null,_fcTmrInt=null,_fcOkSet=new Set(),_fcNgSet=new Set();
-
-function setFcSpeed(btn){
-  document.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('active')});
-  btn.classList.add('active');
-  _fcSpeed=parseInt(btn.dataset.sec)*1000;
-}
-function setFcMode(btn){
-  document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active')});
-  btn.classList.add('active');
-  _fcMode=btn.dataset.mode;
-}
-
-function startFc(){
-  _fcCards=FC_CARDS.slice().sort(function(){return Math.random()-.5});
-  _fcIdx=0;_fcFlipped=false;_fcOkSet.clear();_fcNgSet.clear();
-  _el('fcOkCnt').textContent='0';_el('fcNgCnt').textContent='0';
-  _el('fcArena').classList.add('on');
-  var sec=0;clearInterval(_fcTmrInt);
-  _fcTmrInt=setInterval(function(){sec+=0.1;_el('fcTimerDisp').textContent=sec.toFixed(1)},100);
-  showFcCard();
-}
-
-function stopFc(){
-  clearInterval(_fcAutoTimer);clearInterval(_fcTmrInt);
-  _el('fcArena').classList.remove('on');
-  _el('fcAutoBar').style.transition='none';_el('fcAutoBar').style.width='0%';
-}
-
-function showFcCard(){
-  if(!_fcCards.length)return;
-  var c=_fcCards[_fcIdx];
-  var card=_el('flashCard');
-  card.classList.remove('flip-anim');void card.offsetWidth;card.classList.add('flip-anim');
-  if(_fcMode==='term'){
-    _el('fcSideTag').textContent='問題';_el('fcSideTag').className='fc-side-tag2 q';
-    _el('fcMainText').textContent=c.q;
-  } else {
-    _el('fcSideTag').textContent='意味→用語';_el('fcSideTag').className='fc-side-tag2 q';
-    _el('fcMainText').textContent=c.a;
-  }
-  _el('fcHint2').textContent='';
-  _el('fcAnsArea').classList.remove('on');
-  _el('fcTapHint').style.display='block';
-  _el('fcAnsTxt').textContent='';
-  _el('fcCounter').textContent=(_fcIdx+1)+' / '+_fcCards.length;
-  _el('fcProgFill').style.width=((_fcIdx+1)/_fcCards.length*100)+'%';
-  _el('fcProgTxt').textContent=(_fcIdx+1)+' / '+_fcCards.length;
-  _fcFlipped=false;
-  if(_fcSpeed>0)_startFcAuto();
-}
-
-function fcFlip(){
-  if(_fcFlipped)return;
-  _fcFlipped=true;
-  var c=_fcCards[_fcIdx];
-  _el('fcAnsTxt').textContent=(_fcMode==='term'?c.a:c.q);
-  _el('fcAnsArea').classList.add('on');
-  _el('fcSideTag').textContent='答え';_el('fcSideTag').className='fc-side-tag2 a';
-  _el('fcTapHint').style.display='none';
-  _clearFcAuto();
-}
-
-function fcFlipOrNext(){
-  if(!_el('fcArena').classList.contains('on'))return;
-  if(!_fcFlipped)fcFlip(); else fcNext();
-}
-
-function fcNext(){
-  _clearFcAuto();
-  if(_fcIdx<_fcCards.length-1){_fcIdx++;showFcCard();}
-  else{
-    clearInterval(_fcTmrInt);
-    _el('fcMainText').textContent='🎉 全カード完了！お疲れさまでした！';
-    _el('fcAnsArea').classList.remove('on');
-    _el('fcTapHint').style.display='none';
-  }
-}
+function setFcSpeed(btn){document.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcSpeed=parseInt(btn.dataset.sec)*1000}
+function setFcMode(btn){document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcMode=btn.dataset.mode}
+function startFc(){_fcCards=FC_CARDS.slice().sort(function(){return Math.random()-.5});_fcIdx=0;_fcFlipped=false;_fcOkSet.clear();_fcNgSet.clear();_el('fcOkCnt').textContent='0';_el('fcNgCnt').textContent='0';_el('fcArena').classList.add('on');var sec=0;clearInterval(_fcTmrInt);_fcTmrInt=setInterval(function(){sec+=0.1;_el('fcTimerDisp').textContent=sec.toFixed(1)},100);showFcCard()}
+function stopFc(){clearInterval(_fcAutoTimer);clearInterval(_fcTmrInt);_el('fcArena').classList.remove('on');_el('fcAutoBar').style.transition='none';_el('fcAutoBar').style.width='0%'}
+function showFcCard(){if(!_fcCards.length)return;var c=_fcCards[_fcIdx];var card=_el('flashCard');card.classList.remove('flip-anim');void card.offsetWidth;card.classList.add('flip-anim');if(_fcMode==='term'){_el('fcSideTag').textContent='問題';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.q}else{_el('fcSideTag').textContent='意味→用語';_el('fcSideTag').className='fc-side-tag2 q';_el('fcMainText').textContent=c.a}_el('fcHint2').textContent='';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='block';_el('fcAnsTxt').textContent='';_el('fcCounter').textContent=(_fcIdx+1)+' / '+_fcCards.length;_el('fcProgFill').style.width=((_fcIdx+1)/_fcCards.length*100)+'%';_el('fcProgTxt').textContent=(_fcIdx+1)+' / '+_fcCards.length;_fcFlipped=false;if(_fcSpeed>0)_startFcAuto()}
+function fcFlip(){if(_fcFlipped)return;_fcFlipped=true;var c=_fcCards[_fcIdx];_el('fcAnsTxt').textContent=(_fcMode==='term'?c.a:c.q);_el('fcAnsArea').classList.add('on');_el('fcSideTag').textContent='答え';_el('fcSideTag').className='fc-side-tag2 a';_el('fcTapHint').style.display='none';_clearFcAuto()}
+function fcFlipOrNext(){if(!_el('fcArena').classList.contains('on'))return;if(!_fcFlipped)fcFlip();else fcNext()}
+function fcNext(){_clearFcAuto();if(_fcIdx<_fcCards.length-1){_fcIdx++;showFcCard()}else{clearInterval(_fcTmrInt);_el('fcMainText').textContent='🎉 全カード完了！お疲れさまでした！';_el('fcAnsArea').classList.remove('on');_el('fcTapHint').style.display='none'}}
 function fcPrev(){_clearFcAuto();if(_fcIdx>0){_fcIdx--;showFcCard()}}
 function fcMarkOk(){_fcOkSet.add(_fcIdx);_fcNgSet.delete(_fcIdx);_el('fcOkCnt').textContent=_fcOkSet.size;_el('fcNgCnt').textContent=_fcNgSet.size;fcNext()}
 function fcMarkNg(){_fcNgSet.add(_fcIdx);_fcOkSet.delete(_fcIdx);_el('fcNgCnt').textContent=_fcNgSet.size;_el('fcOkCnt').textContent=_fcOkSet.size;fcNext()}
-
-function _startFcAuto(){
-  _clearFcAuto();if(_fcSpeed===0)return;
-  var bar=_el('fcAutoBar');
-  bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;
-  bar.style.transition='width '+_fcSpeed+'ms linear';bar.style.width='100%';
-  _fcAutoTimer=setTimeout(function(){
-    if(!_fcFlipped)fcFlip();
-    setTimeout(fcNext,700);
-  },_fcSpeed);
-}
-function _clearFcAuto(){
-  clearTimeout(_fcAutoTimer);
-  var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%';
-}
-
-/* ─── 戻る ─── */
-function backToRead(){
-  _resetTimer();_closePause();
-  _showView('vRead');_hideWB();_hideBanner();setPhase(0);
-  _show('bExpl');_show('bGoQ');_show('bGoFlashTop');
-  _hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');
-  _hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');
-  _el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain;
-  stopFc();
-}
-
-/* ─── バナー・スコア ─── */
-function _showBanner(pass,ok,tot){
-  var b=_el('jbanner');
-  b.className='jbanner '+(pass?'ban-pass':'ban-ng');
-  b.textContent=pass?('🎉 合格！　全'+tot+'問正解！'):('おしい！　'+ok+' / '+tot+' 問　── もう一息！');
-  b.style.display='block';
-  if(!pass)setTimeout(_hideBanner,2800);
-}
+function _startFcAuto(){_clearFcAuto();if(_fcSpeed===0)return;var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;bar.style.transition='width '+_fcSpeed+'ms linear';bar.style.width='100%';_fcAutoTimer=setTimeout(function(){if(!_fcFlipped)fcFlip();setTimeout(fcNext,700)},_fcSpeed)}
+function _clearFcAuto(){clearTimeout(_fcAutoTimer);var bar=_el('fcAutoBar');bar.style.transition='none';bar.style.width='0%'}
+function _showBanner(pass,ok,tot){var b=_el('jbanner');b.className='jbanner '+(pass?'ban-pass':'ban-ng');b.textContent=pass?('🎉 合格！　全'+tot+'問正解！'):('おしい！　'+ok+' / '+tot+' 問　── もう一息！');b.style.display='block';if(!pass)setTimeout(_hideBanner,2800)}
 function _hideBanner(){var b=_el('jbanner');if(b)b.style.display='none'}
 function _showScore(ok,tot){var p=_el('spill');p.textContent=ok+' / '+tot+' 問正解';p.style.display='inline-block'}
-
-/* ─── 一時停止 ─── */
 function _closePause(){_el('pauseModal').classList.remove('open')}
 function closePause(){_closePause();if(_tInt===null&&_t0>0){_t0=Date.now();_tInt=setInterval(_tick,200)}}
-
-/* ─── 紙吹雪 ─── */
 var _cnv,_ctx,_pts=[],_raf=null;
-function _initCanvas(){
-  _cnv=document.getElementById('cnv');
-  _ctx=_cnv?_cnv.getContext('2d'):null;
-}
-function _startConf(){_initCanvas();if(!_ctx)return;_cnv.width=innerWidth;_cnv.height=innerHeight;_pts=[];for(var i=0;i<180;i++)_pts.push({x:Math.random()*_cnv.width,y:Math.random()*_cnv.height-_cnv.height,s:Math.random()*9+4,c:'hsl('+Math.floor(Math.random()*360)+',70%,62%)',sp:Math.random()*3+2,r:Math.random()*Math.PI*2,dr:.05});_af();}
-function _af(){_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts.forEach(function(p){p.y+=p.sp;p.r+=p.dr;_ctx.save();_ctx.translate(p.x,p.y);_ctx.rotate(p.r);_ctx.fillStyle=p.c;_ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);_ctx.restore();if(p.y>_cnv.height)p.y=-20;});_raf=requestAnimationFrame(_af);}
-function _stopConf(){if(_raf){cancelAnimationFrame(_raf);_raf=null;}if(_ctx)_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts=[];}
+function _initCanvas(){_cnv=document.getElementById('cnv');_ctx=_cnv?_cnv.getContext('2d'):null}
+function _startConf(){_initCanvas();if(!_ctx)return;_cnv.width=innerWidth;_cnv.height=innerHeight;_pts=[];for(var i=0;i<180;i++)_pts.push({x:Math.random()*_cnv.width,y:Math.random()*_cnv.height-_cnv.height,s:Math.random()*9+4,c:'hsl('+Math.floor(Math.random()*360)+',70%,62%)',sp:Math.random()*3+2,r:Math.random()*Math.PI*2,dr:.05});_af()}
+function _af(){_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts.forEach(function(p){p.y+=p.sp;p.r+=p.dr;_ctx.save();_ctx.translate(p.x,p.y);_ctx.rotate(p.r);_ctx.fillStyle=p.c;_ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);_ctx.restore();if(p.y>_cnv.height)p.y=-20});_raf=requestAnimationFrame(_af)}
+function _stopConf(){if(_raf){cancelAnimationFrame(_raf);_raf=null}if(_ctx)_ctx.clearRect(0,0,_cnv.width,_cnv.height);_pts=[]}
 </script>
 </body>
 </html>

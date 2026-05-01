@@ -45,14 +45,25 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 .pt{display:inline-block;background:var(--blue);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
 .blank{display:inline-flex;align-items:center;justify-content:center;min-width:90px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
 .blank:hover{background:#fff3b0}.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
-.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.85em}
+.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.84em}
 .gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
 .gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
 .cmp-tbl{width:100%;border-collapse:collapse;font-size:.84em;margin:10px 0}
-.cmp-tbl th,.cmp-tbl td{border:1px solid var(--border);padding:7px 10px;vertical-align:top;line-height:1.75}
+.cmp-tbl th,.cmp-tbl td{border:1px solid var(--border);padding:7px 10px;vertical-align:top;line-height:1.7}
 .cmp-tbl thead th{background:var(--blue);color:#fff;text-align:center;font-weight:700}
-.cmp-tbl .row-head{background:#f0f4ff;font-weight:700;white-space:nowrap;width:22%}
+.cmp-tbl .row-head{background:#f0f4ff;font-weight:700;white-space:nowrap;text-align:center}
+.cmp-tbl .uk{background:#fdf6e3}.cmp-tbl .us{background:#f0f8ff}.cmp-tbl .ch{background:#fff0f0}
 .cmp-tbl .meiji{background:#fdf6e3}.cmp-tbl .nihon{background:#f0f8ff}
+.timeline{border-left:3px solid var(--blue);padding-left:16px;margin:8px 0}
+.tl-item{position:relative;margin-bottom:14px}
+.tl-item::before{content:'';position:absolute;left:-22px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--blue)}
+.tl-year{font-size:.72em;font-weight:700;color:var(--blue);letter-spacing:.05em;margin-bottom:2px}
+.tl-body{font-size:.9em;line-height:1.75}
+.case-card{background:#f8f5ff;border:1.5px solid #9b59b6;border-radius:9px;padding:12px 15px;margin-bottom:11px}
+.case-tag{display:inline-block;font-size:.67em;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:6px;letter-spacing:.04em;color:#fff}
+.case-tag.ken{background:var(--red)}.case-tag.gouken{background:var(--green)}.case-tag.kaiken{background:var(--muted)}
+.case-title{font-size:.9em;font-weight:700;margin-bottom:5px}
+.case-body{font-size:.84em;color:#333;line-height:1.75}
 .note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
 .q-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--border);font-size:.93em;line-height:1.85}
 .q-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
@@ -113,6 +124,45 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 .mb-resume{background:var(--green);color:#fff}.mb-back{background:var(--muted);color:#fff}.mb-cancel{background:#eee;color:var(--ink)}
 #cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
 .home-btn{position:fixed;bottom:130px;right:14px;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:22px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;transition:.14s;z-index:500;text-decoration:none}.home-btn:hover{background:#253060;transform:translateY(-2px)}
+/* 単元ごとのチャレンジ */
+.unit-wb{background:#fffbe9;border:2px dashed var(--gold);border-radius:8px;padding:10px 14px;margin-top:14px}
+.unit-wb-lbl{font-size:.7em;color:#b56a00;font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+.unit-wb-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.unit-wb-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.82em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 11px;border-radius:4px;cursor:pointer;transition:.12s}
+.unit-wb-chip:hover{background:#253060}.unit-wb-chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.unit-btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px;align-items:center}
+.unit-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.78em;font-weight:700;border:none;border-radius:5px;padding:6px 14px;cursor:pointer;transition:.12s}
+.unit-btn.challenge{background:var(--orange);color:#fff}
+.unit-btn.check{background:var(--green);color:#fff}
+.unit-btn.hint{background:#8e44ad;color:#fff}
+.unit-btn.retry{background:var(--blue);color:#fff}
+.unit-btn.quiz{background:var(--red);color:#fff}
+.unit-btn:hover{transform:translateY(-1px);opacity:.88}
+.unit-score{display:inline-block;background:var(--ink);color:#fff;font-size:.76em;font-weight:700;padding:3px 10px;border-radius:14px}
+/* 単元の4択問題 */
+.unit-quiz{display:none;margin-top:12px;padding:12px;background:#fff5f5;border:2px solid var(--red);border-radius:8px}
+.unit-quiz.on{display:block}
+.unit-quiz-title{font-size:.9em;font-weight:700;color:var(--red);margin-bottom:10px;border-bottom:1px solid #f5c6c6;padding-bottom:6px}
+.unit-quiz-q{margin-bottom:14px;padding-bottom:10px;border-bottom:1px dashed #ddd}
+.unit-quiz-q:last-child{border-bottom:none}
+.unit-quiz-qt{font-size:.86em;font-weight:700;margin-bottom:7px;line-height:1.6}
+.unit-quiz-num{display:inline-block;background:var(--red);color:#fff;font-size:.72em;padding:2px 8px;border-radius:3px;margin-right:6px}
+.unit-quiz-choices{display:flex;flex-direction:column;gap:5px}
+.uqc{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;padding:7px 11px;border:2px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;text-align:left;transition:.12s;line-height:1.5}
+.uqc:hover{border-color:var(--blue);background:#eef3ff}
+.uqc.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}
+.uqc.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.uqc-explain{display:none;margin-top:7px;font-size:.8em;background:#f0f8ff;border-left:3px solid var(--blue);padding:7px 11px;border-radius:4px;line-height:1.65}
+.uqc-explain.on{display:block}
+/* 単元内の過去問 */
+.unit-kakomon{display:none;margin-top:12px;padding:12px;background:#eef9f1;border:2px solid #1a6b3a;border-radius:8px}
+.unit-kakomon.on{display:block}
+.unit-kakomon-title{font-size:.9em;font-weight:700;color:#1a6b3a;margin-bottom:10px;border-bottom:1px solid #b8e0c5;padding-bottom:6px;display:flex;align-items:center;gap:8px}
+.unit-kakomon-tag{display:inline-block;background:var(--gold);color:var(--ink);font-size:.7em;font-weight:700;padding:2px 8px;border-radius:4px}
+.unit-btn.kakomon{background:#1a6b3a;color:#fff}
+/* チャレンジ中のblank */
+.blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
+.blank.cmode:hover{background:#fff3b0}
 </style>
 </head>
 <body>
@@ -120,25 +170,24 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 <header class="hdr">
   <div class="hdr-info">
     <div class="hdr-sub">政治経済 GAMBA</div>
-    <div class="hdr-title">⑥ 大日本帝国憲法と日本国憲法</div>
+    <div class="hdr-title">⑥ 大日本帝国憲法と日本国憲法 ─ 憲法の分類・大正デモクラシー・改正手続き</div>
   </div>
   <div class="hdr-timer" id="timerDisp">00:00</div>
 </header>
 <nav class="tab-bar">
-  <a class="tab-btn" href="seikei04.html">④ 人権獲得の歴史</a>
-  <a class="tab-btn" href="seikei05.html">⑤ 各国の政治制度</a>
-  <a class="tab-btn active" href="seikei06.html">⑥ 大日本帝国・日本国憲法</a>
-  <a class="tab-btn" href="seikei07.html">⑦ 平等権</a>
+  <a class="tab-btn active" href="seikei06.html">⑥ 大日本帝国憲法・日本国憲法</a>
+  <a class="tab-btn" href="seikei07.html">⑦ 基本的人権・平等権</a>
+  <a class="tab-btn" href="seikei08.html">⑧ 自由権</a>
+  <a class="tab-btn" href="seikei09.html">⑨ 社会権・参政権・請求権</a>
+  <a class="tab-btn" href="seikei10.html">⑩ 平和主義</a>
   <a class="tab-btn" href="seikei_index.html">📋 単元表</a>
 </nav>
 <div class="phase-bar">
   <span class="plbl">STEP</span>
-  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明</span>
-  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②確認</span>
-  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③テスト</span>
-  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④正誤</span>
-  <span class="parr">▶</span><div class="pdot" id="d4"></div><span class="ptxt" id="t4">⑤過去問</span>
-  <span class="parr">▶</span><div class="pdot" id="d5"></div><span class="ptxt" id="t5">⑥フラッシュ</span>
+  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明・チャレンジ</span>
+  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②一問一答</span>
+  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③正誤</span>
+  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④フラッシュ</span>
 </div>
 <div class="wb-bar" id="wbBar">
   <div class="wb-lbl">▶ 語句をタップして選択 → 空欄をタップで入力　／　入力済み空欄をタップするとクリア</div>
@@ -146,279 +195,474 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 </div>
 <div class="main">
 
+
 <!-- ①説明 -->
 <div class="view on" id="vRead">
 
-  <div class="s-card">
+  <div class="s-card" data-unit="u1">
     <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">憲法の分類 ─ 欽定・民定・硬性・軟性</div></div>
     <div class="s-body">
-      <table class="gtbl">
-        <thead><tr><th>分類軸</th><th>種類</th><th>内容・例</th></tr></thead>
-        <tbody>
-          <tr>
-            <td rowspan="2">制定者による分類</td>
-            <td><span class="blank show" data-ans="欽定憲法">欽定憲法</span></td>
-            <td>君主が定めた憲法。例：<span class="blank show" data-ans="大日本帝国憲法">大日本帝国憲法</span>（1889年）</td>
-          </tr>
-          <tr>
-            <td><span class="blank show" data-ans="民定憲法">民定憲法</span></td>
-            <td>国民が定めた（または国民の意思に基づく）憲法。例：<span class="blank show" data-ans="日本国憲法">日本国憲法</span>（1946年）</td>
-          </tr>
-          <tr>
-            <td rowspan="2">改正手続きによる分類</td>
-            <td><span class="blank show" data-ans="硬性憲法">硬性憲法</span></td>
-            <td>通常の法律より厳しい改正手続きが必要な憲法。例：日本国憲法・アメリカ連邦憲法</td>
-          </tr>
-          <tr>
-            <td><span class="blank show" data-ans="軟性憲法">軟性憲法</span></td>
-            <td>通常の法律と同様の手続きで改正できる憲法。例：イギリス（不文憲法）</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">大日本帝国憲法（明治憲法）</div></div>
-    <div class="s-body">
       <div class="person-row">
-        <div class="pbadge">1889年制定</div>
+        <div class="pbadge">2つの分類軸</div>
         <div class="pcont">
-          <div class="pt">ポイント① 外見的立憲主義</div>
-          <p>表面上は憲法にもとづいた政治（立憲主義）をとりながら、実際には天皇に権力が集中していた。この在り方を<span class="blank show" data-ans="外見的立憲主義">外見的立憲主義</span>という。</p>
-          <div class="pt">ポイント② 天皇の権限（天皇大権）</div>
-          <p>天皇は国家の<span class="blank show" data-ans="元首">元首</span>であり、統治権の<span class="blank show" data-ans="総攬者">総攬者</span>（すべてを握る者）でした。</p>
-          <p>天皇が持つ強大な権限を<span class="blank show" data-ans="天皇大権">天皇大権</span>といいます。主なものは、①<span class="blank show" data-ans="宣戦・講和">宣戦・講和</span>の権限　②<span class="blank show" data-ans="緊急勅令">緊急勅令</span>（議会を通さずに法律と同じ効力の命令を発する）　③軍の<span class="blank show" data-ans="統帥権">統帥権</span>（軍の最高指揮権。内閣・議会から独立）。</p>
-          <div class="pt">ポイント③ 国民の権利</div>
-          <p>国民は「<span class="blank show" data-ans="臣民">臣民</span>」と呼ばれ、権利は「<span class="blank show" data-ans="法律の範囲内">法律の範囲内</span>」でのみ保障されました（法律による制限が可能でした）。</p>
+          <p>憲法は2つの観点から分類されます。「誰が制定したか」による分類と、「改正手続きの厳しさ」による分類です。</p>
+          <table class="gtbl">
+            <thead><tr><th>分類軸</th><th>種類</th><th>内容・例</th></tr></thead>
+            <tbody>
+              <tr><td rowspan="2">制定者による分類</td><td><span class="blank show" data-ans="欽定憲法">欽定憲法</span></td><td>君主が定めた憲法。例:<span class="blank show" data-ans="大日本帝国憲法">大日本帝国憲法</span>(1889年)・プロイセン憲法</td></tr>
+              <tr><td><span class="blank show" data-ans="民定憲法">民定憲法</span></td><td>国民が定めた(または国民の意思に基づく)憲法。例:<span class="blank show" data-ans="日本国憲法">日本国憲法</span>(1946年)・アメリカ合衆国憲法</td></tr>
+              <tr><td rowspan="2">改正手続きによる分類</td><td><span class="blank show" data-ans="硬性憲法">硬性憲法</span></td><td>通常の法律より厳しい改正手続きが必要な憲法。例:日本国憲法・アメリカ連邦憲法</td></tr>
+              <tr><td><span class="blank show" data-ans="軟性憲法">軟性憲法</span></td><td>通常の法律と同様の手続きで改正できる憲法。例:イギリス(不文憲法)</td></tr>
+            </tbody>
+          </table>
+          <p>たとえば日本国憲法は「民定憲法」かつ「硬性憲法」、イギリスは「軟性憲法」(かつ不文憲法)に分類されます。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u1">
+        <div class="unit-wb-lbl">▼ 単元①の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u1"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u1')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u1')" style="display:none" id="ub-check-u1">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u1')" style="display:none" id="ub-hint-u1">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u1')" style="display:none" id="ub-retry-u1">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u1')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u1" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u1">
+        <div class="unit-quiz-title">📝 確認問題(単元①憲法の分類)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>君主が定めた憲法を何というか。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q0',0,1)">① 民定憲法</button>
+            <button class="uqc" onclick="ansUQ('u1q0',1,1)">② 欽定憲法</button>
+            <button class="uqc" onclick="ansUQ('u1q0',2,1)">③ 硬性憲法</button>
+            <button class="uqc" onclick="ansUQ('u1q0',3,1)">④ 軟性憲法</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q0"><strong>正解:②</strong><br>君主が定めた憲法を欽定憲法といいます。代表例は大日本帝国憲法(1889年)です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>通常の法律より厳しい改正手続きが必要な憲法を何というか。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q1',0,2)">① 欽定憲法</button>
+            <button class="uqc" onclick="ansUQ('u1q1',1,2)">② 民定憲法</button>
+            <button class="uqc" onclick="ansUQ('u1q1',2,2)">③ 硬性憲法</button>
+            <button class="uqc" onclick="ansUQ('u1q1',3,2)">④ 軟性憲法</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q1"><strong>正解:③</strong><br>硬性憲法は、改正に厳しい手続きを要する憲法です。日本国憲法・アメリカ連邦憲法が該当します。一方の軟性憲法は通常の法律と同じ手続きで改正できる憲法で、イギリスがその例です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>大日本帝国憲法・日本国憲法の組み合わせとして正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q2',0,1)">① 大日本帝国憲法=民定憲法、日本国憲法=欽定憲法</button>
+            <button class="uqc" onclick="ansUQ('u1q2',1,1)">② 大日本帝国憲法=欽定憲法、日本国憲法=民定憲法</button>
+            <button class="uqc" onclick="ansUQ('u1q2',2,1)">③ どちらも民定憲法</button>
+            <button class="uqc" onclick="ansUQ('u1q2',3,1)">④ どちらも欽定憲法</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q2"><strong>正解:②</strong><br>大日本帝国憲法は天皇(君主)が定めた欽定憲法、日本国憲法は国民の意思に基づく民定憲法です。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u1',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u1',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u1" style="display:none"></span>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="s-card">
+  <div class="s-card" data-unit="u2">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">大日本帝国憲法(明治憲法)</div></div>
+    <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge">1889年制定</div>
+        <div class="pcont">
+          <p>大日本帝国憲法は1889年(明治22年)に公布されました。プロイセン憲法を手本に、伊藤博文を中心に起草された欽定憲法です。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge red">外見的立憲主義</div>
+        <div class="pcont">
+          <p>大日本帝国憲法は、表面上は憲法に基づいた政治(立憲主義)を装いながら、実際には天皇に権力が集中していました。このような体制を<span class="blank show" data-ans="外見的立憲主義">外見的立憲主義</span>といいます。形式的には議会(帝国議会)も設置されましたが、実質的な権限は天皇にありました。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge orange">天皇大権</div>
+        <div class="pcont">
+          <p>天皇は国家の<span class="blank show" data-ans="元首">元首</span>であり、統治権の<span class="blank show" data-ans="総攬者">総攬者</span>(すべてを握る者)とされました。</p>
+          <p>天皇が持つ強大な権限を<span class="blank show" data-ans="天皇大権">天皇大権</span>といいます。代表的なものに次の3つがあります。</p>
+          <p><strong>① <span class="blank show" data-ans="宣戦・講和">宣戦・講和</span>の権限</strong>:戦争を始めるか終わらせるかの最終決定権。</p>
+          <p><strong>② <span class="blank show" data-ans="緊急勅令">緊急勅令</span></strong>:議会を通さずに法律と同じ効力を持つ命令を発する権限。</p>
+          <p><strong>③ <span class="blank show" data-ans="統帥権">統帥権</span></strong>:軍の最高指揮権。内閣・議会から独立しており、軍部の暴走を招く要因となりました。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge">国民の権利</div>
+        <div class="pcont">
+          <p>国民は「<span class="blank show" data-ans="臣民">臣民</span>」(天皇の支配に従う民)と呼ばれました。権利も「<span class="blank show" data-ans="法律の範囲内">法律の範囲内</span>」でのみ保障されたため、法律によって自由に制限することが可能でした。たとえば治安維持法(1925年)のような法律によって、思想・言論の自由が大きく制限されました。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u2">
+        <div class="unit-wb-lbl">▼ 単元②の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u2"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u2')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u2')" style="display:none" id="ub-check-u2">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u2')" style="display:none" id="ub-hint-u2">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u2')" style="display:none" id="ub-retry-u2">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u2')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u2" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u2">
+        <div class="unit-quiz-title">📝 確認問題(単元②大日本帝国憲法)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>大日本帝国憲法における天皇の地位として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q0',0,2)">① 国民統合の象徴</button>
+            <button class="uqc" onclick="ansUQ('u2q0',1,2)">② 議会の任命を受ける行政の長</button>
+            <button class="uqc" onclick="ansUQ('u2q0',2,2)">③ 国家の元首・統治権の総攬者</button>
+            <button class="uqc" onclick="ansUQ('u2q0',3,2)">④ 名目的な国王のような存在</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q0"><strong>正解:③</strong><br>大日本帝国憲法のもとで天皇は国家の元首・統治権の総攬者(すべてを握る者)でした。①は日本国憲法における天皇の地位です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>「天皇大権」の例として誤っているものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q1',0,3)">① 宣戦・講和の権限</button>
+            <button class="uqc" onclick="ansUQ('u2q1',1,3)">② 緊急勅令の発布</button>
+            <button class="uqc" onclick="ansUQ('u2q1',2,3)">③ 軍の統帥権</button>
+            <button class="uqc" onclick="ansUQ('u2q1',3,3)">④ 内閣総理大臣の指名権を国会に委ねる権限</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q1"><strong>正解:④(誤っているもの)</strong><br>大日本帝国憲法のもとでは内閣総理大臣も天皇が任命していました。①宣戦・講和、②緊急勅令、③統帥権はいずれも代表的な天皇大権です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>大日本帝国憲法における国民の権利の特徴として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q2',0,2)">① 永久不可侵の基本的人権として保障された。</button>
+            <button class="uqc" onclick="ansUQ('u2q2',1,2)">② 自然権として国家が与えるものとされた。</button>
+            <button class="uqc" onclick="ansUQ('u2q2',2,2)">③ 「臣民の権利」とされ、法律の範囲内で保障された。</button>
+            <button class="uqc" onclick="ansUQ('u2q2',3,2)">④ 国際人権規約に基づき保障された。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q2"><strong>正解:③</strong><br>大日本帝国憲法では国民は「臣民」と呼ばれ、権利は「法律の範囲内」でのみ保障されました。法律によって権利が制限可能であったことが特徴です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>大日本帝国憲法の特徴を表す語として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q3',0,1)">① 真の立憲主義</button>
+            <button class="uqc" onclick="ansUQ('u2q3',1,1)">② 外見的立憲主義</button>
+            <button class="uqc" onclick="ansUQ('u2q3',2,1)">③ 民主主義</button>
+            <button class="uqc" onclick="ansUQ('u2q3',3,1)">④ 国民主権</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q3"><strong>正解:②</strong><br>大日本帝国憲法は表面上は立憲主義をとりながら、実際には天皇に権力が集中していました。これを「外見的立憲主義」といいます。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u2',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u2',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u2" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card" data-unit="u3">
     <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">大正デモクラシー ─ 天皇機関説と民本主義</div></div>
     <div class="s-body">
       <div class="person-row">
         <div class="pbadge">天皇機関説</div>
         <div class="pcont">
-          <p>憲法学者<span class="blank show" data-ans="美濃部達吉">美濃部達吉</span>が唱えた説。国家法人説に基づき、天皇は国家という法人の機関の一つに過ぎないとし、<strong>議会中心の政治</strong>を正当化しました。大正デモクラシーを理論的に支えましたが、昭和期に軍部から弾圧されました（天皇機関説事件）。</p>
+          <p>大正期、憲法学者<span class="blank show" data-ans="美濃部達吉">美濃部達吉</span>は<strong>国家法人説</strong>に基づき、天皇は国家という法人の機関の一つに過ぎないとする<span class="blank show" data-ans="天皇機関説">天皇機関説</span>を唱えました。これにより議会中心の政治が理論的に正当化され、大正デモクラシーの思想的基盤となりました。</p>
+          <p>しかし昭和に入ると軍部から弾圧を受け、1935年の天皇機関説事件で美濃部の著書は発禁処分となりました。</p>
         </div>
       </div>
       <div class="person-row">
         <div class="pbadge green">民本主義</div>
         <div class="pcont">
-          <p>政治学者<span class="blank show" data-ans="吉野作造">吉野作造</span>が唱えた説。主権が誰にあるかを問わず、政治の目的は民衆の利福にあり、政策の決定は民衆の意向によるべきという考えを<span class="blank show" data-ans="民本主義">民本主義</span>といいます。天皇主権の明治憲法の枠内で<strong>普通選挙・政党政治</strong>を主張しました。</p>
+          <p>政治学者<span class="blank show" data-ans="吉野作造">吉野作造</span>は、<strong>主権が誰にあるかを問わず、政治の目的は民衆の利福にあり、政策の決定は民衆の意向によるべき</strong>とする<span class="blank show" data-ans="民本主義">民本主義</span>を提唱しました。</p>
+          <p>「民主主義」という言葉は天皇主権の明治憲法と矛盾するため、あえて「民本主義」という言葉を用いて天皇主権の枠内で<strong>普通選挙の実現・政党政治の確立</strong>を訴えました。1925年の普通選挙法成立にも影響を与えました。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u3">
+        <div class="unit-wb-lbl">▼ 単元③の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u3"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u3')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u3')" style="display:none" id="ub-check-u3">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u3')" style="display:none" id="ub-hint-u3">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u3')" style="display:none" id="ub-retry-u3">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u3')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u3" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u3">
+        <div class="unit-quiz-title">📝 確認問題(単元③大正デモクラシー)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>「天皇は国家という法人の機関の一つにすぎない」とする説を提唱した憲法学者は誰か。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q0',0,1)">① 吉野作造</button>
+            <button class="uqc" onclick="ansUQ('u3q0',1,1)">② 美濃部達吉</button>
+            <button class="uqc" onclick="ansUQ('u3q0',2,1)">③ 伊藤博文</button>
+            <button class="uqc" onclick="ansUQ('u3q0',3,1)">④ 福沢諭吉</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q0"><strong>正解:②</strong><br>美濃部達吉は天皇機関説を唱え、議会中心の政治を理論的に正当化しました。大正デモクラシーの思想的基盤となりましたが、昭和期に弾圧されました(天皇機関説事件)。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>「政治の目的は民衆の利福にあり、政策の決定は民衆の意向によるべき」とする民本主義を唱えた政治学者は誰か。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q1',0,2)">① 美濃部達吉</button>
+            <button class="uqc" onclick="ansUQ('u3q1',1,2)">② 大隈重信</button>
+            <button class="uqc" onclick="ansUQ('u3q1',2,2)">③ 吉野作造</button>
+            <button class="uqc" onclick="ansUQ('u3q1',3,2)">④ 福沢諭吉</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q1"><strong>正解:③</strong><br>吉野作造は天皇主権の枠内で民本主義を提唱し、普通選挙の実現と政党政治の確立を訴えました。1925年の普通選挙法成立にも影響を与えました。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>吉野作造があえて「民主主義」ではなく「民本主義」という言葉を用いた理由として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q2',0,1)">① 民主主義より広い概念だから。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',1,1)">② 「民主主義」は天皇主権の明治憲法と矛盾するため。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',2,1)">③ ヨーロッパからの輸入語であるため。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',3,1)">④ 漢字の意味が日本らしくなかったため。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q2"><strong>正解:②</strong><br>「民主主義」は主権が国民にあることを意味するため、天皇主権を定めた明治憲法と直接矛盾します。そこで吉野は「主権の所在は問わず、政治の目的を民衆の利福に置く」という形で、明治憲法の枠内で民意を反映する政治を主張しました。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u3',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u3',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u3" style="display:none"></span>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="s-card">
+  <div class="s-card" data-unit="u4">
     <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">日本国憲法の制定過程</div></div>
-    <div class="s-body">
-      <div class="person-row">
-        <div class="pbadge red">マッカーサー草案</div>
-        <div class="pcont">
-          <div class="pt">マッカーサー三原則</div>
-          <p>GHQのマッカーサーが示した日本国憲法の草案の基となる三原則：<br>
-          ① <span class="blank show" data-ans="天皇は国家の象徴">天皇は国家の象徴</span>（象徴天皇制）<br>
-          ② <span class="blank show" data-ans="戦争の放棄">戦争の放棄</span>（平和主義）<br>
-          ③ <span class="blank show" data-ans="封建制度の廃止">封建制度の廃止</span>（基本的人権の保障）</p>
-        </div>
-      </div>
-      <div class="person-row">
-        <div class="pbadge">制定の流れ</div>
-        <div class="pcont">
-          <p>1946年<span class="blank show" data-ans="11月3日">11月3日</span>公布　→　1947年<span class="blank show" data-ans="5月3日">5月3日</span>施行（現在も憲法記念日）</p>
-          <p>形式上は大日本帝国憲法73条の<span class="blank show" data-ans="改正手続き">改正手続き</span>を経て制定されました（民定憲法としての正当性を確保するため）。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">5</div><div class="s-ht">大日本帝国憲法 vs 日本国憲法 比較</div></div>
-    <div class="s-body">
-      <table class="cmp-tbl">
-        <thead><tr><th>比較項目</th><th class="meiji">大日本帝国憲法（1889年）</th><th class="nihon">日本国憲法（1947年）</th></tr></thead>
-        <tbody>
-          <tr><td class="row-head">主 権</td><td class="meiji"><span class="blank show" data-ans="天皇主権">天皇主権</span></td><td class="nihon"><span class="blank show" data-ans="国民主権">国民主権</span></td></tr>
-          <tr><td class="row-head">天皇の地位</td><td class="meiji">国の<span class="blank show" data-ans="元首">元首</span>・統治権の総攬者</td><td class="nihon">国と国民統合の<span class="blank show" data-ans="象徴">象徴</span></td></tr>
-          <tr><td class="row-head">憲法の性格</td><td class="meiji"><span class="blank show" data-ans="欽定憲法">欽定憲法</span>・<span class="blank show" data-ans="外見的立憲主義">外見的立憲主義</span></td><td class="nihon"><span class="blank show" data-ans="民定憲法">民定憲法</span>・真の立憲主義</td></tr>
-          <tr><td class="row-head">国民の呼称</td><td class="meiji"><span class="blank show" data-ans="臣民">臣民</span>（権利は法律の範囲内）</td><td class="nihon"><span class="blank show" data-ans="国民">国民</span>（基本的人権の永久不可侵）</td></tr>
-          <tr><td class="row-head">議 会</td><td class="meiji"><span class="blank show" data-ans="帝国議会">帝国議会</span>（貴族院・衆議院）</td><td class="nihon"><span class="blank show" data-ans="国会">国会</span>（参議院・衆議院）</td></tr>
-          <tr><td class="row-head">三大原則</td><td class="meiji">なし</td><td class="nihon"><span class="blank show" data-ans="国民主権">国民主権</span>・<span class="blank show" data-ans="基本的人権の尊重">基本的人権の尊重</span>・<span class="blank show" data-ans="平和主義">平和主義</span></td></tr>
-          <tr><td class="row-head">改正手続き</td><td class="meiji">天皇の発議 → 帝国議会で審議</td><td class="nihon">各議院の総議員の<span class="blank show" data-ans="3分の2">3分の2</span>以上の賛成 → 国民<span class="blank show" data-ans="投票">投票</span>で過半数</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">6</div><div class="s-ht">日本国憲法の改正手続き（硬性憲法）</div></div>
-    <div class="s-body">
-      <div class="person-row">
-        <div class="pbadge">96条</div>
-        <div class="pcont">
-          <p>① 衆議院・参議院それぞれで総議員の<span class="blank show" data-ans="3分の2">3分の2</span>以上の賛成で<span class="blank show" data-ans="発議">発議</span></p>
-          <p>② <span class="blank show" data-ans="国民投票">国民投票</span>で有効投票の<span class="blank show" data-ans="過半数">過半数</span>の賛成</p>
-          <p>③ 天皇が国民の名で<span class="blank show" data-ans="公布">公布</span></p>
-          <p>日本国憲法は通常の法律より厳しい手続きが必要なため<span class="blank show" data-ans="硬性憲法">硬性憲法</span>に分類されます。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /vRead -->
-
-<!-- ②確認 -->
-<div class="view" id="vChallE">
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">憲法の分類・大日本帝国憲法 ─ 語群から選んで空欄を埋めよ</div></div>
-    <div class="s-body">
-      <div class="person-row">
-        <div class="pbadge">憲法の分類</div>
-        <div class="pcont">
-          <p>君主が定めた憲法を<span class="blank" data-ans="欽定憲法" onclick="fillBlank(this)"></span>（例：大日本帝国憲法）、国民が定めた憲法を<span class="blank" data-ans="民定憲法" onclick="fillBlank(this)"></span>（例：日本国憲法）という。</p>
-          <p>通常より厳しい改正手続きを必要とする憲法を<span class="blank" data-ans="硬性憲法" onclick="fillBlank(this)"></span>（例：日本国憲法）、通常と同様の手続きで改正できる憲法を<span class="blank" data-ans="軟性憲法" onclick="fillBlank(this)"></span>（例：イギリス）という。</p>
-        </div>
-      </div>
-      <div class="person-row">
-        <div class="pbadge">大日本帝国憲法</div>
-        <div class="pcont">
-          <p>表面上は立憲主義をとりながら天皇に権力が集中した在り方を<span class="blank" data-ans="外見的立憲主義" onclick="fillBlank(this)"></span>という。天皇は国家の<span class="blank" data-ans="元首" onclick="fillBlank(this)"></span>・統治権の<span class="blank" data-ans="総攬者" onclick="fillBlank(this)"></span>。宣戦・講和・<span class="blank" data-ans="緊急勅令" onclick="fillBlank(this)"></span>・軍の<span class="blank" data-ans="統帥権" onclick="fillBlank(this)"></span>などの<span class="blank" data-ans="天皇大権" onclick="fillBlank(this)"></span>を持ちました。国民は「<span class="blank" data-ans="臣民" onclick="fillBlank(this)"></span>」と呼ばれ、権利は<span class="blank" data-ans="法律の範囲内" onclick="fillBlank(this)"></span>でのみ保障されました。</p>
-        </div>
-      </div>
-      <div class="person-row">
-        <div class="pbadge green">大正デモクラシー</div>
-        <div class="pcont">
-          <p><span class="blank" data-ans="美濃部達吉" onclick="fillBlank(this)"></span>の<span class="blank" data-ans="天皇機関説" onclick="fillBlank(this)"></span>（天皇は国家の機関の一つ）と、<span class="blank" data-ans="吉野作造" onclick="fillBlank(this)"></span>の<span class="blank" data-ans="民本主義" onclick="fillBlank(this)"></span>（政治の目的は民衆の利福）が大正デモクラシーを支えました。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">日本国憲法・改正手続き ─ 語群から選んで空欄を埋めよ</div></div>
     <div class="s-body">
       <div class="person-row">
         <div class="pbadge red">マッカーサー三原則</div>
         <div class="pcont">
-          <p>①天皇は国家の<span class="blank" data-ans="象徴" onclick="fillBlank(this)"></span>　②<span class="blank" data-ans="戦争の放棄" onclick="fillBlank(this)"></span>　③<span class="blank" data-ans="封建制度の廃止" onclick="fillBlank(this)"></span></p>
-          <p>日本国憲法の三大原則：<span class="blank" data-ans="国民主権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="基本的人権の尊重" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="平和主義" onclick="fillBlank(this)"></span></p>
-          <p>1946年<span class="blank" data-ans="11月3日" onclick="fillBlank(this)"></span>公布→1947年<span class="blank" data-ans="5月3日" onclick="fillBlank(this)"></span>施行</p>
+          <p>第二次世界大戦後、日本は連合国軍最高司令官総司令部(GHQ)による占領下に置かれました。最高司令官マッカーサーは新憲法の草案を作成するにあたり、次の三原則を示しました。</p>
+          <p><strong>① <span class="blank show" data-ans="天皇は国家の象徴">天皇は国家の象徴</span></strong>(象徴天皇制)</p>
+          <p><strong>② <span class="blank show" data-ans="戦争の放棄">戦争の放棄</span></strong>(平和主義)</p>
+          <p><strong>③ <span class="blank show" data-ans="封建制度の廃止">封建制度の廃止</span></strong>(基本的人権の保障)</p>
         </div>
       </div>
       <div class="person-row">
-        <div class="pbadge">改正手続き（96条）</div>
+        <div class="pbadge">公布と施行</div>
         <div class="pcont">
-          <p>各議院の総議員の<span class="blank" data-ans="3分の2" onclick="fillBlank(this)"></span>以上の賛成で<span class="blank" data-ans="発議" onclick="fillBlank(this)"></span>→<span class="blank" data-ans="国民投票" onclick="fillBlank(this)"></span>で<span class="blank" data-ans="過半数" onclick="fillBlank(this)"></span>の賛成→天皇が<span class="blank" data-ans="公布" onclick="fillBlank(this)"></span></p>
+          <p>日本国憲法は1946年<span class="blank show" data-ans="11月3日">11月3日</span>に公布、1947年<span class="blank show" data-ans="5月3日">5月3日</span>に施行されました。現在も5月3日は憲法記念日、11月3日は文化の日(かつての明治節)として祝日になっています。</p>
+          <p>形式上は大日本帝国憲法73条の<span class="blank show" data-ans="改正手続き">改正手続き</span>を経て制定されました。これは民定憲法としての正当性を確保するためです。内容は全面的に改められています。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u4">
+        <div class="unit-wb-lbl">▼ 単元④の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u4"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u4')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u4')" style="display:none" id="ub-check-u4">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u4')" style="display:none" id="ub-hint-u4">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u4')" style="display:none" id="ub-retry-u4">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u4')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u4" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u4">
+        <div class="unit-quiz-title">📝 確認問題(単元④日本国憲法の制定過程)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>マッカーサー三原則として正しい組み合わせを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q0',0,1)">① 天皇主権・戦争放棄・封建制度の廃止</button>
+            <button class="uqc" onclick="ansUQ('u4q0',1,1)">② 天皇は国家の象徴・戦争の放棄・封建制度の廃止</button>
+            <button class="uqc" onclick="ansUQ('u4q0',2,1)">③ 天皇は元首・軍隊保持・封建制度の温存</button>
+            <button class="uqc" onclick="ansUQ('u4q0',3,1)">④ 国民主権・基本的人権の尊重・地方自治</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q0"><strong>正解:②</strong><br>マッカーサー三原則は①天皇は国家の象徴(象徴天皇制) ②戦争の放棄(平和主義) ③封建制度の廃止(基本的人権の保障)です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>日本国憲法の公布日として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q1',0,1)">① 1945年8月15日</button>
+            <button class="uqc" onclick="ansUQ('u4q1',1,1)">② 1946年11月3日</button>
+            <button class="uqc" onclick="ansUQ('u4q1',2,1)">③ 1947年5月3日</button>
+            <button class="uqc" onclick="ansUQ('u4q1',3,1)">④ 1952年4月28日</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q1"><strong>正解:②</strong><br>日本国憲法は1946年11月3日に公布、1947年5月3日に施行されました。11月3日は文化の日、5月3日は憲法記念日として祝日になっています。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>日本国憲法の施行日として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q2',0,2)">① 1945年8月15日</button>
+            <button class="uqc" onclick="ansUQ('u4q2',1,2)">② 1946年11月3日</button>
+            <button class="uqc" onclick="ansUQ('u4q2',2,2)">③ 1947年5月3日</button>
+            <button class="uqc" onclick="ansUQ('u4q2',3,2)">④ 1952年4月28日</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q2"><strong>正解:③</strong><br>日本国憲法は1946年11月3日に公布、1947年5月3日に施行されました。施行日にあたる5月3日が現在の憲法記念日です。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u4',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u4',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u4" style="display:none"></span>
         </div>
       </div>
     </div>
   </div>
-</div><!-- /vChallE -->
 
-<!-- ③テスト -->
-<div class="view" id="vQ">
-  <div class="s-card">
-    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+  <div class="s-card" data-unit="u5">
+    <div class="s-head-e"><div class="s-icon">5</div><div class="s-ht">大日本帝国憲法 vs 日本国憲法 比較</div></div>
     <div class="s-body">
-      <div class="q-item"><div class="qt">問1</div>君主が定めた憲法を何というか。例も答えよ。→ <span class="blank" data-ans="欽定憲法" onclick="fillBlank(this)"></span>（例：大日本帝国憲法）</div>
-      <div class="q-item"><div class="qt">問2</div>国民が定めた（国民の意思に基づく）憲法を何というか。例も答えよ。→ <span class="blank" data-ans="民定憲法" onclick="fillBlank(this)"></span>（例：日本国憲法）</div>
-      <div class="q-item"><div class="qt">問3</div>通常の法律より厳しい改正手続きを必要とする憲法を何というか。→ <span class="blank" data-ans="硬性憲法" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問4</div>大日本帝国憲法で、表面上は立憲主義をとりながら実際には天皇に権力が集中していた在り方を何というか。→ <span class="blank" data-ans="外見的立憲主義" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問5</div>大日本帝国憲法での天皇の強大な権限の総称を何というか。→ <span class="blank" data-ans="天皇大権" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問6</div>大日本帝国憲法で、天皇が議会を通さずに法律と同じ効力の命令を発する権限を何というか。→ <span class="blank" data-ans="緊急勅令" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問7</div>大日本帝国憲法で、天皇が持った軍の最高指揮権を何というか。→ <span class="blank" data-ans="統帥権" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問8</div>大日本帝国憲法下で「天皇は国家機関の一つ」と唱えた憲法学者は誰か。また、その説の名前は？→ <span class="blank" data-ans="美濃部達吉" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="天皇機関説" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問9</div>政治学者吉野作造が唱えた、政治の目的は民衆の利福にあるとする考えを何というか。→ <span class="blank" data-ans="民本主義" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問10</div>大日本帝国憲法での国民の呼称と、権利保障の条件を答えよ。→ 「<span class="blank" data-ans="臣民" onclick="fillBlank(this)"></span>」、権利は「<span class="blank" data-ans="法律の範囲内" onclick="fillBlank(this)"></span>」でのみ保障</div>
-      <div class="note-box">【語群①〜⑩】欽定憲法　民定憲法　硬性憲法　外見的立憲主義　天皇大権　緊急勅令　統帥権　美濃部達吉　天皇機関説　民本主義　臣民　法律の範囲内</div>
-    </div>
-  </div>
-  <div class="s-card">
-    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
-    <div class="s-body">
-      <div class="q-item"><div class="qt">問11</div>マッカーサー三原則を3つ答えよ。→ ①<span class="blank" data-ans="天皇は国家の象徴" onclick="fillBlank(this)"></span>　②<span class="blank" data-ans="戦争の放棄" onclick="fillBlank(this)"></span>　③<span class="blank" data-ans="封建制度の廃止" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問12</div>日本国憲法の三大原則を3つ答えよ。→ <span class="blank" data-ans="国民主権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="基本的人権の尊重" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="平和主義" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問13</div>日本国憲法の公布日と施行日を答えよ。→ 公布：<span class="blank" data-ans="1946年11月3日" onclick="fillBlank(this)"></span>　施行：<span class="blank" data-ans="1947年5月3日" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問14</div>日本国憲法の改正には、各議院の総議員の何分の何以上の賛成が必要か。→ <span class="blank" data-ans="3分の2" onclick="fillBlank(this)"></span>以上</div>
-      <div class="q-item"><div class="qt">問15</div>日本国憲法の改正に必要な国民投票では、有効投票の何割が必要か。→ <span class="blank" data-ans="過半数" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問16</div>大日本帝国憲法の議会名と、日本国憲法の議会名を答えよ。→ <span class="blank" data-ans="帝国議会" onclick="fillBlank(this)"></span>（貴族院・衆議院）　→　<span class="blank" data-ans="国会" onclick="fillBlank(this)"></span>（参議院・衆議院）</div>
-      <div class="q-item"><div class="qt">問17</div>大日本帝国憲法での主権の所在と、日本国憲法での主権の所在は？→ 大日本帝国：<span class="blank" data-ans="天皇主権" onclick="fillBlank(this)"></span>　日本国：<span class="blank" data-ans="国民主権" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問18</div>日本国憲法における天皇の地位を一言で答えよ。→ 日本国と日本国民統合の<span class="blank" data-ans="象徴" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問19</div>通常の法律と同様の手続きで改正できる憲法を何というか。例も答えよ。→ <span class="blank" data-ans="軟性憲法" onclick="fillBlank(this)"></span>（例：イギリス）</div>
-      <div class="q-item"><div class="qt">問20</div>日本国憲法の改正を最終的に公布するのは誰か。→ <span class="blank" data-ans="天皇" onclick="fillBlank(this)"></span>（国民の名で）</div>
-      <div class="note-box">【語群⑪〜⑳】天皇は国家の象徴　戦争の放棄　封建制度の廃止　国民主権　基本的人権の尊重　平和主義　1946年11月3日　1947年5月3日　3分の2　過半数　帝国議会　国会　天皇主権　象徴　軟性憲法　天皇</div>
-    </div>
-  </div>
-</div><!-- /vQ -->
+      <div class="person-row">
+        <div class="pbadge purple">主な違い</div>
+        <div class="pcont">
+          <p>大日本帝国憲法と日本国憲法では、主権者・天皇の地位・国民の位置づけなど、根本的な違いがあります。</p>
+          <table class="cmp-tbl">
+            <thead><tr><th>比較項目</th><th class="meiji">大日本帝国憲法(1889年)</th><th class="nihon">日本国憲法(1947年)</th></tr></thead>
+            <tbody>
+              <tr><td class="row-head">主権</td><td class="meiji"><span class="blank show" data-ans="天皇主権">天皇主権</span></td><td class="nihon"><span class="blank show" data-ans="国民主権">国民主権</span></td></tr>
+              <tr><td class="row-head">天皇の地位</td><td class="meiji">国の<span class="blank show" data-ans="元首">元首</span>・統治権の総攬者</td><td class="nihon">国と国民統合の<span class="blank show" data-ans="象徴">象徴</span></td></tr>
+              <tr><td class="row-head">憲法の性格</td><td class="meiji"><span class="blank show" data-ans="欽定憲法">欽定憲法</span>・<span class="blank show" data-ans="外見的立憲主義">外見的立憲主義</span></td><td class="nihon"><span class="blank show" data-ans="民定憲法">民定憲法</span>・真の立憲主義</td></tr>
+              <tr><td class="row-head">国民の呼称</td><td class="meiji"><span class="blank show" data-ans="臣民">臣民</span>(権利は法律の範囲内)</td><td class="nihon"><span class="blank show" data-ans="国民">国民</span>(基本的人権の永久不可侵)</td></tr>
+              <tr><td class="row-head">議会</td><td class="meiji"><span class="blank show" data-ans="帝国議会">帝国議会</span>(貴族院・衆議院)</td><td class="nihon"><span class="blank show" data-ans="国会">国会</span>(参議院・衆議院)</td></tr>
+              <tr><td class="row-head">三大原則</td><td class="meiji">なし</td><td class="nihon"><span class="blank show" data-ans="国民主権">国民主権</span>・<span class="blank show" data-ans="基本的人権の尊重">基本的人権の尊重</span>・<span class="blank show" data-ans="平和主義">平和主義</span></td></tr>
+              <tr><td class="row-head">改正手続き</td><td class="meiji">天皇の発議 → 帝国議会で審議</td><td class="nihon">各議院の総議員の<span class="blank show" data-ans="3分の2">3分の2</span>以上の賛成 → 国民<span class="blank show" data-ans="投票">投票</span>で過半数</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-<!-- ④正誤 -->
-<div class="view" id="vSeigo">
-  <div class="s-card">
-    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
-    <div class="s-body">
-      <div class="seigo-item" id="sg0">
-        <div class="seigo-q">① 大日本帝国憲法は民定憲法であり、国民の代表が制定に関わった。</div>
-        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,false,'誤り。大日本帝国憲法は天皇が制定した「欽定憲法」である。一方、日本国憲法は国民の意思に基づく「民定憲法」として位置づけられる。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,false,'誤り。大日本帝国憲法は天皇が制定した「欽定憲法」である。一方、日本国憲法は国民の意思に基づく「民定憲法」として位置づけられる。')">× 誤り</button></div>
-        <div class="seigo-explain" id="sgex0"></div>
+      <div class="unit-wb" id="uwb-u5">
+        <div class="unit-wb-lbl">▼ 単元⑤の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u5"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u5')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u5')" style="display:none" id="ub-check-u5">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u5')" style="display:none" id="ub-hint-u5">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u5')" style="display:none" id="ub-retry-u5">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u5')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u5" style="display:none"></span>
+        </div>
       </div>
-      <div class="seigo-item" id="sg1">
-        <div class="seigo-q">② 外見的立憲主義とは、表面上は憲法に基づく政治をとりながら、実際には天皇に権力が集中していた大日本帝国憲法の特徴を表す言葉である。</div>
-        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,true,'正しい。大日本帝国憲法は形式上は立憲主義を採用していたが、天皇大権・統帥権などで実質的に天皇（および軍部）に権力が集中していた。この状態を外見的立憲主義という。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,true,'正しい。大日本帝国憲法は形式上は立憲主義を採用していたが、天皇大権・統帥権などで実質的に天皇（および軍部）に権力が集中していた。この状態を外見的立憲主義という。')">× 誤り</button></div>
-        <div class="seigo-explain" id="sgex1"></div>
-      </div>
-      <div class="seigo-item" id="sg2">
-        <div class="seigo-q">③ 美濃部達吉の天皇機関説は、天皇を国家の元首・統治権の総攬者と位置づけ、天皇の絶対的権威を強調した説である。</div>
-        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,false,'誤り。天皇機関説は逆に、国家法人説に基づき天皇は国家という法人の機関の一つに過ぎないとする説で、議会中心の政治を正当化するものだった。天皇の絶対的権威を強調したのは天皇神権説など。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,false,'誤り。天皇機関説は逆に、国家法人説に基づき天皇は国家という法人の機関の一つに過ぎないとする説で、議会中心の政治を正当化するものだった。天皇の絶対的権威を強調したのは天皇神権説など。')">× 誤り</button></div>
-        <div class="seigo-explain" id="sgex2"></div>
-      </div>
-      <div class="seigo-item" id="sg3">
-        <div class="seigo-q">④ 吉野作造が唱えた民本主義は、天皇主権を否定して国民主権を主張するものだった。</div>
-        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。民本主義は主権が誰にあるかを問わず、政治の目的は民衆の利福にあり政策決定は民衆の意向によるべきとする考えである。天皇主権の明治憲法の枠内で普通選挙や政党政治を主張したもので、国民主権を直接主張したわけではない。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。民本主義は主権が誰にあるかを問わず、政治の目的は民衆の利福にあり政策決定は民衆の意向によるべきとする考えである。天皇主権の明治憲法の枠内で普通選挙や政党政治を主張したもので、国民主権を直接主張したわけではない。')">× 誤り</button></div>
-        <div class="seigo-explain" id="sgex3"></div>
-      </div>
-      <div class="seigo-item" id="sg4">
-        <div class="seigo-q">⑤ マッカーサー三原則の一つに「封建制度の廃止」があり、これが日本国憲法の基本的人権の尊重につながった。</div>
-        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,true,'正しい。マッカーサー三原則は①天皇は国家の象徴②戦争の放棄③封建制度の廃止で、③が日本国憲法の基本的人権の保障の理念につながった。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,true,'正しい。マッカーサー三原則は①天皇は国家の象徴②戦争の放棄③封建制度の廃止で、③が日本国憲法の基本的人権の保障の理念につながった。')">× 誤り</button></div>
-        <div class="seigo-explain" id="sgex4"></div>
-      </div>
-      <div class="seigo-item" id="sg5">
-        <div class="seigo-q">⑥ 日本国憲法は1946年5月3日に公布され、1947年11月3日に施行された。</div>
-        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,false,'誤り。日付が逆。日本国憲法は1946年11月3日（文化の日）に公布、1947年5月3日（憲法記念日）に施行された。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,false,'誤り。日付が逆。日本国憲法は1946年11月3日（文化の日）に公布、1947年5月3日（憲法記念日）に施行された。')">× 誤り</button></div>
-        <div class="seigo-explain" id="sgex5"></div>
-      </div>
-      <div class="seigo-item" id="sg6">
-        <div class="seigo-q">⑦ 日本国憲法の改正には、各議院の総議員の過半数以上の賛成で発議し、国民投票で3分の2以上の賛成が必要である。</div>
-        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,false,'誤り。逆である。各議院の総議員の「3分の2以上」の賛成で発議し、国民投票で「過半数」の賛成が必要である。（憲法96条）')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,false,'誤り。逆である。各議院の総議員の「3分の2以上」の賛成で発議し、国民投票で「過半数」の賛成が必要である。（憲法96条）')">× 誤り</button></div>
-        <div class="seigo-explain" id="sgex6"></div>
-      </div>
-      <div class="seigo-item" id="sg7">
-        <div class="seigo-q">⑧ 大日本帝国憲法では帝国議会（貴族院・衆議院）が設置され、日本国憲法では国会（参議院・衆議院）が設置された。</div>
-        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,true,'正しい。大日本帝国憲法下では帝国議会（上院：貴族院、下院：衆議院）が、日本国憲法下では国会（参議院・衆議院）が設置された。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,true,'正しい。大日本帝国憲法下では帝国議会（上院：貴族院、下院：衆議院）が、日本国憲法下では国会（参議院・衆議院）が設置された。')">× 誤り</button></div>
-        <div class="seigo-explain" id="sgex7"></div>
-      </div>
-      <div class="seigo-item" id="sg8">
-        <div class="seigo-q">⑨ 統帥権とは、大日本帝国憲法下で天皇が持っていた軍の最高指揮権で、内閣・議会から独立していた。</div>
-        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,true,'正しい。統帥権は天皇が持つ軍の最高指揮権で、内閣や議会から独立していた（統帥権の独立）。これが軍部の暴走・独走を可能にした一因となった。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,true,'正しい。統帥権は天皇が持つ軍の最高指揮権で、内閣や議会から独立していた（統帥権の独立）。これが軍部の暴走・独走を可能にした一因となった。')">× 誤り</button></div>
-        <div class="seigo-explain" id="sgex8"></div>
-      </div>
-      <div class="seigo-item" id="sg9">
-        <div class="seigo-q">⑩ 日本国憲法は通常の法律より厳しい改正手続きを要する硬性憲法であり、イギリスのように通常と同じ手続きで改正できる軟性憲法とは異なる。</div>
-        <div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,true,'正しい。日本国憲法は各議院の総議員の3分の2以上の発議と国民投票を要する硬性憲法。イギリスは不文憲法で通常の法律と同様の手続きで改正できる軟性憲法の代表例とされる。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,true,'正しい。日本国憲法は各議院の総議員の3分の2以上の発議と国民投票を要する硬性憲法。イギリスは不文憲法で通常の法律と同様の手続きで改正できる軟性憲法の代表例とされる。')">× 誤り</button></div>
-        <div class="seigo-explain" id="sgex9"></div>
+
+      <div class="unit-quiz" id="uq-u5">
+        <div class="unit-quiz-title">📝 確認問題(単元⑤両憲法の比較)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>日本国憲法における天皇の地位として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q0',0,2)">① 統治権の総攬者</button>
+            <button class="uqc" onclick="ansUQ('u5q0',1,2)">② 国の元首で行政権を持つ</button>
+            <button class="uqc" onclick="ansUQ('u5q0',2,2)">③ 国と国民統合の象徴</button>
+            <button class="uqc" onclick="ansUQ('u5q0',3,2)">④ 内閣総理大臣を任命する権限を持つ大権者</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q0"><strong>正解:③</strong><br>日本国憲法第1条で天皇は「日本国の象徴であり日本国民統合の象徴」と規定されています。①②④はいずれも大日本帝国憲法における天皇の地位や、誤った記述です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>日本国憲法の三大原則として正しい組み合わせを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q1',0,1)">① 天皇主権・基本的人権の尊重・平和主義</button>
+            <button class="uqc" onclick="ansUQ('u5q1',1,1)">② 国民主権・基本的人権の尊重・平和主義</button>
+            <button class="uqc" onclick="ansUQ('u5q1',2,1)">③ 国民主権・象徴天皇制・平和主義</button>
+            <button class="uqc" onclick="ansUQ('u5q1',3,1)">④ 国民主権・三権分立・基本的人権の尊重</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q1"><strong>正解:②</strong><br>日本国憲法の三大原則は「国民主権・基本的人権の尊重・平和主義」です。「天皇主権」は大日本帝国憲法のもので、日本国憲法とは正反対の理念です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>大日本帝国憲法の議会・日本国憲法の議会の正式名称として正しい組み合わせを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u5q2',0,1)">① 国会・帝国議会</button>
+            <button class="uqc" onclick="ansUQ('u5q2',1,1)">② 帝国議会・国会</button>
+            <button class="uqc" onclick="ansUQ('u5q2',2,1)">③ 議院・国会</button>
+            <button class="uqc" onclick="ansUQ('u5q2',3,1)">④ 国会・国民議会</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u5q2"><strong>正解:②</strong><br>大日本帝国憲法のもとでは「帝国議会」(貴族院・衆議院)、日本国憲法のもとでは「国会」(参議院・衆議院)と呼ばれます。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u5',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u5',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u5" style="display:none"></span>
+        </div>
       </div>
     </div>
   </div>
-</div><!-- /vSeigo -->
 
-<!-- ⑤過去問 -->
-<div class="view" id="vKakomon">
-  <div class="s-card">
-    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">共通テスト・センター試験 過去問 ─ 政治経済⑥</div></div>
+  <div class="s-card" data-unit="u6">
+    <div class="s-head-e"><div class="s-icon">6</div><div class="s-ht">日本国憲法の改正手続き(硬性憲法)</div></div>
     <div class="s-body">
+      <div class="person-row">
+        <div class="pbadge red">憲法96条</div>
+        <div class="pcont">
+          <p>日本国憲法の改正手続きは憲法96条に規定されており、通常の法律よりも厳しい手続きが必要な<span class="blank show" data-ans="硬性憲法">硬性憲法</span>に分類されます。改正は次の3段階で行われます。</p>
+          <p><strong>① 国会による発議</strong><br>衆議院・参議院それぞれで総議員の<span class="blank show" data-ans="3分の2">3分の2</span>以上の賛成で<span class="blank show" data-ans="発議">発議</span>します。</p>
+          <p><strong>② <span class="blank show" data-ans="国民投票">国民投票</span></strong><br>国民投票で有効投票の<span class="blank show" data-ans="過半数">過半数</span>の賛成が必要です。2007年制定の国民投票法により、具体的な投票手続きが定められました。</p>
+          <p><strong>③ 天皇の公布</strong><br>承認された改正は、天皇が国民の名で<span class="blank show" data-ans="公布">公布</span>します。</p>
+          <p>日本国憲法は1947年の施行以来、一度も改正されたことがありません。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u6">
+        <div class="unit-wb-lbl">▼ 単元⑥の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u6"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u6')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u6')" style="display:none" id="ub-check-u6">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u6')" style="display:none" id="ub-hint-u6">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u6')" style="display:none" id="ub-retry-u6">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u6')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u6" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u6">
+        <div class="unit-quiz-title">📝 確認問題(単元⑥憲法改正手続き)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>日本国憲法の改正発議に必要な条件として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q0',0,1)">① 各議院の出席議員の過半数の賛成</button>
+            <button class="uqc" onclick="ansUQ('u6q0',1,1)">② 各議院の総議員の3分の2以上の賛成</button>
+            <button class="uqc" onclick="ansUQ('u6q0',2,1)">③ 内閣の発議</button>
+            <button class="uqc" onclick="ansUQ('u6q0',3,1)">④ 天皇の発議</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q0"><strong>正解:②</strong><br>憲法96条により、各議院の総議員の3分の2以上の賛成で発議します。「出席議員」ではなく「総議員」である点に注意が必要です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>国会の発議後に必要な手続きとして正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q1',0,2)">① 内閣による承認</button>
+            <button class="uqc" onclick="ansUQ('u6q1',1,2)">② 都道府県の3分の2以上の賛成</button>
+            <button class="uqc" onclick="ansUQ('u6q1',2,2)">③ 国民投票で有効投票の過半数の賛成</button>
+            <button class="uqc" onclick="ansUQ('u6q1',3,2)">④ 国民投票で3分の2以上の賛成</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q1"><strong>正解:③</strong><br>国会の発議後、国民投票で有効投票の過半数の賛成が必要です。2007年制定の国民投票法により具体的な投票手続きが定められています。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>日本国憲法が硬性憲法に分類される理由として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u6q2',0,2)">① 改正に法律と同じ手続きで足りるため。</button>
+            <button class="uqc" onclick="ansUQ('u6q2',1,2)">② 一切改正できない仕組みのため。</button>
+            <button class="uqc" onclick="ansUQ('u6q2',2,2)">③ 通常の法律より厳しい改正手続きが必要なため。</button>
+            <button class="uqc" onclick="ansUQ('u6q2',3,2)">④ 不文憲法であるため。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u6q2"><strong>正解:③</strong><br>硬性憲法は通常の法律より厳しい改正手続きが必要な憲法のことです。日本国憲法は両議院の3分の2以上の賛成と国民投票の過半数の賛成という厳しい条件が課されています。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u6',3)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u6',3)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u6" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">まとめ過去問 ─ 共通テスト・センター試験(大日本帝国憲法・日本国憲法)</div></div>
+    <div class="s-body">
+      <p style="margin-bottom:14px;font-size:.9em;color:#444">これまでの学習の総仕上げです。実際の過去問にチャレンジしましょう。各選択肢をクリックすると正誤が表示されます。</p>
 
       <div class="q-item">
         <span class="kk-year-tag">2024年 共通テスト</span>
@@ -430,20 +674,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <button class="kk-choice" onclick="ansKakomon('kkc0',3,1,'kkex0')">④ 大日本帝国憲法では統帥権は内閣に属していた。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex0"><strong>正解：②</strong><br>大日本帝国憲法は天皇が定めた欽定憲法で、表面上は立憲主義をとりながら実際には天皇大権・統帥権などで天皇に権力が集中する外見的立憲主義だった。①民定憲法ではない。③基本的人権は「法律の範囲内」でのみ保障（臣民の権利）。④統帥権は天皇に属し内閣・議会から独立。</div>
+        <div class="kk-explain" id="kkex0"><strong>正解:②</strong><br>大日本帝国憲法は天皇が定めた欽定憲法で、表面上は立憲主義をとりながら実際には天皇大権・統帥権などで天皇に権力が集中する外見的立憲主義だった。①民定憲法ではない。③基本的人権は「法律の範囲内」でのみ保障(臣民の権利)。④統帥権は天皇に属し内閣・議会から独立。</div>
       </div>
 
       <div class="q-item">
         <span class="kk-year-tag">2022年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 大正デモクラシーに関する人物と説の組み合わせとして<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 美濃部達吉 ─ 民本主義（政治の目的は民衆の利福）</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 吉野作造 ─ 天皇機関説（天皇は国家機関の一つ）</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 美濃部達吉 ─ 天皇機関説、　吉野作造 ─ 民本主義</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 美濃部達吉 ─ 民本主義(政治の目的は民衆の利福)</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 吉野作造 ─ 天皇機関説(天皇は国家機関の一つ)</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 美濃部達吉 ─ 天皇機関説、 吉野作造 ─ 民本主義</button>
           <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 吉野作造 ─ 天皇機関説・民本主義の両方を唱えた</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex1"><strong>正解：③</strong><br>美濃部達吉＝天皇機関説（天皇は国家という法人の機関の一つ→議会中心の政治を正当化）、吉野作造＝民本主義（政治の目的は民衆の利福→普通選挙・政党政治を主張）。①②は人物と説が逆。</div>
+        <div class="kk-explain" id="kkex1"><strong>正解:③</strong><br>美濃部達吉=天皇機関説(天皇は国家という法人の機関の一つ→議会中心の政治を正当化)、吉野作造=民本主義(政治の目的は民衆の利福→普通選挙・政党政治を主張)。①②は人物と説が逆。</div>
       </div>
 
       <div class="q-item">
@@ -456,7 +700,7 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <button class="kk-choice" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 各議院の総議員の3分の2以上で発議し、都道府県の3分の2以上の賛成が必要。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex2"><strong>正解：②</strong><br>憲法96条：各議院の総議員の3分の2以上の賛成で発議 → 国民投票で有効投票の過半数の賛成 → 天皇が国民の名で公布。①出席議員ではなく総議員。③内閣発議ではない。④都道府県ではない。</div>
+        <div class="kk-explain" id="kkex2"><strong>正解:②</strong><br>憲法96条:各議院の総議員の3分の2以上の賛成で発議 → 国民投票で有効投票の過半数の賛成 → 天皇が国民の名で公布。①出席議員ではなく総議員。③内閣発議ではない。④都道府県ではない。</div>
       </div>
 
       <div class="q-item">
@@ -469,7 +713,7 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <button class="kk-choice" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ 国民主権・基本的人権の尊重・戦争の放棄</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex3"><strong>正解：②</strong><br>日本国憲法の三大原則は「国民主権・基本的人権の尊重・平和主義」。①天皇主権は大日本帝国憲法。③象徴天皇制は三大原則の一つではない（国民主権の内容に含まれる位置づけ）。④「戦争の放棄」は平和主義の内容だが三大原則の正式な表現は「平和主義」。</div>
+        <div class="kk-explain" id="kkex3"><strong>正解:②</strong><br>日本国憲法の三大原則は「国民主権・基本的人権の尊重・平和主義」。①天皇主権は大日本帝国憲法。③象徴天皇制は三大原則の一つではない(国民主権の内容に含まれる位置づけ)。④「戦争の放棄」は平和主義の内容だが三大原則の正式な表現は「平和主義」。</div>
       </div>
 
       <div class="q-item">
@@ -482,30 +726,163 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <button class="kk-choice" onclick="ansKakomon('kkc4',3,1,'kkex4')">④ 新たに制定されたのではなく、大日本帝国憲法をそのまま引き継いだ。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex4"><strong>正解：②</strong><br>日本国憲法は1946年11月3日（現在の文化の日）に公布、1947年5月3日（現在の憲法記念日）に施行。形式上は大日本帝国憲法73条の改正手続きを経て制定されたが、内容は全面的に改められた。</div>
+        <div class="kk-explain" id="kkex4"><strong>正解:②</strong><br>日本国憲法は1946年11月3日(現在の文化の日)に公布、1947年5月3日(現在の憲法記念日)に施行。形式上は大日本帝国憲法73条の改正手続きを経て制定されたが、内容は全面的に改められた。</div>
       </div>
+      <div class="q-item">
+        <span class="kk-year-tag">2019年 センター試験本試</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6. 次の記述A〜Cのうち、大日本帝国憲法下の制度には<strong>当てはまらず</strong>、かつ日本国憲法下の制度に<strong>当てはまる</strong>ものとして正しいものはどれか。正しい記述をすべて選び、その<strong>組合せ</strong>として最も適当なものを選べ。<br><br>A 天皇の地位は主権の存する国民の総意に基づく。<br>B 衆議院議員が選挙で選出される。<br>C 内閣の規定が憲法におかれる。</div>
+        <div class="kk-choices" id="kkc5">
+          <button class="kk-choice" onclick="ansKakomon('kkc5',0,4,'kkex5')">① A</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',1,4,'kkex5')">② B</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',2,4,'kkex5')">③ C</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',3,4,'kkex5')">④ AとB</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',4,4,'kkex5')">⑤ AとC</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',5,4,'kkex5')">⑥ BとC</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',6,4,'kkex5')">⑦ AとBとC</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex5"><strong>正解:⑤</strong><br>A 正:日本国憲法第1条「天皇は…象徴であつて、この地位は主権の存する日本国民の総意に基く」。明治憲法は天皇主権。B 誤:両憲法とも当てはまる(明治憲法でも衆議院議員は公選)。C 正:日本国憲法第5章に内閣の規定があるが、明治憲法に内閣の規定はない(国務大臣は天皇を輔弼)。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">2016年 センター試験追試</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 憲法は国の<strong>最高法規</strong>であるという原則を定めた日本国憲法の規定はどれか。正しいものを選べ。</div>
+        <div class="kk-choices" id="kkc6">
+          <button class="kk-choice" onclick="ansKakomon('kkc6',0,2,'kkex6')">① 国会は、国権の最高機関であって唯一の立法機関である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc6',1,2,'kkex6')">② 内閣総理大臣その他の国務大臣は、文民でなければならない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc6',2,2,'kkex6')">③ 憲法に反する法律、命令、詔勅および国務に関するその他の行為は、効力を有しない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc6',3,2,'kkex6')">④ 地方自治体の組織および運営に関する事項は、地方自治の本旨に基づいて、法律で定める。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex6"><strong>正解:③</strong><br>憲法第98条1項「この憲法は、国の最高法規であつて、その条規に反する法律、命令、詔勅及び国務に関するその他の行為の全部又は一部は、その効力を有しない」が最高法規性の規定です。①は国会の地位、②は文民統制、④は地方自治の規定です。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問8. 大日本帝国憲法(明治憲法)から日本国憲法への変化についての記述として<strong>適当でないもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc7">
+          <button class="kk-choice" onclick="ansKakomon('kkc7',0,3,'kkex7')">① 明治憲法で統治権を総攬するとされた天皇は、日本国憲法では日本国と日本国民統合の象徴とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',1,3,'kkex7')">② 明治憲法では臣民の権利が法律の範囲内で与えられたが、日本国憲法では基本的人権が侵すことのできない永久の権利として保障された。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',2,3,'kkex7')">③ 明治憲法では皇族・華族・勅任議員からなる貴族院が置かれていたが、日本国憲法では公選の参議院が設けられた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',3,3,'kkex7')">④ 明治憲法で規定されていた地方自治は日本国憲法ではいっそう拡充され、地方特別法を制定する場合、事前に住民投票を行う制度が導入された。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex7')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex7"><strong>正解:④</strong><br>明治憲法には地方自治の規定がありませんでした。地方自治特別法の住民投票制度が設けられたのも日本国憲法になってからです。①象徴天皇制、②基本的人権の保障、③貴族院から参議院への変化はいずれも正しい。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問9. 日本国憲法の定める憲法改正手続についての記述として<strong>誤っているもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc8">
+          <button class="kk-choice" onclick="ansKakomon('kkc8',0,2,'kkex8')">① 憲法の改正は、各議院の総議員の3分の2以上の賛成で、国会が国民に発議する。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc8',1,2,'kkex8')">② 国民が国会の発議した憲法改正を承認するには、特別の国民投票または国会の定める選挙の際に行われる投票で、その過半数の賛成を必要とする。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc8',2,2,'kkex8')">③ 日本に居住する定住外国人は、引き続き3か月以上、同一の市町村に住所を有していれば、その市町村で憲法改正国民投票に参加できる。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc8',3,2,'kkex8')">④ 憲法改正について国民の承認が得られたときは、天皇は、国民の名において、直ちにこれを公布する。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex8')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex8"><strong>正解:③</strong><br>定住外国人には参政権が認められていないため、憲法改正の国民投票にも参加する権利がありません。①各議院総議員の3分の2以上で発議、②国民投票で過半数の賛成、④天皇による公布はすべて正しい。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">2012年 センター試験本試</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問10. 日本国憲法と明治憲法(大日本帝国憲法)との比較についての記述として<strong>適当でないもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc9">
+          <button class="kk-choice" onclick="ansKakomon('kkc9',0,0,'kkex9')">① 明治憲法の下では貴族院議員は臣民による制限選挙で選ばれたが、日本国憲法の下では参議院議員は普通選挙で選ばれる。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc9',1,0,'kkex9')">② 明治憲法は軍隊の保持や天皇が宣戦する権限を認めていたが、日本国憲法は戦力の不保持や戦争の放棄などの平和主義を掲げている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc9',2,0,'kkex9')">③ 日本国憲法の下では主権は国民にあるとの考えがとられているが、明治憲法の下では主権は天皇にあるとされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc9',3,0,'kkex9')">④ 日本国憲法は法律によっても侵すことのできない権利として基本的人権を保障しているが、明治憲法は法律の範囲内でのみ臣民の権利を認めた。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex9')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex9"><strong>正解:①</strong><br>明治憲法の貴族院議員は非民選で、皇族・華族・勅任議員などから選ばれていました(臣民による制限選挙ではない)。②戦争放棄・戦力不保持(平和主義)、③国民主権から天皇主権、④基本的人権の保障はすべて正しい。</div>
+      </div>
+
 
     </div>
   </div>
-</div><!-- /vKakomon -->
 
-<!-- ⑥フラッシュカード -->
+</div><!-- /vRead -->
+<!-- ②一問一答テスト -->
+<div class="view" id="vQ">
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問1</div>君主が定めた憲法を何というか。例も答えよ。→ <span class="blank" data-ans="欽定憲法" onclick="fillBlank(this)"></span>(例:大日本帝国憲法)</div>
+      <div class="q-item"><div class="qt">問2</div>国民が定めた(国民の意思に基づく)憲法を何というか。例も答えよ。→ <span class="blank" data-ans="民定憲法" onclick="fillBlank(this)"></span>(例:日本国憲法)</div>
+      <div class="q-item"><div class="qt">問3</div>通常の法律より厳しい改正手続きを必要とする憲法を何というか。→ <span class="blank" data-ans="硬性憲法" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問4</div>大日本帝国憲法で、表面上は立憲主義をとりながら実際には天皇に権力が集中していた在り方を何というか。→ <span class="blank" data-ans="外見的立憲主義" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問5</div>大日本帝国憲法での天皇の強大な権限の総称を何というか。→ <span class="blank" data-ans="天皇大権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問6</div>大日本帝国憲法で、天皇が議会を通さずに法律と同じ効力の命令を発する権限を何というか。→ <span class="blank" data-ans="緊急勅令" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問7</div>大日本帝国憲法で、天皇が持った軍の最高指揮権を何というか。→ <span class="blank" data-ans="統帥権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問8</div>大日本帝国憲法下で「天皇は国家機関の一つ」と唱えた憲法学者は誰か。また、その説の名前は?→ <span class="blank" data-ans="美濃部達吉" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="天皇機関説" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問9</div>政治学者吉野作造が唱えた、政治の目的は民衆の利福にあるとする考えを何というか。→ <span class="blank" data-ans="民本主義" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問10</div>大日本帝国憲法での国民の呼称と、権利保障の条件を答えよ。→ 「<span class="blank" data-ans="臣民" onclick="fillBlank(this)"></span>」、権利は「<span class="blank" data-ans="法律の範囲内" onclick="fillBlank(this)"></span>」でのみ保障</div>
+      <div class="note-box">【語群①〜⑩】欽定憲法　民定憲法　硬性憲法　外見的立憲主義　天皇大権　緊急勅令　統帥権　美濃部達吉　天皇機関説　民本主義　臣民　法律の範囲内</div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問11</div>マッカーサー三原則を3つ答えよ。→ ①<span class="blank" data-ans="天皇は国家の象徴" onclick="fillBlank(this)"></span>　②<span class="blank" data-ans="戦争の放棄" onclick="fillBlank(this)"></span>　③<span class="blank" data-ans="封建制度の廃止" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問12</div>日本国憲法の三大原則を3つ答えよ。→ <span class="blank" data-ans="国民主権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="基本的人権の尊重" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="平和主義" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問13</div>日本国憲法の公布日と施行日を答えよ。→ 公布:<span class="blank" data-ans="1946年11月3日" onclick="fillBlank(this)"></span>　施行:<span class="blank" data-ans="1947年5月3日" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問14</div>日本国憲法の改正には、各議院の総議員の何分の何以上の賛成が必要か。→ <span class="blank" data-ans="3分の2" onclick="fillBlank(this)"></span>以上</div>
+      <div class="q-item"><div class="qt">問15</div>日本国憲法の改正に必要な国民投票では、有効投票の何が必要か。→ <span class="blank" data-ans="過半数" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問16</div>大日本帝国憲法の議会名と、日本国憲法の議会名を答えよ。→ <span class="blank" data-ans="帝国議会" onclick="fillBlank(this)"></span>(貴族院・衆議院) → <span class="blank" data-ans="国会" onclick="fillBlank(this)"></span>(参議院・衆議院)</div>
+      <div class="q-item"><div class="qt">問17</div>大日本帝国憲法での主権の所在と、日本国憲法での主権の所在は?→ 大日本帝国:<span class="blank" data-ans="天皇主権" onclick="fillBlank(this)"></span>　日本国:<span class="blank" data-ans="国民主権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問18</div>日本国憲法における天皇の地位を一言で答えよ。→ 日本国と日本国民統合の<span class="blank" data-ans="象徴" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問19</div>通常の法律と同様の手続きで改正できる憲法を何というか。例も答えよ。→ <span class="blank" data-ans="軟性憲法" onclick="fillBlank(this)"></span>(例:イギリス)</div>
+      <div class="q-item"><div class="qt">問20</div>日本国憲法の改正を最終的に公布するのは誰か。→ <span class="blank" data-ans="天皇" onclick="fillBlank(this)"></span>(国民の名で)</div>
+      <div class="note-box">【語群⑪〜⑳】天皇は国家の象徴　戦争の放棄　封建制度の廃止　国民主権　基本的人権の尊重　平和主義　1946年11月3日　1947年5月3日　3分の2　過半数　帝国議会　国会　天皇主権　象徴　軟性憲法　天皇</div>
+    </div>
+  </div>
+</div><!-- /vQ -->
+
+<!-- ③正誤 -->
+<div class="view" id="vSeigo">
+  <div class="s-card">
+    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
+    <div class="s-body">
+      <div class="seigo-item" id="sg0"><div class="seigo-q">① 大日本帝国憲法は民定憲法であり、国民の代表が制定に関わった。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,false,'誤り。大日本帝国憲法は天皇が制定した「欽定憲法」です。一方、日本国憲法は国民の意思に基づく「民定憲法」として位置づけられます。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,false,'誤り。大日本帝国憲法は天皇が制定した「欽定憲法」です。一方、日本国憲法は国民の意思に基づく「民定憲法」として位置づけられます。')">× 誤り</button></div><div class="seigo-explain" id="sgex0"></div></div>
+
+      <div class="seigo-item" id="sg1"><div class="seigo-q">② 外見的立憲主義とは、表面上は憲法に基づく政治をとりながら、実際には天皇に権力が集中していた大日本帝国憲法の特徴を表す言葉である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,true,'正しい。大日本帝国憲法は形式上は立憲主義を採用していましたが、天皇大権・統帥権などで実質的に天皇(および軍部)に権力が集中していました。この状態を外見的立憲主義といいます。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,true,'正しい。大日本帝国憲法は形式上は立憲主義を採用していましたが、天皇大権・統帥権などで実質的に天皇(および軍部)に権力が集中していました。この状態を外見的立憲主義といいます。')">× 誤り</button></div><div class="seigo-explain" id="sgex1"></div></div>
+
+      <div class="seigo-item" id="sg2"><div class="seigo-q">③ 美濃部達吉の天皇機関説は、天皇を国家の元首・統治権の総攬者と位置づけ、天皇の絶対的権威を強調した説である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,false,'誤り。天皇機関説は逆に、国家法人説に基づき天皇は国家という法人の機関の一つに過ぎないとする説で、議会中心の政治を正当化するものでした。天皇の絶対的権威を強調したのは天皇神権説などです。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,false,'誤り。天皇機関説は逆に、国家法人説に基づき天皇は国家という法人の機関の一つに過ぎないとする説で、議会中心の政治を正当化するものでした。天皇の絶対的権威を強調したのは天皇神権説などです。')">× 誤り</button></div><div class="seigo-explain" id="sgex2"></div></div>
+
+      <div class="seigo-item" id="sg3"><div class="seigo-q">④ 吉野作造が唱えた民本主義は、天皇主権を否定して国民主権を主張するものだった。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。民本主義は主権が誰にあるかを問わず、政治の目的は民衆の利福にあり政策決定は民衆の意向によるべきとする考えです。天皇主権の明治憲法の枠内で普通選挙や政党政治を主張したもので、国民主権を直接主張したわけではありません。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。民本主義は主権が誰にあるかを問わず、政治の目的は民衆の利福にあり政策決定は民衆の意向によるべきとする考えです。天皇主権の明治憲法の枠内で普通選挙や政党政治を主張したもので、国民主権を直接主張したわけではありません。')">× 誤り</button></div><div class="seigo-explain" id="sgex3"></div></div>
+
+      <div class="seigo-item" id="sg4"><div class="seigo-q">⑤ マッカーサー三原則の一つに「封建制度の廃止」があり、これが日本国憲法の基本的人権の尊重につながった。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,true,'正しい。マッカーサー三原則は①天皇は国家の象徴②戦争の放棄③封建制度の廃止で、③が日本国憲法の基本的人権の保障の理念につながりました。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,true,'正しい。マッカーサー三原則は①天皇は国家の象徴②戦争の放棄③封建制度の廃止で、③が日本国憲法の基本的人権の保障の理念につながりました。')">× 誤り</button></div><div class="seigo-explain" id="sgex4"></div></div>
+
+      <div class="seigo-item" id="sg5"><div class="seigo-q">⑥ 日本国憲法は1946年5月3日に公布され、1947年11月3日に施行された。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,false,'誤り。日付が逆です。日本国憲法は1946年11月3日(文化の日)に公布、1947年5月3日(憲法記念日)に施行されました。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,false,'誤り。日付が逆です。日本国憲法は1946年11月3日(文化の日)に公布、1947年5月3日(憲法記念日)に施行されました。')">× 誤り</button></div><div class="seigo-explain" id="sgex5"></div></div>
+
+      <div class="seigo-item" id="sg6"><div class="seigo-q">⑦ 日本国憲法の改正には、各議院の総議員の過半数以上の賛成で発議し、国民投票で3分の2以上の賛成が必要である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,false,'誤り。逆です。各議院の総議員の「3分の2以上」の賛成で発議し、国民投票で「過半数」の賛成が必要です(憲法96条)。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,false,'誤り。逆です。各議院の総議員の「3分の2以上」の賛成で発議し、国民投票で「過半数」の賛成が必要です(憲法96条)。')">× 誤り</button></div><div class="seigo-explain" id="sgex6"></div></div>
+
+      <div class="seigo-item" id="sg7"><div class="seigo-q">⑧ 大日本帝国憲法では帝国議会(貴族院・衆議院)が設置され、日本国憲法では国会(参議院・衆議院)が設置された。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,true,'正しい。大日本帝国憲法下では帝国議会(上院:貴族院、下院:衆議院)が、日本国憲法下では国会(参議院・衆議院)が設置されました。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,true,'正しい。大日本帝国憲法下では帝国議会(上院:貴族院、下院:衆議院)が、日本国憲法下では国会(参議院・衆議院)が設置されました。')">× 誤り</button></div><div class="seigo-explain" id="sgex7"></div></div>
+
+      <div class="seigo-item" id="sg8"><div class="seigo-q">⑨ 統帥権とは、大日本帝国憲法下で天皇が持っていた軍の最高指揮権で、内閣・議会から独立していた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,true,'正しい。統帥権は天皇が持つ軍の最高指揮権で、内閣や議会から独立していました(統帥権の独立)。これが軍部の暴走・独走を可能にした一因となりました。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,true,'正しい。統帥権は天皇が持つ軍の最高指揮権で、内閣や議会から独立していました(統帥権の独立)。これが軍部の暴走・独走を可能にした一因となりました。')">× 誤り</button></div><div class="seigo-explain" id="sgex8"></div></div>
+
+      <div class="seigo-item" id="sg9"><div class="seigo-q">⑩ 日本国憲法は通常の法律より厳しい改正手続きを要する硬性憲法であり、イギリスのように通常と同じ手続きで改正できる軟性憲法とは異なる。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,true,'正しい。日本国憲法は各議院の総議員の3分の2以上の発議と国民投票を要する硬性憲法です。イギリスは不文憲法で通常の法律と同様の手続きで改正できる軟性憲法の代表例とされます。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,true,'正しい。日本国憲法は各議院の総議員の3分の2以上の発議と国民投票を要する硬性憲法です。イギリスは不文憲法で通常の法律と同様の手続きで改正できる軟性憲法の代表例とされます。')">× 誤り</button></div><div class="seigo-explain" id="sgex9"></div></div>
+    </div>
+  </div>
+</div><!-- /vSeigo -->
+
+<!-- ④フラッシュカード -->
 <div class="view" id="vFlash">
   <div class="s-card">
     <div class="s-head-fc"><div class="s-icon">⚡</div><div class="s-ht">フラッシュカード ─ 大日本帝国憲法と日本国憲法</div></div>
     <div class="s-body">
       <div class="fc-settings">
-        <span class="fc-set-lbl">⏱ 速度：</span>
+        <span class="fc-set-lbl">⏱ 速度:</span>
         <div class="spd-btns"><button class="spd-btn active" data-sec="0" onclick="setFcSpeed(this)">手動</button><button class="spd-btn" data-sec="2" onclick="setFcSpeed(this)">2秒</button><button class="spd-btn" data-sec="3" onclick="setFcSpeed(this)">3秒</button><button class="spd-btn" data-sec="4" onclick="setFcSpeed(this)">4秒</button></div>
-        <span class="fc-set-lbl" style="margin-left:8px">📌 モード：</span>
+        <span class="fc-set-lbl" style="margin-left:8px">📌 モード:</span>
         <div class="mode-btns"><button class="mode-btn active" data-mode="term" onclick="setFcMode(this)">用語→意味</button><button class="mode-btn" data-mode="def" onclick="setFcMode(this)">意味→用語</button></div>
         <button class="fc-start-btn" onclick="startFc()">▶ スタート</button>
       </div>
       <div class="fc-arena" id="fcArena">
         <div class="fc-prog-wrap"><div class="fc-prog-bar"><div class="fc-prog-fill" id="fcProgFill" style="width:0%"></div></div><div class="fc-prog-txt" id="fcProgTxt">0 / 0</div></div>
-        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた：<span id="fcOkCnt">0</span></span><span>❌ もう一度：<span id="fcNgCnt">0</span></span></div>
+        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた:<span id="fcOkCnt">0</span></span><span>❌ もう一度:<span id="fcNgCnt">0</span></span></div>
         <div class="flash-card" id="flashCard" onclick="fcFlipOrNext()">
-          <div class="fc-unit-tag2">⑥ 大日本帝国・日本国憲法</div>
+          <div class="fc-unit-tag2">⑥ 大日本帝国憲法と日本国憲法</div>
           <div class="fc-side-tag2 q" id="fcSideTag">問題</div>
           <div class="fc-main-text2" id="fcMainText">スタートボタンを押してください</div>
           <div class="fc-hint2" id="fcHint2"></div>
@@ -524,49 +901,357 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 </div><!-- /main -->
 <div class="jbanner" id="jbanner"></div>
 <div class="foot">
-  <button class="fbtn f-expl"   id="bExpl"      onclick="goChallE()">📝 確認する</button>
-  <button class="fbtn f-next"   id="bGoQ"        onclick="goTest()">▶ テストへ</button>
+  <button class="fbtn f-expl"   id="bExpl"      onclick="goTest()">▶ 一問一答テストへ</button>
   <button class="fbtn f-next"   id="bGoFlashTop" onclick="goFlash()" style="background:var(--blue)">⚡ フラッシュカード</button>
-  <button class="fbtn f-check"  id="bCheckE"     onclick="checkExplain()" style="display:none">✔ 確　認</button>
-  <button class="fbtn f-hint"   id="bHint"       onclick="showHint()" style="display:none">📖 お手本</button>
-  <button class="fbtn f-next"   id="bGoQ2"       onclick="goTest()" style="display:none">▶ テストへ</button>
   <button class="fbtn f-judge"  id="bJudge"      onclick="judgeAll()" style="display:none">✔ 判　定</button>
   <button class="fbtn f-retry"  id="bRetry"      onclick="retryQ()" style="display:none">↺ やり直し</button>
   <button class="fbtn f-next"   id="bGoSeigo"    onclick="goSeigo()" style="display:none">▶ 正誤問題へ</button>
-  <button class="fbtn f-next"   id="bGoKakomon"  onclick="goKakomon()" style="display:none">▶ 過去問へ</button>
   <button class="fbtn f-next"   id="bGoFlash"    onclick="goFlash()" style="display:none">⚡ フラッシュカードへ</button>
   <button class="fbtn f-back"   id="bBack"       onclick="backToRead()" style="display:none">📖 説明に戻る</button>
   <div class="score-pill" id="spill" style="display:none"></div>
 </div>
 <div class="blank-popup" id="popup"><div class="bp-arrow"></div></div>
-<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか？</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
+<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか?</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
 <a class="home-btn" href="seikei_index.html">🏠 単元表</a>
 
 <script>
-const EW=['欽定憲法','大日本帝国憲法','民定憲法','日本国憲法','硬性憲法','軟性憲法','外見的立憲主義','元首','総攬者','天皇大権','宣戦・講和','緊急勅令','統帥権','臣民','法律の範囲内','美濃部達吉','天皇機関説','吉野作造','民本主義','象徴','戦争の放棄','封建制度の廃止','国民主権','基本的人権の尊重','平和主義','11月3日','5月3日','改正手続き','天皇主権','帝国議会','国会','3分の2','発議','国民投票','過半数','公布'];
-const QW=['欽定憲法','民定憲法','硬性憲法','外見的立憲主義','天皇大権','緊急勅令','統帥権','美濃部達吉','天皇機関説','民本主義','臣民','法律の範囲内','天皇は国家の象徴','戦争の放棄','封建制度の廃止','国民主権','基本的人権の尊重','平和主義','1946年11月3日','1947年5月3日','3分の2','過半数','帝国議会','国会','天皇主権','象徴','軟性憲法','天皇'];
+// 単元別の語群
+const UNIT_WORDS={
+  u1:['欽定憲法','大日本帝国憲法','民定憲法','日本国憲法','硬性憲法','軟性憲法'],
+  u2:['外見的立憲主義','元首','総攬者','天皇大権','宣戦・講和','緊急勅令','統帥権','臣民','法律の範囲内'],
+  u3:['美濃部達吉','天皇機関説','吉野作造','民本主義'],
+  u4:['天皇は国家の象徴','戦争の放棄','封建制度の廃止','11月3日','5月3日','改正手続き'],
+  u5:['天皇主権','国民主権','元首','象徴','欽定憲法','外見的立憲主義','民定憲法','臣民','国民','帝国議会','国会','基本的人権の尊重','平和主義','3分の2','投票'],
+  u6:['硬性憲法','3分の2','発議','国民投票','過半数','公布']
+};
+// 単元別の確認問題の正解インデックス
+const UQ_ANS={
+  u1:[1,2,1], u2:[2,3,2,1], u3:[1,2,1], u4:[1,1,2], u5:[2,1,1], u6:[1,2,2]
+};
+
+// 単元の状態
+const _unitState={};
+
+// 単元の語群を初期化
+function _initUnitWb(uid){
+  var box=document.getElementById('uwb-chips-'+uid);
+  if(!box)return;
+  box.innerHTML='';
+  var words=UNIT_WORDS[uid].slice().sort(function(){return Math.random()-.5});
+  words.forEach(function(w){
+    var btn=document.createElement('button');
+    btn.className='unit-wb-chip';
+    btn.textContent=w;
+    btn.dataset.word=w;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var st=_unitState[uid];
+      if(!st||!st.active)return;
+      if(st.selChip&&st.selChip!==btn)st.selChip.classList.remove('sel');
+      if(st.selChip===btn){st.selChip=null;btn.classList.remove('sel');return}
+      st.selChip=btn;btn.classList.add('sel');
+    });
+    box.appendChild(btn);
+  });
+}
+
+// チャレンジ開始 - 該当単元の空欄を空にする
+function startUnitChallenge(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  _unitState[uid]={active:true,selChip:null};
+  // 空欄をクリア(unit-quiz内のものは除く)
+  card.querySelectorAll('.s-body > .person-row .blank, .s-body > .gtbl .blank, .s-body > table .blank').forEach(function(b){
+    b.textContent='';
+    b.classList.remove('show','ok','ng');
+    b.classList.add('cmode');
+    b.onclick=function(){_fillUnitBlank(uid,b)};
+  });
+  // 直接の子要素から取得し直し
+  var allBlanks=[];
+  card.querySelectorAll('.blank').forEach(function(b){
+    // unit-quiz内は除外
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    allBlanks.push(b);
+    b.textContent='';
+    b.classList.remove('show','ok','ng');
+    b.classList.add('cmode');
+    b.onclick=function(e){e.stopPropagation();_fillUnitBlank(uid,b)};
+  });
+  _initUnitWb(uid);
+  _hide('ub-check-'+uid);_hide('ub-hint-'+uid);_hide('ub-retry-'+uid);
+  _show('ub-check-'+uid);_show('ub-hint-'+uid);
+  document.getElementById('ub-score-'+uid).style.display='none';
+}
+
+// 単元の空欄に語を入れる
+function _fillUnitBlank(uid,blank){
+  var st=_unitState[uid];
+  if(!st)return;
+  if(st.selChip){
+    blank.textContent=st.selChip.textContent;
+    blank.classList.remove('ok','ng');
+    st.selChip.classList.remove('sel');
+    st.selChip=null;
+    return;
+  }
+  if(blank.textContent.trim()!=''){
+    blank.textContent='';
+    blank.classList.remove('ok','ng');
+  }
+}
+
+// 答え合わせ
+function checkUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  var ok=0,total=0;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    total++;
+    if(b.textContent.trim()===b.dataset.ans){
+      b.classList.add('ok');b.classList.remove('ng');ok++;
+    }else{
+      b.classList.add('ng');b.classList.remove('ok');
+    }
+  });
+  var sc=document.getElementById('ub-score-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解';sc.style.display='inline-block';
+  _show('ub-retry-'+uid);
+  if(ok===total&&total>0){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// お手本(全部見せる)
+function hintUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    if(!b.classList.contains('ok')){
+      b.textContent=b.dataset.ans;
+      b.classList.remove('ng');
+      b.classList.add('show');
+    }
+  });
+  _hideBanner();
+}
+
+// もう一度
+function retryUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    b.textContent='';
+    b.classList.remove('ok','ng','show');
+  });
+  _initUnitWb(uid);
+  document.getElementById('ub-score-'+uid).style.display='none';
+  _hideBanner();
+}
+
+// 単元の4択問題を開く
+function openUnitQuiz(uid){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  box.classList.toggle('on');
+  if(box.classList.contains('on')){
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+// 単元の過去問を開く
+function openUnitKakomon(uid){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  box.classList.toggle('on');
+  if(box.classList.contains('on')){
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+// 単元過去問の採点
+function judgeUnitKakomon(uid,total){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  var ok=0,answered=0;
+  qs.forEach(function(q){
+    if(q.dataset.answered){
+      answered++;
+      if(q.dataset.correct==='1')ok++;
+    }
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.add('on');
+  });
+  var sc=document.getElementById('uks-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解'+(answered<total?' (未回答 '+(total-answered)+'問)':'');
+  sc.style.display='inline-block';
+  if(ok===total){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// 単元過去問の再チャレンジ
+function resetUnitKakomon(uid,total){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  qs.forEach(function(q){
+    delete q.dataset.answered;
+    delete q.dataset.correct;
+    q.querySelectorAll('.uqc').forEach(function(b){
+      b.classList.remove('correct','wrong');
+      var attr=b.getAttribute('data-orig-onclick')||b.getAttribute('onclick');
+      if(attr){
+        b.onclick=new Function('event',attr);
+      }
+    });
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.remove('on');
+  });
+  var sc=document.getElementById('uks-'+uid);
+  if(sc)sc.style.display='none';
+  _hideBanner();
+}
+
+// 単元4択の解答
+function ansUQ(qid,sel,cor){
+  var qBox=document.getElementById('uqex-'+qid);
+  if(!qBox)return;
+  var parent=qBox.parentElement;
+  var btns=parent.querySelectorAll('.uqc');
+  if(parent.dataset.answered)return;
+  parent.dataset.answered='1';
+  parent.dataset.correct=(sel===cor)?'1':'0';
+  btns.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+  });
+  // 不正解時のみ解説を表示
+  if(sel!==cor){
+    qBox.classList.add('on');
+  }
+}
+
+// 単元4択の採点
+function judgeUnitQuiz(uid,total){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  var ok=0,answered=0;
+  qs.forEach(function(q){
+    if(q.dataset.answered){
+      answered++;
+      if(q.dataset.correct==='1')ok++;
+    }
+    // 全問の解説を表示
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.add('on');
+  });
+  var sc=document.getElementById('uqs-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解'+(answered<total?' (未回答 '+(total-answered)+'問)':'');
+  sc.style.display='inline-block';
+  if(ok===total){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// 単元4択の再チャレンジ
+function resetUnitQuiz(uid,total){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  qs.forEach(function(q){
+    delete q.dataset.answered;
+    delete q.dataset.correct;
+    q.querySelectorAll('.uqc').forEach(function(b,i){
+      b.classList.remove('correct','wrong');
+      // 元のonclick属性を再設定するために、元のhandler属性を復元
+      var orig=b.getAttribute('data-orig-onclick');
+      if(!orig){
+        // 初回:現在のonclickを保存
+        var attr=b.getAttribute('onclick');
+        if(attr)b.setAttribute('data-orig-onclick',attr);
+      }else{
+        b.setAttribute('onclick',orig);
+      }
+      // 再度onclick動作を有効化(setAttributeは効かない場合があるのでハンドラ再設定)
+    });
+    // 再bind: onclick属性の文字列からansUQ呼び出しを再現するのは複雑なので、
+    // ここでは shouldRebind 用にonclick属性を再評価する方法を使う
+    q.querySelectorAll('.uqc').forEach(function(b){
+      var attr=b.getAttribute('data-orig-onclick')||b.getAttribute('onclick');
+      if(attr){
+        b.onclick=new Function('event',attr);
+      }
+    });
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.remove('on');
+  });
+  var sc=document.getElementById('uqs-'+uid);
+  if(sc)sc.style.display='none';
+  _hideBanner();
+}
+
+// 初期化:確認問題ボタンに onclick属性を退避
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.uqc').forEach(function(b){
+    var attr=b.getAttribute('onclick');
+    if(attr)b.setAttribute('data-orig-onclick',attr);
+  });
+});
+</script>
+<script>
+const QW=['欽定憲法','民定憲法','硬性憲法','軟性憲法','外見的立憲主義','天皇大権','緊急勅令','統帥権','美濃部達吉','天皇機関説','吉野作造','民本主義','臣民','法律の範囲内','天皇は国家の象徴','戦争の放棄','封建制度の廃止','国民主権','基本的人権の尊重','平和主義','1946年11月3日','1947年5月3日','3分の2','過半数','帝国議会','国会','天皇主権','象徴','天皇'];
 
 const FC_CARDS=[
-  {q:'君主が定めた憲法を何というか？例は？',a:'欽定憲法（例：大日本帝国憲法1889年）'},
-  {q:'国民が定めた（国民の意思に基づく）憲法を何というか？例は？',a:'民定憲法（例：日本国憲法1947年）'},
-  {q:'通常より厳しい改正手続きを要する憲法は？通常と同様の憲法は？',a:'硬性憲法（例：日本・アメリカ）　軟性憲法（例：イギリス）'},
-  {q:'大日本帝国憲法の「外見的立憲主義」とはどういう意味か？',a:'表面上は立憲主義をとりながら、実際には天皇に権力が集中していた状態'},
-  {q:'大日本帝国憲法での天皇の地位は？',a:'国家の元首・統治権の総攬者'},
-  {q:'大日本帝国憲法下の「天皇大権」の主な内容は？（3つ）',a:'①宣戦・講和の権限　②緊急勅令（議会を通さず法律と同効力の命令）　③統帥権（軍の最高指揮権・内閣から独立）'},
-  {q:'大日本帝国憲法での国民の呼称と、権利保障の条件は？',a:'「臣民」と呼ばれ、権利は「法律の範囲内」でのみ保障'},
-  {q:'天皇機関説を唱えた人物と、その内容は？',a:'美濃部達吉。天皇は国家という法人の機関の一つに過ぎない→議会中心の政治を正当化'},
-  {q:'民本主義を唱えた人物と、その内容は？',a:'吉野作造。政治の目的は民衆の利福にあり、政策決定は民衆の意向によるべき→普通選挙・政党政治を主張'},
-  {q:'マッカーサー三原則を3つ答えよ。',a:'①天皇は国家の象徴　②戦争の放棄　③封建制度の廃止'},
-  {q:'日本国憲法の三大原則を3つ答えよ。',a:'国民主権・基本的人権の尊重・平和主義'},
-  {q:'日本国憲法の公布日と施行日は？',a:'公布：1946年11月3日（文化の日）　施行：1947年5月3日（憲法記念日）'},
-  {q:'日本国憲法の改正手続き（96条）を順番に答えよ。',a:'①各議院の総議員の3分の2以上の賛成で発議　②国民投票で過半数の賛成　③天皇が国民の名で公布'},
-  {q:'大日本帝国憲法と日本国憲法の主権の所在の違いは？',a:'大日本帝国憲法：天皇主権　日本国憲法：国民主権'},
-  {q:'大日本帝国憲法と日本国憲法の天皇の地位の違いは？',a:'大日本帝国：元首・統治権の総攬者　日本国：日本国と国民統合の「象徴」'},
-  {q:'大日本帝国憲法と日本国憲法の議会の名称の違いは？',a:'大日本帝国：帝国議会（貴族院・衆議院）　日本国：国会（参議院・衆議院）'},
-  {q:'大正デモクラシーを支えた2つの学説とその提唱者は？',a:'天皇機関説（美濃部達吉）・民本主義（吉野作造）'},
-  {q:'民本主義が天皇主権を「否定しなかった」理由は？',a:'主権の所在を問わず、政治の目的と決定方法のみを論じたため。明治憲法の枠内で民主化を主張した'},
-  {q:'日本国憲法が硬性憲法といわれる理由は？',a:'通常の法律制定より厳しい手続き（各議院3分の2以上の発議＋国民投票）が必要だから'},
-  {q:'統帥権とは何か？問題点は？',a:'天皇が持つ軍の最高指揮権。内閣・議会から独立していたため軍部の暴走を招いた'},
+  {q:'欽定憲法とは?例は?',a:'君主が定めた憲法。例:大日本帝国憲法・プロイセン憲法'},
+  {q:'民定憲法とは?例は?',a:'国民が定めた(国民の意思に基づく)憲法。例:日本国憲法・アメリカ合衆国憲法'},
+  {q:'硬性憲法とは?例は?',a:'通常の法律より厳しい改正手続きが必要な憲法。例:日本国憲法・アメリカ連邦憲法'},
+  {q:'軟性憲法とは?例は?',a:'通常の法律と同様の手続きで改正できる憲法。例:イギリス(不文憲法)'},
+  {q:'大日本帝国憲法はいつ制定された?',a:'1889年(明治22年)。プロイセン憲法を手本に伊藤博文を中心に起草された欽定憲法'},
+  {q:'外見的立憲主義とは?',a:'表面上は憲法に基づいた政治をとりながら、実際には天皇に権力が集中していた大日本帝国憲法の特徴'},
+  {q:'大日本帝国憲法での天皇の地位は?',a:'国家の元首・統治権の総攬者(すべてを握る者)'},
+  {q:'天皇大権とは?',a:'大日本帝国憲法における天皇の強大な権限の総称。宣戦・講和の権限、緊急勅令、統帥権など'},
+  {q:'緊急勅令とは?',a:'大日本帝国憲法のもとで天皇が議会を通さずに法律と同じ効力の命令を発する権限'},
+  {q:'統帥権とは?',a:'軍の最高指揮権。大日本帝国憲法のもとで天皇が持ち、内閣・議会から独立していた。軍部の暴走の一因となった'},
+  {q:'大日本帝国憲法での国民の呼称は?',a:'「臣民」(天皇の支配に従う民)。権利は「法律の範囲内」でのみ保障された'},
+  {q:'臣民の権利の特徴は?',a:'「法律の範囲内」でのみ保障され、法律によって自由に制限可能。例:治安維持法による思想・言論の制限'},
+  {q:'天皇機関説を唱えた憲法学者は?',a:'美濃部達吉。国家法人説に基づき天皇は国家という法人の機関の一つとし、議会中心の政治を正当化した'},
+  {q:'天皇機関説事件とは?',a:'1935年に美濃部達吉の天皇機関説が軍部から弾圧を受け、著書が発禁処分となった事件'},
+  {q:'民本主義とは?提唱者は?',a:'政治学者・吉野作造が提唱。主権の所在を問わず、政治の目的は民衆の利福にあり政策決定は民衆の意向によるべきとする考え'},
+  {q:'民本主義はなぜ「民主主義」と言わないのか?',a:'「民主主義」は天皇主権の明治憲法と矛盾するため。民本主義は明治憲法の枠内で普通選挙・政党政治を主張'},
+  {q:'マッカーサー三原則とは?',a:'①天皇は国家の象徴 ②戦争の放棄 ③封建制度の廃止。GHQマッカーサーが日本国憲法草案の基本方針として提示'},
+  {q:'日本国憲法の公布日と施行日は?',a:'公布:1946年11月3日(現:文化の日)。施行:1947年5月3日(現:憲法記念日)'},
+  {q:'日本国憲法の三大原則は?',a:'①国民主権 ②基本的人権の尊重 ③平和主義'},
+  {q:'日本国憲法での天皇の地位は?',a:'日本国と日本国民統合の象徴(憲法第1条・象徴天皇制)'},
+  {q:'大日本帝国憲法・日本国憲法の主権の違いは?',a:'大日本帝国憲法:天皇主権 / 日本国憲法:国民主権'},
+  {q:'大日本帝国憲法・日本国憲法の議会名は?',a:'大日本帝国憲法:帝国議会(貴族院・衆議院) / 日本国憲法:国会(参議院・衆議院)'},
+  {q:'日本国憲法の改正手続き(発議)は?',a:'各議院の総議員の3分の2以上の賛成で発議(憲法96条)'},
+  {q:'日本国憲法改正の国民投票の要件は?',a:'有効投票の過半数の賛成。2007年の国民投票法で具体的な手続きが定められた'},
+  {q:'日本国憲法改正の最後の手続きは?',a:'天皇が国民の名で公布する'},
+  {q:'日本国憲法は硬性憲法か軟性憲法か?',a:'硬性憲法。改正に両院の3分の2以上の発議と国民投票の過半数賛成が必要'},
+  {q:'日本国憲法は何回改正されたか?',a:'1947年の施行以来、一度も改正されていない'},
+  {q:'大日本帝国憲法は形式上どのように制定されたか?',a:'伊藤博文らが起草し、天皇が国民に与える形(欽定憲法)で制定。1889年に発布'},
+  {q:'日本国憲法は形式上どのように制定されたか?',a:'形式上は大日本帝国憲法73条の改正手続きを経て制定された。民定憲法としての正当性を確保するため'},
+  {q:'統帥権の独立とは?',a:'軍の最高指揮権(統帥権)が内閣・議会から独立して天皇に属するという制度。軍部の暴走を生む一因となった'},
 ];
 
 var _selChip=null,_tInt=null,_t0=0,_pausedMs=0;
@@ -579,29 +1264,24 @@ function _tick(){var ms=_pausedMs+(Date.now()-_t0);var m=String(Math.floor(ms/60
 function _startTimer(){_t0=Date.now();_tInt=setInterval(_tick,200)}
 function _stopTimer(){clearInterval(_tInt);_tInt=null}
 function _resetTimer(){_stopTimer();_pausedMs=0;_el('timerDisp').textContent='00:00'}
-function setPhase(n){for(var i=0;i<6;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
-function _showView(id){['vRead','vChallE','vQ','vSeigo','vKakomon','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
+function setPhase(n){for(var i=0;i<4;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
+function _showView(id){['vRead','vQ','vSeigo','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
 function _showWB(){_el('wbBar').style.display='block'}
 function _hideWB(){_el('wbBar').style.display='none'}
 function buildChips(words){var wb=_el('wbChips');wb.innerHTML='';_selChip=null;words.slice().sort(function(){return Math.random()-.5}).forEach(function(w){var btn=document.createElement('button');btn.className='chip';btn.textContent=w;btn.addEventListener('click',function(e){e.stopPropagation();if(_selChip&&_selChip!==btn)_selChip.classList.remove('sel');if(_selChip===btn){_selChip=null;btn.classList.remove('sel');return}_selChip=btn;btn.classList.add('sel')});wb.appendChild(btn)})}
-function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=(_currentView==='vChallE'?EW:QW).slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
+function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=QW.slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
 function _closePopup(){_popup.classList.remove('open');_popupTarget=null}
 document.addEventListener('click',function(){_closePopup()});
 function fillBlank(b){if(_selChip){b.textContent=_selChip.textContent;b.classList.remove('ok','ng','show');_selChip.classList.remove('sel');_selChip=null;_closePopup();return}if(b===_popupTarget&&_popup.classList.contains('open')){_closePopup();return}if(b.textContent.trim()!=''){b.textContent='';b.classList.remove('ok','ng','show');_closePopup();return}_openPopup(b)}
-function goChallE(){_showView('vChallE');document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_showWB();setPhase(1);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_show('bCheckE');_show('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_hideBanner()}
-function checkExplain(){var bls=[].slice.call(document.querySelectorAll('#vChallE .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);if(ok===bls.length){_showBanner(true,ok,bls.length);_show('bGoQ2');_startConf();setTimeout(_stopConf,4000)}else _showBanner(false,ok,bls.length)}
-function showHint(){document.querySelectorAll('#vChallE .blank').forEach(function(b){if(!b.classList.contains('ok')){b.textContent=b.dataset.ans;b.classList.remove('ng');b.classList.add('show')}});_hideBanner();_el('bCheckE').textContent='↺ もう一度';_el('bCheckE').onclick=reChallE}
-function reChallE(){document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_hide('spill');_hideBanner();_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain}
-function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(2);_startTimer();_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hideBanner()}
+function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(1);_startTimer();_hide('bExpl');_hide('bGoFlashTop');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hide('bGoSeigo');_hideBanner()}
 function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);_show('bRetry');_show('bGoSeigo');if(ok===bls.length){_stopTimer();_showBanner(true,ok,bls.length);_startConf();setTimeout(_stopConf,5000)}else _showBanner(false,ok,bls.length)}
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
-function goSeigo(){_showView('vSeigo');setPhase(3);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoKakomon');_show('bBack');_hideBanner()}
+function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function goKakomon(){_showView('vKakomon');setPhase(4);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
-function goFlash(){_showView('vFlash');setPhase(5);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
-function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoQ');_show('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain;stopFc()}
+function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
+function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}
 var _fcCards=[],_fcIdx=0,_fcFlipped=false,_fcSpeed=0,_fcMode='term';
 var _fcAutoTimer=null,_fcTmrInt=null,_fcOkSet=new Set(),_fcNgSet=new Set();
 function setFcSpeed(btn){document.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcSpeed=parseInt(btn.dataset.sec)*1000}

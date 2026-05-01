@@ -40,7 +40,7 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 .person-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed var(--border)}
 .person-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .pbadge{background:var(--blue);color:#fff;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:3px;flex-shrink:0}
-.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.purple{background:var(--purple)}
+.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.purple{background:var(--purple)}.pbadge.dk{background:#2c3e50}
 .pcont{flex:1;font-size:.93em}.pcont p{margin-bottom:8px}.pcont strong{color:var(--blue)}
 .pt{display:inline-block;background:var(--blue);color:#fff;font-size:.7em;font-weight:700;padding:2px 9px;border-radius:3px;margin-bottom:5px;letter-spacing:.05em}
 .blank{display:inline-flex;align-items:center;justify-content:center;min-width:90px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
@@ -48,11 +48,27 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 .gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.84em}
 .gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
 .gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
-.verdict-card{background:#f8f5ff;border:1.5px solid var(--purple);border-radius:9px;padding:12px 15px;margin-bottom:12px}
-.verdict-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.67em;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:6px;letter-spacing:.05em}
-.verdict-tag.green{background:var(--green)}.verdict-tag.red{background:var(--red)}.verdict-tag.blue{background:var(--blue)}
-.verdict-title{font-size:.9em;font-weight:700;margin-bottom:5px;line-height:1.5}
-.verdict-body{font-size:.84em;color:#333;line-height:1.75}
+.cmp-tbl{width:100%;border-collapse:collapse;font-size:.84em;margin:10px 0}
+.cmp-tbl th,.cmp-tbl td{border:1px solid var(--border);padding:7px 10px;vertical-align:top;line-height:1.7}
+.cmp-tbl thead th{background:var(--blue);color:#fff;text-align:center;font-weight:700}
+.cmp-tbl .row-head{background:#f0f4ff;font-weight:700;white-space:nowrap;text-align:center}
+.cmp-tbl .uk{background:#fdf6e3}.cmp-tbl .us{background:#f0f8ff}.cmp-tbl .ch{background:#fff0f0}
+.cmp-tbl .meiji{background:#fdf6e3}.cmp-tbl .nihon{background:#f0f8ff}
+.verdict-card{background:#f8f5ff;border:1.5px solid var(--purple);border-radius:9px;padding:13px 16px;margin-bottom:14px}
+.verdict-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.68em;font-weight:700;padding:2px 9px;border-radius:4px;margin-bottom:7px;letter-spacing:.05em}
+.verdict-tag.green{background:var(--green)}.verdict-tag.blue{background:var(--blue)}.verdict-tag.red{background:var(--red)}
+.verdict-title{font-size:.9em;font-weight:700;margin-bottom:5px;line-height:1.6}
+.verdict-body{font-size:.85em;color:#333;line-height:1.75}
+.timeline{border-left:3px solid var(--blue);padding-left:16px;margin:8px 0}
+.tl-item{position:relative;margin-bottom:14px}
+.tl-item::before{content:'';position:absolute;left:-22px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--blue)}
+.tl-year{font-size:.72em;font-weight:700;color:var(--blue);letter-spacing:.05em;margin-bottom:2px}
+.tl-body{font-size:.9em;line-height:1.75}
+.case-card{background:#f8f5ff;border:1.5px solid #9b59b6;border-radius:9px;padding:12px 15px;margin-bottom:11px}
+.case-tag{display:inline-block;font-size:.67em;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:6px;letter-spacing:.04em;color:#fff}
+.case-tag.ken{background:var(--red)}.case-tag.gouken{background:var(--green)}.case-tag.kaiken{background:var(--muted)}
+.case-title{font-size:.9em;font-weight:700;margin-bottom:5px}
+.case-body{font-size:.84em;color:#333;line-height:1.75}
 .note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
 .q-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--border);font-size:.93em;line-height:1.85}
 .q-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
@@ -113,6 +129,45 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 .mb-resume{background:var(--green);color:#fff}.mb-back{background:var(--muted);color:#fff}.mb-cancel{background:#eee;color:var(--ink)}
 #cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
 .home-btn{position:fixed;bottom:130px;right:14px;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:22px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;transition:.14s;z-index:500;text-decoration:none}.home-btn:hover{background:#253060;transform:translateY(-2px)}
+/* 単元ごとのチャレンジ */
+.unit-wb{background:#fffbe9;border:2px dashed var(--gold);border-radius:8px;padding:10px 14px;margin-top:14px}
+.unit-wb-lbl{font-size:.7em;color:#b56a00;font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+.unit-wb-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.unit-wb-chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.82em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:4px 11px;border-radius:4px;cursor:pointer;transition:.12s}
+.unit-wb-chip:hover{background:#253060}.unit-wb-chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.unit-btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px;align-items:center}
+.unit-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.78em;font-weight:700;border:none;border-radius:5px;padding:6px 14px;cursor:pointer;transition:.12s}
+.unit-btn.challenge{background:var(--orange);color:#fff}
+.unit-btn.check{background:var(--green);color:#fff}
+.unit-btn.hint{background:#8e44ad;color:#fff}
+.unit-btn.retry{background:var(--blue);color:#fff}
+.unit-btn.quiz{background:var(--red);color:#fff}
+.unit-btn:hover{transform:translateY(-1px);opacity:.88}
+.unit-score{display:inline-block;background:var(--ink);color:#fff;font-size:.76em;font-weight:700;padding:3px 10px;border-radius:14px}
+/* 単元の4択問題 */
+.unit-quiz{display:none;margin-top:12px;padding:12px;background:#fff5f5;border:2px solid var(--red);border-radius:8px}
+.unit-quiz.on{display:block}
+.unit-quiz-title{font-size:.9em;font-weight:700;color:var(--red);margin-bottom:10px;border-bottom:1px solid #f5c6c6;padding-bottom:6px}
+.unit-quiz-q{margin-bottom:14px;padding-bottom:10px;border-bottom:1px dashed #ddd}
+.unit-quiz-q:last-child{border-bottom:none}
+.unit-quiz-qt{font-size:.86em;font-weight:700;margin-bottom:7px;line-height:1.6}
+.unit-quiz-num{display:inline-block;background:var(--red);color:#fff;font-size:.72em;padding:2px 8px;border-radius:3px;margin-right:6px}
+.unit-quiz-choices{display:flex;flex-direction:column;gap:5px}
+.uqc{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;padding:7px 11px;border:2px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;text-align:left;transition:.12s;line-height:1.5}
+.uqc:hover{border-color:var(--blue);background:#eef3ff}
+.uqc.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}
+.uqc.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.uqc-explain{display:none;margin-top:7px;font-size:.8em;background:#f0f8ff;border-left:3px solid var(--blue);padding:7px 11px;border-radius:4px;line-height:1.65}
+.uqc-explain.on{display:block}
+/* 単元内の過去問 */
+.unit-kakomon{display:none;margin-top:12px;padding:12px;background:#eef9f1;border:2px solid #1a6b3a;border-radius:8px}
+.unit-kakomon.on{display:block}
+.unit-kakomon-title{font-size:.9em;font-weight:700;color:#1a6b3a;margin-bottom:10px;border-bottom:1px solid #b8e0c5;padding-bottom:6px;display:flex;align-items:center;gap:8px}
+.unit-kakomon-tag{display:inline-block;background:var(--gold);color:var(--ink);font-size:.7em;font-weight:700;padding:2px 8px;border-radius:4px}
+.unit-btn.kakomon{background:#1a6b3a;color:#fff}
+/* チャレンジ中のblank */
+.blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
+.blank.cmode:hover{background:#fff3b0}
 </style>
 </head>
 <body>
@@ -120,11 +175,13 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 <header class="hdr">
   <div class="hdr-info">
     <div class="hdr-sub">政治経済 GAMBA</div>
-    <div class="hdr-title">⑨ 社会権・参政権・請求権</div>
+    <div class="hdr-title">⑨ 社会権・参政権・請求権 ─ 国家による自由</div>
   </div>
   <div class="hdr-timer" id="timerDisp">00:00</div>
 </header>
 <nav class="tab-bar">
+  <a class="tab-btn" href="seikei06.html">⑥ 大日本帝国憲法・日本国憲法</a>
+  <a class="tab-btn" href="seikei07.html">⑦ 基本的人権・平等権</a>
   <a class="tab-btn" href="seikei08.html">⑧ 自由権</a>
   <a class="tab-btn active" href="seikei09.html">⑨ 社会権・参政権・請求権</a>
   <a class="tab-btn" href="seikei10.html">⑩ 平和主義</a>
@@ -132,12 +189,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 </nav>
 <div class="phase-bar">
   <span class="plbl">STEP</span>
-  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明</span>
-  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②確認</span>
-  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③テスト</span>
-  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④正誤</span>
-  <span class="parr">▶</span><div class="pdot" id="d4"></div><span class="ptxt" id="t4">⑤過去問</span>
-  <span class="parr">▶</span><div class="pdot" id="d5"></div><span class="ptxt" id="t5">⑥フラッシュ</span>
+  <div class="pdot on" id="d0"></div><span class="ptxt on" id="t0">①説明・チャレンジ</span>
+  <span class="parr">▶</span><div class="pdot" id="d1"></div><span class="ptxt" id="t1">②一問一答</span>
+  <span class="parr">▶</span><div class="pdot" id="d2"></div><span class="ptxt" id="t2">③正誤</span>
+  <span class="parr">▶</span><div class="pdot" id="d3"></div><span class="ptxt" id="t3">④フラッシュ</span>
 </div>
 <div class="wb-bar" id="wbBar">
   <div class="wb-lbl">▶ 語句をタップして選択 → 空欄をタップで入力　／　入力済み空欄をタップするとクリア</div>
@@ -145,205 +200,382 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 </div>
 <div class="main">
 
+
 <!-- ①説明 -->
 <div class="view on" id="vRead">
 
-  <!-- 社会権 -->
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">社会権①：生存権（25条）</div></div>
+  <div class="s-card" data-unit="u1">
+    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">社会権① 生存権(25条)</div></div>
     <div class="s-body">
       <div class="person-row">
-        <div class="pbadge">25条・生存権</div>
+        <div class="pbadge">社会権とは</div>
         <div class="pcont">
-          <p>憲法25条は「すべて国民は、<span class="blank show" data-ans="健康で文化的な最低限度">健康で文化的な最低限度</span>の生活を営む権利を有する。」と定めます。</p>
-          <p>この規定は国民に具体的な権利を与えたものではなく、国家の努力目標を定めたに過ぎないとする説を<span class="blank show" data-ans="プログラム規定説">プログラム規定説</span>といいます。</p>
+          <p>社会権は、国家が積極的に介入して国民の生活を保障することで実現される権利で、「<strong>国家による自由</strong>」とも呼ばれます。これは「国家からの自由」(=国家の介入を排除する自由権)とは対照的な性格を持ちます。社会権は20世紀のワイマール憲法(1919年)で初めて定められ、現代国家の重要な人権として確立されました。</p>
         </div>
       </div>
-      <div class="verdict-card">
-        <div class="verdict-tag blue">朝日訴訟（合憲）</div>
-        <div class="verdict-title">生存権の訴訟①</div>
-        <div class="verdict-body">国立岡山療養所で肺結核療養中の朝日茂さんが、月額600円の生活扶助では「健康で文化的な最低限度の生活」を維持できないとして<span class="blank show" data-ans="厚生大臣">厚生大臣</span>を訴えた裁判。最高裁は「憲法25条は<span class="blank show" data-ans="プログラム規定">プログラム規定</span>であり、<span class="blank show" data-ans="厚生大臣">厚生大臣</span>の裁量の範囲内で合憲」と判断した。</div>
+      <div class="person-row">
+        <div class="pbadge red">25条・生存権</div>
+        <div class="pcont">
+          <p>憲法25条は「すべて国民は、<span class="blank show" data-ans="健康で文化的な最低限度">健康で文化的な最低限度</span>の生活を営む権利を有する。」と定めます。</p>
+          <p>この規定の性格について、最高裁は<span class="blank show" data-ans="プログラム規定説">プログラム規定説</span>(国民に具体的な権利を与えたものではなく、国家の努力目標を定めたに過ぎないとする説)を採用しています。</p>
+        </div>
       </div>
+
       <div class="verdict-card">
-        <div class="verdict-tag blue">堀木訴訟（合憲）</div>
+        <div class="verdict-tag blue">朝日訴訟(合憲)</div>
+        <div class="verdict-title">生存権の訴訟①</div>
+        <div class="verdict-body">国立岡山療養所で肺結核療養中の朝日茂さんが、月額600円の生活扶助では「健康で文化的な最低限度の生活」を維持できないとして<span class="blank show" data-ans="厚生大臣">厚生大臣</span>を訴えた裁判です。最高裁は「憲法25条は<span class="blank show" data-ans="プログラム規定">プログラム規定</span>であり、<span class="blank show" data-ans="厚生大臣">厚生大臣</span>の裁量の範囲内であるとして<strong>合憲</strong>」と判断しました。</div>
+      </div>
+
+      <div class="verdict-card">
+        <div class="verdict-tag blue">堀木訴訟(合憲)</div>
         <div class="verdict-title">生存権の訴訟②</div>
-        <div class="verdict-body">全盲の障害者堀木フミ子さんが障害福祉年金と児童扶養手当の<span class="blank show" data-ans="併給禁止">併給禁止</span>規定は25条違反だとして<span class="blank show" data-ans="国会">国会</span>を訴えた裁判。最高裁は「社会福祉は<span class="blank show" data-ans="国会">国会</span>の裁量にゆだねられており合憲」と判断（その後法律が改められ併給が認められた）。</div>
+        <div class="verdict-body">全盲の障害者堀木フミ子さんが、障害福祉年金と児童扶養手当の<span class="blank show" data-ans="併給禁止">併給禁止</span>規定は25条違反であるとして<span class="blank show" data-ans="国会">国会</span>を訴えた裁判です。最高裁は「社会福祉は<span class="blank show" data-ans="国会">国会</span>の裁量にゆだねられている」として<strong>合憲</strong>と判断しました。なお、その後法律が改められ併給が認められています。</div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u1">
+        <div class="unit-wb-lbl">▼ 単元①の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u1"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u1')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u1')" style="display:none" id="ub-check-u1">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u1')" style="display:none" id="ub-hint-u1">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u1')" style="display:none" id="ub-retry-u1">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u1')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u1" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u1">
+        <div class="unit-quiz-title">📝 確認問題(単元①生存権)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>憲法25条1項の文言として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q0',0,1)">① すべて国民は、平等に生活する権利を有する。</button>
+            <button class="uqc" onclick="ansUQ('u1q0',1,1)">② すべて国民は、健康で文化的な最低限度の生活を営む権利を有する。</button>
+            <button class="uqc" onclick="ansUQ('u1q0',2,1)">③ すべて国民は、自由かつ尊厳をもって生活する権利を有する。</button>
+            <button class="uqc" onclick="ansUQ('u1q0',3,1)">④ すべて国民は、生活困窮時に補助を求める権利を有する。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q0"><strong>正解:②</strong><br>憲法25条1項は「すべて国民は、健康で文化的な最低限度の生活を営む権利を有する」と定めます。これが生存権の根拠条文です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>プログラム規定説の説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q1',0,1)">① 25条は国民に具体的な生活保護請求権を与えるとする説</button>
+            <button class="uqc" onclick="ansUQ('u1q1',1,1)">② 25条は国民に具体的な権利を与えたものではなく、国家の努力目標を定めたに過ぎないとする説</button>
+            <button class="uqc" onclick="ansUQ('u1q1',2,1)">③ 25条はすべての行政処分の違憲審査基準となるとする説</button>
+            <button class="uqc" onclick="ansUQ('u1q1',3,1)">④ 25条は精神の自由を保障するとする説</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q1"><strong>正解:②</strong><br>プログラム規定説は、憲法25条が国家の努力目標を定めたに過ぎず、国民に具体的な権利を与えたものではないとする説です。最高裁は朝日訴訟・堀木訴訟でこの立場を採用しています。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>朝日訴訟における最高裁の判断として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q2',0,2)">① 月額600円の生活扶助は違憲とした。</button>
+            <button class="uqc" onclick="ansUQ('u1q2',1,2)">② 国会の裁量を認めて合憲とした。</button>
+            <button class="uqc" onclick="ansUQ('u1q2',2,2)">③ 25条はプログラム規定であり、厚生大臣の裁量の範囲内として合憲とした。</button>
+            <button class="uqc" onclick="ansUQ('u1q2',3,2)">④ 国家賠償を認めた。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q2"><strong>正解:③</strong><br>朝日訴訟で最高裁は、憲法25条をプログラム規定と解し、生活扶助基準の決定は厚生大臣の裁量の範囲内であるとして合憲と判断しました。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>堀木訴訟で争点となった内容として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u1q3',0,1)">① 生活扶助の金額が低すぎることの違憲性</button>
+            <button class="uqc" onclick="ansUQ('u1q3',1,1)">② 障害福祉年金と児童扶養手当の併給禁止規定の違憲性</button>
+            <button class="uqc" onclick="ansUQ('u1q3',2,1)">③ 国民健康保険の給付制限の違憲性</button>
+            <button class="uqc" onclick="ansUQ('u1q3',3,1)">④ 公立病院での医療費負担の違憲性</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u1q3"><strong>正解:②</strong><br>堀木訴訟は、全盲の障害者堀木フミ子さんが障害福祉年金と児童扶養手当の併給禁止規定が25条違反であるとして争った裁判です。最高裁は社会福祉は国会の裁量にゆだねられているとして合憲と判断しました。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u1',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u1',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u1" style="display:none"></span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- 社会権②：教育・労働 -->
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">社会権②：教育を受ける権利・労働基本権</div></div>
+  <div class="s-card" data-unit="u2">
+    <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">社会権② 教育を受ける権利・労働基本権</div></div>
     <div class="s-body">
       <div class="person-row">
-        <div class="pbadge green">教育を受ける権利（26条）</div>
+        <div class="pbadge green">教育を受ける権利(26条)</div>
         <div class="pcont">
           <p>憲法26条はすべての国民に<span class="blank show" data-ans="教育を受ける権利">教育を受ける権利</span>を保障し、義務教育の<span class="blank show" data-ans="無償化">無償化</span>を定めます。</p>
-          <p>26条の規定には<span class="blank show" data-ans="形式的平等">形式的平等</span>（差別的取扱いの禁止）と<span class="blank show" data-ans="実質的平等">実質的平等</span>（経済的弱者への就学援助・奨学金制度）の2つの面があります。</p>
+          <p>26条の規定には<span class="blank show" data-ans="形式的平等">形式的平等</span>(差別的取扱いの禁止)と<span class="blank show" data-ans="実質的平等">実質的平等</span>(経済的弱者への就学援助・奨学金制度)の2つの面があります。</p>
         </div>
       </div>
       <div class="person-row">
-        <div class="pbadge orange">労働基本権（27・28条）</div>
+        <div class="pbadge orange">労働基本権(27・28条)</div>
         <div class="pcont">
-          <p>労働基本権は<span class="blank show" data-ans="勤労権">勤労権</span>（27条）と<span class="blank show" data-ans="労働三権">労働三権</span>（28条）からなります。</p>
+          <p>労働基本権は<span class="blank show" data-ans="勤労権">勤労権</span>(27条:働く意思と能力のある人が国に労働の機会を求める権利)と<span class="blank show" data-ans="労働三権">労働三権</span>(28条)からなります。</p>
           <table class="gtbl" style="margin-top:6px">
-            <thead><tr><th style="width:30%">権利</th><th>内 容</th></tr></thead>
+            <thead><tr><th style="width:30%">権利</th><th>内容</th></tr></thead>
             <tbody>
               <tr><td><span class="blank show" data-ans="団結権">団結権</span></td><td>労働組合を結成できる権利</td></tr>
               <tr><td><span class="blank show" data-ans="団体交渉権">団体交渉権</span></td><td>使用者と賃金・労働条件について交渉できる権利</td></tr>
-              <tr><td><span class="blank show" data-ans="団体行動権">団体行動権</span>（争議権）</td><td>ストライキなどの争議行為ができる権利</td></tr>
+              <tr><td><span class="blank show" data-ans="団体行動権">団体行動権</span>(争議権)</td><td>ストライキなどの争議行為ができる権利</td></tr>
             </tbody>
           </table>
-          <p style="margin-top:8px">公務員の制約：すべての公務員に<span class="blank show" data-ans="争議権">争議権</span>は認められていません。特に<span class="blank show" data-ans="警察職員・自衛隊員">警察職員・自衛隊員</span>には<strong>労働三権すべて</strong>が認められていません。</p>
-          <p>公務員の代償措置：国家公務員には<span class="blank show" data-ans="人事院">人事院</span>、地方公務員には<span class="blank show" data-ans="人事委員会">人事委員会</span>の勧告制度があります。</p>
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pbadge red">公務員の労働基本権の制約</div>
+        <div class="pcont">
+          <p>公務員には公共的性格から労働基本権に制約があります。</p>
+          <p>① <strong>すべての公務員</strong>に<span class="blank show" data-ans="争議権">争議権</span>(団体行動権)は認められていません。<br>
+          ② 特に<span class="blank show" data-ans="警察職員・自衛隊員">警察職員・自衛隊員</span>には<strong>労働三権すべて</strong>が認められていません。</p>
+          <p>その代わりに、国家公務員には<span class="blank show" data-ans="人事院">人事院</span>、地方公務員には<span class="blank show" data-ans="人事委員会">人事委員会</span>の勧告制度があり、これが労働基本権制限の代償措置として機能しています。</p>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u2">
+        <div class="unit-wb-lbl">▼ 単元②の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u2"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u2')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u2')" style="display:none" id="ub-check-u2">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u2')" style="display:none" id="ub-hint-u2">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u2')" style="display:none" id="ub-retry-u2">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u2')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u2" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u2">
+        <div class="unit-quiz-title">📝 確認問題(単元②教育・労働基本権)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>労働三権の正しい組み合わせを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q0',0,1)">① 団結権・請願権・争議権</button>
+            <button class="uqc" onclick="ansUQ('u2q0',1,1)">② 団結権・団体交渉権・団体行動権</button>
+            <button class="uqc" onclick="ansUQ('u2q0',2,1)">③ 勤労権・団結権・団体交渉権</button>
+            <button class="uqc" onclick="ansUQ('u2q0',3,1)">④ 勤労権・選挙権・参政権</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q0"><strong>正解:②</strong><br>労働三権は、団結権(労働組合の結成)・団体交渉権(賃金・労働条件の交渉)・団体行動権(=争議権・ストライキ等)の3つです。憲法28条で保障されます。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>公務員の労働基本権に関する記述として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q1',0,2)">① 公務員はすべての労働三権が認められている。</button>
+            <button class="uqc" onclick="ansUQ('u2q1',1,2)">② 教員には団体行動権のみが認められている。</button>
+            <button class="uqc" onclick="ansUQ('u2q1',2,2)">③ 警察職員・自衛隊員には労働三権すべてが認められていない。</button>
+            <button class="uqc" onclick="ansUQ('u2q1',3,2)">④ 公務員の労働基本権制限の代償措置はない。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q1"><strong>正解:③</strong><br>警察職員・自衛隊員には労働三権すべて(団結権・団体交渉権・団体行動権)が認められていません。一般の公務員でも団体行動権(争議権)は認められておらず、代償措置として人事院・人事委員会の勧告制度があります。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>国家公務員の労働基本権制限の代償措置として勧告を行う機関はどれか。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q2',0,2)">① 人事委員会</button>
+            <button class="uqc" onclick="ansUQ('u2q2',1,2)">② 中央労働委員会</button>
+            <button class="uqc" onclick="ansUQ('u2q2',2,2)">③ 人事院</button>
+            <button class="uqc" onclick="ansUQ('u2q2',3,2)">④ 厚生労働省</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q2"><strong>正解:③</strong><br>国家公務員には「人事院」、地方公務員には「人事委員会」の勧告制度があり、それぞれ労働基本権制限の代償措置として機能します。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>憲法26条の教育を受ける権利についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u2q3',0,1)">① 高等教育(大学)の無償化が定められている。</button>
+            <button class="uqc" onclick="ansUQ('u2q3',1,1)">② 義務教育の無償化が定められている。</button>
+            <button class="uqc" onclick="ansUQ('u2q3',2,1)">③ 学問の自由を保障している。</button>
+            <button class="uqc" onclick="ansUQ('u2q3',3,1)">④ 国民に学校を経営する権利を与えている。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u2q3"><strong>正解:②</strong><br>憲法26条はすべての国民に教育を受ける権利を保障し、義務教育の無償化を定めています。学問の自由(③)は23条で別途保障されています。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u2',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u2',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u2" style="display:none"></span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 参政権・請求権 -->
-  <div class="s-card">
+  <div class="s-card" data-unit="u3">
     <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">参政権</div></div>
     <div class="s-body">
       <div class="person-row">
-        <div class="pbadge purple">直接民主制的な参政権</div>
+        <div class="pbadge purple">参政権の種類</div>
         <div class="pcont">
+          <p>参政権は、国民が政治に参加する権利です。代表的な「選挙権・被選挙権」のほかにも、いくつかの直接民主制的な権利が認められています。</p>
           <table class="gtbl">
-            <thead><tr><th>参政権の種類</th><th>内 容</th></tr></thead>
+            <thead><tr><th>参政権の種類</th><th>内容</th></tr></thead>
             <tbody>
-              <tr><td>選挙権・被選挙権</td><td>国民が選挙に参加する権利</td></tr>
-              <tr><td><span class="blank show" data-ans="国民審査権">国民審査権</span>（79条）</td><td>最高裁判所裁判官の審査権。<span class="blank show" data-ans="衆議院議員選挙">衆議院議員選挙</span>と同時に実施。有効投票の<span class="blank show" data-ans="過半数">過半数</span>が罷免票なら罷免。</td></tr>
-              <tr><td><span class="blank show" data-ans="住民投票権">住民投票権</span>（95条）</td><td>特定の地方公共団体のみに適用する法律（地方特別法）の制定に必要。</td></tr>
-              <tr><td><span class="blank show" data-ans="憲法改正の国民投票">憲法改正の国民投票</span>（96条）</td><td>各議院の総議員の3分の2以上の発議後、有効投票の<span class="blank show" data-ans="過半数">過半数</span>で改正。</td></tr>
+              <tr><td>選挙権・被選挙権</td><td>国民が選挙に参加する権利(選ぶ権利・選ばれる権利)。憲法15条。</td></tr>
+              <tr><td><span class="blank show" data-ans="国民審査権">国民審査権</span>(79条)</td><td>最高裁判所裁判官の審査権。<span class="blank show" data-ans="衆議院議員選挙">衆議院議員選挙</span>と同時に実施されます。有効投票の<span class="blank show" data-ans="過半数">過半数</span>が罷免票なら罷免されます。</td></tr>
+              <tr><td><span class="blank show" data-ans="住民投票権">住民投票権</span>(95条)</td><td>特定の地方公共団体のみに適用する法律(地方特別法)の制定に必要な住民投票です。</td></tr>
+              <tr><td><span class="blank show" data-ans="憲法改正の国民投票">憲法改正の国民投票</span>(96条)</td><td>各議院の総議員の3分の2以上の発議後、有効投票の<span class="blank show" data-ans="過半数">過半数</span>の賛成で改正されます。</td></tr>
             </tbody>
           </table>
+          <div class="note-box">国民審査と住民投票・憲法改正の国民投票では、求められる投票数の違いに注意が必要です。国民審査は「過半数の罷免票」、憲法改正は「過半数の賛成票」、地方特別法も「過半数の賛成票」が必要です。</div>
+        </div>
+      </div>
+
+      <div class="unit-wb" id="uwb-u3">
+        <div class="unit-wb-lbl">▼ 単元③の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u3"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u3')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u3')" style="display:none" id="ub-check-u3">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u3')" style="display:none" id="ub-hint-u3">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u3')" style="display:none" id="ub-retry-u3">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u3')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u3" style="display:none"></span>
+        </div>
+      </div>
+
+      <div class="unit-quiz" id="uq-u3">
+        <div class="unit-quiz-title">📝 確認問題(単元③参政権)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>国民審査権についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q0',0,1)">① 内閣総理大臣の信任投票</button>
+            <button class="uqc" onclick="ansUQ('u3q0',1,1)">② 最高裁判所裁判官の信任投票で、衆議院議員選挙と同時実施</button>
+            <button class="uqc" onclick="ansUQ('u3q0',2,1)">③ すべての裁判官を対象とし、参議院議員選挙と同時実施</button>
+            <button class="uqc" onclick="ansUQ('u3q0',3,1)">④ 国会議員を罷免するための投票</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q0"><strong>正解:②</strong><br>国民審査(憲法79条)は最高裁判所裁判官を対象とする信任投票で、衆議院議員選挙(総選挙)と同時に実施されます。下級裁判所裁判官は対象外です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>国民審査で裁判官が罷免される条件として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q1',0,1)">① 全有権者の過半数が罷免票</button>
+            <button class="uqc" onclick="ansUQ('u3q1',1,1)">② 有効投票の過半数が罷免票</button>
+            <button class="uqc" onclick="ansUQ('u3q1',2,1)">③ 有効投票の3分の2以上が罷免票</button>
+            <button class="uqc" onclick="ansUQ('u3q1',3,1)">④ 衆議院の特別決議による</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q1"><strong>正解:②</strong><br>国民審査では、有効投票の過半数が罷免票であれば裁判官は罷免されます。実際には罷免された例は今のところありません。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>住民投票権(憲法95条)についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q2',0,1)">① すべての地方の重要な政策決定に必要な手続きである。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',1,1)">② 特定の地方公共団体のみに適用する法律(地方特別法)の制定に必要な手続きである。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',2,1)">③ 内閣総理大臣の信任投票である。</button>
+            <button class="uqc" onclick="ansUQ('u3q2',3,1)">④ 全国の地方公共団体共通の制度である。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q2"><strong>正解:②</strong><br>憲法95条の住民投票権は、特定の地方公共団体のみに適用される地方特別法の制定にあたって、その地方公共団体の住民投票で過半数の賛成を得ることを要件とするものです。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>憲法改正の国民投票で必要な賛成数として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u3q3',0,1)">① 全有権者の3分の2以上</button>
+            <button class="uqc" onclick="ansUQ('u3q3',1,1)">② 有効投票の過半数</button>
+            <button class="uqc" onclick="ansUQ('u3q3',2,1)">③ 有効投票の3分の2以上</button>
+            <button class="uqc" onclick="ansUQ('u3q3',3,1)">④ 都道府県の3分の2以上の賛成</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u3q3"><strong>正解:②</strong><br>憲法改正の国民投票は、有効投票の過半数の賛成で改正されます。3分の2以上は各議院での発議に必要な要件です(両者を混同しないよう注意)。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u3',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u3',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u3" style="display:none"></span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 請求権 -->
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">請求権（受益権）</div></div>
+  <div class="s-card" data-unit="u4">
+    <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">請求権(受益権)</div></div>
     <div class="s-body">
       <div class="person-row">
-        <div class="pbadge red">請求権の種類</div>
+        <div class="pbadge red">4種類の請求権</div>
         <div class="pcont">
+          <p>請求権(受益権)は、人権を保障するために国家に対して一定の作為を求める権利です。次の4種類があります。</p>
           <table class="gtbl">
-            <thead><tr><th>権利</th><th>内 容</th></tr></thead>
+            <thead><tr><th>権利</th><th>内容</th></tr></thead>
             <tbody>
-              <tr><td><span class="blank show" data-ans="請願権">請願権</span>（16条）</td><td>国家に対して要求・要望を行う権利（法律の制定改廃の直接請求権は除く）</td></tr>
-              <tr><td><span class="blank show" data-ans="国家賠償請求権">国家賠償請求権</span>（17条）</td><td>公務員の不法行為で損害を受けた人が国・地方公共団体に賠償を請求できる権利</td></tr>
-              <tr><td>裁判を受ける権利（32条）</td><td>国民だけでなく日本在住の外国人にも保障</td></tr>
-              <tr><td><span class="blank show" data-ans="刑事補償請求権">刑事補償請求権</span>（40条）</td><td>裁判で無罪となった場合、抑留・拘禁された分の損害補償を求める権利</td></tr>
+              <tr><td><span class="blank show" data-ans="請願権">請願権</span>(16条)</td><td>国家に対して要望や苦情を申し立てる権利。法律の制定改廃の直接請求権までは含みません。</td></tr>
+              <tr><td><span class="blank show" data-ans="国家賠償請求権">国家賠償請求権</span>(17条)</td><td>公務員の不法行為で損害を受けた人が、国・地方公共団体に賠償を請求できる権利。</td></tr>
+              <tr><td>裁判を受ける権利(32条)</td><td>裁判所において裁判を受ける権利。日本国民だけでなく日本在住の外国人にも保障されます。</td></tr>
+              <tr><td><span class="blank show" data-ans="刑事補償請求権">刑事補償請求権</span>(40条)</td><td>裁判で無罪となった場合、抑留・拘禁された分の損害補償を求める権利。</td></tr>
             </tbody>
           </table>
+          <div class="note-box">「国家賠償請求権」(公務員の不法行為への賠償)と「刑事補償請求権」(無罪となった人への補償)は混同しやすいので、区別して覚えましょう。</div>
         </div>
       </div>
-      <div class="verdict-card" style="margin-top:10px">
+
+      <div class="verdict-card">
         <div class="verdict-tag red">違憲判決</div>
-        <div class="verdict-title">郵便法損害賠償免責規定違憲判決（2002年）</div>
-        <div class="verdict-body">裁判所の差し押さえ命令の書留郵便を郵便局員が誤って配達し損害が生じた事件。最高裁は「書留郵便の遅延について国の損害賠償責任を定めていない郵便法の規定は、<span class="blank show" data-ans="国家賠償請求権">国家賠償請求権</span>を保障した憲法<span class="blank show" data-ans="17条">17条</span>に違反する」として<strong>違憲</strong>と判断した。</div>
+        <div class="verdict-title">郵便法損害賠償免責規定違憲判決(2002年)</div>
+        <div class="verdict-body">裁判所の差し押さえ命令の書留郵便を郵便局員が誤って配達し損害が生じた事件です。最高裁は「書留郵便の遅延について国の損害賠償責任を定めていない郵便法の規定は、<span class="blank show" data-ans="国家賠償請求権">国家賠償請求権</span>を保障した憲法<span class="blank show" data-ans="17条">17条</span>に違反する」として<strong>違憲</strong>と判断しました。</div>
       </div>
-    </div>
-  </div>
 
-</div><!-- /vRead -->
-
-<!-- ②確認 -->
-<div class="view" id="vChallE">
-  <div class="s-card">
-    <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">社会権・参政権・請求権 ─ 語群から選んで空欄を埋めよ</div></div>
-    <div class="s-body">
-      <div class="person-row">
-        <div class="pbadge">生存権</div>
-        <div class="pcont">
-          <p>憲法25条「すべて国民は、<span class="blank" data-ans="健康で文化的な最低限度" onclick="fillBlank(this)"></span>の生活を営む権利を有する」。この規定を国家の努力目標にすぎないとする<span class="blank" data-ans="プログラム規定説" onclick="fillBlank(this)"></span>がある。</p>
-          <p><span class="blank" data-ans="朝日訴訟" onclick="fillBlank(this)"></span>：生活保護基準の低さが25条違反かが争点→最高裁は<span class="blank" data-ans="厚生大臣" onclick="fillBlank(this)"></span>の裁量の範囲として合憲と判断。</p>
-          <p><span class="blank" data-ans="堀木訴訟" onclick="fillBlank(this)"></span>：障害福祉年金と児童扶養手当の<span class="blank" data-ans="併給禁止" onclick="fillBlank(this)"></span>が25条違反かが争点→<span class="blank" data-ans="国会" onclick="fillBlank(this)"></span>の裁量として合憲と判断。</p>
+      <div class="unit-wb" id="uwb-u4">
+        <div class="unit-wb-lbl">▼ 単元④の語群</div>
+        <div class="unit-wb-chips" id="uwb-chips-u4"></div>
+        <div class="unit-btns">
+          <button class="unit-btn challenge" onclick="startUnitChallenge('u4')">🎯 チャレンジ</button>
+          <button class="unit-btn check" onclick="checkUnit('u4')" style="display:none" id="ub-check-u4">✔ 答え合わせ</button>
+          <button class="unit-btn hint" onclick="hintUnit('u4')" style="display:none" id="ub-hint-u4">📖 お手本</button>
+          <button class="unit-btn retry" onclick="retryUnit('u4')" style="display:none" id="ub-retry-u4">↺ もう一度</button>
+          <button class="unit-btn quiz" onclick="openUnitQuiz('u4')">📝 確認問題</button>
+          <span class="unit-score" id="ub-score-u4" style="display:none"></span>
         </div>
       </div>
-      <div class="person-row">
-        <div class="pbadge orange">労働三権</div>
-        <div class="pcont">
-          <p>労働三権：<span class="blank" data-ans="団結権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="団体交渉権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="団体行動権" onclick="fillBlank(this)"></span>（争議権）。<span class="blank" data-ans="警察職員・自衛隊員" onclick="fillBlank(this)"></span>には労働三権すべて認められない。国家公務員の代償措置：<span class="blank" data-ans="人事院" onclick="fillBlank(this)"></span>の勧告制度。</p>
+
+      <div class="unit-quiz" id="uq-u4">
+        <div class="unit-quiz-title">📝 確認問題(単元④請求権)</div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>国家賠償請求権(17条)の説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q0',0,1)">① 国家に対して要望や苦情を申し立てる権利</button>
+            <button class="uqc" onclick="ansUQ('u4q0',1,1)">② 公務員の不法行為で損害を受けた人が国・地方公共団体に賠償を請求できる権利</button>
+            <button class="uqc" onclick="ansUQ('u4q0',2,1)">③ 裁判で無罪となった場合の損害補償を求める権利</button>
+            <button class="uqc" onclick="ansUQ('u4q0',3,1)">④ 国家から教育を受ける権利</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q0"><strong>正解:②</strong><br>国家賠償請求権(17条)は、公務員の不法行為で損害を受けた人が国・地方公共団体に賠償を請求できる権利です。①は請願権、③は刑事補償請求権の説明です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>刑事補償請求権(40条)の説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q1',0,1)">① 公務員の不法行為で損害を受けた場合の賠償請求権</button>
+            <button class="uqc" onclick="ansUQ('u4q1',1,1)">② 裁判で無罪となった場合、抑留・拘禁された分の損害補償を求める権利</button>
+            <button class="uqc" onclick="ansUQ('u4q1',2,1)">③ 国家に対して要望を申し立てる権利</button>
+            <button class="uqc" onclick="ansUQ('u4q1',3,1)">④ 法律の制定改廃を直接請求する権利</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q1"><strong>正解:②</strong><br>刑事補償請求権(40条)は、裁判で無罪となった場合、抑留・拘禁された分の損害補償を求める権利です。①は国家賠償請求権、③は請願権の説明です。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>裁判を受ける権利(32条)についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q2',0,2)">① 日本国民にのみ保障され、外国人には認められない。</button>
+            <button class="uqc" onclick="ansUQ('u4q2',1,2)">② 国会議員にのみ認められた特権である。</button>
+            <button class="uqc" onclick="ansUQ('u4q2',2,2)">③ 日本国民だけでなく日本在住の外国人にも保障される。</button>
+            <button class="uqc" onclick="ansUQ('u4q2',3,2)">④ 民事事件にのみ認められる権利である。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q2"><strong>正解:③</strong><br>裁判を受ける権利(32条)は、日本国民だけでなく日本在住の外国人にも保障されます。これは民事・刑事のいずれの事件についても認められます。</div>
+        </div>
+        <div class="unit-quiz-q">
+          <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>2002年の郵便法損害賠償免責規定違憲判決についての説明として正しいものを選べ。</div>
+          <div class="unit-quiz-choices">
+            <button class="uqc" onclick="ansUQ('u4q3',0,1)">① 表現の自由(21条)違反として違憲とされた。</button>
+            <button class="uqc" onclick="ansUQ('u4q3',1,1)">② 国家賠償請求権を保障した憲法17条に違反するとして違憲とされた。</button>
+            <button class="uqc" onclick="ansUQ('u4q3',2,1)">③ 裁判を受ける権利(32条)違反として違憲とされた。</button>
+            <button class="uqc" onclick="ansUQ('u4q3',3,1)">④ 刑事補償請求権(40条)違反として違憲とされた。</button>
+          </div>
+          <div class="uqc-explain" id="uqex-u4q3"><strong>正解:②</strong><br>郵便法損害賠償免責規定違憲判決(2002年)は、書留郵便の遅延について国の損害賠償責任を定めていない郵便法の規定が、国家賠償請求権を保障した憲法17条に違反するとして違憲とされました。</div>
+        </div>
+        <div class="unit-btns">
+          <button class="unit-btn check" onclick="judgeUnitQuiz('u4',4)">✔ 採点する</button>
+          <button class="unit-btn retry" onclick="resetUnitQuiz('u4',4)">↺ 再チャレンジ</button>
+          <span class="unit-score" id="uqs-u4" style="display:none"></span>
         </div>
       </div>
-      <div class="person-row">
-        <div class="pbadge purple">参政権・請求権</div>
-        <div class="pcont">
-          <p><span class="blank" data-ans="国民審査権" onclick="fillBlank(this)"></span>（79条）：最高裁裁判官の審査。衆議院選挙と同時に実施。<span class="blank" data-ans="過半数" onclick="fillBlank(this)"></span>が罷免票なら罷免。</p>
-          <p>請求権：<span class="blank" data-ans="請願権" onclick="fillBlank(this)"></span>（16条）・<span class="blank" data-ans="国家賠償請求権" onclick="fillBlank(this)"></span>（17条）・裁判を受ける権利（32条）・<span class="blank" data-ans="刑事補償請求権" onclick="fillBlank(this)"></span>（40条）。</p>
-          <p>違憲判決：<span class="blank" data-ans="郵便法損害賠償免責規定違憲判決" onclick="fillBlank(this)"></span>（2002年）は憲法17条違反。</p>
-        </div>
-      </div>
     </div>
   </div>
-</div><!-- /vChallE -->
 
-<!-- ③テスト -->
-<div class="view" id="vQ">
   <div class="s-card">
-    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">まとめ過去問 ─ 共通テスト・センター試験(社会権・参政権・請求権)</div></div>
     <div class="s-body">
-      <div class="q-item"><div class="qt">問1</div>憲法25条が保障する「すべて国民は、（　　　）の生活を営む権利を有する」の空欄を答えよ。→ <span class="blank" data-ans="健康で文化的な最低限度" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問2</div>憲法25条の生存権は国民に具体的権利を与えたものではなく国家の努力目標に過ぎないとする説を何というか。→ <span class="blank" data-ans="プログラム規定説" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問3</div>生活保護基準の低さが25条違反かが争点となり、厚生大臣の裁量として合憲とされた裁判を何というか。→ <span class="blank" data-ans="朝日訴訟" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問4</div>障害福祉年金と児童扶養手当の併給禁止が25条違反かが争点となり、国会の裁量として合憲とされた裁判を何というか。→ <span class="blank" data-ans="堀木訴訟" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問5</div>憲法26条が定める教育権の保障と義務教育について何を規定しているか。→ 教育を受ける権利と義務教育の<span class="blank" data-ans="無償化" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問6</div>労働基本権は「勤労権」と何からなるか。→ <span class="blank" data-ans="労働三権" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問7</div>労働三権を3つ答えよ。→ <span class="blank" data-ans="団結権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="団体交渉権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="団体行動権" onclick="fillBlank(this)"></span>（争議権）</div>
-      <div class="q-item"><div class="qt">問8</div>労働三権がすべて認められていない公務員の職種を2つ答えよ。→ <span class="blank" data-ans="警察職員" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="自衛隊員" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問9</div>国家公務員の労働基本権制限の代償措置として何があるか。→ <span class="blank" data-ans="人事院" onclick="fillBlank(this)"></span>の勧告制度</div>
-      <div class="q-item"><div class="qt">問10</div>最高裁判所裁判官の国民審査は何と同時に実施され、何が過半数なら罷免されるか。→ <span class="blank" data-ans="衆議院議員選挙" onclick="fillBlank(this)"></span>と同時。<span class="blank" data-ans="罷免を求める票" onclick="fillBlank(this)"></span>が過半数で罷免。</div>
-      <div class="note-box">【語群①〜⑩】健康で文化的な最低限度　プログラム規定説　朝日訴訟　堀木訴訟　無償化　労働三権　団結権　団体交渉権　団体行動権　警察職員　自衛隊員　人事院　衆議院議員選挙　罷免を求める票</div>
-    </div>
-  </div>
-  <div class="s-card">
-    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
-    <div class="s-body">
-      <div class="q-item"><div class="qt">問11</div>地方公務員の労働基本権制限の代償措置は何か。→ <span class="blank" data-ans="人事委員会" onclick="fillBlank(this)"></span>の勧告制度</div>
-      <div class="q-item"><div class="qt">問12</div>国家に対して要求・要望を行う権利を何というか（16条）。→ <span class="blank" data-ans="請願権" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問13</div>公務員の不法行為で損害を受けた人が国・地方公共団体に賠償を請求できる権利を何というか（17条）。→ <span class="blank" data-ans="国家賠償請求権" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問14</div>裁判で無罪となった場合、抑留・拘禁された分の損害補償を求める権利を何というか（40条）。→ <span class="blank" data-ans="刑事補償請求権" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問15</div>2002年に出た請求権に関する違憲判決の名称は何か。→ <span class="blank" data-ans="郵便法損害賠償免責規定違憲判決" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問16</div>郵便法損害賠償免責規定違憲判決で違反とされた憲法の条文は何か。→ 憲法<span class="blank" data-ans="17条" onclick="fillBlank(this)"></span>（国家賠償請求権）</div>
-      <div class="q-item"><div class="qt">問17</div>特定の地方公共団体のみに適用する地方特別法の制定に必要な住民投票権は憲法何条か。→ 憲法<span class="blank" data-ans="95条" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問18</div>憲法改正の国民投票の根拠条文は何条か。改正に必要な賛成割合は？→ 憲法<span class="blank" data-ans="96条" onclick="fillBlank(this)"></span>。有効投票の<span class="blank" data-ans="過半数" onclick="fillBlank(this)"></span>の賛成</div>
-      <div class="q-item"><div class="qt">問19</div>「公務員は全体の（　　　）であり、争議行為を禁止することは違憲ではない」という最高裁の判断における空欄を答えよ。→ <span class="blank" data-ans="奉仕者" onclick="fillBlank(this)"></span></div>
-      <div class="q-item"><div class="qt">問20</div>朝日訴訟・堀木訴訟のどちらでも示された、25条の性質に関する説を何というか。→ <span class="blank" data-ans="プログラム規定説" onclick="fillBlank(this)"></span></div>
-      <div class="note-box">【語群⑪〜⑳】人事委員会　請願権　国家賠償請求権　刑事補償請求権　郵便法損害賠償免責規定違憲判決　17条　95条　96条　過半数　奉仕者　プログラム規定説</div>
-    </div>
-  </div>
-</div><!-- /vQ -->
+      <p style="margin-bottom:14px;font-size:.9em;color:#444">これまでの学習の総仕上げです。実際の過去問にチャレンジしましょう。各選択肢をクリックすると正誤が表示されます。</p>
 
-<!-- ④正誤 -->
-<div class="view" id="vSeigo">
-  <div class="s-card">
-    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
-    <div class="s-body">
-      <div class="seigo-item" id="sg0"><div class="seigo-q">① 憲法25条のプログラム規定説とは、25条が国民に具体的な生活保護請求権を直接与えているという考え方である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,false,'誤り。プログラム規定説は「憲法25条は国家の努力目標（プログラム）を定めたに過ぎず、国民に具体的な権利を直接与えたものではない」とする考え方である。具体的な権利を与えているという考え方はプログラム規定説に対する批判的見解（具体的権利説）である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,false,'誤り。プログラム規定説は「憲法25条は国家の努力目標（プログラム）を定めたに過ぎず、国民に具体的な権利を直接与えたものではない」とする考え方である。具体的な権利を与えているという考え方はプログラム規定説に対する批判的見解（具体的権利説）である。')">× 誤り</button></div><div class="seigo-explain" id="sgex0"></div></div>
-      <div class="seigo-item" id="sg1"><div class="seigo-q">② 朝日訴訟では、最高裁が「憲法25条は具体的な権利を与えており、生活保護基準は低すぎて違憲」と判断した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,false,'誤り。最高裁は「憲法25条はプログラム規定であり、厚生大臣の裁量の範囲内であって合憲」と判断した。違憲判決ではない。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,false,'誤り。最高裁は「憲法25条はプログラム規定であり、厚生大臣の裁量の範囲内であって合憲」と判断した。違憲判決ではない。')">× 誤り</button></div><div class="seigo-explain" id="sgex1"></div></div>
-      <div class="seigo-item" id="sg2"><div class="seigo-q">③ 労働三権とは、団結権・団体交渉権・団体行動権（争議権）の3つである。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,true,'正しい。労働三権は①団結権（労働組合を結成できる）②団体交渉権（使用者と賃金・労働条件を交渉できる）③団体行動権（争議権）（ストライキなどができる）の3つである（憲法28条）。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,true,'正しい。労働三権は①団結権（労働組合を結成できる）②団体交渉権（使用者と賃金・労働条件を交渉できる）③団体行動権（争議権）（ストライキなどができる）の3つである（憲法28条）。')">× 誤り</button></div><div class="seigo-explain" id="sgex2"></div></div>
-      <div class="seigo-item" id="sg3"><div class="seigo-q">④ 警察職員と自衛隊員には、労働三権のうち団体行動権（争議権）のみが認められていない。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。警察職員と自衛隊員には労働三権「すべて」が認められていない（団結権・団体交渉権・団体行動権の全3つ）。これが最も厳しい制約で、一般の公務員は争議権のみ認められていない。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。警察職員と自衛隊員には労働三権「すべて」が認められていない（団結権・団体交渉権・団体行動権の全3つ）。これが最も厳しい制約で、一般の公務員は争議権のみ認められていない。')">× 誤り</button></div><div class="seigo-explain" id="sgex3"></div></div>
-      <div class="seigo-item" id="sg4"><div class="seigo-q">⑤ 国民審査は最高裁判所裁判官の審査で、参議院議員選挙と同時に実施される。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,false,'誤り。国民審査は「衆議院議員選挙（総選挙）」と同時に実施される（参議院議員選挙ではない）。有効投票の過半数が罷免を求める票であれば罷免される。これまで罷免された裁判官はいない。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,false,'誤り。国民審査は「衆議院議員選挙（総選挙）」と同時に実施される（参議院議員選挙ではない）。有効投票の過半数が罷免を求める票であれば罷免される。これまで罷免された裁判官はいない。')">× 誤り</button></div><div class="seigo-explain" id="sgex4"></div></div>
-      <div class="seigo-item" id="sg5"><div class="seigo-q">⑥ 刑事補償請求権とは、公務員の不法行為で損害を受けた人が国に賠償を請求できる権利である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,false,'誤り。それは「国家賠償請求権」（憲法17条）の説明である。刑事補償請求権（憲法40条）は「刑事裁判で無罪となった場合に、抑留・拘禁されていたことによる損害の補償を求める権利」である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,false,'誤り。それは「国家賠償請求権」（憲法17条）の説明である。刑事補償請求権（憲法40条）は「刑事裁判で無罪となった場合に、抑留・拘禁されていたことによる損害の補償を求める権利」である。')">× 誤り</button></div><div class="seigo-explain" id="sgex5"></div></div>
-      <div class="seigo-item" id="sg6"><div class="seigo-q">⑦ 郵便法損害賠償免責規定違憲判決（2002年）は、国家賠償請求権を保障した憲法17条に違反するとして違憲とされた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,true,'正しい。2002年の郵便法損害賠償免責規定違憲判決では、書留郵便の遅延について国の損害賠償責任を定めていない郵便法の規定が、国家賠償請求権を保障した憲法17条に違反するとして違憲と判断された。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,true,'正しい。2002年の郵便法損害賠償免責規定違憲判決では、書留郵便の遅延について国の損害賠償責任を定めていない郵便法の規定が、国家賠償請求権を保障した憲法17条に違反するとして違憲と判断された。')">× 誤り</button></div><div class="seigo-explain" id="sgex6"></div></div>
-      <div class="seigo-item" id="sg7"><div class="seigo-q">⑧ 国家公務員の労働基本権制限の代償措置は人事委員会の勧告制度、地方公務員の場合は人事院の勧告制度である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,false,'誤り。逆である。国家公務員の代償措置は「人事院」の勧告制度、地方公務員の代償措置は「人事委員会」の勧告制度である。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,false,'誤り。逆である。国家公務員の代償措置は「人事院」の勧告制度、地方公務員の代償措置は「人事委員会」の勧告制度である。')">× 誤り</button></div><div class="seigo-explain" id="sgex7"></div></div>
-      <div class="seigo-item" id="sg8"><div class="seigo-q">⑨ 堀木訴訟では、障害福祉年金と児童扶養手当の併給禁止規定が憲法25条に違反するとして違憲とされた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,false,'誤り。堀木訴訟では、最高裁は「社会福祉は国会の裁量にゆだねられており、裁判所の司法判断の対象ではない」として合憲と判断した。その後、法律が改められ併給が認められた。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,false,'誤り。堀木訴訟では、最高裁は「社会福祉は国会の裁量にゆだねられており、裁判所の司法判断の対象ではない」として合憲と判断した。その後、法律が改められ併給が認められた。')">× 誤り</button></div><div class="seigo-explain" id="sgex8"></div></div>
-      <div class="seigo-item" id="sg9"><div class="seigo-q">⑩ 憲法26条の教育を受ける権利には、全員を同一に扱う形式的平等と、経済的弱者への支援を行う実質的平等の両方の面がある。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,true,'正しい。憲法26条の教育を受ける権利には、差別的取扱いを禁止する形式的平等と、経済的弱者への奨学金制度や就学援助の整備などを通じて積極的に是正しようとする実質的平等の2つの面がある。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,true,'正しい。憲法26条の教育を受ける権利には、差別的取扱いを禁止する形式的平等と、経済的弱者への奨学金制度や就学援助の整備などを通じて積極的に是正しようとする実質的平等の2つの面がある。')">× 誤り</button></div><div class="seigo-explain" id="sgex9"></div></div>
-    </div>
-  </div>
-</div><!-- /vSeigo -->
-
-<!-- ⑤過去問 -->
-<div class="view" id="vKakomon">
-  <div class="s-card">
-    <div class="s-head-kakomon"><div class="s-icon">📝</div><div class="s-ht">共通テスト・センター試験 過去問形式 ─ 政治経済⑨</div></div>
-    <div class="s-body">
       <div class="q-item">
-        <span class="kk-year-tag">共通テスト 2024年</span>
+        <span class="kk-year-tag">2024年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 生存権に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc0">
           <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 朝日訴訟では、最高裁が生活保護基準を違憲とした。</button>
@@ -352,75 +584,214 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ プログラム規定説とは、憲法25条が国民に具体的な生活保護請求権を与えるとする考え方である。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex0"><strong>正解：③</strong><br>朝日訴訟（厚生大臣の裁量の範囲）も堀木訴訟（国会の裁量）も、最高裁は憲法25条をプログラム規定と解して合憲と判断した。①②は逆（どちらも合憲）。④プログラム規定説は国家の努力目標という考え方（具体的権利ではない）。</div>
+        <div class="kk-explain" id="kkex0"><strong>正解:③</strong><br>朝日訴訟(厚生大臣の裁量の範囲)も堀木訴訟(国会の裁量)も、最高裁は憲法25条をプログラム規定と解して合憲と判断しました。①②は逆(どちらも合憲)。④プログラム規定説は国家の努力目標という考え方(具体的権利ではない)。</div>
       </div>
+
       <div class="q-item">
         <span class="kk-year-tag">センター試験 2020年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 労働基本権に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 警察職員には団体行動権（争議権）のみが認められていない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 警察職員には団体行動権(争議権)のみが認められていない。</button>
           <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 国家公務員の労働基本権制限の代償措置は人事委員会の勧告制度である。</button>
           <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 警察職員と自衛隊員には労働三権すべてが認められていない。</button>
           <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 労働三権は、団結権・団体交渉権・請願権の3つである。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex1"><strong>正解：③</strong><br>警察職員・自衛隊員には労働三権（団結権・団体交渉権・団体行動権）すべてが認められていない。①警察は労働三権すべて不可。②国家公務員の代償措置は「人事院」（人事委員会は地方公務員）。④労働三権は団結権・団体交渉権・団体行動権（請願権は請求権）。</div>
+        <div class="kk-explain" id="kkex1"><strong>正解:③</strong><br>警察職員・自衛隊員には労働三権(団結権・団体交渉権・団体行動権)すべてが認められていません。①警察は労働三権すべて不可。②国家公務員の代償措置は「人事院」(人事委員会は地方公務員)。④労働三権は団結権・団体交渉権・団体行動権(請願権は請求権)。</div>
       </div>
+
       <div class="q-item">
-        <span class="kk-year-tag">共通テスト 2022年</span>
+        <span class="kk-year-tag">2022年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 参政権に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc2">
           <button class="kk-choice" onclick="ansKakomon('kkc2',0,2,'kkex2')">① 国民審査は最高裁判所裁判官を対象とし、参議院議員選挙と同時に実施される。</button>
           <button class="kk-choice" onclick="ansKakomon('kkc2',1,2,'kkex2')">② 憲法改正の国民投票では、有効投票の3分の2以上の賛成が必要である。</button>
           <button class="kk-choice" onclick="ansKakomon('kkc2',2,2,'kkex2')">③ 国民審査では、有効投票の過半数が罷免票であれば裁判官は罷免される。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 住民投票権（憲法95条）は、すべての法律の制定に必要な手続きである。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 住民投票権(憲法95条)は、すべての法律の制定に必要な手続きである。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex2"><strong>正解：③</strong><br>国民審査は有効投票の過半数が罷免票であれば罷免。①衆議院議員選挙（総選挙）と同時（参院選ではない）。②憲法改正の国民投票は過半数（3分の2は各議院での発議の要件）。④住民投票（95条）は特定の地方公共団体のみに適用する地方特別法の制定のみに必要。</div>
+        <div class="kk-explain" id="kkex2"><strong>正解:③</strong><br>国民審査は有効投票の過半数が罷免票であれば罷免。①衆議院議員選挙(総選挙)と同時(参院選ではない)。②憲法改正の国民投票は過半数(3分の2は各議院での発議の要件)。④住民投票(95条)は特定の地方公共団体のみに適用する地方特別法の制定のみに必要。</div>
       </div>
+
       <div class="q-item">
-        <span class="kk-year-tag">共通テスト 2023年</span>
+        <span class="kk-year-tag">2023年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. 請求権に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc3">
           <button class="kk-choice" onclick="ansKakomon('kkc3',0,2,'kkex3')">① 刑事補償請求権は、公務員の不法行為によって損害を受けた人が国に賠償を請求できる権利である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',1,2,'kkex3')">② 国家賠償請求権（17条）は、有罪判決が確定した後に無罪となった場合の補償を求める権利である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',2,2,'kkex3')">③ 郵便法損害賠償免責規定違憲判決（2002年）は、国家賠償請求権を保障した憲法17条に違反するとして違憲とされた。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',1,2,'kkex3')">② 国家賠償請求権(17条)は、有罪判決が確定した後に無罪となった場合の補償を求める権利である。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc3',2,2,'kkex3')">③ 郵便法損害賠償免責規定違憲判決(2002年)は、国家賠償請求権を保障した憲法17条に違反するとして違憲とされた。</button>
           <button class="kk-choice" onclick="ansKakomon('kkc3',3,2,'kkex3')">④ 裁判を受ける権利は日本国民にのみ保障され、外国人には認められない。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex3"><strong>正解：③</strong><br>郵便法損害賠償免責規定違憲判決（2002年）は国家賠償請求権（17条）違反として違憲→正しい。①は国家賠償請求権の説明（刑事補償請求権は無罪となった場合の補償）。②は刑事補償請求権の説明。④裁判を受ける権利は日本在住の外国人にも保障。</div>
+        <div class="kk-explain" id="kkex3"><strong>正解:③</strong><br>郵便法損害賠償免責規定違憲判決(2002年)は国家賠償請求権(17条)違反として違憲→正しい。①は国家賠償請求権の説明(刑事補償請求権は無罪となった場合の補償)。②は刑事補償請求権の説明。④裁判を受ける権利は日本在住の外国人にも保障。</div>
       </div>
+
       <div class="q-item">
         <span class="kk-year-tag">センター試験 2019年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 社会権に関する記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc4">
           <button class="kk-choice" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 憲法25条は生存権を保障し、「健康で文化的な最低限度の生活を営む権利」を定めている。</button>
           <button class="kk-choice" onclick="ansKakomon('kkc4',1,3,'kkex4')">② 憲法26条は教育を受ける権利を保障し、義務教育の無償化を定めている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 労働基本権は勤労権（27条）と労働三権（28条）からなる。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 労働基本権は勤労権(27条)と労働三権(28条)からなる。</button>
           <button class="kk-choice" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ 社会権は「国家からの自由」であり、国家が積極的に介入しないことで保障される。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
-        <div class="kk-explain" id="kkex4"><strong>正解：④</strong><br>社会権は「国家による自由」であり、国家が積極的に行動（作為）することで保障される権利である。「国家からの自由」は自由権の説明。①②③はすべて正しい。</div>
+        <div class="kk-explain" id="kkex4"><strong>正解:④</strong><br>社会権は「国家による自由」であり、国家が積極的に行動(作為)することで保障される権利です。「国家からの自由」は自由権の説明です。①②③はすべて正しい。</div>
       </div>
+      <div class="q-item">
+        <span class="kk-year-tag">2018年 センター試験本試</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6. 日本国憲法の下での教育や学問をめぐる権利や義務についての記述として<strong>最も適当なもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc5">
+          <button class="kk-choice" onclick="ansKakomon('kkc5',0,0,'kkex5')">① 憲法が保障する教育を受ける権利の基礎には、人が学習し成長する学習権の理念があるとされている。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',1,0,'kkex5')">② 憲法上、国民がその子どもに普通教育を受けさせる義務はない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',2,0,'kkex5')">③ 憲法が保障する学問の自由には、大学の自治は含まれない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc5',3,0,'kkex5')">④ 憲法上、国が小中学校での教育とともに高校での教育を無償で提供することとされている。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex5"><strong>正解:①</strong><br>憲法第26条で教育を受ける権利が保障され、学習権を保障したものと解されています。②憲法第26条で子どもに普通教育を受けさせる義務が定められている。③東大ポポロ事件で大学の自治は学問の自由に含まれるとされた。④義務教育(小中学校)のみ無償。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">2018年 試行調査(政経)</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 日本国憲法は、労働基本権(労働三権)を保障している。労働基本権は、労働者に「ある権利」を実質的に保障するためのものであるといわれている。その「ある権利」を定めた日本国憲法の条文として<strong>最も適当なもの</strong>を選べ。</div>
+        <div class="kk-choices" id="kkc6">
+          <button class="kk-choice" onclick="ansKakomon('kkc6',0,1,'kkex6')">① 財産権は、これを侵してはならない。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc6',1,1,'kkex6')">② すべて国民は、健康で文化的な最低限度の生活を営む権利を有する。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc6',2,1,'kkex6')">③ 信教の自由は、何人に対してもこれを保障する。</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc6',3,1,'kkex6')">④ 何人も、裁判所において裁判を受ける権利を奪はれない。</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex6"><strong>正解:②</strong><br>労働基本権が労働者に保障する「ある権利」とは生存権です。労働基本権は労働者が人間らしい生活を営むための手段として位置づけられています。憲法第25条1項の生存権の規定が根拠条文です。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">2020年 センター試験追試</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問8. 日本における参政権の保障に関する説明である。その正誤の<strong>組合せ</strong>として正しいものを選べ。<br><br>ア 日本国憲法の施行に先立って、衆議院議員選挙法が改正され、日本国籍をもつ20歳以上の男女に選挙権が認められた。<br>イ 日本国憲法は、「公務員を選定し、及びこれを罷免することは、国民固有の権利である」と定めている。<br>ウ 2015年の公職選挙法の改正をうけて、参議院議員の被選挙権が20歳以上に引き下げられた。</div>
+        <div class="kk-choices" id="kkc7">
+          <button class="kk-choice" onclick="ansKakomon('kkc7',0,1,'kkex7')">① ア正 イ正 ウ正</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',1,1,'kkex7')">② ア正 イ正 ウ誤</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',2,1,'kkex7')">③ ア正 イ誤 ウ正</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',3,1,'kkex7')">④ ア正 イ誤 ウ誤</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',4,1,'kkex7')">⑤ ア誤 イ正 ウ正</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc7',5,1,'kkex7')">⑥ ア誤 イ正 ウ誤</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex7')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex7"><strong>正解:②</strong><br>ア 正:1945年に衆議院議員選挙法が改正され、女性を含む20歳以上のすべての国民に選挙権が認められました。イ 正:憲法第15条1項に規定されています。ウ 誤:2015年の改正で選挙権は18歳以上に引き下げられましたが、被選挙権は参議院議員は満30歳以上のままです。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">2023年 共通テスト本試</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問9. 日本国憲法における権利と義務の規定について、次の会話文中の空欄[ア][イ]に当てはまる記述の<strong>組合せ</strong>として最も適当なものを選べ。<br><br>X:憲法第99条は、憲法尊重擁護義務を <strong>[ア]</strong> 。<br>Y:たとえば憲法第30条が定める納税の義務に関しては、<strong>[イ]</strong><br><br>[ア]a 公務員に負わせている / b すべての国民に負わせている<br>[イ]c 新たに国税を課したり現行の国税を変更したりするには法律に基づかねばならないから、憲法によって義務が具体的に発生しているわけではない / d 財政上必要な場合は法律の定めなしに国税を徴収することができるので、憲法によって義務が具体的に発生している</div>
+        <div class="kk-choices" id="kkc8">
+          <button class="kk-choice" onclick="ansKakomon('kkc8',0,0,'kkex8')">① ア-a イ-c</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc8',1,0,'kkex8')">② ア-a イ-d</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc8',2,0,'kkex8')">③ ア-b イ-c</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc8',3,0,'kkex8')">④ ア-b イ-d</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex8')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex8"><strong>正解:①</strong><br>ア-a:憲法第99条「天皇又は摂政及び国務大臣、国会議員、裁判官その他の<strong>公務員</strong>は、この憲法を尊重し擁護する義務を負ふ」。憲法は公務員に憲法遵守を要求しています(国民は「保障される側」)。イ-c:憲法第30条「国民は、<strong>法律の定めるところにより</strong>、納税の義務を負ふ」。国民の納税義務は個別の法律の定めによって具体的に発生します。</div>
+      </div>
+
+      <div class="q-item">
+        <span class="kk-year-tag">センター試験</span>
+        <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問10. 新しい人権A〜Cと、その内容ア〜ウとの<strong>組合せ</strong>として正しいものを選べ。<br><br>A アクセス権　B 知る権利　C プライバシー権<br><br>ア 自分に関する情報を自らコントロールする権利<br>イ マスメディアを利用して意見を発表したり反論したりする権利<br>ウ 政府情報の開示を求める権利</div>
+        <div class="kk-choices" id="kkc9">
+          <button class="kk-choice" onclick="ansKakomon('kkc9',0,3,'kkex9')">① A-ア B-イ C-ウ</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc9',1,3,'kkex9')">② A-ア B-ウ C-イ</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc9',2,3,'kkex9')">③ A-イ B-ア C-ウ</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc9',3,3,'kkex9')">④ A-イ B-ウ C-ア</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc9',4,3,'kkex9')">⑤ A-ウ B-ア C-イ</button>
+          <button class="kk-choice" onclick="ansKakomon('kkc9',5,3,'kkex9')">⑥ A-ウ B-イ C-ア</button>
+        </div>
+        <button class="kk-ans-btn" onclick="showKkEx('kkex9')">💡 解説を見る</button>
+        <div class="kk-explain" id="kkex9"><strong>正解:④</strong><br>A アクセス権=マスメディアを利用して意見を発表したり反論したりする権利(イ)。B 知る権利=政府情報の開示を求める権利(ウ・情報公開法によって制度化)。C プライバシー権=「私生活をみだりに公開されない権利」に加え、近年は自分に関する情報を自らコントロールする権利と解されている(ア)。</div>
+      </div>
+
+
     </div>
   </div>
-</div><!-- /vKakomon -->
 
-<!-- ⑥フラッシュカード -->
+</div><!-- /vRead -->
+<!-- ②一問一答テスト -->
+<div class="view" id="vQ">
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答①〜⑩ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問1</div>憲法25条が保障する「すべて国民は、(　　　)の生活を営む権利を有する」の空欄を答えよ。→ <span class="blank" data-ans="健康で文化的な最低限度" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問2</div>憲法25条の生存権は国民に具体的権利を与えたものではなく国家の努力目標に過ぎないとする説を何というか。→ <span class="blank" data-ans="プログラム規定説" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問3</div>生活保護基準の低さが25条違反かが争点となり、厚生大臣の裁量として合憲とされた裁判を何というか。→ <span class="blank" data-ans="朝日訴訟" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問4</div>障害福祉年金と児童扶養手当の併給禁止が25条違反かが争点となり、国会の裁量として合憲とされた裁判を何というか。→ <span class="blank" data-ans="堀木訴訟" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問5</div>憲法26条が定める教育権の保障と義務教育について何を規定しているか。→ 教育を受ける権利と義務教育の<span class="blank" data-ans="無償化" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問6</div>労働基本権は「勤労権」と何からなるか。→ <span class="blank" data-ans="労働三権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問7</div>労働三権を3つ答えよ。→ <span class="blank" data-ans="団結権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="団体交渉権" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="団体行動権" onclick="fillBlank(this)"></span>(争議権)</div>
+      <div class="q-item"><div class="qt">問8</div>労働三権がすべて認められていない公務員の職種を2つ答えよ。→ <span class="blank" data-ans="警察職員" onclick="fillBlank(this)"></span>・<span class="blank" data-ans="自衛隊員" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問9</div>国家公務員の労働基本権制限の代償措置として何があるか。→ <span class="blank" data-ans="人事院" onclick="fillBlank(this)"></span>の勧告制度</div>
+      <div class="q-item"><div class="qt">問10</div>最高裁判所裁判官の国民審査は何と同時に実施され、何が過半数なら罷免されるか。→ <span class="blank" data-ans="衆議院議員選挙" onclick="fillBlank(this)"></span>と同時。<span class="blank" data-ans="罷免を求める票" onclick="fillBlank(this)"></span>が過半数で罷免。</div>
+      <div class="note-box">【語群①〜⑩】健康で文化的な最低限度　プログラム規定説　朝日訴訟　堀木訴訟　無償化　労働三権　団結権　団体交渉権　団体行動権　警察職員　自衛隊員　人事院　衆議院議員選挙　罷免を求める票</div>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-head-q"><div class="s-icon">Q</div><div class="s-ht">一問一答⑪〜⑳ ─ 語群から選んで空欄を埋めよ</div></div>
+    <div class="s-body">
+      <div class="q-item"><div class="qt">問11</div>地方公務員の労働基本権制限の代償措置は何か。→ <span class="blank" data-ans="人事委員会" onclick="fillBlank(this)"></span>の勧告制度</div>
+      <div class="q-item"><div class="qt">問12</div>国家に対して要求・要望を行う権利を何というか(16条)。→ <span class="blank" data-ans="請願権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問13</div>公務員の不法行為で損害を受けた人が国・地方公共団体に賠償を請求できる権利を何というか(17条)。→ <span class="blank" data-ans="国家賠償請求権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問14</div>裁判で無罪となった場合、抑留・拘禁された分の損害補償を求める権利を何というか(40条)。→ <span class="blank" data-ans="刑事補償請求権" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問15</div>2002年に出た請求権に関する違憲判決の名称は何か。→ <span class="blank" data-ans="郵便法損害賠償免責規定違憲判決" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問16</div>郵便法損害賠償免責規定違憲判決で違反とされた憲法の条文は何か。→ 憲法<span class="blank" data-ans="17条" onclick="fillBlank(this)"></span>(国家賠償請求権)</div>
+      <div class="q-item"><div class="qt">問17</div>特定の地方公共団体のみに適用する地方特別法の制定に必要な住民投票権は憲法何条か。→ 憲法<span class="blank" data-ans="95条" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問18</div>憲法改正の国民投票の根拠条文は何条か。改正に必要な賛成割合は?→ 憲法<span class="blank" data-ans="96条" onclick="fillBlank(this)"></span>。有効投票の<span class="blank" data-ans="過半数" onclick="fillBlank(this)"></span>の賛成</div>
+      <div class="q-item"><div class="qt">問19</div>「公務員は全体の(　　　)であり、争議行為を禁止することは違憲ではない」という最高裁の判断における空欄を答えよ。→ <span class="blank" data-ans="奉仕者" onclick="fillBlank(this)"></span></div>
+      <div class="q-item"><div class="qt">問20</div>朝日訴訟・堀木訴訟のどちらでも示された、25条の性質に関する説を何というか。→ <span class="blank" data-ans="プログラム規定説" onclick="fillBlank(this)"></span></div>
+      <div class="note-box">【語群⑪〜⑳】人事委員会　請願権　国家賠償請求権　刑事補償請求権　郵便法損害賠償免責規定違憲判決　17条　95条　96条　過半数　奉仕者　プログラム規定説</div>
+    </div>
+  </div>
+</div><!-- /vQ -->
+
+<!-- ③正誤 -->
+<div class="view" id="vSeigo">
+  <div class="s-card">
+    <div class="s-head-seigo"><div class="s-icon">○×</div><div class="s-ht">正誤問題 ── 正しい場合は○、誤りの場合は×を選択せよ</div></div>
+    <div class="s-body">
+      <div class="seigo-item" id="sg0"><div class="seigo-q">① 憲法25条のプログラム規定説とは、25条が国民に具体的な生活保護請求権を直接与えているという考え方である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(0,true,false,'誤り。プログラム規定説は「憲法25条は国家の努力目標(プログラム)を定めたに過ぎず、国民に具体的な権利を直接与えたものではない」とする考え方です。具体的な権利を与えているという考え方はプログラム規定説に対する批判的見解(具体的権利説)です。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(0,false,false,'誤り。プログラム規定説は「憲法25条は国家の努力目標(プログラム)を定めたに過ぎず、国民に具体的な権利を直接与えたものではない」とする考え方です。具体的な権利を与えているという考え方はプログラム規定説に対する批判的見解(具体的権利説)です。')">× 誤り</button></div><div class="seigo-explain" id="sgex0"></div></div>
+
+      <div class="seigo-item" id="sg1"><div class="seigo-q">② 朝日訴訟では、最高裁が「憲法25条は具体的な権利を与えており、生活保護基準は低すぎて違憲」と判断した。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(1,true,false,'誤り。最高裁は「憲法25条はプログラム規定であり、厚生大臣の裁量の範囲内であって合憲」と判断しました。違憲判決ではありません。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(1,false,false,'誤り。最高裁は「憲法25条はプログラム規定であり、厚生大臣の裁量の範囲内であって合憲」と判断しました。違憲判決ではありません。')">× 誤り</button></div><div class="seigo-explain" id="sgex1"></div></div>
+
+      <div class="seigo-item" id="sg2"><div class="seigo-q">③ 労働三権とは、団結権・団体交渉権・団体行動権(争議権)の3つである。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(2,true,true,'正しい。労働三権は①団結権(労働組合を結成できる)②団体交渉権(使用者と賃金・労働条件を交渉できる)③団体行動権(争議権)(ストライキなどができる)の3つです(憲法28条)。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(2,false,true,'正しい。労働三権は①団結権(労働組合を結成できる)②団体交渉権(使用者と賃金・労働条件を交渉できる)③団体行動権(争議権)(ストライキなどができる)の3つです(憲法28条)。')">× 誤り</button></div><div class="seigo-explain" id="sgex2"></div></div>
+
+      <div class="seigo-item" id="sg3"><div class="seigo-q">④ 警察職員と自衛隊員には、労働三権のうち団体行動権(争議権)のみが認められていない。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(3,true,false,'誤り。警察職員と自衛隊員には労働三権「すべて」が認められていません(団結権・団体交渉権・団体行動権の全3つ)。これが最も厳しい制約で、一般の公務員は争議権のみ認められていません。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(3,false,false,'誤り。警察職員と自衛隊員には労働三権「すべて」が認められていません(団結権・団体交渉権・団体行動権の全3つ)。これが最も厳しい制約で、一般の公務員は争議権のみ認められていません。')">× 誤り</button></div><div class="seigo-explain" id="sgex3"></div></div>
+
+      <div class="seigo-item" id="sg4"><div class="seigo-q">⑤ 国民審査は最高裁判所裁判官の審査で、参議院議員選挙と同時に実施される。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(4,true,false,'誤り。国民審査は「衆議院議員選挙(総選挙)」と同時に実施されます(参議院議員選挙ではありません)。有効投票の過半数が罷免を求める票であれば罷免されます。これまで罷免された裁判官はいません。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(4,false,false,'誤り。国民審査は「衆議院議員選挙(総選挙)」と同時に実施されます(参議院議員選挙ではありません)。有効投票の過半数が罷免を求める票であれば罷免されます。これまで罷免された裁判官はいません。')">× 誤り</button></div><div class="seigo-explain" id="sgex4"></div></div>
+
+      <div class="seigo-item" id="sg5"><div class="seigo-q">⑥ 刑事補償請求権とは、公務員の不法行為で損害を受けた人が国に賠償を請求できる権利である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(5,true,false,'誤り。それは「国家賠償請求権」(憲法17条)の説明です。刑事補償請求権(憲法40条)は「刑事裁判で無罪となった場合に、抑留・拘禁されていたことによる損害の補償を求める権利」です。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(5,false,false,'誤り。それは「国家賠償請求権」(憲法17条)の説明です。刑事補償請求権(憲法40条)は「刑事裁判で無罪となった場合に、抑留・拘禁されていたことによる損害の補償を求める権利」です。')">× 誤り</button></div><div class="seigo-explain" id="sgex5"></div></div>
+
+      <div class="seigo-item" id="sg6"><div class="seigo-q">⑦ 郵便法損害賠償免責規定違憲判決(2002年)は、国家賠償請求権を保障した憲法17条に違反するとして違憲とされた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(6,true,true,'正しい。2002年の郵便法損害賠償免責規定違憲判決では、書留郵便の遅延について国の損害賠償責任を定めていない郵便法の規定が、国家賠償請求権を保障した憲法17条に違反するとして違憲と判断されました。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(6,false,true,'正しい。2002年の郵便法損害賠償免責規定違憲判決では、書留郵便の遅延について国の損害賠償責任を定めていない郵便法の規定が、国家賠償請求権を保障した憲法17条に違反するとして違憲と判断されました。')">× 誤り</button></div><div class="seigo-explain" id="sgex6"></div></div>
+
+      <div class="seigo-item" id="sg7"><div class="seigo-q">⑧ 国家公務員の労働基本権制限の代償措置は人事委員会の勧告制度、地方公務員の場合は人事院の勧告制度である。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(7,true,false,'誤り。逆です。国家公務員の代償措置は「人事院」の勧告制度、地方公務員の代償措置は「人事委員会」の勧告制度です。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(7,false,false,'誤り。逆です。国家公務員の代償措置は「人事院」の勧告制度、地方公務員の代償措置は「人事委員会」の勧告制度です。')">× 誤り</button></div><div class="seigo-explain" id="sgex7"></div></div>
+
+      <div class="seigo-item" id="sg8"><div class="seigo-q">⑨ 堀木訴訟では、障害福祉年金と児童扶養手当の併給禁止規定が憲法25条に違反するとして違憲とされた。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(8,true,false,'誤り。堀木訴訟では、最高裁は「社会福祉は国会の裁量にゆだねられており、裁判所の司法判断の対象ではない」として合憲と判断しました。その後、法律が改められ併給が認められるようになりました。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(8,false,false,'誤り。堀木訴訟では、最高裁は「社会福祉は国会の裁量にゆだねられており、裁判所の司法判断の対象ではない」として合憲と判断しました。その後、法律が改められ併給が認められるようになりました。')">× 誤り</button></div><div class="seigo-explain" id="sgex8"></div></div>
+
+      <div class="seigo-item" id="sg9"><div class="seigo-q">⑩ 憲法26条の教育を受ける権利には、全員を同一に扱う形式的平等と、経済的弱者への支援を行う実質的平等の両方の面がある。</div><div class="seigo-btns"><button class="seigo-btn" onclick="ansSeigo(9,true,true,'正しい。憲法26条の教育を受ける権利には、差別的取扱いを禁止する形式的平等と、経済的弱者への奨学金制度や就学援助の整備などを通じて積極的に是正しようとする実質的平等の2つの面があります。')">○ 正しい</button><button class="seigo-btn" onclick="ansSeigo(9,false,true,'正しい。憲法26条の教育を受ける権利には、差別的取扱いを禁止する形式的平等と、経済的弱者への奨学金制度や就学援助の整備などを通じて積極的に是正しようとする実質的平等の2つの面があります。')">× 誤り</button></div><div class="seigo-explain" id="sgex9"></div></div>
+    </div>
+  </div>
+</div><!-- /vSeigo -->
+
+<!-- ④フラッシュカード -->
 <div class="view" id="vFlash">
   <div class="s-card">
     <div class="s-head-fc"><div class="s-icon">⚡</div><div class="s-ht">フラッシュカード ─ 社会権・参政権・請求権</div></div>
     <div class="s-body">
       <div class="fc-settings">
-        <span class="fc-set-lbl">⏱ 速度：</span>
+        <span class="fc-set-lbl">⏱ 速度:</span>
         <div class="spd-btns"><button class="spd-btn active" data-sec="0" onclick="setFcSpeed(this)">手動</button><button class="spd-btn" data-sec="2" onclick="setFcSpeed(this)">2秒</button><button class="spd-btn" data-sec="3" onclick="setFcSpeed(this)">3秒</button><button class="spd-btn" data-sec="4" onclick="setFcSpeed(this)">4秒</button></div>
-        <span class="fc-set-lbl" style="margin-left:8px">📌 モード：</span>
+        <span class="fc-set-lbl" style="margin-left:8px">📌 モード:</span>
         <div class="mode-btns"><button class="mode-btn active" data-mode="term" onclick="setFcMode(this)">用語→意味</button><button class="mode-btn" data-mode="def" onclick="setFcMode(this)">意味→用語</button></div>
         <button class="fc-start-btn" onclick="startFc()">▶ スタート</button>
       </div>
       <div class="fc-arena" id="fcArena">
         <div class="fc-prog-wrap"><div class="fc-prog-bar"><div class="fc-prog-fill" id="fcProgFill" style="width:0%"></div></div><div class="fc-prog-txt" id="fcProgTxt">0 / 0</div></div>
-        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた：<span id="fcOkCnt">0</span></span><span>❌ もう一度：<span id="fcNgCnt">0</span></span></div>
+        <div class="fc-stat-row2"><span>⏱ <span id="fcTimerDisp" style="color:var(--gold);font-weight:700">0.0</span>秒</span><span>✅ 覚えた:<span id="fcOkCnt">0</span></span><span>❌ もう一度:<span id="fcNgCnt">0</span></span></div>
         <div class="flash-card" id="flashCard" onclick="fcFlipOrNext()">
           <div class="fc-unit-tag2">⑨ 社会権・参政権・請求権</div>
           <div class="fc-side-tag2 q" id="fcSideTag">問題</div>
@@ -441,49 +812,355 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 </div><!-- /main -->
 <div class="jbanner" id="jbanner"></div>
 <div class="foot">
-  <button class="fbtn f-expl"   id="bExpl"      onclick="goChallE()">📝 確認する</button>
-  <button class="fbtn f-next"   id="bGoQ"        onclick="goTest()">▶ テストへ</button>
+  <button class="fbtn f-expl"   id="bExpl"      onclick="goTest()">▶ 一問一答テストへ</button>
   <button class="fbtn f-next"   id="bGoFlashTop" onclick="goFlash()" style="background:var(--blue)">⚡ フラッシュカード</button>
-  <button class="fbtn f-check"  id="bCheckE"     onclick="checkExplain()" style="display:none">✔ 確　認</button>
-  <button class="fbtn f-hint"   id="bHint"       onclick="showHint()" style="display:none">📖 お手本</button>
-  <button class="fbtn f-next"   id="bGoQ2"       onclick="goTest()" style="display:none">▶ テストへ</button>
   <button class="fbtn f-judge"  id="bJudge"      onclick="judgeAll()" style="display:none">✔ 判　定</button>
   <button class="fbtn f-retry"  id="bRetry"      onclick="retryQ()" style="display:none">↺ やり直し</button>
   <button class="fbtn f-next"   id="bGoSeigo"    onclick="goSeigo()" style="display:none">▶ 正誤問題へ</button>
-  <button class="fbtn f-next"   id="bGoKakomon"  onclick="goKakomon()" style="display:none">▶ 過去問へ</button>
   <button class="fbtn f-next"   id="bGoFlash"    onclick="goFlash()" style="display:none">⚡ フラッシュカードへ</button>
   <button class="fbtn f-back"   id="bBack"       onclick="backToRead()" style="display:none">📖 説明に戻る</button>
   <div class="score-pill" id="spill" style="display:none"></div>
 </div>
 <div class="blank-popup" id="popup"><div class="bp-arrow"></div></div>
-<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか？</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
+<div class="modal-ov" id="pauseModal"><div class="modal-box"><div class="modal-title">⏸ 中断しますか?</div><div class="modal-btns"><button class="modal-btn mb-resume" onclick="closePause()">▶ 続きから再開</button><button class="modal-btn mb-back" onclick="backToRead()">📖 説明に戻る</button><button class="modal-btn mb-cancel" onclick="closePause()">キャンセル</button></div></div></div>
 <a class="home-btn" href="seikei_index.html">🏠 単元表</a>
 
 <script>
-const EW=['健康で文化的な最低限度','プログラム規定説','朝日訴訟','厚生大臣','プログラム規定','堀木訴訟','併給禁止','国会','教育を受ける権利','無償化','形式的平等','実質的平等','勤労権','労働三権','団結権','団体交渉権','団体行動権','争議権','警察職員・自衛隊員','人事院','人事委員会','国民審査権','衆議院議員選挙','過半数','住民投票権','憲法改正の国民投票','請願権','国家賠償請求権','刑事補償請求権','国家賠償請求権','17条','郵便法損害賠償免責規定違憲判決'];
-const QW=['健康で文化的な最低限度','プログラム規定説','朝日訴訟','堀木訴訟','無償化','労働三権','団結権','団体交渉権','団体行動権','警察職員','自衛隊員','人事院','衆議院議員選挙','罷免を求める票','人事委員会','請願権','国家賠償請求権','刑事補償請求権','郵便法損害賠償免責規定違憲判決','17条','95条','96条','過半数','奉仕者','プログラム規定説'];
+// 単元別の語群
+const UNIT_WORDS={
+  u1:['健康で文化的な最低限度','プログラム規定説','厚生大臣','プログラム規定','併給禁止','国会'],
+  u2:['教育を受ける権利','無償化','形式的平等','実質的平等','勤労権','労働三権','団結権','団体交渉権','団体行動権','争議権','警察職員・自衛隊員','人事院','人事委員会'],
+  u3:['国民審査権','衆議院議員選挙','過半数','住民投票権','憲法改正の国民投票'],
+  u4:['請願権','国家賠償請求権','刑事補償請求権','17条']
+};
+// 単元別の確認問題の正解インデックス
+const UQ_ANS={
+  u1:[1,1,2,1], u2:[1,2,2,1], u3:[1,1,1,1], u4:[1,1,2,1]
+};
+
+// 単元の状態
+const _unitState={};
+
+// 単元の語群を初期化
+function _initUnitWb(uid){
+  var box=document.getElementById('uwb-chips-'+uid);
+  if(!box)return;
+  box.innerHTML='';
+  var words=UNIT_WORDS[uid].slice().sort(function(){return Math.random()-.5});
+  words.forEach(function(w){
+    var btn=document.createElement('button');
+    btn.className='unit-wb-chip';
+    btn.textContent=w;
+    btn.dataset.word=w;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var st=_unitState[uid];
+      if(!st||!st.active)return;
+      if(st.selChip&&st.selChip!==btn)st.selChip.classList.remove('sel');
+      if(st.selChip===btn){st.selChip=null;btn.classList.remove('sel');return}
+      st.selChip=btn;btn.classList.add('sel');
+    });
+    box.appendChild(btn);
+  });
+}
+
+// チャレンジ開始 - 該当単元の空欄を空にする
+function startUnitChallenge(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  _unitState[uid]={active:true,selChip:null};
+  // 空欄をクリア(unit-quiz内のものは除く)
+  card.querySelectorAll('.s-body > .person-row .blank, .s-body > .gtbl .blank, .s-body > table .blank').forEach(function(b){
+    b.textContent='';
+    b.classList.remove('show','ok','ng');
+    b.classList.add('cmode');
+    b.onclick=function(){_fillUnitBlank(uid,b)};
+  });
+  // 直接の子要素から取得し直し
+  var allBlanks=[];
+  card.querySelectorAll('.blank').forEach(function(b){
+    // unit-quiz内は除外
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    allBlanks.push(b);
+    b.textContent='';
+    b.classList.remove('show','ok','ng');
+    b.classList.add('cmode');
+    b.onclick=function(e){e.stopPropagation();_fillUnitBlank(uid,b)};
+  });
+  _initUnitWb(uid);
+  _hide('ub-check-'+uid);_hide('ub-hint-'+uid);_hide('ub-retry-'+uid);
+  _show('ub-check-'+uid);_show('ub-hint-'+uid);
+  document.getElementById('ub-score-'+uid).style.display='none';
+}
+
+// 単元の空欄に語を入れる
+function _fillUnitBlank(uid,blank){
+  var st=_unitState[uid];
+  if(!st)return;
+  if(st.selChip){
+    blank.textContent=st.selChip.textContent;
+    blank.classList.remove('ok','ng');
+    st.selChip.classList.remove('sel');
+    st.selChip=null;
+    return;
+  }
+  if(blank.textContent.trim()!=''){
+    blank.textContent='';
+    blank.classList.remove('ok','ng');
+  }
+}
+
+// 答え合わせ
+function checkUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  var ok=0,total=0;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    total++;
+    if(b.textContent.trim()===b.dataset.ans){
+      b.classList.add('ok');b.classList.remove('ng');ok++;
+    }else{
+      b.classList.add('ng');b.classList.remove('ok');
+    }
+  });
+  var sc=document.getElementById('ub-score-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解';sc.style.display='inline-block';
+  _show('ub-retry-'+uid);
+  if(ok===total&&total>0){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// お手本(全部見せる)
+function hintUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    if(!b.classList.contains('ok')){
+      b.textContent=b.dataset.ans;
+      b.classList.remove('ng');
+      b.classList.add('show');
+    }
+  });
+  _hideBanner();
+}
+
+// もう一度
+function retryUnit(uid){
+  var card=document.querySelector('[data-unit="'+uid+'"]');
+  if(!card)return;
+  card.querySelectorAll('.blank.cmode').forEach(function(b){
+    if(b.closest('.unit-quiz'))return;
+    if(b.closest('.unit-wb'))return;
+    b.textContent='';
+    b.classList.remove('ok','ng','show');
+  });
+  _initUnitWb(uid);
+  document.getElementById('ub-score-'+uid).style.display='none';
+  _hideBanner();
+}
+
+// 単元の4択問題を開く
+function openUnitQuiz(uid){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  box.classList.toggle('on');
+  if(box.classList.contains('on')){
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+// 単元の過去問を開く
+function openUnitKakomon(uid){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  box.classList.toggle('on');
+  if(box.classList.contains('on')){
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+// 単元過去問の採点
+function judgeUnitKakomon(uid,total){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  var ok=0,answered=0;
+  qs.forEach(function(q){
+    if(q.dataset.answered){
+      answered++;
+      if(q.dataset.correct==='1')ok++;
+    }
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.add('on');
+  });
+  var sc=document.getElementById('uks-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解'+(answered<total?' (未回答 '+(total-answered)+'問)':'');
+  sc.style.display='inline-block';
+  if(ok===total){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// 単元過去問の再チャレンジ
+function resetUnitKakomon(uid,total){
+  var box=document.getElementById('uk-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  qs.forEach(function(q){
+    delete q.dataset.answered;
+    delete q.dataset.correct;
+    q.querySelectorAll('.uqc').forEach(function(b){
+      b.classList.remove('correct','wrong');
+      var attr=b.getAttribute('data-orig-onclick')||b.getAttribute('onclick');
+      if(attr){
+        b.onclick=new Function('event',attr);
+      }
+    });
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.remove('on');
+  });
+  var sc=document.getElementById('uks-'+uid);
+  if(sc)sc.style.display='none';
+  _hideBanner();
+}
+
+// 単元4択の解答
+function ansUQ(qid,sel,cor){
+  var qBox=document.getElementById('uqex-'+qid);
+  if(!qBox)return;
+  var parent=qBox.parentElement;
+  var btns=parent.querySelectorAll('.uqc');
+  if(parent.dataset.answered)return;
+  parent.dataset.answered='1';
+  parent.dataset.correct=(sel===cor)?'1':'0';
+  btns.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+  });
+  // 不正解時のみ解説を表示
+  if(sel!==cor){
+    qBox.classList.add('on');
+  }
+}
+
+// 単元4択の採点
+function judgeUnitQuiz(uid,total){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  var ok=0,answered=0;
+  qs.forEach(function(q){
+    if(q.dataset.answered){
+      answered++;
+      if(q.dataset.correct==='1')ok++;
+    }
+    // 全問の解説を表示
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.add('on');
+  });
+  var sc=document.getElementById('uqs-'+uid);
+  sc.textContent=ok+' / '+total+' 問正解'+(answered<total?' (未回答 '+(total-answered)+'問)':'');
+  sc.style.display='inline-block';
+  if(ok===total){
+    _showBanner(true,ok,total);
+    _startConf();setTimeout(_stopConf,4000);
+  }else{
+    _showBanner(false,ok,total);
+  }
+}
+
+// 単元4択の再チャレンジ
+function resetUnitQuiz(uid,total){
+  var box=document.getElementById('uq-'+uid);
+  if(!box)return;
+  var qs=box.querySelectorAll('.unit-quiz-q');
+  qs.forEach(function(q){
+    delete q.dataset.answered;
+    delete q.dataset.correct;
+    q.querySelectorAll('.uqc').forEach(function(b,i){
+      b.classList.remove('correct','wrong');
+      // 元のonclick属性を再設定するために、元のhandler属性を復元
+      var orig=b.getAttribute('data-orig-onclick');
+      if(!orig){
+        // 初回:現在のonclickを保存
+        var attr=b.getAttribute('onclick');
+        if(attr)b.setAttribute('data-orig-onclick',attr);
+      }else{
+        b.setAttribute('onclick',orig);
+      }
+      // 再度onclick動作を有効化(setAttributeは効かない場合があるのでハンドラ再設定)
+    });
+    // 再bind: onclick属性の文字列からansUQ呼び出しを再現するのは複雑なので、
+    // ここでは shouldRebind 用にonclick属性を再評価する方法を使う
+    q.querySelectorAll('.uqc').forEach(function(b){
+      var attr=b.getAttribute('data-orig-onclick')||b.getAttribute('onclick');
+      if(attr){
+        b.onclick=new Function('event',attr);
+      }
+    });
+    var ex=q.querySelector('.uqc-explain');
+    if(ex)ex.classList.remove('on');
+  });
+  var sc=document.getElementById('uqs-'+uid);
+  if(sc)sc.style.display='none';
+  _hideBanner();
+}
+
+// 初期化:確認問題ボタンに onclick属性を退避
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.uqc').forEach(function(b){
+    var attr=b.getAttribute('onclick');
+    if(attr)b.setAttribute('data-orig-onclick',attr);
+  });
+});
+</script>
+<script>
+const QW=['健康で文化的な最低限度','プログラム規定説','朝日訴訟','堀木訴訟','無償化','労働三権','団結権','団体交渉権','団体行動権','警察職員','自衛隊員','人事院','衆議院議員選挙','罷免を求める票','人事委員会','請願権','国家賠償請求権','刑事補償請求権','郵便法損害賠償免責規定違憲判決','17条','95条','96条','過半数','奉仕者'];
 
 const FC_CARDS=[
-  {q:'憲法25条の生存権の条文は？（穴埋め）「すべて国民は、（　　　）の生活を営む権利を有する。」',a:'健康で文化的な最低限度'},
-  {q:'プログラム規定説とは何か？',a:'憲法25条は国民に具体的な権利を与えたものではなく、国家の努力目標（プログラム）を定めたに過ぎないという考え方'},
-  {q:'朝日訴訟の内容と判決は？',a:'生活保護基準の低さが25条違反かが争点→最高裁は「プログラム規定・厚生大臣の裁量の範囲で合憲」と判断'},
-  {q:'堀木訴訟の内容と判決は？',a:'障害福祉年金と児童扶養手当の併給禁止が25条違反かが争点→「社会福祉は国会の裁量にゆだねられており合憲」と判断（後に法改正で併給可）'},
-  {q:'憲法26条が定める内容は？（2つ）',a:'①教育を受ける権利の保障　②義務教育の無償化'},
-  {q:'労働基本権の構成を答えよ。',a:'勤労権（27条）＋労働三権（28条）＝団結権・団体交渉権・団体行動権（争議権）'},
-  {q:'労働三権をすべて答えよ。',a:'①団結権（労働組合を作れる）②団体交渉権（賃金交渉できる）③団体行動権・争議権（ストライキができる）'},
-  {q:'労働三権がすべて認められていない公務員は？',a:'警察職員・自衛隊員（この2つは労働三権すべて不可）'},
-  {q:'すべての公務員に認められていない権利は？代償措置は？',a:'争議権（団体行動権）。代償措置：国家公務員→人事院の勧告、地方公務員→人事委員会の勧告'},
-  {q:'国民審査とは何か？実施のタイミングと罷免の条件は？',a:'最高裁判所裁判官の審査。衆議院議員選挙と同時に実施。有効投票の過半数が罷免票で罷免'},
-  {q:'住民投票権（憲法95条）はどんな場合に必要か？',a:'特定の地方公共団体のみに適用する法律（地方特別法）を制定する場合'},
-  {q:'憲法改正の国民投票（96条）の手続きは？',a:'①各議院の総議員の3分の2以上の発議→②国民投票で有効投票の過半数の賛成→③天皇が公布'},
-  {q:'請願権（16条）とは何か？',a:'国家に対して法律の制定改廃・要求・要望などを行う権利（法律の直接請求権は除く）'},
-  {q:'国家賠償請求権（17条）とは何か？',a:'公務員の不法行為で損害を受けた人が国・地方公共団体に損害賠償を請求できる権利'},
-  {q:'刑事補償請求権（40条）とは何か？',a:'刑事裁判で無罪となった場合、抑留・拘禁されていたことによる損害の補償を求める権利'},
-  {q:'郵便法損害賠償免責規定違憲判決（2002年）の内容は？違反した条文は？',a:'書留郵便の遅延について国の損害賠償責任を定めない郵便法が違憲。憲法17条（国家賠償請求権）違反'},
-  {q:'朝日訴訟と堀木訴訟の被告はそれぞれ誰（何）か？',a:'朝日訴訟→厚生大臣　堀木訴訟→国会（社会福祉は国会の裁量）'},
-  {q:'国家賠償請求権と刑事補償請求権の違いは？',a:'国家賠償請求権（17条）：公務員の不法行為による損害の賠償。刑事補償請求権（40条）：無罪となった場合の抑留・拘禁の補償'},
-  {q:'公務員の争議行為を禁止することが違憲ではない理由（最高裁の論拠）は？',a:'「公務員は全体の奉仕者であり、争議行為を行えば国民全体の共同利益が損なわれるおそれがある」ため'},
-  {q:'社会権が「国家による自由」と呼ばれる理由は？',a:'国家が積極的に行動（作為）することで保障される権利だから（自由権=国家からの自由=国家に不作為を求めるのと対比）'},
+  {q:'社会権とは?自由権との違いは?',a:'国家による積極的な介入で保障される「国家による自由」。自由権の「国家からの自由」とは対照的'},
+  {q:'憲法25条1項の文言は?',a:'「すべて国民は、健康で文化的な最低限度の生活を営む権利を有する」(生存権)'},
+  {q:'プログラム規定説とは?',a:'憲法25条は国民に具体的な権利を与えたものではなく、国家の努力目標を定めたに過ぎないとする説。最高裁の立場'},
+  {q:'朝日訴訟の争点と判断は?',a:'生活保護基準(月額600円)の低さが25条違反かが争点。最高裁は「プログラム規定であり厚生大臣の裁量の範囲内」として合憲'},
+  {q:'堀木訴訟の争点と判断は?',a:'障害福祉年金と児童扶養手当の併給禁止規定が25条違反かが争点。最高裁は「社会福祉は国会の裁量」として合憲'},
+  {q:'憲法26条の内容は?',a:'すべての国民に教育を受ける権利を保障。義務教育の無償化を規定'},
+  {q:'憲法26条にある2つの平等の側面は?',a:'形式的平等(差別的取扱いの禁止)と実質的平等(経済的弱者への就学援助・奨学金制度)'},
+  {q:'労働基本権を構成する2つの権利は?',a:'勤労権(27条:働く意思と能力のある人が国に労働の機会を求める権利)と労働三権(28条)'},
+  {q:'労働三権とは?(3つ)',a:'①団結権(労働組合の結成) ②団体交渉権(賃金・労働条件の交渉) ③団体行動権(=争議権・ストライキ等)'},
+  {q:'団結権とは?',a:'労働組合を結成できる権利'},
+  {q:'団体交渉権とは?',a:'使用者と賃金・労働条件について交渉できる権利'},
+  {q:'団体行動権(争議権)とは?',a:'ストライキなどの争議行為ができる権利'},
+  {q:'すべての公務員に認められていない労働権は?',a:'団体行動権(争議権)。代償措置として人事院・人事委員会の勧告制度がある'},
+  {q:'労働三権すべてが認められていない公務員は?',a:'警察職員・自衛隊員。職務の性格から最も厳しい制約を受ける'},
+  {q:'国家公務員の労働基本権制限の代償措置は?',a:'人事院の勧告制度。給与等について政府・国会に勧告する'},
+  {q:'地方公務員の労働基本権制限の代償措置は?',a:'人事委員会の勧告制度。地方自治体ごとに設置される'},
+  {q:'参政権の主な4種類は?',a:'①選挙権・被選挙権 ②国民審査権(79条) ③住民投票権(95条) ④憲法改正の国民投票(96条)'},
+  {q:'国民審査権の対象と実施時期は?',a:'最高裁判所裁判官が対象。衆議院議員選挙(総選挙)と同時に実施。憲法79条'},
+  {q:'国民審査で罷免となる条件は?',a:'有効投票の過半数が罷免を求める票であれば罷免'},
+  {q:'住民投票権(95条)はどんなときに必要?',a:'特定の地方公共団体のみに適用する法律(地方特別法)の制定の際'},
+  {q:'憲法改正の国民投票の必要賛成数は?',a:'有効投票の過半数。3分の2以上は各議院での発議の要件であり混同しやすい'},
+  {q:'請求権(受益権)の4種類は?',a:'①請願権(16条) ②国家賠償請求権(17条) ③裁判を受ける権利(32条) ④刑事補償請求権(40条)'},
+  {q:'請願権(16条)とは?',a:'国家に対して要求・要望を行う権利。法律の制定改廃の直接請求権までは含まない'},
+  {q:'国家賠償請求権(17条)とは?',a:'公務員の不法行為で損害を受けた人が国・地方公共団体に賠償を請求できる権利'},
+  {q:'裁判を受ける権利(32条)の特徴は?',a:'国民だけでなく日本在住の外国人にも保障される'},
+  {q:'刑事補償請求権(40条)とは?',a:'裁判で無罪となった場合、抑留・拘禁された分の損害補償を求める権利'},
+  {q:'国家賠償請求権と刑事補償請求権の違いは?',a:'国家賠償:公務員の不法行為への賠償。刑事補償:無罪となった人への抑留・拘禁の補償'},
+  {q:'郵便法損害賠償免責規定違憲判決(2002年)とは?',a:'書留郵便の遅延について国の賠償責任を定めていない郵便法の規定が、国家賠償請求権を保障した憲法17条に違反するとして違憲'},
+  {q:'公務員の労働基本権制限の最高裁の論理は?',a:'「公務員は全体の奉仕者であり、争議行為を禁止することは違憲ではない」(全農林警職法事件)'},
+  {q:'社会権が初めて保障された憲法は?',a:'ワイマール憲法(1919年・ドイツ)。世界で初めて社会権を保障した憲法として知られる'},
 ];
 
 var _selChip=null,_tInt=null,_t0=0,_pausedMs=0;
@@ -496,29 +1173,24 @@ function _tick(){var ms=_pausedMs+(Date.now()-_t0);var m=String(Math.floor(ms/60
 function _startTimer(){_t0=Date.now();_tInt=setInterval(_tick,200)}
 function _stopTimer(){clearInterval(_tInt);_tInt=null}
 function _resetTimer(){_stopTimer();_pausedMs=0;_el('timerDisp').textContent='00:00'}
-function setPhase(n){for(var i=0;i<6;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
-function _showView(id){['vRead','vChallE','vQ','vSeigo','vKakomon','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
+function setPhase(n){for(var i=0;i<4;i++){var d=_el('d'+i),t=_el('t'+i);if(d)d.classList.toggle('on',i===n);if(t)t.classList.toggle('on',i===n)}}
+function _showView(id){['vRead','vQ','vSeigo','vFlash'].forEach(function(v){var el=_el(v);if(el)el.classList.toggle('on',v===id)});_currentView=id;window.scrollTo(0,0)}
 function _showWB(){_el('wbBar').style.display='block'}
 function _hideWB(){_el('wbBar').style.display='none'}
 function buildChips(words){var wb=_el('wbChips');wb.innerHTML='';_selChip=null;words.slice().sort(function(){return Math.random()-.5}).forEach(function(w){var btn=document.createElement('button');btn.className='chip';btn.textContent=w;btn.addEventListener('click',function(e){e.stopPropagation();if(_selChip&&_selChip!==btn)_selChip.classList.remove('sel');if(_selChip===btn){_selChip=null;btn.classList.remove('sel');return}_selChip=btn;btn.classList.add('sel')});wb.appendChild(btn)})}
-function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=(_currentView==='vChallE'?EW:QW).slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
+function _openPopup(blank){_popupTarget=blank;_popup.innerHTML='<div class="bp-arrow"></div>';var words=QW.slice().sort(function(){return Math.random()-.5});words.forEach(function(w){var b=document.createElement('button');b.className='bp-chip';b.textContent=w;b.addEventListener('click',function(e){e.stopPropagation();blank.textContent=w;blank.classList.remove('ok','ng','show');_closePopup()});_popup.appendChild(b)});var rect=blank.getBoundingClientRect();_popup.style.top=(rect.bottom+window.scrollY+4)+'px';_popup.style.left=Math.max(4,Math.min(rect.left+window.scrollX,window.innerWidth-324))+'px';_popup.classList.add('open')}
 function _closePopup(){_popup.classList.remove('open');_popupTarget=null}
 document.addEventListener('click',function(){_closePopup()});
 function fillBlank(b){if(_selChip){b.textContent=_selChip.textContent;b.classList.remove('ok','ng','show');_selChip.classList.remove('sel');_selChip=null;_closePopup();return}if(b===_popupTarget&&_popup.classList.contains('open')){_closePopup();return}if(b.textContent.trim()!=''){b.textContent='';b.classList.remove('ok','ng','show');_closePopup();return}_openPopup(b)}
-function goChallE(){_showView('vChallE');document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_showWB();setPhase(1);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_show('bCheckE');_show('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_hideBanner()}
-function checkExplain(){var bls=[].slice.call(document.querySelectorAll('#vChallE .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);if(ok===bls.length){_showBanner(true,ok,bls.length);_show('bGoQ2');_startConf();setTimeout(_stopConf,4000)}else _showBanner(false,ok,bls.length)}
-function showHint(){document.querySelectorAll('#vChallE .blank').forEach(function(b){if(!b.classList.contains('ok')){b.textContent=b.dataset.ans;b.classList.remove('ng');b.classList.add('show')}});_hideBanner();_el('bCheckE').textContent='↺ もう一度';_el('bCheckE').onclick=reChallE}
-function reChallE(){document.querySelectorAll('#vChallE .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng','show')});buildChips(EW);_hide('spill');_hideBanner();_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain}
-function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(2);_startTimer();_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hideBanner()}
+function goTest(){_showView('vQ');document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_showWB();setPhase(1);_startTimer();_hide('bExpl');_hide('bGoFlashTop');_hide('bGoFlash');_hide('spill');_show('bJudge');_show('bBack');_hide('bRetry');_hide('bGoSeigo');_hideBanner()}
 function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank')),ok=0;bls.forEach(function(b){if(b.textContent.trim()===b.dataset.ans){b.classList.add('ok');b.classList.remove('ng');ok++}else{b.classList.add('ng');b.classList.remove('ok')}});_showScore(ok,bls.length);_show('bRetry');_show('bGoSeigo');if(ok===bls.length){_stopTimer();_showBanner(true,ok,bls.length);_startConf();setTimeout(_stopConf,5000)}else _showBanner(false,ok,bls.length)}
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
-function goSeigo(){_showView('vSeigo');setPhase(3);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoKakomon');_show('bBack');_hideBanner()}
+function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function goKakomon(){_showView('vKakomon');setPhase(4);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
-function goFlash(){_showView('vFlash');setPhase(5);_hide('bExpl');_hide('bGoQ');_hide('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
-function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoQ');_show('bGoFlashTop');_hide('bCheckE');_hide('bHint');_hide('bGoQ2');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoKakomon');_hide('bGoFlash');_hide('bBack');_hide('spill');_el('bCheckE').textContent='✔ 確　認';_el('bCheckE').onclick=checkExplain;stopFc()}
+function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
+function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}
 var _fcCards=[],_fcIdx=0,_fcFlipped=false,_fcSpeed=0,_fcMode='term';
 var _fcAutoTimer=null,_fcTmrInt=null,_fcOkSet=new Set(),_fcNgSet=new Set();
 function setFcSpeed(btn){document.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');_fcSpeed=parseInt(btn.dataset.sec)*1000}
