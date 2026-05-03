@@ -2,6 +2,9 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>政治経済 GAMBA ① 国家と法(1)</title>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
@@ -165,6 +168,17 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 .kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
 .kk-tip-txt{color:#222}
 @keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.ans-summary{margin:8px 0 12px 0;padding:10px 12px;background:#fafafa;border-radius:7px;border:1px solid #e0e0e0;font-size:.88em}
+.asum-row{display:flex;gap:8px;align-items:flex-start;padding:6px 0;line-height:1.65}
+.asum-row+.asum-row{border-top:1px dashed #ddd;margin-top:4px}
+.asum-lbl{font-weight:700;flex-shrink:0;padding:2px 9px;border-radius:4px;font-size:.92em;color:#fff}
+.asum-ng .asum-lbl{background:#c1272d}
+.asum-ok .asum-lbl{background:#1a7a3e}
+.asum-mark{font-weight:900;font-size:1.18em;flex-shrink:0;color:#333}
+.asum-ng .asum-mark{color:#c1272d}
+.asum-ok .asum-mark{color:#1a7a3e}
+.asum-txt{flex:1;color:#333}
+
 
 
 </style>
@@ -1183,29 +1197,39 @@ function ansKakomon(gId,sel,cor,exId){
   var g=_el(gId);if(!g)return;
   var choices=g.querySelectorAll('.kk-choice');
   var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
-  // 既存のチップを除去
-  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
-  choices.forEach(function(b,i){
+  var oldTips=g.querySelectorAll('.kk-tip');
+  for(var k=0;k<oldTips.length;k++){if(oldTips[k].parentNode)oldTips[k].parentNode.removeChild(oldTips[k]);}
+  for(var i=0;i<choices.length;i++){
+    var b=choices[i];
     b.onclick=null;
-    if(i===cor)b.classList.add('correct');
-    else if(i===sel&&sel!==cor)b.classList.add('wrong');
-    // ボタンの直後に解説チップを追加(自分の選択肢と正解の選択肢のみ)
+    if(i===cor){b.classList.add('correct');}
+    else if(i===sel&&sel!==cor){b.classList.add('wrong');}
     if(i===sel||i===cor){
-      var tip=b.getAttribute('data-tip');
-      if(tip){
-        var div=document.createElement('div');
-        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
-        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
-        b.insertAdjacentElement('afterend',div);
+      var tip=b.getAttribute('data-tip')||'';
+      var div=document.createElement('div');
+      div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+      var labelTxt=(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1));
+      div.innerHTML='<span class="kk-tip-mark">'+labelTxt+'</span><span class="kk-tip-txt">'+tip+'</span>';
+      if(b.parentNode){
+        if(b.nextSibling){b.parentNode.insertBefore(div,b.nextSibling);}
+        else{b.parentNode.appendChild(div);}
       }
     }
-  });
-  // 全体バッジ(✅正解!/❌不正解)
+  }
   var ex=_el(exId);
   if(ex){
-    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
-    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
-    ex.insertAdjacentHTML('afterbegin',html);
+    var olds=ex.querySelectorAll('.ans-badge,.ans-summary');
+    for(var j=0;j<olds.length;j++){if(olds[j].parentNode)olds[j].parentNode.removeChild(olds[j]);}
+    var corText=(choices[cor]?choices[cor].textContent.replace(/^[\s]*[①②③④⑤⑥⑦⑧⑨][\s]*/,'').replace(/^\s+|\s+$/g,''):'');
+    var selText=(choices[sel]?choices[sel].textContent.replace(/^[\s]*[①②③④⑤⑥⑦⑧⑨][\s]*/,'').replace(/^\s+|\s+$/g,''):'');
+    var badgeHtml=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    var summaryHtml='<div class="ans-summary">';
+    if(sel!==cor){
+      summaryHtml+='<div class="asum-row asum-ng"><span class="asum-lbl">あなたの答え</span><span class="asum-mark">'+(marks[sel]||(sel+1))+'</span><span class="asum-txt">'+selText+'</span></div>';
+    }
+    summaryHtml+='<div class="asum-row asum-ok"><span class="asum-lbl">正解</span><span class="asum-mark">'+(marks[cor]||(cor+1))+'</span><span class="asum-txt">'+corText+'</span></div>';
+    summaryHtml+='</div>';
+    ex.insertAdjacentHTML('afterbegin',badgeHtml+summaryHtml);
   }
   showKkEx(exId);
 }
