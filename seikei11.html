@@ -152,6 +152,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -753,10 +767,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 衆議院の優越に関連する記述として<strong>正しいもの</strong>を、次の①〜④のうちから一つ選べ。</div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 衆参両院の議決が異なる法律案は、両院協議会でも成案が得られない場合、衆議院の議決が国会の議決となる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,2,'kkex0')">② 参議院で否決された予算案は、衆議院の出席議員の3分の2以上の賛成で再可決された場合、成立する。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 内閣不信任の決議権は、衆議院のみに付与されている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ 衆議院は、条約の先議権を付与されている。</button>
+          <button class="kk-choice" data-tip="✗ 法律案は両院協議会で一致しない場合<b>衆議院の3分の2以上で再可決</b>が必要。「衆議院の議決がそのまま」となるのは予算・条約・首相指名。" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 衆参両院の議決が異なる法律案は、両院協議会でも成案が得られない場合、衆議院の議決が国会の議決となる。</button>
+          <button class="kk-choice" data-tip="✗ 予算は<b>再可決の規定なし</b>。両院協議会で一致しないか参議院が30日以内に議決しない場合、衆議院の議決が国会の議決となる。" onclick="ansKakomon('kkc0',1,2,'kkex0')">② 参議院で否決された予算案は、衆議院の出席議員の3分の2以上の賛成で再可決された場合、成立する。</button>
+          <button class="kk-choice" data-tip="○ <b>内閣不信任決議権は衆議院のみ</b>。参議院にはない。" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 内閣不信任の決議権は、衆議院のみに付与されている。</button>
+          <button class="kk-choice" data-tip="✗ 衆議院に先議権があるのは<b>予算</b>のみ。条約に先議権はない。" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ 衆議院は、条約の先議権を付与されている。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:③</strong><br>① 法律案は両院協議会でも一致しない場合、衆議院の出席議員の3分の2以上で再可決すれば成立(国会の議決にそのままなるのは予算・条約・総理指名)。② 予算は再可決ではなく、両院協議会でも一致しないか参議院が30日以内に議決しないとき衆議院の議決がそのまま国会の議決となる。③ 正しい。④ 衆議院に先議権があるのは予算で、条約には先議権はない。</div>
@@ -766,10 +780,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 日本の国会議員に認められている日本国憲法上の地位についての記述として<strong>誤っているもの</strong>を、次の①〜④のうちから一つ選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,3,'kkex1')">① 法律の定める場合を除いて、国会の会期中逮捕されない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,3,'kkex1')">② 議院内で行った演説について、議院外で責任を問われない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,3,'kkex1')">③ 法律の定めるところにより、国庫から相当額の歳費を受ける。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,3,'kkex1')">④ 議員を除名するには、弾劾裁判所の裁判が必要となる。</button>
+          <button class="kk-choice" data-tip="○ <b>不逮捕特権</b>(憲法50条)。会期中は逮捕されない。正しい。" onclick="ansKakomon('kkc1',0,3,'kkex1')">① 法律の定める場合を除いて、国会の会期中逮捕されない。</button>
+          <button class="kk-choice" data-tip="○ <b>免責特権</b>(憲法51条)。議員の議院内発言は院外で責任を問われない。正しい。" onclick="ansKakomon('kkc1',1,3,'kkex1')">② 議院内で行った演説について、議院外で責任を問われない。</button>
+          <button class="kk-choice" data-tip="○ <b>歳費特権</b>(憲法49条)。国庫から相当額の歳費を受ける。正しい。" onclick="ansKakomon('kkc1',2,3,'kkex1')">③ 法律の定めるところにより、国庫から相当額の歳費を受ける。</button>
+          <button class="kk-choice" data-tip="✗ 議員除名は<b>出席議員の3分の2以上</b>の賛成で行う(憲法58条)。<b>弾劾裁判所は裁判官</b>を裁判する機関。" onclick="ansKakomon('kkc1',3,3,'kkex1')">④ 議員を除名するには、弾劾裁判所の裁判が必要となる。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:④</strong><br>① 不逮捕特権の説明で正しい。② 免責特権の説明で正しい。③ 歳費特権の説明で正しい。④ 誤り。議員の除名には<strong>出席議員の3分の2以上の賛成</strong>が必要。弾劾裁判所は<strong>裁判官</strong>を裁判する機関であり、議員除名の機関ではない。</div>
@@ -779,10 +793,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 国会の審議を活性化するために、日本において現在採用されている方策についての記述として<strong>正しいもの</strong>を、次の①〜④のうちから一つ選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,0,'kkex2')">① 首相と野党各党の党首とが一対一で討論する党首討論制度(クエスチョン=タイム)が、国会に設けられている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,0,'kkex2')">② 首相は、国会の本会議のみならず、すべての常任委員会の審議に出席することが義務づけられている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,0,'kkex2')">③ 野党が国民に政策の選択肢を提示できるように、「影の内閣」を組織することが国会法で義務づけられている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,0,'kkex2')">④ 国会の審議において専門的な知識が活用されるように、行政官庁の官僚が大臣に代わって答弁する政府委員制度が設けられている。</button>
+          <button class="kk-choice" data-tip="○ 1999年の国会審議活性化法で<b>党首討論(クエスチョン・タイム)</b>が導入された。" onclick="ansKakomon('kkc2',0,0,'kkex2')">① 首相と野党各党の党首とが一対一で討論する党首討論制度(クエスチョン=タイム)が、国会に設けられている。</button>
+          <button class="kk-choice" data-tip="✗ 首相がすべての常任委員会に出席する義務はない。本会議出席はあるが、委員会は要請に応じて。" onclick="ansKakomon('kkc2',1,0,'kkex2')">② 首相は、国会の本会議のみならず、すべての常任委員会の審議に出席することが義務づけられている。</button>
+          <button class="kk-choice" data-tip="✗ <b>影の内閣</b>は野党の独自組織で、国会法上の義務ではない。" onclick="ansKakomon('kkc2',2,0,'kkex2')">③ 野党が国民に政策の選択肢を提示できるように、「影の内閣」を組織することが国会法で義務づけられている。</button>
+          <button class="kk-choice" data-tip="✗ 1999年の国会審議活性化法で<b>政府委員制度は廃止</b>された(政治家中心の答弁へ)。" onclick="ansKakomon('kkc2',3,0,'kkex2')">④ 国会の審議において専門的な知識が活用されるように、行政官庁の官僚が大臣に代わって答弁する政府委員制度が設けられている。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex2"><strong>正解:①</strong><br>① 正しい。1999年の国会審議活性化法で党首討論(クエスチョン・タイム)が導入された。② 誤り。首相がすべての常任委員会に出席する義務はない。③ 誤り。「影の内閣(シャドーキャビネット)」は野党が独自に組織するもので、国会法上の義務ではない。④ 誤り。1999年の国会審議活性化法で政府委員制度は<strong>廃止</strong>されている。</div>
@@ -1271,7 +1285,33 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}

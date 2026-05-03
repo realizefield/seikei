@@ -173,6 +173,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -580,10 +594,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2024年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 自衛隊に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,1,'kkex0')">① 自衛隊は1950年に日米相互防衛援助協定が締結されたことで創設された。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,1,'kkex0')">② 自衛隊の前身は警察予備隊で、1952年に保安隊、1954年に自衛隊となった。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,1,'kkex0')">③ 自衛隊の「災害派遣」の出動には内閣総理大臣の命令と国会の承認が必要である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,1,'kkex0')">④ 政府は自衛隊を「戦力」と認め、日本国憲法9条2項の例外として合憲と解釈している。</button>
+          <button class="kk-choice" data-tip="✗ 自衛隊の前身<b>警察予備隊は1950年</b>に創設(朝鮮戦争契機)。日米相互防衛援助協定(1954年)とは別の話。" onclick="ansKakomon('kkc0',0,1,'kkex0')">① 自衛隊は1950年に日米相互防衛援助協定が締結されたことで創設された。</button>
+          <button class="kk-choice" data-tip="○ 1950年警察予備隊→<b>1952年保安隊</b>→<b>1954年自衛隊</b>と発展した。" onclick="ansKakomon('kkc0',1,1,'kkex0')">② 自衛隊の前身は警察予備隊で、1952年に保安隊、1954年に自衛隊となった。</button>
+          <button class="kk-choice" data-tip="✗ 災害派遣は「<b>知事の要請+防衛大臣の命令</b>」で出動。国会承認は不要。" onclick="ansKakomon('kkc0',2,1,'kkex0')">③ 自衛隊の「災害派遣」の出動には内閣総理大臣の命令と国会の承認が必要である。</button>
+          <button class="kk-choice" data-tip="✗ 政府は「自衛のための<b>必要最小限度の実力</b>」であり、<b>戦力ではない</b>と解釈している。" onclick="ansKakomon('kkc0',3,1,'kkex0')">④ 政府は自衛隊を「戦力」と認め、日本国憲法9条2項の例外として合憲と解釈している。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:②</strong><br>1950年警察予備隊(朝鮮戦争契機)→1952年保安隊→1954年自衛隊(正しい)。①日米相互防衛援助協定は1954年。③災害派遣は「知事の要請+防衛大臣の命令」。④政府は「自衛のための必要最小限度の実力」であり戦力ではないと解釈している。</div>
@@ -593,10 +607,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2020年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 自衛隊の合憲性をめぐる判例の説明として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 砂川事件の最高裁は「自衛隊は合憲」と明確に判断した。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 長沼ナイキ基地訴訟の一審は自衛隊を合憲とし、二審は違憲と判断した。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 砂川事件・恵庭事件・百里基地訴訟のいずれも、最高裁・上級裁は自衛隊の合憲性について明確な判断を示さなかった。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 恵庭事件では「被告人は有罪であるから憲法判断が必要」として自衛隊を違憲とした。</button>
+          <button class="kk-choice" data-tip="✗ 砂川事件で最高裁は<b>統治行為論</b>で判断回避。「合憲」と明確に判断していない。" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 砂川事件の最高裁は「自衛隊は合憲」と明確に判断した。</button>
+          <button class="kk-choice" data-tip="✗ 長沼ナイキ基地訴訟は<b>一審違憲・二審回避</b>(逆ではない)。" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 長沼ナイキ基地訴訟の一審は自衛隊を合憲とし、二審は違憲と判断した。</button>
+          <button class="kk-choice" data-tip="○ 砂川・恵庭・百里のいずれも、最高裁・上級裁は自衛隊の合憲性を<b>明確に判断していない</b>。" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 砂川事件・恵庭事件・百里基地訴訟のいずれも、最高裁・上級裁は自衛隊の合憲性について明確な判断を示さなかった。</button>
+          <button class="kk-choice" data-tip="✗ 恵庭事件は<b>被告無罪</b>として違憲判断を回避(肩すかし判決)。" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 恵庭事件では「被告人は有罪であるから憲法判断が必要」として自衛隊を違憲とした。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:③</strong><br>砂川事件(統治行為論で回避)・恵庭事件(被告無罪で回避=「肩すかし判決」)・百里基地訴訟(民事問題として処理)、いずれも自衛隊の合憲性について明確な判断を示していません。①砂川最高裁は統治行為論で回避。②長沼一審は違憲・二審は回避(逆)。④恵庭は無罪として回避(違憲ではない)。</div>
@@ -606,10 +620,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2022年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 日本の防衛原則に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,2,'kkex2')">① 非核三原則は「持たず・作らず・使わず」という3つの原則である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,2,'kkex2')">② 文民統制とは、防衛大臣は現職の自衛官から選ばれなければならないという原則である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,2,'kkex2')">③ 非核三原則は1971年に佐藤栄作首相が提唱した「持たず・作らず・持ち込ませず」という原則である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 防衛費のGNP1%以内という方針は1976年に中曽根内閣が定めた。</button>
+          <button class="kk-choice" data-tip="✗ 非核三原則は「持たず・作らず・<b>持ち込ませず</b>」(「使わず」ではない)。" onclick="ansKakomon('kkc2',0,2,'kkex2')">① 非核三原則は「持たず・作らず・使わず」という3つの原則である。</button>
+          <button class="kk-choice" data-tip="✗ 文民統制は<b>現職自衛官ではない文民</b>が国務大臣を担う原則。" onclick="ansKakomon('kkc2',1,2,'kkex2')">② 文民統制とは、防衛大臣は現職の自衛官から選ばれなければならないという原則である。</button>
+          <button class="kk-choice" data-tip="○ 非核三原則は1971年<b>佐藤栄作首相</b>が国会で表明した「持たず・作らず・持ち込ませず」。" onclick="ansKakomon('kkc2',2,2,'kkex2')">③ 非核三原則は1971年に佐藤栄作首相が提唱した「持たず・作らず・持ち込ませず」という原則である。</button>
+          <button class="kk-choice" data-tip="✗ GNP1%枠を定めたのは<b>三木武夫内閣</b>(1976年)。中曽根内閣ではない。" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 防衛費のGNP1%以内という方針は1976年に中曽根内閣が定めた。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex2"><strong>正解:③</strong><br>非核三原則は1971年佐藤栄作首相が提唱した「持たず・作らず・持ち込ませず」(正しい)。①「使わず」ではなく「持ち込ませず」。②文民統制は「現職自衛官ではない文民」が国務大臣を担うという原則(逆)。④GNP1%以内は三木武夫内閣(中曽根内閣はそれを超えた)。</div>
@@ -619,10 +633,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2023年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. 憲法9条に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc3">
-          <button class="kk-choice" onclick="ansKakomon('kkc3',0,0,'kkex3')">① 憲法9条1項は戦争と武力行使を永久に放棄すると定め、2項は戦力の不保持と交戦権の否認を定めている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',1,0,'kkex3')">② 憲法9条は自衛のための戦力(自衛隊)の保持を明示的に認めている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',2,0,'kkex3')">③ 日本政府は「自衛隊は戦力であるが、9条の例外として合憲」と解釈している。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',3,0,'kkex3')">④ 憲法前文は「恐怖と欠乏から免かれる権利」として社会権を規定している。</button>
+          <button class="kk-choice" data-tip="○ 9条1項=戦争・武力による威嚇・武力行使の永久放棄、9条2項=戦力の不保持・交戦権の否認。" onclick="ansKakomon('kkc3',0,0,'kkex3')">① 憲法9条1項は戦争と武力行使を永久に放棄すると定め、2項は戦力の不保持と交戦権の否認を定めている。</button>
+          <button class="kk-choice" data-tip="✗ 9条には<b>自衛隊や戦力保持の規定はない</b>。" onclick="ansKakomon('kkc3',1,0,'kkex3')">② 憲法9条は自衛のための戦力(自衛隊)の保持を明示的に認めている。</button>
+          <button class="kk-choice" data-tip="✗ 政府は「自衛隊は<b>戦力ではない</b>必要最小限度の実力」と解釈。「戦力」とは認めていない。" onclick="ansKakomon('kkc3',2,0,'kkex3')">③ 日本政府は「自衛隊は戦力であるが、9条の例外として合憲」と解釈している。</button>
+          <button class="kk-choice" data-tip="✗ 平和的共存権は<b>平和主義</b>の概念で、社会権ではない。" onclick="ansKakomon('kkc3',3,0,'kkex3')">④ 憲法前文は「恐怖と欠乏から免かれる権利」として社会権を規定している。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex3"><strong>正解:①</strong><br>9条1項:戦争・武力による威嚇・武力行使の永久放棄。9条2項:戦力の不保持・交戦権の否認(正しい)。②9条に自衛隊の明示規定なし。③政府は「自衛隊は必要最小限度の実力で戦力ではない」と解釈(戦力の例外ではない)。④平和的共存権は社会権ではなく平和主義の概念。</div>
@@ -632,10 +646,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2019年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. PKO五原則として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc4">
-          <button class="kk-choice" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 紛争当事者間で停戦合意が成立していること</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',1,3,'kkex4')">② PKOの実施および日本の参加に当事者が同意していること</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ PKOが中立的立場を厳守していること</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ 国連の武力行使に積極的に参加すること</button>
+          <button class="kk-choice" data-tip="○ PKO五原則の一つ「停戦合意」。正しい。" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 紛争当事者間で停戦合意が成立していること</button>
+          <button class="kk-choice" data-tip="○ PKO五原則の一つ「当事者の同意」。正しい。" onclick="ansKakomon('kkc4',1,3,'kkex4')">② PKOの実施および日本の参加に当事者が同意していること</button>
+          <button class="kk-choice" data-tip="○ PKO五原則の一つ「中立的立場の厳守」。正しい。" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ PKOが中立的立場を厳守していること</button>
+          <button class="kk-choice" data-tip="✗ 「国連の武力行使に積極的に参加」は<b>PKO五原則に含まれない</b>。武器使用は必要最小限が原則。" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ 国連の武力行使に積極的に参加すること</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex4"><strong>正解:④</strong><br>PKO五原則は①停戦合意②当事者の同意③中立的立場の厳守④条件が崩れた場合の撤退可能⑤武器使用は必要最小限。「国連の武力行使に積極的に参加すること」はPKO五原則には含まれません。</div>
@@ -644,10 +658,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2014年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6. 朝鮮戦争をきっかけに設けられた警察予備隊は、後に自衛隊へと改組された。自衛隊についての記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc5">
-          <button class="kk-choice" onclick="ansKakomon('kkc5',0,2,'kkex5')">① 最高裁判所は、百里基地訴訟において、自衛隊は日本国憲法第9条で禁止される「戦力」に該当せず合憲であるとの判断を明らかにしている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',1,2,'kkex5')">② 自衛隊のイラクへの派遣は、PKO協力法(国連平和維持活動協力法)に基づき行われた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',2,2,'kkex5')">③ ガイドライン関連法によると、自衛隊は、いわゆる周辺事態の際にアメリカ軍の後方支援を行うこととされている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',3,2,'kkex5')">④ 防衛庁が防衛省へと移行したことに伴い、自衛隊の最高指揮監督権が内閣総理大臣から防衛大臣に委譲された。</button>
+          <button class="kk-choice" data-tip="✗ 百里基地訴訟で最高裁は<b>民事問題として処理</b>し、自衛隊の合憲・違憲を判断していない。" onclick="ansKakomon('kkc5',0,2,'kkex5')">① 最高裁判所は、百里基地訴訟において、自衛隊は日本国憲法第9条で禁止される「戦力」に該当せず合憲であるとの判断を明らかにしている。</button>
+          <button class="kk-choice" data-tip="✗ イラク派遣は<b>イラク復興支援特別措置法</b>に基づく(PKO協力法ではない)。" onclick="ansKakomon('kkc5',1,2,'kkex5')">② 自衛隊のイラクへの派遣は、PKO協力法(国連平和維持活動協力法)に基づき行われた。</button>
+          <button class="kk-choice" data-tip="○ 1999年のガイドライン関連法(<b>周辺事態法</b>)で自衛隊が米軍の後方支援を担う。" onclick="ansKakomon('kkc5',2,2,'kkex5')">③ ガイドライン関連法によると、自衛隊は、いわゆる周辺事態の際にアメリカ軍の後方支援を行うこととされている。</button>
+          <button class="kk-choice" data-tip="✗ 自衛隊の最高指揮監督権は<b>内閣総理大臣</b>(防衛大臣ではない)。" onclick="ansKakomon('kkc5',3,2,'kkex5')">④ 防衛庁が防衛省へと移行したことに伴い、自衛隊の最高指揮監督権が内閣総理大臣から防衛大臣に委譲された。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex5"><strong>正解:③</strong><br>1999年成立の周辺事態法などのガイドライン関連法により、自衛隊は日本周辺有事の際にアメリカ軍の後方支援を行うことになりました。①百里基地訴訟で最高裁は合憲・違憲の判断を下していない(民事問題として処理)。②イラク派遣はイラク復興支援特別措置法に基づく。④最高指揮監督権は防衛省移行後も内閣総理大臣がもつ。</div>
@@ -657,10 +671,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2014年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 日米安全保障条約についての記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc6">
-          <button class="kk-choice" onclick="ansKakomon('kkc6',0,0,'kkex6')">① 砂川事件において、最高裁判所はこの条約が憲法に違反すると判断した。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',1,0,'kkex6')">② 当初の条約を、現行条約である「新安保条約」(日米相互協力及び安全保障条約)へ改定する際には、安保闘争と呼ばれる反対運動が起こった。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',2,0,'kkex6')">③ 現行条約では、日本の領域内において日本、アメリカの一方に対する武力攻撃が発生した場合、日米両国が共同で対処すると規定されている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',3,0,'kkex6')">④ 日本による在日米軍駐留経費の負担は、「思いやり予算」と呼ばれている。</button>
+          <button class="kk-choice" data-tip="✗ 砂川事件で最高裁は<b>統治行為論</b>で判断回避。違憲とは判断していない。" onclick="ansKakomon('kkc6',0,0,'kkex6')">① 砂川事件において、最高裁判所はこの条約が憲法に違反すると判断した。</button>
+          <button class="kk-choice" data-tip="○ 1960年の新安保条約改定の際、<b>安保闘争</b>と呼ばれる反対運動が起こった。" onclick="ansKakomon('kkc6',1,0,'kkex6')">② 当初の条約を、現行条約である「新安保条約」(日米相互協力及び安全保障条約)へ改定する際には、安保闘争と呼ばれる反対運動が起こった。</button>
+          <button class="kk-choice" data-tip="○ 新安保条約では日米共同対処義務が規定されている。" onclick="ansKakomon('kkc6',2,0,'kkex6')">③ 現行条約では、日本の領域内において日本、アメリカの一方に対する武力攻撃が発生した場合、日米両国が共同で対処すると規定されている。</button>
+          <button class="kk-choice" data-tip="○ 在日米軍駐留経費の日本負担は<b>思いやり予算</b>と呼ばれる。" onclick="ansKakomon('kkc6',3,0,'kkex6')">④ 日本による在日米軍駐留経費の負担は、「思いやり予算」と呼ばれている。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex6"><strong>正解:①</strong><br>砂川事件の東京地裁伊達判決では日米安保条約に基づく米軍駐留は違憲と判断されましたが、最高裁では統治行為論が展開され司法判断は避けられました(違憲判断ではない)。②安保闘争(1960年)、③日米共同対処、④思いやり予算はすべて正しい。</div>
@@ -670,10 +684,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2023年 共通テスト本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問8. 日本の安全保障に関する記述として<strong>最も適当なもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc7">
-          <button class="kk-choice" onclick="ansKakomon('kkc7',0,3,'kkex7')">① 日本の重要影響事態法による自衛隊の海外派遣に際しては、日本の周辺地域においてのみ自衛隊の活動が認められる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',1,3,'kkex7')">② 日本のPKO協力法による国連平和維持活動に際しては、自衛隊員の防護のためにのみ武器使用が認められる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',2,3,'kkex7')">③ 日本は武器の輸出に関する規制として、防衛装備移転三原則を武器輸出三原則に改めた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',3,3,'kkex7')">④ 日本は安全保障に関する重要事項を審議する機関として、内閣総理大臣を議長とする国家安全保障会議を設置した。</button>
+          <button class="kk-choice" data-tip="✗ 2015年改正で<b>世界規模に拡大</b>(重要影響事態法)。「周辺地域のみ」は誤り。" onclick="ansKakomon('kkc7',0,3,'kkex7')">① 日本の重要影響事態法による自衛隊の海外派遣に際しては、日本の周辺地域においてのみ自衛隊の活動が認められる。</button>
+          <button class="kk-choice" data-tip="✗ 2016年改正で<b>駆け付け警護</b>が認められ、離れた場所の要員保護も可能に。" onclick="ansKakomon('kkc7',1,3,'kkex7')">② 日本のPKO協力法による国連平和維持活動に際しては、自衛隊員の防護のためにのみ武器使用が認められる。</button>
+          <button class="kk-choice" data-tip="✗ 順序が逆。武器輸出三原則を廃止し、2014年に<b>防衛装備移転三原則</b>を策定。" onclick="ansKakomon('kkc7',2,3,'kkex7')">③ 日本は武器の輸出に関する規制として、防衛装備移転三原則を武器輸出三原則に改めた。</button>
+          <button class="kk-choice" data-tip="○ 2013年に<b>国家安全保障会議(日本版NSC)</b>を設置。内閣総理大臣が議長。" onclick="ansKakomon('kkc7',3,3,'kkex7')">④ 日本は安全保障に関する重要事項を審議する機関として、内閣総理大臣を議長とする国家安全保障会議を設置した。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex7')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex7"><strong>正解:④</strong><br>2013年、従来の安全保障会議から国家安全保障会議(日本版NSC)に改編されました。①2015年の改正で周辺事態法は重要影響事態法となり、米軍支援の範囲が世界規模に拡大。②2016年改正で「駆け付け警護」が認められ、離れた場所の要員保護のための武器使用が可能に。③武器輸出三原則を廃止し、2014年に防衛装備移転三原則を策定(順序が逆)。</div>
@@ -683,10 +697,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問9. 国連の活動への日本の参加・協力についての説明として<strong>最も適当なもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc8">
-          <button class="kk-choice" onclick="ansKakomon('kkc8',0,0,'kkex8')">① PKO協力法(国際連合平和維持活動等に対する協力に関する法律)の制定により、自衛隊が国際平和協力業務を行うことが可能になった。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',1,0,'kkex8')">② 日米安保条約の改正により、国連PKOへの自衛隊の参加が可能になった。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',2,0,'kkex8')">③ ソマリア復興支援のために、自衛隊が派遣された。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',3,0,'kkex8')">④ ボスニア・ヘルツェゴビナ復興支援のために、自衛隊が派遣された。</button>
+          <button class="kk-choice" data-tip="○ <b>1992年のPKO協力法</b>制定により自衛隊のPKO参加が可能になった。" onclick="ansKakomon('kkc8',0,0,'kkex8')">① PKO協力法(国際連合平和維持活動等に対する協力に関する法律)の制定により、自衛隊が国際平和協力業務を行うことが可能になった。</button>
+          <button class="kk-choice" data-tip="✗ PKO参加を可能にしたのは<b>PKO協力法</b>。日米安保条約改正ではない。" onclick="ansKakomon('kkc8',1,0,'kkex8')">② 日米安保条約の改正により、国連PKOへの自衛隊の参加が可能になった。</button>
+          <button class="kk-choice" data-tip="✗ ソマリア(陸上)復興支援に自衛隊は派遣されていない(海賊対処法はソマリア近海)。" onclick="ansKakomon('kkc8',2,0,'kkex8')">③ ソマリア復興支援のために、自衛隊が派遣された。</button>
+          <button class="kk-choice" data-tip="✗ ボスニア・ヘルツェゴビナにも自衛隊は派遣されていない。" onclick="ansKakomon('kkc8',3,0,'kkex8')">④ ボスニア・ヘルツェゴビナ復興支援のために、自衛隊が派遣された。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex8')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex8"><strong>正解:①</strong><br>1992年のPKO協力法制定により自衛隊のPKO参加が可能となりました。②PKO参加を可能にしたのは日米安保条約改正ではなくPKO協力法。③ソマリアには自衛隊は派遣されていない(2009年の海賊対処法でソマリア近海に派遣されているが、これは輸送船の護衛のため)。④ボスニア・ヘルツェゴビナにも派遣されていません。</div>
@@ -696,10 +710,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問10. 安全保障政策についての記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc9">
-          <button class="kk-choice" onclick="ansKakomon('kkc9',0,1,'kkex9')">① 1960年の日米安全保障条約の改定に際しては、国民の間に大規模な反対運動が起こった。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',1,1,'kkex9')">② 非核三原則のうち、核兵器を「もちこませず」の原則は、与党自民党の主張により、国会決議から除外された。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',2,1,'kkex9')">③ 防衛費を対GNP比1パーセント以内にとどめるという原則は、野党の抵抗にもかかわらず、1980年代後半の閣議で放棄された。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',3,1,'kkex9')">④ 国連平和維持活動協力法(PKO協力法)の制定の際には、自衛隊の海外派遣をめぐって、国会の内外で激しい論争が起きた。</button>
+          <button class="kk-choice" data-tip="○ 1960年の安保改定時、安保闘争と呼ばれる大規模な反対運動が起こった。" onclick="ansKakomon('kkc9',0,1,'kkex9')">① 1960年の日米安全保障条約の改定に際しては、国民の間に大規模な反対運動が起こった。</button>
+          <button class="kk-choice" data-tip="✗ 非核三原則は「持ち込ませず」を含む<b>すべて</b>が国会決議されている。除外の事実はない。" onclick="ansKakomon('kkc9',1,1,'kkex9')">② 非核三原則のうち、核兵器を「もちこませず」の原則は、与党自民党の主張により、国会決議から除外された。</button>
+          <button class="kk-choice" data-tip="○ GNP1%枠は1986年中曽根内閣で事実上超過。正しい。" onclick="ansKakomon('kkc9',2,1,'kkex9')">③ 防衛費を対GNP比1パーセント以内にとどめるという原則は、野党の抵抗にもかかわらず、1980年代後半の閣議で放棄された。</button>
+          <button class="kk-choice" data-tip="○ PKO協力法成立時に国会内外で激しい論争が起きた。正しい。" onclick="ansKakomon('kkc9',3,1,'kkex9')">④ 国連平和維持活動協力法(PKO協力法)の制定の際には、自衛隊の海外派遣をめぐって、国会の内外で激しい論争が起きた。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex9')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex9"><strong>正解:②</strong><br>非核三原則は佐藤栄作内閣で表明され、国会でも決議されている原則です。「持たず、作らず、持ち込ませず」の三原則すべてが含まれており、「もちこませず」が除外されたという事実はありません。①安保闘争(1960年)、③GNP1%枠の中曽根内閣による事実上の超過(1986年)、④PKO協力法成立時の論争はすべて正しい。</div>
@@ -1185,7 +1199,33 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}

@@ -162,6 +162,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -615,10 +629,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2024年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. イギリスの政治制度に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① イギリスは成文憲法を持ち、最高裁判所による違憲審査制を採用している。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,2,'kkex0')">② イギリス議会は上院優越の原則をとり、上院(貴族院)が下院より強い権限を持つ。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ イギリスは不文憲法の国で、議会主権の原則をとり、議会が制定した法律が最高規範となる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ イギリスの首相は国民が直接選挙で選ぶ。</button>
+          <button class="kk-choice" data-tip="✗ イギリスは<b>不文憲法</b>の国で、最高裁の<b>違憲審査制もない</b>(議会主権のため)。" onclick="ansKakomon('kkc0',0,2,'kkex0')">① イギリスは成文憲法を持ち、最高裁判所による違憲審査制を採用している。</button>
+          <button class="kk-choice" data-tip="✗ イギリス議会は<b>下院優越</b>の原則。下院(庶民院)の方が権限が強い。" onclick="ansKakomon('kkc0',1,2,'kkex0')">② イギリス議会は上院優越の原則をとり、上院(貴族院)が下院より強い権限を持つ。</button>
+          <button class="kk-choice" data-tip="○ イギリスは<b>不文憲法</b>・<b>議会主権</b>の国。議会の制定した法律が最高規範。" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ イギリスは不文憲法の国で、議会主権の原則をとり、議会が制定した法律が最高規範となる。</button>
+          <button class="kk-choice" data-tip="✗ 首相は<b>下院の多数党の党首が国王から任命</b>される。直接選挙ではない。" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ イギリスの首相は国民が直接選挙で選ぶ。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:③</strong><br>イギリスは不文憲法(成文化された憲法典なし)・議会主権の国。①成文憲法なし・違憲審査制なし。②下院優越の原則。④首相は下院の多数党の党首が国王から任命される。</div>
@@ -628,10 +642,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2022年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. アメリカの大統領制に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 大統領は議会に対して直接法案を提出できる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 議会は大統領への不信任決議を行うことができる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 大統領は議会が可決した法案への署名を拒否する法案拒否権(ヴィート)を持つ。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 宣戦布告権は大統領が持つ。</button>
+          <button class="kk-choice" data-tip="✗ 大統領は議会に<b>直接法案を提出できない</b>(教書で勧告のみ)。" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 大統領は議会に対して直接法案を提出できる。</button>
+          <button class="kk-choice" data-tip="✗ 大統領制では<b>不信任決議制度はない</b>(代わりに弾劾制度がある)。" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 議会は大統領への不信任決議を行うことができる。</button>
+          <button class="kk-choice" data-tip="○ 大統領は議会可決の法案への署名拒否権(<b>ヴィート</b>)を持つ。" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 大統領は議会が可決した法案への署名を拒否する法案拒否権(ヴィート)を持つ。</button>
+          <button class="kk-choice" data-tip="✗ 宣戦布告権は<b>議会</b>が持つ。大統領ではない。" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 宣戦布告権は大統領が持つ。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:③</strong><br>大統領の法案拒否権(ヴィート)は正しい。①大統領は直接法案を提出できない(教書で勧告のみ)。②大統領制では不信任決議制度なし(弾劾制度がある)。④宣戦布告権は議会が持つ。</div>
@@ -641,10 +655,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2020年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 議院内閣制と大統領制の比較として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 議院内閣制では行政と立法の三権が厳格に分立し、大統領制では緩やかに融合している。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 議院内閣制では行政と立法が融合しており、大統領制では三権が厳格に分立している。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 議院内閣制でも大統領制でも、議会による不信任決議が行政府を拘束する。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 大統領制では行政の長が議会解散権を持つ。</button>
+          <button class="kk-choice" data-tip="✗ 関係が逆。議院内閣制が融合的、大統領制が厳格分立。" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 議院内閣制では行政と立法の三権が厳格に分立し、大統領制では緩やかに融合している。</button>
+          <button class="kk-choice" data-tip="○ 議院内閣制は<b>融合型</b>(内閣が議会の信任に依存)、大統領制は<b>厳格分立型</b>。" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 議院内閣制では行政と立法が融合しており、大統領制では三権が厳格に分立している。</button>
+          <button class="kk-choice" data-tip="✗ 大統領制には<b>不信任決議制度がない</b>。" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 議院内閣制でも大統領制でも、議会による不信任決議が行政府を拘束する。</button>
+          <button class="kk-choice" data-tip="✗ 議会解散権は<b>議院内閣制</b>の特徴。大統領制にはない。" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 大統領制では行政の長が議会解散権を持つ。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex2"><strong>正解:②</strong><br>議院内閣制は行政(内閣)が議会の信任に基づくため、行政と立法が融合的。大統領制は行政・立法・司法が厳格に独立・抑制し合う。①は逆。③大統領制には不信任決議制度がない。④議会解散権は議院内閣制の特徴(大統領制にはない)。</div>
@@ -654,10 +668,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2023年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. 違憲審査制に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc3">
-          <button class="kk-choice" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 日本は専門の憲法裁判所を設置する抽象的違憲審査制を採用している。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',1,1,'kkex3')">② アメリカは1803年のマーベリー対マディソン事件で、最高裁判所の違憲審査権が確立した。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',2,1,'kkex3')">③ ドイツは付随的違憲審査制を採用し、通常裁判所が違憲審査を行う。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ イギリスは最高裁判所による強力な違憲審査制を持つ。</button>
+          <button class="kk-choice" data-tip="✗ 日本は<b>付随的違憲審査制</b>(具体的事件で判断)。憲法裁判所はない。" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 日本は専門の憲法裁判所を設置する抽象的違憲審査制を採用している。</button>
+          <button class="kk-choice" data-tip="○ 1803年<b>マーベリー対マディソン事件</b>で米最高裁の違憲審査権が確立。" onclick="ansKakomon('kkc3',1,1,'kkex3')">② アメリカは1803年のマーベリー対マディソン事件で、最高裁判所の違憲審査権が確立した。</button>
+          <button class="kk-choice" data-tip="✗ ドイツは<b>抽象的違憲審査制</b>(憲法裁判所が判断)。付随的ではない。" onclick="ansKakomon('kkc3',2,1,'kkex3')">③ ドイツは付随的違憲審査制を採用し、通常裁判所が違憲審査を行う。</button>
+          <button class="kk-choice" data-tip="✗ イギリスは<b>議会主権</b>のため違憲審査制がない。" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ イギリスは最高裁判所による強力な違憲審査制を持つ。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex3"><strong>正解:②</strong><br>1803年のマーベリー対マディソン事件でアメリカ最高裁の違憲審査権が確立したのは正しい。①日本は付随的違憲審査制(憲法裁判所なし)。③ドイツは抽象的違憲審査制(憲法裁判所)。④イギリスは議会主権のため違憲審査制がない。</div>
@@ -667,10 +681,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2019年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. アメリカ議会に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc4">
-          <button class="kk-choice" onclick="ansKakomon('kkc4',0,2,'kkex4')">① アメリカ議会の上院は代議院と呼ばれ、定数435名である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',1,2,'kkex4')">② アメリカ議会の弾劾制度では、上院が訴追し下院が裁判を行う。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',2,2,'kkex4')">③ アメリカ議会は宣戦布告権を持ち、大統領の条約締結には上院の3分の2以上の承認が必要である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',3,2,'kkex4')">④ アメリカ議会の上院(元老院)は、下院(代議院)より定数が多い。</button>
+          <button class="kk-choice" data-tip="✗ 上院は<b>元老院</b>(定数100)。代議院(定数435)は下院。" onclick="ansKakomon('kkc4',0,2,'kkex4')">① アメリカ議会の上院は代議院と呼ばれ、定数435名である。</button>
+          <button class="kk-choice" data-tip="✗ 弾劾は<b>下院が訴追、上院が裁判</b>を行う。説明が逆。" onclick="ansKakomon('kkc4',1,2,'kkex4')">② アメリカ議会の弾劾制度では、上院が訴追し下院が裁判を行う。</button>
+          <button class="kk-choice" data-tip="○ 議会は<b>宣戦布告権</b>を持ち、条約締結には<b>上院の3分の2以上</b>の承認が必要。" onclick="ansKakomon('kkc4',2,2,'kkex4')">③ アメリカ議会は宣戦布告権を持ち、大統領の条約締結には上院の3分の2以上の承認が必要である。</button>
+          <button class="kk-choice" data-tip="✗ 上院100名・下院435名で<b>上院の方が少ない</b>。" onclick="ansKakomon('kkc4',3,2,'kkex4')">④ アメリカ議会の上院(元老院)は、下院(代議院)より定数が多い。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex4"><strong>正解:③</strong><br>宣戦布告権は議会が持ち、条約締結には上院の3分の2以上が必要なのは正しい。①上院は元老院(定数100)、代議院(定数435)は下院。②下院が訴追し、上院が裁判(逆)。④上院100名・下院435名で上院の方が少ない。</div>
@@ -679,10 +693,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2018年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6. アメリカとイギリスの政治制度について述べた次の文章中の空欄ア〜ウに当てはまる語句の<strong>組合せ</strong>として正しいものを選べ。<br><br>アメリカでは、大統領は連邦議会の議員の選挙とは別に公選され、議会に議席をもたない。大統領は、議会が可決した法案に対する拒否権と議会への <strong>ア</strong> 権とをもつが、議会の解散権をもたない。また議会は、大統領に対して <strong>イ</strong> を行う権限をもたない。<br><br>これに対しイギリスでは、下院(庶民院)の多数派から首相が任命されて内閣を組織する。…伝統的に、下院は内閣に対する <strong>イ</strong> 権をもち、これに対抗して内閣は下院を解散することができるとされてきた。<br><br>こうしてみると、アメリカでは、イギリスよりも立法府と行政府との間の権力分立が <strong>ウ</strong> である。</div>
         <div class="kk-choices" id="kkc5">
-          <button class="kk-choice" onclick="ansKakomon('kkc5',0,1,'kkex5')">① ア-教書送付 イ-弾劾 ウ-厳格</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',1,1,'kkex5')">② ア-教書送付 イ-不信任決議 ウ-厳格</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',2,1,'kkex5')">③ ア-教書送付 イ-弾劾 ウ-緩やか</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',3,1,'kkex5')">④ ア-法案提出 イ-不信任決議 ウ-厳格</button>
+          <button class="kk-choice" data-tip="✗ ウは「厳格」で正しいが、イが誤り。アメリカは大統領制で<b>不信任決議制度はない</b>(弾劾は別制度)。" onclick="ansKakomon('kkc5',0,1,'kkex5')">① ア-教書送付 イ-弾劾 ウ-厳格</button>
+          <button class="kk-choice" data-tip="○ ア=<b>教書送付</b>(法案提出権なし)、イ=<b>不信任決議</b>(なし)、ウ=<b>厳格</b>(三権分立)。" onclick="ansKakomon('kkc5',1,1,'kkex5')">② ア-教書送付 イ-不信任決議 ウ-厳格</button>
+          <button class="kk-choice" data-tip="✗ 三権分立は「厳格」が正しい。「緩やか」は議院内閣制の特徴。" onclick="ansKakomon('kkc5',2,1,'kkex5')">③ ア-教書送付 イ-弾劾 ウ-緩やか</button>
+          <button class="kk-choice" data-tip="✗ ア「法案提出」が誤り。アメリカ大統領は<b>法案提出権がなく、教書送付権のみ</b>。" onclick="ansKakomon('kkc5',3,1,'kkex5')">④ ア-法案提出 イ-不信任決議 ウ-厳格</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex5"><strong>正解:②</strong><br>ア:アメリカ大統領は法案提出権がないが教書送付権をもつ。イ:アメリカ連邦議会は大統領の不信任決議権をもたない(弾劾は別の手続)。ウ:アメリカ大統領制は三権分立を厳格に適用しています。</div>
@@ -692,10 +706,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2013年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 各国の政治体制を、議院内閣制/大統領制 × 連邦国家/単一国家のように分類した場合、<strong>「議院内閣制・連邦国家」</strong>に該当する政治体制を採用している国のグループとして<strong>最も適当なもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc6">
-          <button class="kk-choice" onclick="ansKakomon('kkc6',0,2,'kkex6')">① 日本・イタリア</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',1,2,'kkex6')">② アメリカ・ブラジル</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',2,2,'kkex6')">③ カナダ・ドイツ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',3,2,'kkex6')">④ 韓国・フィリピン</button>
+          <button class="kk-choice" data-tip="✗ 日本・イタリアは<b>議院内閣制・単一国家</b>。連邦国家ではない。" onclick="ansKakomon('kkc6',0,2,'kkex6')">① 日本・イタリア</button>
+          <button class="kk-choice" data-tip="✗ アメリカ・ブラジルは<b>大統領制・連邦国家</b>。議院内閣制ではない。" onclick="ansKakomon('kkc6',1,2,'kkex6')">② アメリカ・ブラジル</button>
+          <button class="kk-choice" data-tip="○ カナダ・ドイツは<b>議院内閣制・連邦国家</b>。ドイツの大統領は儀礼的で実権は首相。" onclick="ansKakomon('kkc6',2,2,'kkex6')">③ カナダ・ドイツ</button>
+          <button class="kk-choice" data-tip="✗ 韓国・フィリピンは<b>大統領制・単一国家</b>。" onclick="ansKakomon('kkc6',3,2,'kkex6')">④ 韓国・フィリピン</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex6"><strong>正解:③</strong><br>カナダは議院内閣制で連邦国家。ドイツも儀礼的大統領制を採用しているが実際の行政は議院内閣制で、連邦制(16の州)です。①日本・イタリア=議院内閣制・単一国家。②アメリカ・ブラジル=大統領制・連邦国家。④韓国・フィリピン=大統領制・単一国家。</div>
@@ -705,12 +719,12 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2021年 共通テスト第2日程</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問8. アメリカとフランスの政治体制について述べた次の文章中の空欄イ〜エに当てはまる語句の<strong>組合せ</strong>として最も適当なものを選べ。<br><br>アメリカは大統領制を導入している。アメリカの大統領は、国民により選ばれ、連邦議会に <strong>イ</strong> 。…一方で、連邦議会は…大統領に対して <strong>ウ</strong> を行う権限はもっていない。<br><br>これに対し、フランスは大統領制と議院内閣制を混合した政治体制を導入している。フランスの大統領は、 <strong>エ</strong> によって選ばれ、首相の任命権、議会(下院)の解散権をもっている。</div>
         <div class="kk-choices" id="kkc7">
-          <button class="kk-choice" onclick="ansKakomon('kkc7',0,4,'kkex7')">① イ-議席をもつ ウ-不信任決議 エ-直接選挙</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',1,4,'kkex7')">② イ-議席をもつ ウ-不信任決議 エ-間接選挙</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',2,4,'kkex7')">③ イ-議席をもつ ウ-弾劾 エ-直接選挙</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',3,4,'kkex7')">④ イ-議席をもつ ウ-弾劾 エ-間接選挙</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',4,4,'kkex7')">⑤ イ-議席をもたない ウ-不信任決議 エ-直接選挙</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',5,4,'kkex7')">⑥ イ-議席をもたない ウ-不信任決議 エ-間接選挙</button>
+          <button class="kk-choice" data-tip="✗ アメリカ大統領は連邦議会に<b>議席をもたない</b>(三権分立)。" onclick="ansKakomon('kkc7',0,4,'kkex7')">① イ-議席をもつ ウ-不信任決議 エ-直接選挙</button>
+          <button class="kk-choice" data-tip="✗ アメリカ大統領は議席をもたない。フランス大統領は直接選挙。" onclick="ansKakomon('kkc7',1,4,'kkex7')">② イ-議席をもつ ウ-不信任決議 エ-間接選挙</button>
+          <button class="kk-choice" data-tip="✗ アメリカ大統領は議席をもたない。" onclick="ansKakomon('kkc7',2,4,'kkex7')">③ イ-議席をもつ ウ-弾劾 エ-直接選挙</button>
+          <button class="kk-choice" data-tip="✗ アメリカ大統領は議席をもたない。フランス大統領は直接選挙。" onclick="ansKakomon('kkc7',3,4,'kkex7')">④ イ-議席をもつ ウ-弾劾 エ-間接選挙</button>
+          <button class="kk-choice" data-tip="○ イ=<b>議席もたない</b>、ウ=<b>不信任決議できない</b>、エ=<b>直接選挙</b>(フランス半大統領制)。" onclick="ansKakomon('kkc7',4,4,'kkex7')">⑤ イ-議席をもたない ウ-不信任決議 エ-直接選挙</button>
+          <button class="kk-choice" data-tip="✗ フランス大統領は<b>直接選挙</b>で選ばれる(間接選挙ではない)。" onclick="ansKakomon('kkc7',5,4,'kkex7')">⑥ イ-議席をもたない ウ-不信任決議 エ-間接選挙</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex7')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex7"><strong>正解:⑤</strong><br>イ:アメリカ大統領は立法府に議席をもたない(三権分立)。ウ:連邦議会は大統領に不信任決議を行う権限はない(弾劾は別)。エ:フランス大統領は直接選挙で選ばれます(半大統領制の特徴)。</div>
@@ -720,10 +734,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問9. 各国の第二次世界大戦後の政党政治についての記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc8">
-          <button class="kk-choice" onclick="ansKakomon('kkc8',0,3,'kkex8')">① 旧ソ連では、社会主義体制下で共産党による一党支配が続いた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',1,3,'kkex8')">② 日本では、55年体制と呼ばれる状況下で自民党の一党優位が続いた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',2,3,'kkex8')">③ アメリカでは、二つの大政党が政権獲得を競う二大政党制が続いている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',3,3,'kkex8')">④ イギリスでは、乱立する小政党が政権獲得を競う多党制が続いている。</button>
+          <button class="kk-choice" data-tip="○ ソ連は社会主義体制下で<b>共産党一党支配</b>が続いた。正しい。" onclick="ansKakomon('kkc8',0,3,'kkex8')">① 旧ソ連では、社会主義体制下で共産党による一党支配が続いた。</button>
+          <button class="kk-choice" data-tip="○ 日本では1955年〜の<b>55年体制</b>で自民党の一党優位が続いた。正しい。" onclick="ansKakomon('kkc8',1,3,'kkex8')">② 日本では、55年体制と呼ばれる状況下で自民党の一党優位が続いた。</button>
+          <button class="kk-choice" data-tip="○ アメリカは<b>民主党と共和党</b>の二大政党制。正しい。" onclick="ansKakomon('kkc8',2,3,'kkex8')">③ アメリカでは、二つの大政党が政権獲得を競う二大政党制が続いている。</button>
+          <button class="kk-choice" data-tip="✗ イギリスは伝統的に<b>保守党と労働党</b>の二大政党制。多党制ではない。" onclick="ansKakomon('kkc8',3,3,'kkex8')">④ イギリスでは、乱立する小政党が政権獲得を競う多党制が続いている。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex8')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex8"><strong>正解:④</strong><br>イギリスは伝統的に保守党と労働党の二大政党の時代が続いてきました。多党制ではありません。①ソ連は共産党一党支配。②日本は55年体制で自民党優位。③アメリカは民主党と共和党の二大政党制。</div>
@@ -733,10 +747,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2012年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問10. 各国の立法府と行政府との関係についての記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc9">
-          <button class="kk-choice" onclick="ansKakomon('kkc9',0,0,'kkex9')">① アメリカでは、大統領は下院の解散権を有する。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',1,0,'kkex9')">② イギリスでは、原則として下院の多数党の党首が首相となる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',2,0,'kkex9')">③ フランスでは、大統領制と議院内閣制とをあわせた形態を採用している。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',3,0,'kkex9')">④ ドイツでは、大統領には政治の実権がなく議院内閣制を採用している。</button>
+          <button class="kk-choice" data-tip="✗ アメリカ大統領は<b>議会の解散権はもたない</b>。法案拒否権のみ。" onclick="ansKakomon('kkc9',0,0,'kkex9')">① アメリカでは、大統領は下院の解散権を有する。</button>
+          <button class="kk-choice" data-tip="○ イギリスでは下院の多数党の党首が首相となる。正しい。" onclick="ansKakomon('kkc9',1,0,'kkex9')">② イギリスでは、原則として下院の多数党の党首が首相となる。</button>
+          <button class="kk-choice" data-tip="○ フランスは大統領制と議院内閣制を併せた<b>半大統領制</b>。正しい。" onclick="ansKakomon('kkc9',2,0,'kkex9')">③ フランスでは、大統領制と議院内閣制とをあわせた形態を採用している。</button>
+          <button class="kk-choice" data-tip="○ ドイツの大統領は儀礼的元首で、実権は首相(議院内閣制)。正しい。" onclick="ansKakomon('kkc9',3,0,'kkex9')">④ ドイツでは、大統領には政治の実権がなく議院内閣制を採用している。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex9')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex9"><strong>正解:①</strong><br>アメリカ大統領は法案への拒否権はあるが、議会の解散権はもちません(三権分立)。②イギリスは下院多数党の党首が首相。③フランスは半大統領制。④ドイツの大統領は儀礼的元首で政治の実権は首相にあります。</div>
@@ -1223,7 +1237,33 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}

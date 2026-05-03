@@ -152,6 +152,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -776,12 +790,12 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span style="font-weight:normal">A 裁判の公開　B 裁判官の身分保障　C 三審制<br>
         ア 司法権の独立　イ 慎重な審理　ウ 公正な裁判</span></div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,4,'kkex0')">① A-ア B-イ C-ウ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,4,'kkex0')">② A-ア B-ウ C-イ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,4,'kkex0')">③ A-イ B-ア C-ウ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,4,'kkex0')">④ A-イ B-ウ C-ア</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',4,4,'kkex0')">⑤ A-ウ B-ア C-イ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',5,4,'kkex0')">⑥ A-ウ B-イ C-ア</button>
+          <button class="kk-choice" data-tip="✗ A裁判の公開はウ(公正な裁判)、B裁判官身分保障はア(司法権の独立)、C三審制はイ(慎重な審理)。" onclick="ansKakomon('kkc0',0,4,'kkex0')">① A-ア B-イ C-ウ</button>
+          <button class="kk-choice" data-tip="✗ Bはア(司法権の独立)が正しい。Cはイ(慎重な審理)。" onclick="ansKakomon('kkc0',1,4,'kkex0')">② A-ア B-ウ C-イ</button>
+          <button class="kk-choice" data-tip="✗ Aはウ(公正な裁判)、Bはア(司法権の独立)が正しい。" onclick="ansKakomon('kkc0',2,4,'kkex0')">③ A-イ B-ア C-ウ</button>
+          <button class="kk-choice" data-tip="✗ Aはウ(公正な裁判)、Cはイ(慎重な審理)が正しい。" onclick="ansKakomon('kkc0',3,4,'kkex0')">④ A-イ B-ウ C-ア</button>
+          <button class="kk-choice" data-tip="○ A=ウ(裁判公開→公正な裁判)、B=ア(身分保障→司法権独立)、C=イ(三審制→慎重な審理)。" onclick="ansKakomon('kkc0',4,4,'kkex0')">⑤ A-ウ B-ア C-イ</button>
+          <button class="kk-choice" data-tip="✗ Bはア(司法権の独立)、Cはイ(慎重な審理)が正しい。" onclick="ansKakomon('kkc0',5,4,'kkex0')">⑥ A-ウ B-イ C-ア</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:⑤</strong><br>A 裁判の公開 — ウ <strong>公正な裁判</strong>:裁判を公開することで密室での恣意的な裁判を防ぐ。<br>B 裁判官の身分保障 — ア <strong>司法権の独立</strong>:裁判官が他の権力から圧力を受けず独立して職権を行使できるようにするため。<br>C 三審制 — イ <strong>慎重な審理</strong>:同じ事件を3回審理することで誤判を防ぎ慎重な審理を保障する。</div>
@@ -791,10 +805,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 国民審査についての記述として<strong>適当でないもの</strong>を、次の①〜④のうちから一つ選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 最高裁判所裁判官に対する最初の国民審査は、その任命後初めて行われる衆議院議員総選挙の際に実施される。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② ×の記号を記入しない投票は、投票者が罷免の意思をもたないものとみなされている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ ×の記号を記入した投票数が有権者の過半数である場合に、裁判官の罷免が成立する。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 国民審査は、憲法で保障されている国民による公務員の選定罷免権を具体化するものである。</button>
+          <button class="kk-choice" data-tip="○ 任命後初の<b>衆議院議員総選挙</b>と同時に実施。正しい。" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 最高裁判所裁判官に対する最初の国民審査は、その任命後初めて行われる衆議院議員総選挙の際に実施される。</button>
+          <button class="kk-choice" data-tip="○ ×記号を記入しない投票は<b>罷免の意思なし</b>とみなされる。正しい。" onclick="ansKakomon('kkc1',1,2,'kkex1')">② ×の記号を記入しない投票は、投票者が罷免の意思をもたないものとみなされている。</button>
+          <button class="kk-choice" data-tip="✗ 罷免成立は「<b>投票者</b>の過半数」。「<b>有権者</b>の過半数」ではない。" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ ×の記号を記入した投票数が有権者の過半数である場合に、裁判官の罷免が成立する。</button>
+          <button class="kk-choice" data-tip="○ 国民審査は憲法15条1項の<b>公務員選定罷免権</b>を具体化する制度。正しい。" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 国民審査は、憲法で保障されている国民による公務員の選定罷免権を具体化するものである。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:③</strong><br>×印を記入した投票数が「<strong>投票者</strong>の過半数」に達した場合に罷免されます。「有権者の過半数」ではない点に注意。①②④はいずれも正しい記述です。</div>
@@ -1281,7 +1295,33 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}

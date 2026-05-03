@@ -168,6 +168,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -578,10 +592,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2024年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 生存権に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 朝日訴訟では、最高裁が生活保護基準を違憲とした。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,2,'kkex0')">② 堀木訴訟では、最高裁が障害福祉年金と児童扶養手当の併給禁止を違憲とした。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 朝日訴訟・堀木訴訟の両方において、最高裁は憲法25条をプログラム規定と解し合憲と判断した。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ プログラム規定説とは、憲法25条が国民に具体的な生活保護請求権を与えるとする考え方である。</button>
+          <button class="kk-choice" data-tip="✗ 朝日訴訟は<b>合憲</b>(厚生大臣の裁量の範囲)とされた。違憲ではない。" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 朝日訴訟では、最高裁が生活保護基準を違憲とした。</button>
+          <button class="kk-choice" data-tip="✗ 堀木訴訟も<b>合憲</b>(国会の裁量)とされた。" onclick="ansKakomon('kkc0',1,2,'kkex0')">② 堀木訴訟では、最高裁が障害福祉年金と児童扶養手当の併給禁止を違憲とした。</button>
+          <button class="kk-choice" data-tip="○ 朝日訴訟・堀木訴訟ともに憲法25条を<b>プログラム規定</b>と解し<b>合憲</b>と判断。" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 朝日訴訟・堀木訴訟の両方において、最高裁は憲法25条をプログラム規定と解し合憲と判断した。</button>
+          <button class="kk-choice" data-tip="✗ プログラム規定説は「努力目標」と解する説。<b>具体的請求権ではない</b>。" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ プログラム規定説とは、憲法25条が国民に具体的な生活保護請求権を与えるとする考え方である。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:③</strong><br>朝日訴訟(厚生大臣の裁量の範囲)も堀木訴訟(国会の裁量)も、最高裁は憲法25条をプログラム規定と解して合憲と判断しました。①②は逆(どちらも合憲)。④プログラム規定説は国家の努力目標という考え方(具体的権利ではない)。</div>
@@ -591,10 +605,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2020年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 労働基本権に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 警察職員には団体行動権(争議権)のみが認められていない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 国家公務員の労働基本権制限の代償措置は人事委員会の勧告制度である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 警察職員と自衛隊員には労働三権すべてが認められていない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 労働三権は、団結権・団体交渉権・請願権の3つである。</button>
+          <button class="kk-choice" data-tip="✗ 警察職員は<b>労働三権すべて</b>(団結・団体交渉・争議)が認められない。" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 警察職員には団体行動権(争議権)のみが認められていない。</button>
+          <button class="kk-choice" data-tip="✗ 国家公務員の代償措置は<b>人事院</b>。人事委員会は地方公務員。" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 国家公務員の労働基本権制限の代償措置は人事委員会の勧告制度である。</button>
+          <button class="kk-choice" data-tip="○ 警察職員と自衛隊員は<b>労働三権すべて</b>が認められない。" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 警察職員と自衛隊員には労働三権すべてが認められていない。</button>
+          <button class="kk-choice" data-tip="✗ 労働三権は団結権・団体交渉権・<b>団体行動権</b>(請願権ではない)。" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 労働三権は、団結権・団体交渉権・請願権の3つである。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:③</strong><br>警察職員・自衛隊員には労働三権(団結権・団体交渉権・団体行動権)すべてが認められていません。①警察は労働三権すべて不可。②国家公務員の代償措置は「人事院」(人事委員会は地方公務員)。④労働三権は団結権・団体交渉権・団体行動権(請願権は請求権)。</div>
@@ -604,10 +618,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2022年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 参政権に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,2,'kkex2')">① 国民審査は最高裁判所裁判官を対象とし、参議院議員選挙と同時に実施される。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,2,'kkex2')">② 憲法改正の国民投票では、有効投票の3分の2以上の賛成が必要である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,2,'kkex2')">③ 国民審査では、有効投票の過半数が罷免票であれば裁判官は罷免される。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 住民投票権(憲法95条)は、すべての法律の制定に必要な手続きである。</button>
+          <button class="kk-choice" data-tip="✗ 国民審査は<b>衆議院議員総選挙</b>と同時に実施(参議院選挙ではない)。" onclick="ansKakomon('kkc2',0,2,'kkex2')">① 国民審査は最高裁判所裁判官を対象とし、参議院議員選挙と同時に実施される。</button>
+          <button class="kk-choice" data-tip="✗ 憲法改正の国民投票は<b>有効投票の過半数</b>(3分の2は議院での発議要件)。" onclick="ansKakomon('kkc2',1,2,'kkex2')">② 憲法改正の国民投票では、有効投票の3分の2以上の賛成が必要である。</button>
+          <button class="kk-choice" data-tip="○ 国民審査では<b>有効投票の過半数</b>が罷免票なら罷免。" onclick="ansKakomon('kkc2',2,2,'kkex2')">③ 国民審査では、有効投票の過半数が罷免票であれば裁判官は罷免される。</button>
+          <button class="kk-choice" data-tip="✗ 住民投票(95条)は<b>地方特別法</b>のみに必要。すべての法律ではない。" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 住民投票権(憲法95条)は、すべての法律の制定に必要な手続きである。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex2"><strong>正解:③</strong><br>国民審査は有効投票の過半数が罷免票であれば罷免。①衆議院議員選挙(総選挙)と同時(参院選ではない)。②憲法改正の国民投票は過半数(3分の2は各議院での発議の要件)。④住民投票(95条)は特定の地方公共団体のみに適用する地方特別法の制定のみに必要。</div>
@@ -617,10 +631,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2023年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. 請求権に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc3">
-          <button class="kk-choice" onclick="ansKakomon('kkc3',0,2,'kkex3')">① 刑事補償請求権は、公務員の不法行為によって損害を受けた人が国に賠償を請求できる権利である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',1,2,'kkex3')">② 国家賠償請求権(17条)は、有罪判決が確定した後に無罪となった場合の補償を求める権利である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',2,2,'kkex3')">③ 郵便法損害賠償免責規定違憲判決(2002年)は、国家賠償請求権を保障した憲法17条に違反するとして違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',3,2,'kkex3')">④ 裁判を受ける権利は日本国民にのみ保障され、外国人には認められない。</button>
+          <button class="kk-choice" data-tip="✗ これは<b>国家賠償請求権</b>の説明。刑事補償請求権は無罪となった場合の補償。" onclick="ansKakomon('kkc3',0,2,'kkex3')">① 刑事補償請求権は、公務員の不法行為によって損害を受けた人が国に賠償を請求できる権利である。</button>
+          <button class="kk-choice" data-tip="✗ これは<b>刑事補償請求権</b>の説明。国家賠償請求権は公務員の不法行為に対する請求。" onclick="ansKakomon('kkc3',1,2,'kkex3')">② 国家賠償請求権(17条)は、有罪判決が確定した後に無罪となった場合の補償を求める権利である。</button>
+          <button class="kk-choice" data-tip="○ <b>郵便法損害賠償免責規定違憲判決(2002年)</b>は国家賠償請求権(17条)違反として違憲。" onclick="ansKakomon('kkc3',2,2,'kkex3')">③ 郵便法損害賠償免責規定違憲判決(2002年)は、国家賠償請求権を保障した憲法17条に違反するとして違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 裁判を受ける権利は日本在住の<b>外国人にも保障</b>される。" onclick="ansKakomon('kkc3',3,2,'kkex3')">④ 裁判を受ける権利は日本国民にのみ保障され、外国人には認められない。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex3"><strong>正解:③</strong><br>郵便法損害賠償免責規定違憲判決(2002年)は国家賠償請求権(17条)違反として違憲→正しい。①は国家賠償請求権の説明(刑事補償請求権は無罪となった場合の補償)。②は刑事補償請求権の説明。④裁判を受ける権利は日本在住の外国人にも保障。</div>
@@ -630,10 +644,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2019年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 社会権に関する記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc4">
-          <button class="kk-choice" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 憲法25条は生存権を保障し、「健康で文化的な最低限度の生活を営む権利」を定めている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',1,3,'kkex4')">② 憲法26条は教育を受ける権利を保障し、義務教育の無償化を定めている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 労働基本権は勤労権(27条)と労働三権(28条)からなる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ 社会権は「国家からの自由」であり、国家が積極的に介入しないことで保障される。</button>
+          <button class="kk-choice" data-tip="○ 憲法25条の生存権の規定。「健康で文化的な最低限度の生活」。正しい。" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 憲法25条は生存権を保障し、「健康で文化的な最低限度の生活を営む権利」を定めている。</button>
+          <button class="kk-choice" data-tip="○ 憲法26条の教育を受ける権利、義務教育の無償。正しい。" onclick="ansKakomon('kkc4',1,3,'kkex4')">② 憲法26条は教育を受ける権利を保障し、義務教育の無償化を定めている。</button>
+          <button class="kk-choice" data-tip="○ 労働基本権は勤労権(27条)+労働三権(28条)。正しい。" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 労働基本権は勤労権(27条)と労働三権(28条)からなる。</button>
+          <button class="kk-choice" data-tip="✗ 社会権は「<b>国家による自由</b>」(国家の積極的介入で保障)。「国家からの自由」は自由権。" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ 社会権は「国家からの自由」であり、国家が積極的に介入しないことで保障される。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex4"><strong>正解:④</strong><br>社会権は「国家による自由」であり、国家が積極的に行動(作為)することで保障される権利です。「国家からの自由」は自由権の説明です。①②③はすべて正しい。</div>
@@ -642,10 +656,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2018年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6. 日本国憲法の下での教育や学問をめぐる権利や義務についての記述として<strong>最も適当なもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc5">
-          <button class="kk-choice" onclick="ansKakomon('kkc5',0,0,'kkex5')">① 憲法が保障する教育を受ける権利の基礎には、人が学習し成長する学習権の理念があるとされている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',1,0,'kkex5')">② 憲法上、国民がその子どもに普通教育を受けさせる義務はない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',2,0,'kkex5')">③ 憲法が保障する学問の自由には、大学の自治は含まれない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',3,0,'kkex5')">④ 憲法上、国が小中学校での教育とともに高校での教育を無償で提供することとされている。</button>
+          <button class="kk-choice" data-tip="○ 教育を受ける権利の基礎には<b>学習権</b>の理念があるとされる(旭川学テ事件など)。" onclick="ansKakomon('kkc5',0,0,'kkex5')">① 憲法が保障する教育を受ける権利の基礎には、人が学習し成長する学習権の理念があるとされている。</button>
+          <button class="kk-choice" data-tip="✗ 憲法26条2項で<b>普通教育を受けさせる義務</b>が定められている。" onclick="ansKakomon('kkc5',1,0,'kkex5')">② 憲法上、国民がその子どもに普通教育を受けさせる義務はない。</button>
+          <button class="kk-choice" data-tip="✗ 大学の自治は学問の自由に<b>含まれる</b>(東大ポポロ事件)。" onclick="ansKakomon('kkc5',2,0,'kkex5')">③ 憲法が保障する学問の自由には、大学の自治は含まれない。</button>
+          <button class="kk-choice" data-tip="✗ 憲法上の無償化は<b>義務教育(小中学校)のみ</b>。高校は対象外。" onclick="ansKakomon('kkc5',3,0,'kkex5')">④ 憲法上、国が小中学校での教育とともに高校での教育を無償で提供することとされている。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex5"><strong>正解:①</strong><br>憲法第26条で教育を受ける権利が保障され、学習権を保障したものと解されています。②憲法第26条で子どもに普通教育を受けさせる義務が定められている。③東大ポポロ事件で大学の自治は学問の自由に含まれるとされた。④義務教育(小中学校)のみ無償。</div>
@@ -655,10 +669,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2018年 試行調査(政経)</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 日本国憲法は、労働基本権(労働三権)を保障している。労働基本権は、労働者に「ある権利」を実質的に保障するためのものであるといわれている。その「ある権利」を定めた日本国憲法の条文として<strong>最も適当なもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc6">
-          <button class="kk-choice" onclick="ansKakomon('kkc6',0,1,'kkex6')">① 財産権は、これを侵してはならない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',1,1,'kkex6')">② すべて国民は、健康で文化的な最低限度の生活を営む権利を有する。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',2,1,'kkex6')">③ 信教の自由は、何人に対してもこれを保障する。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',3,1,'kkex6')">④ 何人も、裁判所において裁判を受ける権利を奪はれない。</button>
+          <button class="kk-choice" data-tip="✗ 財産権は労働基本権が保障する権利ではない。" onclick="ansKakomon('kkc6',0,1,'kkex6')">① 財産権は、これを侵してはならない。</button>
+          <button class="kk-choice" data-tip="○ 労働基本権は労働者の<b>生存権(25条)</b>を実質的に保障するための権利。" onclick="ansKakomon('kkc6',1,1,'kkex6')">② すべて国民は、健康で文化的な最低限度の生活を営む権利を有する。</button>
+          <button class="kk-choice" data-tip="✗ 信教の自由は精神の自由で、労働基本権とは関係ない。" onclick="ansKakomon('kkc6',2,1,'kkex6')">③ 信教の自由は、何人に対してもこれを保障する。</button>
+          <button class="kk-choice" data-tip="✗ 裁判を受ける権利は請求権で、労働基本権とは異なる。" onclick="ansKakomon('kkc6',3,1,'kkex6')">④ 何人も、裁判所において裁判を受ける権利を奪はれない。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex6"><strong>正解:②</strong><br>労働基本権が労働者に保障する「ある権利」とは生存権です。労働基本権は労働者が人間らしい生活を営むための手段として位置づけられています。憲法第25条1項の生存権の規定が根拠条文です。</div>
@@ -668,12 +682,12 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2020年 センター試験追試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問8. 日本における参政権の保障に関する説明である。その正誤の<strong>組合せ</strong>として正しいものを選べ。<br><br>ア 日本国憲法の施行に先立って、衆議院議員選挙法が改正され、日本国籍をもつ20歳以上の男女に選挙権が認められた。<br>イ 日本国憲法は、「公務員を選定し、及びこれを罷免することは、国民固有の権利である」と定めている。<br>ウ 2015年の公職選挙法の改正をうけて、参議院議員の被選挙権が20歳以上に引き下げられた。</div>
         <div class="kk-choices" id="kkc7">
-          <button class="kk-choice" onclick="ansKakomon('kkc7',0,1,'kkex7')">① ア正 イ正 ウ正</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',1,1,'kkex7')">② ア正 イ正 ウ誤</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',2,1,'kkex7')">③ ア正 イ誤 ウ正</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',3,1,'kkex7')">④ ア正 イ誤 ウ誤</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',4,1,'kkex7')">⑤ ア誤 イ正 ウ正</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',5,1,'kkex7')">⑥ ア誤 イ正 ウ誤</button>
+          <button class="kk-choice" data-tip="✗ ウは誤り。被選挙権は引き下げられていない。" onclick="ansKakomon('kkc7',0,1,'kkex7')">① ア正 イ正 ウ正</button>
+          <button class="kk-choice" data-tip="○ ア正・イ正・ウ誤。被選挙権は参議院議員は<b>30歳以上</b>のまま(選挙権は18歳)。" onclick="ansKakomon('kkc7',1,1,'kkex7')">② ア正 イ正 ウ誤</button>
+          <button class="kk-choice" data-tip="✗ イは正しい(憲法15条1項)。" onclick="ansKakomon('kkc7',2,1,'kkex7')">③ ア正 イ誤 ウ正</button>
+          <button class="kk-choice" data-tip="✗ イは正しい(憲法15条1項)。" onclick="ansKakomon('kkc7',3,1,'kkex7')">④ ア正 イ誤 ウ誤</button>
+          <button class="kk-choice" data-tip="✗ アは正しい(1945年の選挙法改正で20歳以上の男女に選挙権)。" onclick="ansKakomon('kkc7',4,1,'kkex7')">⑤ ア誤 イ正 ウ正</button>
+          <button class="kk-choice" data-tip="✗ アは正しい。" onclick="ansKakomon('kkc7',5,1,'kkex7')">⑥ ア誤 イ正 ウ誤</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex7')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex7"><strong>正解:②</strong><br>ア 正:1945年に衆議院議員選挙法が改正され、女性を含む20歳以上のすべての国民に選挙権が認められました。イ 正:憲法第15条1項に規定されています。ウ 誤:2015年の改正で選挙権は18歳以上に引き下げられましたが、被選挙権は参議院議員は満30歳以上のままです。</div>
@@ -683,10 +697,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2023年 共通テスト本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問9. 日本国憲法における権利と義務の規定について、次の会話文中の空欄[ア][イ]に当てはまる記述の<strong>組合せ</strong>として最も適当なものを選べ。<br><br>X:憲法第99条は、憲法尊重擁護義務を <strong>[ア]</strong> 。<br>Y:たとえば憲法第30条が定める納税の義務に関しては、<strong>[イ]</strong><br><br>[ア]a 公務員に負わせている / b すべての国民に負わせている<br>[イ]c 新たに国税を課したり現行の国税を変更したりするには法律に基づかねばならないから、憲法によって義務が具体的に発生しているわけではない / d 財政上必要な場合は法律の定めなしに国税を徴収することができるので、憲法によって義務が具体的に発生している</div>
         <div class="kk-choices" id="kkc8">
-          <button class="kk-choice" onclick="ansKakomon('kkc8',0,0,'kkex8')">① ア-a イ-c</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',1,0,'kkex8')">② ア-a イ-d</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',2,0,'kkex8')">③ ア-b イ-c</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',3,0,'kkex8')">④ ア-b イ-d</button>
+          <button class="kk-choice" data-tip="○ ア=<b>公務員</b>に憲法尊重擁護義務(99条)、イ=納税は<b>法律の定めるところにより</b>(30条)。" onclick="ansKakomon('kkc8',0,0,'kkex8')">① ア-a イ-c</button>
+          <button class="kk-choice" data-tip="✗ イは「法律の定めるところにより」が正しい(憲法30条)。" onclick="ansKakomon('kkc8',1,0,'kkex8')">② ア-a イ-d</button>
+          <button class="kk-choice" data-tip="✗ アは「公務員」が正しい(憲法99条)。国民は対象ではない。" onclick="ansKakomon('kkc8',2,0,'kkex8')">③ ア-b イ-c</button>
+          <button class="kk-choice" data-tip="✗ アは「公務員」、イは「法律の定めるところにより」が正しい。" onclick="ansKakomon('kkc8',3,0,'kkex8')">④ ア-b イ-d</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex8')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex8"><strong>正解:①</strong><br>ア-a:憲法第99条「天皇又は摂政及び国務大臣、国会議員、裁判官その他の<strong>公務員</strong>は、この憲法を尊重し擁護する義務を負ふ」。憲法は公務員に憲法遵守を要求しています(国民は「保障される側」)。イ-c:憲法第30条「国民は、<strong>法律の定めるところにより</strong>、納税の義務を負ふ」。国民の納税義務は個別の法律の定めによって具体的に発生します。</div>
@@ -696,12 +710,12 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問10. 新しい人権A〜Cと、その内容ア〜ウとの<strong>組合せ</strong>として正しいものを選べ。<br><br>A アクセス権　B 知る権利　C プライバシー権<br><br>ア 自分に関する情報を自らコントロールする権利<br>イ マスメディアを利用して意見を発表したり反論したりする権利<br>ウ 政府情報の開示を求める権利</div>
         <div class="kk-choices" id="kkc9">
-          <button class="kk-choice" onclick="ansKakomon('kkc9',0,3,'kkex9')">① A-ア B-イ C-ウ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',1,3,'kkex9')">② A-ア B-ウ C-イ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',2,3,'kkex9')">③ A-イ B-ア C-ウ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',3,3,'kkex9')">④ A-イ B-ウ C-ア</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',4,3,'kkex9')">⑤ A-ウ B-ア C-イ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',5,3,'kkex9')">⑥ A-ウ B-イ C-ア</button>
+          <button class="kk-choice" data-tip="✗ Aアクセス権=イ、B知る権利=ウ、Cプライバシー権=ア。組合せが誤り。" onclick="ansKakomon('kkc9',0,3,'kkex9')">① A-ア B-イ C-ウ</button>
+          <button class="kk-choice" data-tip="✗ Bは「政府情報の開示」のウが正しい。" onclick="ansKakomon('kkc9',1,3,'kkex9')">② A-ア B-ウ C-イ</button>
+          <button class="kk-choice" data-tip="✗ Bは「ウ」、Cは「ア」が正しい。" onclick="ansKakomon('kkc9',2,3,'kkex9')">③ A-イ B-ア C-ウ</button>
+          <button class="kk-choice" data-tip="○ A=イ(マスメディア利用)、B=ウ(政府情報開示)、C=ア(自己情報コントロール)。" onclick="ansKakomon('kkc9',3,3,'kkex9')">④ A-イ B-ウ C-ア</button>
+          <button class="kk-choice" data-tip="✗ Aはイ(マスメディア利用)が正しい。" onclick="ansKakomon('kkc9',4,3,'kkex9')">⑤ A-ウ B-ア C-イ</button>
+          <button class="kk-choice" data-tip="✗ Aはイ、Cはア(自己情報コントロール)が正しい。" onclick="ansKakomon('kkc9',5,3,'kkex9')">⑥ A-ウ B-イ C-ア</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex9')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex9"><strong>正解:④</strong><br>A アクセス権=マスメディアを利用して意見を発表したり反論したりする権利(イ)。B 知る権利=政府情報の開示を求める権利(ウ・情報公開法によって制度化)。C プライバシー権=「私生活をみだりに公開されない権利」に加え、近年は自分に関する情報を自らコントロールする権利と解されている(ア)。</div>
@@ -1187,7 +1201,33 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}

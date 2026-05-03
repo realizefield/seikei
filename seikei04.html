@@ -157,6 +157,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -417,10 +431,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2024年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 人権獲得の歴史に関する組み合わせとして<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① バージニア権利章典(1776年) ── フランス人権宣言の起草に用いられた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,2,'kkex0')">② アメリカ独立宣言(1776年) ── 起草者はラファイエットで、ルソーの影響を受けた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 権利章典(1689年) ── 名誉革命後に制定され、立法権・徴税権・軍事権は議会にあるとした。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ フランス人権宣言(1789年) ── アメリカ独立宣言の起草者ジェファーソンが起草した。</button>
+          <button class="kk-choice" data-tip="✗ バージニア権利章典は<b>アメリカ独立宣言</b>の起草に影響。フランス人権宣言の起草には用いられていない。" onclick="ansKakomon('kkc0',0,2,'kkex0')">① バージニア権利章典(1776年) ── フランス人権宣言の起草に用いられた。</button>
+          <button class="kk-choice" data-tip="✗ アメリカ独立宣言の起草者は<b>ジェファーソン</b>(<b>ロック</b>の影響)。ラファイエット(ルソー影響)はフランス人権宣言。" onclick="ansKakomon('kkc0',1,2,'kkex0')">② アメリカ独立宣言(1776年) ── 起草者はラファイエットで、ルソーの影響を受けた。</button>
+          <button class="kk-choice" data-tip="○ 権利章典(1689年)は名誉革命後に制定され、立法権・徴税権・軍事権を<b>議会</b>にあると定めた。" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 権利章典(1689年) ── 名誉革命後に制定され、立法権・徴税権・軍事権は議会にあるとした。</button>
+          <button class="kk-choice" data-tip="✗ フランス人権宣言の起草者は<b>ラファイエット</b>。ジェファーソンはアメリカ独立宣言。" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ フランス人権宣言(1789年) ── アメリカ独立宣言の起草者ジェファーソンが起草した。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:③</strong><br>権利章典(1689年)は名誉革命後に制定され、立法権・徴税権・軍事権は議会にあると定め、議会制民主主義の基礎を築いた。①は無関係。②アメリカ独立宣言の起草者はジェファーソン(ロックの影響)。④フランス人権宣言の起草者はラファイエット(ルソーの影響)。</div>
@@ -430,10 +444,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2022年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 世界人権宣言と国際人権規約の違いとして<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,1,'kkex1')">① 世界人権宣言は法的拘束力があり、国際人権規約は宣言にとどまる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,1,'kkex1')">② 世界人権宣言は法的拘束力がなく、国際人権規約は条約として法的拘束力を持つ。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,1,'kkex1')">③ 両者ともに法的拘束力があり、国連加盟国は遵守義務を負う。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,1,'kkex1')">④ 世界人権宣言は1966年、国際人権規約は1948年に採択された。</button>
+          <button class="kk-choice" data-tip="✗ 関係が逆。世界人権宣言は<b>法的拘束力なし</b>、国際人権規約は条約で法的拘束力あり。" onclick="ansKakomon('kkc1',0,1,'kkex1')">① 世界人権宣言は法的拘束力があり、国際人権規約は宣言にとどまる。</button>
+          <button class="kk-choice" data-tip="○ 世界人権宣言(1948)は道義的宣言で<b>法的拘束力なし</b>。国際人権規約(1966)は<b>条約</b>で法的拘束力あり。" onclick="ansKakomon('kkc1',1,1,'kkex1')">② 世界人権宣言は法的拘束力がなく、国際人権規約は条約として法的拘束力を持つ。</button>
+          <button class="kk-choice" data-tip="✗ 世界人権宣言には法的拘束力がない。両方に拘束力があるわけではない。" onclick="ansKakomon('kkc1',2,1,'kkex1')">③ 両者ともに法的拘束力があり、国連加盟国は遵守義務を負う。</button>
+          <button class="kk-choice" data-tip="✗ 年代が逆。世界人権宣言<b>1948年</b>、国際人権規約<b>1966年</b>。" onclick="ansKakomon('kkc1',3,1,'kkex1')">④ 世界人権宣言は1966年、国際人権規約は1948年に採択された。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:②</strong><br>世界人権宣言(1948年)は法的拘束力を持たない宣言。国際人権規約(1966年)は世界人権宣言を条約化したもので法的拘束力がある。①③④はすべて誤り。年代も逆(世界人権宣言1948年、国際人権規約1966年)。</div>
@@ -443,10 +457,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2019年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 国際人権規約(1966年)に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,1,'kkex2')">① A規約は自由権・参政権を規定し、B規約は社会権を規定する。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,1,'kkex2')">② A規約は社会権を規定し、B規約は自由権・参政権を規定する。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ A規約・B規約ともに法的拘束力がない宣言に過ぎない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 国際人権規約には難民条約と女子差別撤廃条約も含まれる。</button>
+          <button class="kk-choice" data-tip="✗ AとBが逆。A規約=<b>社会権規約</b>、B規約=<b>自由権・参政権規約</b>。" onclick="ansKakomon('kkc2',0,1,'kkex2')">① A規約は自由権・参政権を規定し、B規約は社会権を規定する。</button>
+          <button class="kk-choice" data-tip="○ A規約=<b>社会権</b>、B規約=<b>自由権・参政権</b>を規定。両方とも条約で法的拘束力あり。" onclick="ansKakomon('kkc2',1,1,'kkex2')">② A規約は社会権を規定し、B規約は自由権・参政権を規定する。</button>
+          <button class="kk-choice" data-tip="✗ A規約・B規約ともに<b>条約</b>であり法的拘束力を持つ。" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ A規約・B規約ともに法的拘束力がない宣言に過ぎない。</button>
+          <button class="kk-choice" data-tip="✗ 難民条約・女子差別撤廃条約は国際人権規約とは<b>別の条約</b>。" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 国際人権規約には難民条約と女子差別撤廃条約も含まれる。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex2"><strong>正解:②</strong><br>国際人権規約はA規約(社会権規約)とB規約(自由権・参政権規約)の2本立て。両者ともに法的拘束力がある(条約)。①はAとBが逆。③④は誤り。</div>
@@ -456,10 +470,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2023年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. ローズヴェルトの「四つの自由」に含まれないものを選べ。</div>
         <div class="kk-choices" id="kkc3">
-          <button class="kk-choice" onclick="ansKakomon('kkc3',0,2,'kkex3')">① 言論・表現の自由</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',1,2,'kkex3')">② 信仰の自由</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',2,2,'kkex3')">③ 移動の自由</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',3,2,'kkex3')">④ 欠乏からの自由</button>
+          <button class="kk-choice" data-tip="○ 「言論・表現の自由」は四つの自由に含まれる。" onclick="ansKakomon('kkc3',0,2,'kkex3')">① 言論・表現の自由</button>
+          <button class="kk-choice" data-tip="○ 「信仰の自由」は四つの自由に含まれる。" onclick="ansKakomon('kkc3',1,2,'kkex3')">② 信仰の自由</button>
+          <button class="kk-choice" data-tip="✗ 四つの自由は①言論・表現②信仰③<b>欠乏からの自由</b>④<b>恐怖からの自由</b>。「移動の自由」は含まれない。" onclick="ansKakomon('kkc3',2,2,'kkex3')">③ 移動の自由</button>
+          <button class="kk-choice" data-tip="○ 「欠乏からの自由」は四つの自由に含まれる。" onclick="ansKakomon('kkc3',3,2,'kkex3')">④ 欠乏からの自由</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex3"><strong>正解:③</strong><br>ローズヴェルトの「四つの自由」は①言論・表現の自由②信仰の自由③欠乏からの自由④恐怖からの自由。「移動の自由」は含まれない。</div>
@@ -469,10 +483,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2021年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 国際人権に関する条約と年代の組み合わせとして<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc4">
-          <button class="kk-choice" onclick="ansKakomon('kkc4',0,1,'kkex4')">① 難民条約(1979年)・女子差別撤廃条約(1951年)</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',1,1,'kkex4')">② 人種差別撤廃条約(1965年)・子どもの権利条約(1989年)</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',2,1,'kkex4')">③ 女子差別撤廃条約(1989年)・子どもの権利条約(1979年)</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',3,1,'kkex4')">④ 難民条約(1965年)・人種差別撤廃条約(1951年)</button>
+          <button class="kk-choice" data-tip="✗ 難民条約は<b>1951</b>年、女子差別撤廃条約は<b>1979</b>年。年代が逆。" onclick="ansKakomon('kkc4',0,1,'kkex4')">① 難民条約(1979年)・女子差別撤廃条約(1951年)</button>
+          <button class="kk-choice" data-tip="○ 人種差別撤廃条約<b>1965</b>年・子どもの権利条約<b>1989</b>年。両方とも年代が正しい。" onclick="ansKakomon('kkc4',1,1,'kkex4')">② 人種差別撤廃条約(1965年)・子どもの権利条約(1989年)</button>
+          <button class="kk-choice" data-tip="✗ 女子差別撤廃条約は<b>1979</b>年、子どもの権利条約は<b>1989</b>年。" onclick="ansKakomon('kkc4',2,1,'kkex4')">③ 女子差別撤廃条約(1989年)・子どもの権利条約(1979年)</button>
+          <button class="kk-choice" data-tip="✗ 難民条約は<b>1951</b>年、人種差別撤廃条約は<b>1965</b>年。" onclick="ansKakomon('kkc4',3,1,'kkex4')">④ 難民条約(1965年)・人種差別撤廃条約(1951年)</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex4"><strong>正解:②</strong><br>人種差別撤廃条約(1965年)・子どもの権利条約(1989年)が正しい。難民条約1951年、人種差別撤廃条約1965年、女子差別撤廃条約1979年、子どもの権利条約1989年、障害者権利条約2006年と覚えよう。</div>
@@ -481,10 +495,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2016年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6. 人権を国際的に保障することを目的とした文書に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc5">
-          <button class="kk-choice" onclick="ansKakomon('kkc5',0,2,'kkex5')">① 子どもの権利条約(児童の権利条約)は、小学校に就学している児童の権利保護を目的とするものであり、中学校や高校に就学している生徒は対象外とされている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',1,2,'kkex5')">② 日本は、女性差別撤廃条約(女子差別撤廃条約)を批准したが、国籍法の父系主義を父母両系主義に改正することは留保した。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',2,2,'kkex5')">③ 日本は、市民的及び政治的権利に関する国際規約(B規約)を批准しているが、権利を侵害された個人が国際機関に通報できる制度を定めた選択議定書は批准していない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',3,2,'kkex5')">④ 日本は、障害者の人権や基本的自由を保護することなどを定めた障害者権利条約を批准していない。</button>
+          <button class="kk-choice" data-tip="✗ 子どもの権利条約は<b>18歳未満すべて</b>を対象とする。中高生も対象。" onclick="ansKakomon('kkc5',0,2,'kkex5')">① 子どもの権利条約(児童の権利条約)は、小学校に就学している児童の権利保護を目的とするものであり、中学校や高校に就学している生徒は対象外とされている。</button>
+          <button class="kk-choice" data-tip="✗ 日本は女子差別撤廃条約批准に伴い、1985年に国籍法を<b>父母両系主義に改正</b>した。" onclick="ansKakomon('kkc5',1,2,'kkex5')">② 日本は、女性差別撤廃条約(女子差別撤廃条約)を批准したが、国籍法の父系主義を父母両系主義に改正することは留保した。</button>
+          <button class="kk-choice" data-tip="○ 日本はB規約を批准しているが、個人通報制度を定めた<b>選択議定書は未批准</b>。" onclick="ansKakomon('kkc5',2,2,'kkex5')">③ 日本は、市民的及び政治的権利に関する国際規約(B規約)を批准しているが、権利を侵害された個人が国際機関に通報できる制度を定めた選択議定書は批准していない。</button>
+          <button class="kk-choice" data-tip="✗ 日本は障害者権利条約を<b>2014年に批准</b>済み。" onclick="ansKakomon('kkc5',3,2,'kkex5')">④ 日本は、障害者の人権や基本的自由を保護することなどを定めた障害者権利条約を批准していない。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex5"><strong>正解:③</strong><br>日本は国際人権規約のB規約を批准していますが、選択議定書は批准していません。①子ども(児童)は18歳未満すべて対象。②国籍法は父母両系主義に改正済み(1985年)。④日本は2014年に障害者権利条約を批准しました。</div>
@@ -494,10 +508,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2005年 センター試験追試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 17世紀から18世紀にかけての権利章典や憲法に示された基本原理についての記述として<strong>適当でないもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc6">
-          <button class="kk-choice" onclick="ansKakomon('kkc6',0,3,'kkex6')">① すべての権力は国民に存し、国民にその淵源を有するとしている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',1,3,'kkex6')">② 国民に幸福と安寧をもたらさない政府は、国民が改良し、改変し、あるいは廃止することができるとして、革命を正当化している。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',2,3,'kkex6')">③ 国家の立法権、行政権および司法権は、相互に分離され、区別されなければならないとしている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',3,3,'kkex6')">④ 資本家と地主の階級を打倒し、プロレタリアートの独裁を宣言している。</button>
+          <button class="kk-choice" data-tip="○ 国民主権の規定。フランス人権宣言などに見られる近代人権思想の基本原理。" onclick="ansKakomon('kkc6',0,3,'kkex6')">① すべての権力は国民に存し、国民にその淵源を有するとしている。</button>
+          <button class="kk-choice" data-tip="○ 革命権・抵抗権の規定。アメリカ独立宣言などに見られる近代の基本原理。" onclick="ansKakomon('kkc6',1,3,'kkex6')">② 国民に幸福と安寧をもたらさない政府は、国民が改良し、改変し、あるいは廃止することができるとして、革命を正当化している。</button>
+          <button class="kk-choice" data-tip="○ 三権分立の規定。フランス人権宣言第16条などに示される基本原理。" onclick="ansKakomon('kkc6',2,3,'kkex6')">③ 国家の立法権、行政権および司法権は、相互に分離され、区別されなければならないとしている。</button>
+          <button class="kk-choice" data-tip="✗ プロレタリアート独裁は<b>19世紀のマルクス主義</b>の概念。17〜18世紀の人権思想ではない。" onclick="ansKakomon('kkc6',3,3,'kkex6')">④ 資本家と地主の階級を打倒し、プロレタリアートの独裁を宣言している。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex6"><strong>正解:④</strong><br>プロレタリアートの独裁は、19世紀に成立したマルクス主義の概念であり、共産主義に至る過渡期に必要と考えられた形態です。17〜18世紀の人権思想とは時代も内容も異なります。①は国民主権、②は革命権・抵抗権、③は三権分立で、いずれも近代人権思想の基本原理です。</div>
@@ -981,7 +995,33 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}

@@ -167,6 +167,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -556,10 +570,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2024年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 法の下の平等に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 形式的平等とは、状況に応じた合理的な差異を認め、結果の平等を目指す考え方である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,2,'kkex0')">② アファーマティブ・アクションは形式的平等の実現を目的として社会的強者を優遇する制度である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 実質的平等は状況に応じた合理的な区別を認め、累進課税などがその例として挙げられる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ 憲法14条は「人種・信条・性別・社会的身分・門地」による差別を禁じ、これにより勤務成績による賃金格差も一切禁止された。</button>
+          <button class="kk-choice" data-tip="✗ これは<b>実質的平等</b>の説明。形式的平等は「機会の平等」「機械的に同一に扱う」考え方。" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 形式的平等とは、状況に応じた合理的な差異を認め、結果の平等を目指す考え方である。</button>
+          <button class="kk-choice" data-tip="✗ アファーマティブ・アクションは<b>実質的平等</b>を目的とし、社会的<b>弱者</b>を優遇する制度。" onclick="ansKakomon('kkc0',1,2,'kkex0')">② アファーマティブ・アクションは形式的平等の実現を目的として社会的強者を優遇する制度である。</button>
+          <button class="kk-choice" data-tip="○ 実質的平等は合理的区別を認める。<b>累進課税</b>や障害者への配慮などが例。" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 実質的平等は状況に応じた合理的な区別を認め、累進課税などがその例として挙げられる。</button>
+          <button class="kk-choice" data-tip="✗ 勤務成績による賃金格差は「<b>合理的区別</b>」として許される。一切禁止ではない。" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ 憲法14条は「人種・信条・性別・社会的身分・門地」による差別を禁じ、これにより勤務成績による賃金格差も一切禁止された。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:③</strong><br>実質的平等は状況に応じた合理的区別を認め、累進課税・障害者への配慮などが例として挙げられる。①は実質的平等の説明(形式的平等は機械的同一扱い)。②アファーマティブ・アクションは実質的平等のため社会的弱者を優遇。④勤務成績による差別は「合理的区別」として許容される。</div>
@@ -569,10 +583,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2022年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 平等権に関する最高裁判決の説明として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 1973年の尊属殺人重罰規定違憲判決は、最高裁が条約を初めて違憲と判断した事件である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 非嫡出子の相続分を嫡出子の3分の1とした規定が違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 1973年の尊属殺人重罰規定違憲判決は、最高裁が法律の規定を初めて違憲と判断した事件である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 2015年の再婚禁止期間違憲判決では、6か月の禁止期間すべてが違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 違憲とされたのは<b>条約ではなく法律(刑法)</b>の規定。" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 1973年の尊属殺人重罰規定違憲判決は、最高裁が条約を初めて違憲と判断した事件である。</button>
+          <button class="kk-choice" data-tip="✗ 非嫡出子の相続分は嫡出子の<b>2分の1</b>(3分の1ではない)。" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 非嫡出子の相続分を嫡出子の3分の1とした規定が違憲とされた。</button>
+          <button class="kk-choice" data-tip="○ 1973年の尊属殺重罰規定違憲判決は、最高裁が<b>初めて法律を違憲</b>と判断した事件。" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 1973年の尊属殺人重罰規定違憲判決は、最高裁が法律の規定を初めて違憲と判断した事件である。</button>
+          <button class="kk-choice" data-tip="✗ 違憲とされたのは<b>100日を超える部分</b>のみ。6か月全部ではない。" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 2015年の再婚禁止期間違憲判決では、6か月の禁止期間すべてが違憲とされた。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:③</strong><br>1973年の尊属殺人重罰規定違憲判決(旧刑法200条)は、最高裁が初めて法律の規定を違憲と判断した事件として重要。①条約ではなく法律の規定。②2分の1(3分の1ではない)。④100日を超える部分のみ違憲(全部ではない)。</div>
@@ -582,10 +596,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2023年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 2015年の女性の再婚禁止期間違憲判決に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,2,'kkex2')">① 旧民法が定めていた再婚禁止期間は3か月で、その全部が違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,2,'kkex2')">② 再婚禁止期間規定は憲法24条(婚姻の自由)のみに違反するとして違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,2,'kkex2')">③ 父子関係確定に必要な100日を超える部分が憲法14条・24条に違反するとして違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 再婚禁止期間の規定は男性にも同様に適用されていたが違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 旧民法の再婚禁止期間は<b>6か月</b>(3か月ではない)。" onclick="ansKakomon('kkc2',0,2,'kkex2')">① 旧民法が定めていた再婚禁止期間は3か月で、その全部が違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 違反するのは<b>14条と24条の両方</b>。24条のみではない。" onclick="ansKakomon('kkc2',1,2,'kkex2')">② 再婚禁止期間規定は憲法24条(婚姻の自由)のみに違反するとして違憲とされた。</button>
+          <button class="kk-choice" data-tip="○ 父子関係確定に必要な<b>100日を超える部分</b>が憲法<b>14条・24条</b>に違反するとして違憲。" onclick="ansKakomon('kkc2',2,2,'kkex2')">③ 父子関係確定に必要な100日を超える部分が憲法14条・24条に違反するとして違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 旧民法の規定は<b>女性のみ</b>に課されていた。男性には適用されない。" onclick="ansKakomon('kkc2',3,2,'kkex2')">④ 再婚禁止期間の規定は男性にも同様に適用されていたが違憲とされた。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex2"><strong>正解:③</strong><br>旧民法733条は女性のみに6か月の再婚禁止期間を設けていた。最高裁は父子関係確定に必要な100日を超える部分が、憲法14条(法の下の平等)・24条(婚姻の自由)に違反するとした。①6か月・全部ではない。②14条・24条の両方。④女性のみへの規定。</div>
@@ -595,10 +609,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2019年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. 「新しい人権」に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc3">
-          <button class="kk-choice" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 「新しい人権」はすべて憲法に明文で規定されている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',1,1,'kkex3')">② プライバシーの権利・環境権・知る権利・自己決定権などが「新しい人権」に含まれ、主に憲法13条・25条を根拠とする。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',2,1,'kkex3')">③ 「新しい人権」のうち知る権利は憲法14条を根拠とする。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ 環境権は日本国憲法に明文規定があり、裁判上当然に認められる。</button>
+          <button class="kk-choice" data-tip="✗ 新しい人権は<b>憲法に明文規定がない</b>。判例や学説で認められつつある権利。" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 「新しい人権」はすべて憲法に明文で規定されている。</button>
+          <button class="kk-choice" data-tip="○ プライバシー・環境権・知る権利・自己決定権など。<b>13条(幸福追求権)・25条(生存権)</b>が根拠。" onclick="ansKakomon('kkc3',1,1,'kkex3')">② プライバシーの権利・環境権・知る権利・自己決定権などが「新しい人権」に含まれ、主に憲法13条・25条を根拠とする。</button>
+          <button class="kk-choice" data-tip="✗ 知る権利の根拠は<b>憲法13条・21条</b>(表現の自由)。14条(平等権)ではない。" onclick="ansKakomon('kkc3',2,1,'kkex3')">③ 「新しい人権」のうち知る権利は憲法14条を根拠とする。</button>
+          <button class="kk-choice" data-tip="✗ 環境権は<b>明文規定なし</b>。判例上も慎重な扱い。" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ 環境権は日本国憲法に明文規定があり、裁判上当然に認められる。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex3"><strong>正解:②</strong><br>新しい人権(プライバシー・環境権・知る権利・自己決定権)は憲法に明文規定はないが、主に憲法13条(幸福追求権)・25条(生存権)を根拠に主張・認められつつある。①明文規定なし。③知る権利は13条・21条が根拠。④環境権は明文規定なし。</div>
@@ -608,10 +622,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2021年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 平等に関する法律の説明として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc4">
-          <button class="kk-choice" onclick="ansKakomon('kkc4',0,2,'kkex4')">① 男女雇用機会均等法(1985年)は、雇用における男女差別を禁止している。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',1,2,'kkex4')">② 男女共同参画社会基本法(1999年)は、男女が対等なパートナーとして社会に参加できる社会を目指す。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',2,2,'kkex4')">③ 部落差別解消推進法(2016年)は、部落差別を犯罪として刑事罰を定めた法律である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',3,2,'kkex4')">④ 障害者基本法(1993年)は、障害者の自立と社会参加の支援を定める法律である。</button>
+          <button class="kk-choice" data-tip="○ 男女雇用機会均等法(1985年)は雇用における男女差別を禁止。正しい。" onclick="ansKakomon('kkc4',0,2,'kkex4')">① 男女雇用機会均等法(1985年)は、雇用における男女差別を禁止している。</button>
+          <button class="kk-choice" data-tip="○ 男女共同参画社会基本法(1999年)は男女平等社会の理念法。正しい。" onclick="ansKakomon('kkc4',1,2,'kkex4')">② 男女共同参画社会基本法(1999年)は、男女が対等なパートナーとして社会に参加できる社会を目指す。</button>
+          <button class="kk-choice" data-tip="✗ 部落差別解消推進法は<b>理念法・推進法</b>であり、刑事罰を定めるものではない。" onclick="ansKakomon('kkc4',2,2,'kkex4')">③ 部落差別解消推進法(2016年)は、部落差別を犯罪として刑事罰を定めた法律である。</button>
+          <button class="kk-choice" data-tip="○ 障害者基本法(1993年)は障害者の自立・社会参加を定める法律。正しい。" onclick="ansKakomon('kkc4',3,2,'kkex4')">④ 障害者基本法(1993年)は、障害者の自立と社会参加の支援を定める法律である。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex4"><strong>正解:③</strong><br>部落差別解消推進法(2016年)は部落差別の解消を推進するための法律ですが、部落差別を犯罪として刑事罰を定めたものではありません(理念法・推進法の性格)。①②④はすべて正しい。</div>
@@ -620,12 +634,12 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2018年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6. 日本国憲法が保障する基本的人権の分類について述べた次の文章中の空欄ア〜ウに当てはまる語句の<strong>組合せ</strong>として最も適当なものを選べ。<br><br>日本国憲法が保障する基本的人権には、表現の自由や <strong>ア</strong> のように、人の活動に対する国家の干渉を排除する権利である自由権がある。また、 <strong>イ</strong> や教育を受ける権利のように、人間に値する生活をすべての人に保障するための積極的な施策を国家に対して要求する権利である社会権がある。さらに、これらの基本的人権を現実のものとして確保するための権利として、裁判を受ける権利や <strong>ウ</strong> をあげることができる。</div>
         <div class="kk-choices" id="kkc5">
-          <button class="kk-choice" onclick="ansKakomon('kkc5',0,2,'kkex5')">① ア-生存権 イ-財産権 ウ-国家賠償請求権</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',1,2,'kkex5')">② ア-生存権 イ-国家賠償請求権 ウ-財産権</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',2,2,'kkex5')">③ ア-財産権 イ-生存権 ウ-国家賠償請求権</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',3,2,'kkex5')">④ ア-財産権 イ-国家賠償請求権 ウ-生存権</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',4,2,'kkex5')">⑤ ア-国家賠償請求権 イ-財産権 ウ-生存権</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',5,2,'kkex5')">⑥ ア-国家賠償請求権 イ-生存権 ウ-財産権</button>
+          <button class="kk-choice" data-tip="✗ 生存権は社会権であり自由権ではない。アに「生存権」は不適切。" onclick="ansKakomon('kkc5',0,2,'kkex5')">① ア-生存権 イ-財産権 ウ-国家賠償請求権</button>
+          <button class="kk-choice" data-tip="✗ アに生存権は不適切。" onclick="ansKakomon('kkc5',1,2,'kkex5')">② ア-生存権 イ-国家賠償請求権 ウ-財産権</button>
+          <button class="kk-choice" data-tip="○ ア=<b>財産権</b>(自由権)、イ=<b>生存権</b>(社会権)、ウ=<b>国家賠償請求権</b>(請求権)。" onclick="ansKakomon('kkc5',2,2,'kkex5')">③ ア-財産権 イ-生存権 ウ-国家賠償請求権</button>
+          <button class="kk-choice" data-tip="✗ ウに「生存権」が誤り。生存権はイ(社会権)に該当。" onclick="ansKakomon('kkc5',3,2,'kkex5')">④ ア-財産権 イ-国家賠償請求権 ウ-生存権</button>
+          <button class="kk-choice" data-tip="✗ アの自由権の例として国家賠償請求権は不適切(請求権)。" onclick="ansKakomon('kkc5',4,2,'kkex5')">⑤ ア-国家賠償請求権 イ-財産権 ウ-生存権</button>
+          <button class="kk-choice" data-tip="✗ ア・イ・ウの順序が誤っている。" onclick="ansKakomon('kkc5',5,2,'kkex5')">⑥ ア-国家賠償請求権 イ-生存権 ウ-財産権</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex5"><strong>正解:③</strong><br>ア:財産権(経済的自由権)は自由権の一つ。イ:生存権は社会権の中心。ウ:国家賠償請求権は人権を確保するための権利(請求権・受益権)です。3つの権利の体系を整理して覚えましょう。</div>
@@ -635,10 +649,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 法の下の平等に関して、最高裁判所の見解と<strong>合致するもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc6">
-          <button class="kk-choice" onclick="ansKakomon('kkc6',0,0,'kkex6')">① 選挙権の平等には、投票機会の平等だけではなく、選挙区相互間における議員一人当たりの有権者数の格差の是正を求めることも含まれる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',1,0,'kkex6')">② 公害規制は全国一律でなければならないので、地方自治体が条例によって他の地域よりも厳しい公害規制を行うことは、法の下の平等に反する。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',2,0,'kkex6')">③ 国民各層の経済的不平等を是正するためとはいえ、高額所得者の所得に対して低額所得者の所得よりも高率の所得税を課すことは許されない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',3,0,'kkex6')">④ 尊属殺人罪の法定刑を、死刑または無期懲役に限定する刑法の規定は、著しく不合理な差別的取扱いには当たらない。</button>
+          <button class="kk-choice" data-tip="○ 一票の格差是正は最高裁が認める平等権の内容。<b>議員定数不均衡訴訟</b>で違憲判決が出ている。" onclick="ansKakomon('kkc6',0,0,'kkex6')">① 選挙権の平等には、投票機会の平等だけではなく、選挙区相互間における議員一人当たりの有権者数の格差の是正を求めることも含まれる。</button>
+          <button class="kk-choice" data-tip="✗ 地方公共団体は条例で<b>上乗せ規制</b>(より厳しい規制)を行うことが可能。" onclick="ansKakomon('kkc6',1,0,'kkex6')">② 公害規制は全国一律でなければならないので、地方自治体が条例によって他の地域よりも厳しい公害規制を行うことは、法の下の平等に反する。</button>
+          <button class="kk-choice" data-tip="✗ <b>累進課税</b>は合理的区別として認められる(高額所得者に高率課税は合憲)。" onclick="ansKakomon('kkc6',2,0,'kkex6')">③ 国民各層の経済的不平等を是正するためとはいえ、高額所得者の所得に対して低額所得者の所得よりも高率の所得税を課すことは許されない。</button>
+          <button class="kk-choice" data-tip="✗ 1973年の<b>尊属殺重罰規定違憲判決</b>で違憲とされた。最高裁の見解と合致しない。" onclick="ansKakomon('kkc6',3,0,'kkex6')">④ 尊属殺人罪の法定刑を、死刑または無期懲役に限定する刑法の規定は、著しく不合理な差別的取扱いには当たらない。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex6"><strong>正解:①</strong><br>衆議院議員の定数不均衡訴訟において、最高裁は一票の格差の是正を求める判断を出しています。②条例で法律より厳しい上乗せ規制は可能。③累進課税は合理的区別として認められる。④尊属殺人重罰規定は1973年に違憲判決が出ています。</div>
@@ -648,10 +662,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2015年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問8. 法の下の平等について、原則として、すべての人々を一律・画一的に取り扱うことを意味するという考え方がある。一方、現実の状況に着眼した上で、積極的な機会の提供を通じて社会的な格差を是正しようとする考え方もある。<strong>後者(実質的平等)の考え方に沿った事例</strong>として最も適当なものを選べ。</div>
         <div class="kk-choices" id="kkc7">
-          <button class="kk-choice" onclick="ansKakomon('kkc7',0,3,'kkex7')">① 法律において、男女同一賃金の原則を定めること。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',1,3,'kkex7')">② 大学入試の合否判定において、受験者の性別を考慮しないこと。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',2,3,'kkex7')">③ 民間企業の定年において、女性の定年を男性よりも低い年齢とする就業規則を定めた企業に対して、法律で罰を科すこと。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',3,3,'kkex7')">④ 女性教員が少ない大学の教員採用において、応募者の能力が同等の場合、女性を優先的に採用するという規定を定めること。</button>
+          <button class="kk-choice" data-tip="✗ 男女同一賃金の原則は<b>形式的平等</b>(差別の禁止)。" onclick="ansKakomon('kkc7',0,3,'kkex7')">① 法律において、男女同一賃金の原則を定めること。</button>
+          <button class="kk-choice" data-tip="✗ 性別を考慮しないのは<b>形式的平等</b>(機会の平等)。" onclick="ansKakomon('kkc7',1,3,'kkex7')">② 大学入試の合否判定において、受験者の性別を考慮しないこと。</button>
+          <button class="kk-choice" data-tip="✗ 男女差別の就業規則を罰するのは<b>形式的平等</b>(差別の禁止)。" onclick="ansKakomon('kkc7',2,3,'kkex7')">③ 民間企業の定年において、女性の定年を男性よりも低い年齢とする就業規則を定めた企業に対して、法律で罰を科すこと。</button>
+          <button class="kk-choice" data-tip="○ 女性を優先採用する規定は<b>アファーマティブ・アクション</b>で実質的平等の典型例。" onclick="ansKakomon('kkc7',3,3,'kkex7')">④ 女性教員が少ない大学の教員採用において、応募者の能力が同等の場合、女性を優先的に採用するという規定を定めること。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex7')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex7"><strong>正解:④</strong><br>女性を優先的に採用する規定はアファーマティブ・アクション(積極的格差是正措置)の典型例で、実質的平等の考え方に沿うものです。①②③は形式的平等(差別の禁止・機会の平等)に当たります。</div>
@@ -1137,7 +1151,33 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}

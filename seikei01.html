@@ -152,6 +152,21 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+
 </style>
 </head>
 <body>
@@ -556,10 +571,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2023年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 法に関する記述として<strong>正しいもの</strong>を①〜④から選べ。</div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,1,'kkex0')">① 自然法とは、特定の社会が独自に発展させた慣習に基づく法を指す。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,1,'kkex0')">② 成文法とは、文章の形で制定された法のことをいう。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,1,'kkex0')">③ 社会法とは、憲法や刑法などの公権力と国民の関係を定める法である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,1,'kkex0')">④ 判例法とは、議会が制定した成文法の一種である。</button>
+          <button class="kk-choice" data-tip="✗ 自然法は時代を超えた<b>理性</b>に基づく法。慣習に基づく法は「慣例法(慣習法)」で別物。" onclick="ansKakomon('kkc0',0,1,'kkex0')">① 自然法とは、特定の社会が独自に発展させた慣習に基づく法を指す。</button>
+          <button class="kk-choice" data-tip="○ 成文法とは、議会が制定した法律や条例のように<b>文章の形で制定された法</b>。正しい説明。" onclick="ansKakomon('kkc0',1,1,'kkex0')">② 成文法とは、文章の形で制定された法のことをいう。</button>
+          <button class="kk-choice" data-tip="✗ これは<b>公法</b>の説明。社会法は労働法・社会保障法など<b>社会的弱者を保護</b>する法律。" onclick="ansKakomon('kkc0',2,1,'kkex0')">③ 社会法とは、憲法や刑法などの公権力と国民の関係を定める法である。</button>
+          <button class="kk-choice" data-tip="✗ 判例法は同じ判決の積み重ねで成立する<b>不文法</b>であり、議会が制定した成文法ではない。" onclick="ansKakomon('kkc0',3,1,'kkex0')">④ 判例法とは、議会が制定した成文法の一種である。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:②</strong><br>②成文法は文章の形で制定された法(法律・条例など)→正しい。<br>①自然法は時代を超えた理性に基づく法であり、慣習に基づく法(慣例法)とは異なる。<br>③は公法の説明。社会法は労働基準法など社会的弱者保護を目的とした法。<br>④判例法は同じ内容の判決が繰り返されることで成立する不文法であり、成文法ではない。</div>
@@ -569,10 +584,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2019年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 国家の三要素として<strong>正しいもの</strong>を①〜④から選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,1,'kkex1')">① 領域・人民・権力</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,1,'kkex1')">② 領域・主権・人民</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,1,'kkex1')">③ 主権・国際連合加盟・人民</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,1,'kkex1')">④ 主権・領域・議会</button>
+          <button class="kk-choice" data-tip="✗ 「権力」が誤り。国家の三要素に含まれるのは「権力」ではなく「<b>主権</b>」。" onclick="ansKakomon('kkc1',0,1,'kkex1')">① 領域・人民・権力</button>
+          <button class="kk-choice" data-tip="○ イェリネックの定義どおり「<b>領域・人民・主権</b>」が国家の三要素。正しい組合せ。" onclick="ansKakomon('kkc1',1,1,'kkex1')">② 領域・主権・人民</button>
+          <button class="kk-choice" data-tip="✗ 「国際連合加盟」は三要素に含まれない。領域も欠けている。" onclick="ansKakomon('kkc1',2,1,'kkex1')">③ 主権・国際連合加盟・人民</button>
+          <button class="kk-choice" data-tip="✗ 「議会」は三要素に含まれない。「人民」が抜けている。" onclick="ansKakomon('kkc1',3,1,'kkex1')">④ 主権・領域・議会</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:②</strong><br>イェリネックは著書『一般国家学』で国家の三要素を「<strong>領域・人民・主権</strong>」と定義した。「権力」ではなく「主権」、「国際連合加盟」「議会」は三要素に含まれない。</div>
@@ -582,10 +597,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">共通テスト 2022年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 排他的経済水域(EEZ)に関する記述として<strong>最も適当なもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 沿岸から12海里の範囲で、完全な主権が及ぶ水域である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 沿岸から200海里で、漁業資源や鉱物資源などの権利を沿岸国が持つ水域である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 沿岸から200海里の範囲で、他国は一切通過できない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 国連海洋法条約ではなく、双務条約によって個別に定められる。</button>
+          <button class="kk-choice" data-tip="✗ 沿岸から12海里は「<b>領海</b>」の説明。EEZは200海里まで。" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 沿岸から12海里の範囲で、完全な主権が及ぶ水域である。</button>
+          <button class="kk-choice" data-tip="○ EEZは沿岸から<b>200海里</b>。漁業資源・鉱物資源について沿岸国が権利を持つ。国連海洋法条約で規定。" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 沿岸から200海里で、漁業資源や鉱物資源などの権利を沿岸国が持つ水域である。</button>
+          <button class="kk-choice" data-tip="✗ 範囲は正しいが、EEZ内でも<b>外国船舶の通航は原則自由</b>。一切通過できないというのは誤り。" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 沿岸から200海里の範囲で、他国は一切通過できない。</button>
+          <button class="kk-choice" data-tip="✗ EEZは<b>国連海洋法条約</b>(1982年採択)で規定されている。双務条約で個別に定めるものではない。" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 国連海洋法条約ではなく、双務条約によって個別に定められる。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex2"><strong>正解:②</strong><br>EEZは沿岸から<strong>200海里</strong>の範囲で、<strong>漁業資源・鉱物資源</strong>などに関する権利を沿岸国が持つ水域。国連海洋法条約で定められている。①は領海(12海里)の説明。③EEZ内でも外国船舶の通過は原則認められる。④は誤り。</div>
@@ -595,10 +610,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2020年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. グロチウスについての記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc3">
-          <button class="kk-choice" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 「主権論の祖」と呼ばれ、主権の概念を最初に定義した。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',1,1,'kkex3')">② 「国際法の父」と呼ばれ、著書『海洋自由論』で公海の自由を主張した。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',2,1,'kkex3')">③ 著書『一般国家学』で国家の三要素を論じた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ 「人間はポリス的動物である」と述べたギリシアの哲学者である。</button>
+          <button class="kk-choice" data-tip="✗ 「主権論の祖」と呼ばれるのは<b>ジャン=ボーダン</b>(フランス)。グロチウスではない。" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 「主権論の祖」と呼ばれ、主権の概念を最初に定義した。</button>
+          <button class="kk-choice" data-tip="○ グロチウスはオランダの法学者「<b>国際法の父</b>」。著書『海洋自由論』で公海自由の原則を主張。" onclick="ansKakomon('kkc3',1,1,'kkex3')">② 「国際法の父」と呼ばれ、著書『海洋自由論』で公海の自由を主張した。</button>
+          <button class="kk-choice" data-tip="✗ 『一般国家学』で国家の三要素を論じたのは<b>イェリネック</b>(ドイツ)。" onclick="ansKakomon('kkc3',2,1,'kkex3')">③ 著書『一般国家学』で国家の三要素を論じた。</button>
+          <button class="kk-choice" data-tip="✗ 「人間はポリス的動物である」と述べたのは古代ギリシアの<b>アリストテレス</b>。" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ 「人間はポリス的動物である」と述べたギリシアの哲学者である。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex3"><strong>正解:②</strong><br>グロチウスはオランダの法学者で「<strong>国際法の父</strong>」と呼ばれ、著書『<strong>海洋自由論</strong>』で公海は自由航行ができると主張した。現在は国際慣習法となっている。①はジャン=ボーダン。③はイェリネック。④はアリストテレス。</div>
@@ -608,10 +623,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">共通テスト 2024年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 主権の三要素に関する記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc4">
-          <button class="kk-choice" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 国内統治権とは、領域内の人々を支配する権利のことである。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',1,3,'kkex4')">② 国家意思最終決定権が人民にある場合を人民主権という。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 対外独立権とは、他国の支配に服さず国内政治を行う権利である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ ポツダム宣言は国家意思最終決定権の例として挙げられる。</button>
+          <button class="kk-choice" data-tip="○ 国内統治権の説明として正しい。領域内の人々を支配する権利のこと。" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 国内統治権とは、領域内の人々を支配する権利のことである。</button>
+          <button class="kk-choice" data-tip="○ 国家意思最終決定権が人民にあれば人民主権、君主にあれば君主主権。説明は正しい。" onclick="ansKakomon('kkc4',1,3,'kkex4')">② 国家意思最終決定権が人民にある場合を人民主権という。</button>
+          <button class="kk-choice" data-tip="○ 対外独立権の説明として正しい。他国に従属せず独立して国内政治を行う権利。" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 対外独立権とは、他国の支配に服さず国内政治を行う権利である。</button>
+          <button class="kk-choice" data-tip="✗ ポツダム宣言「日本国の主権は本州・北海道・九州・四国に局限せらるべし」は領域の限定であり、<b>国内統治権</b>の例。国家意思最終決定権の例ではない。" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ ポツダム宣言は国家意思最終決定権の例として挙げられる。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex4"><strong>正解:④</strong><br>ポツダム宣言(「日本国の主権は本州・北海道・九州・四国に局限せらるべし」)は<strong>国内統治権</strong>の例として挙げられる。国家意思最終決定権の例としては、憲法1条(主権の存する日本国民の総意)などが該当する。①②③はすべて正しい。</div>
@@ -620,12 +635,12 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2015年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6.「国家の3要素」の一つとして「領域」がある。次のA〜Dのうち、残りの二つの要素の<strong>組合せ</strong>として正しいものを選べ。<br>A 人権　B 主権　C 領主　D 国民</div>
         <div class="kk-choices" id="kkc5">
-          <button class="kk-choice" onclick="ansKakomon('kkc5',0,4,'kkex5')">① AとB</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',1,4,'kkex5')">② AとC</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',2,4,'kkex5')">③ AとD</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',3,4,'kkex5')">④ BとC</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',4,4,'kkex5')">⑤ BとD</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',5,4,'kkex5')">⑥ CとD</button>
+          <button class="kk-choice" data-tip="✗ 不適切な組合せ。「人権」は国家の三要素ではない。" onclick="ansKakomon('kkc5',0,4,'kkex5')">① AとB</button>
+          <button class="kk-choice" data-tip="✗ 不適切な組合せ。" onclick="ansKakomon('kkc5',1,4,'kkex5')">② AとC</button>
+          <button class="kk-choice" data-tip="✗ 不適切な組合せ。" onclick="ansKakomon('kkc5',2,4,'kkex5')">③ AとD</button>
+          <button class="kk-choice" data-tip="✗ 不適切な組合せ。「領主」は国家の三要素ではない。" onclick="ansKakomon('kkc5',3,4,'kkex5')">④ BとC</button>
+          <button class="kk-choice" data-tip="○ 正解。<b>領域(B以外でD)・国民(D)・主権(B)</b>の3つがイェリネックの三要素にあたる組合せ。" onclick="ansKakomon('kkc5',4,4,'kkex5')">⑤ BとD</button>
+          <button class="kk-choice" data-tip="✗ 不適切な組合せ。" onclick="ansKakomon('kkc5',5,4,'kkex5')">⑥ CとD</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex5"><strong>正解:⑤</strong><br>国家の3要素はイェリネックの学説に基づくもの。領域(領土・領海・領空)・国民(B以外でD)・主権(B)の3つを指します。「人権」「領主」は3要素ではない。</div>
@@ -635,10 +650,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2024年 共通テスト本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 生徒は近代国家の成立について調べ、国家の強制力に関する次の資料をみつけた。資料から読みとれる内容として<strong>最も適当なもの</strong>を選べ。<br><br><span style="display:block;background:#f5f3ed;padding:10px;border-left:3px solid var(--muted);font-size:.88em;line-height:1.7;margin:8px 0">「もちろん暴力行使は、国家にとってノーマルな手段でもまた唯一の手段でもない…が、おそらく国家に特有な手段ではあるだろう。…過去においては、氏族(ジッペ)を始めとする多種多様な団体が、物理的暴力をまったくノーマルな手段として認めていた。ところが今日では、次のように言わねばなるまい。国家とは、ある一定の領域の内部で…正当な物理的暴力行使の独占を(実効的に)要求する人間共同体である、と。…つまり国家が暴力行使への『権利』の唯一の源泉とみなされているということ、これは確かに現代に特有な現象である。」<br><span style="font-size:.85em;color:#666">(出所)マックス・ヴェーバー『職業としての政治』脇圭平訳</span></span></div>
         <div class="kk-choices" id="kkc6">
-          <button class="kk-choice" onclick="ansKakomon('kkc6',0,2,'kkex6')">① 資料中の過去においては、暴力行使は国家に特有の手段であり、国家が用いる通常かつ唯一の手段でもある。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',1,2,'kkex6')">② 資料中の今日において、国家と暴力の関係は特別に緊密であるが、それ以前に暴力行使はいかなる団体にも認められたことがない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',2,2,'kkex6')">③ 資料中の今日において、国家はある一定の領域の内部における正当な物理的暴力行使の唯一の源泉とみなされている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',3,2,'kkex6')">④ 資料中の過去においては、国家の許容した範囲内でのみ、国家以外の団体や個人が物理的暴力を行使することが認められていた。</button>
+          <button class="kk-choice" data-tip="✗ 資料は「暴力行使は国家にとって<b>唯一の手段ではない</b>」と述べている。「唯一」が誤り。" onclick="ansKakomon('kkc6',0,2,'kkex6')">① 資料中の過去においては、暴力行使は国家に特有の手段であり、国家が用いる通常かつ唯一の手段でもある。</button>
+          <button class="kk-choice" data-tip="✗ 資料は過去には「氏族など多種多様な団体が物理的暴力を認めていた」と述べる。「いかなる団体にも認められたことがない」は誤り。" onclick="ansKakomon('kkc6',1,2,'kkex6')">② 資料中の今日において、国家と暴力の関係は特別に緊密であるが、それ以前に暴力行使はいかなる団体にも認められたことがない。</button>
+          <button class="kk-choice" data-tip="○ 資料の「国家が暴力行使への『権利』の唯一の源泉とみなされている」と合致する。" onclick="ansKakomon('kkc6',2,2,'kkex6')">③ 資料中の今日において、国家はある一定の領域の内部における正当な物理的暴力行使の唯一の源泉とみなされている。</button>
+          <button class="kk-choice" data-tip="✗ 国家以外の団体が暴力を認められていたのは「過去」だが、それは<b>国家の許容範囲内ではなく独立に</b>認められていた。" onclick="ansKakomon('kkc6',3,2,'kkex6')">④ 資料中の過去においては、国家の許容した範囲内でのみ、国家以外の団体や個人が物理的暴力を行使することが認められていた。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex6"><strong>正解:③</strong><br>資料の「国家とは…正当な物理的暴力の独占を要求する人間共同体である…つまり国家が暴力行使への『権利』の唯一の源泉とみなされている」に合致します。①過去にも国家以外の団体が暴力行使を認められていた。②過去には他団体にも認められていた。④国家の許容範囲内とされたのは「今日」のこと。</div>
@@ -648,12 +663,12 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2024年 共通テスト本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問8. 次の記述ア〜ウは、それぞれ『統治二論』『戦争と平和の法』『リヴァイアサン』のいずれかの一節である。記述ア〜ウと著者名a〜cとの<strong>組合せ</strong>として正しいものを選べ。<br><br>ア「自然状態はそれを支配する自然法をもち…何人も他人の生命、健康、自由、あるいは所有物を侵害すべきではない」<br>イ「人びとが、かれらすべてを威圧しておく共通の権力なしに、生活しているときには…なんの保証もなしに生きている」<br>ウ「戦の最中には、法は沈黙するかもしれないが…自然が定め、または万民の合意が定立したところのものは依然効力を有する」<br><br>a グロティウス　b ホッブズ　c ロック</div>
         <div class="kk-choices" id="kkc7">
-          <button class="kk-choice" onclick="ansKakomon('kkc7',0,5,'kkex7')">① ア-a イ-b ウ-c</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',1,5,'kkex7')">② ア-a イ-c ウ-b</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',2,5,'kkex7')">③ ア-b イ-c ウ-a</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',3,5,'kkex7')">④ ア-b イ-a ウ-c</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',4,5,'kkex7')">⑤ ア-c イ-a ウ-b</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',5,5,'kkex7')">⑥ ア-c イ-b ウ-a</button>
+          <button class="kk-choice" data-tip="✗ ア(自然法・所有権)→ロック c なのに a(グロティウス)を当てている。" onclick="ansKakomon('kkc7',0,5,'kkex7')">① ア-a イ-b ウ-c</button>
+          <button class="kk-choice" data-tip="✗ アはロック c であるべき。" onclick="ansKakomon('kkc7',1,5,'kkex7')">② ア-a イ-c ウ-b</button>
+          <button class="kk-choice" data-tip="✗ アはロック、ウはグロティウス。組合せが誤り。" onclick="ansKakomon('kkc7',2,5,'kkex7')">③ ア-b イ-c ウ-a</button>
+          <button class="kk-choice" data-tip="✗ アはロック c。組合せが誤り。" onclick="ansKakomon('kkc7',3,5,'kkex7')">④ ア-b イ-a ウ-c</button>
+          <button class="kk-choice" data-tip="✗ ウは「戦争・万民の合意」でグロティウス a。ここでは b(ホッブズ)を当てており誤り。" onclick="ansKakomon('kkc7',4,5,'kkex7')">⑤ ア-c イ-a ウ-b</button>
+          <button class="kk-choice" data-tip="○ ア=ロック『統治二論』(自然法・所有権)、イ=ホッブズ『リヴァイアサン』(共通の権力なし)、ウ=グロティウス『戦争と平和の法』。" onclick="ansKakomon('kkc7',5,5,'kkex7')">⑥ ア-c イ-b ウ-a</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex7')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex7"><strong>正解:⑥</strong><br>アは「他人の生命・健康・自由・所有物を侵害すべきでない」という自然法に言及→ロック『統治二論』。イは「共通の権力なしに生活する」状態の不安→ホッブズ『リヴァイアサン』(万人の万人に対する闘争)。ウは「戦争中も自然法・万民の合意は効力を有する」→グロティウス『戦争と平和の法』(国際法の父)。</div>
@@ -663,10 +678,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2016年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問9. 著書『国家論』において、主権の概念を提唱したフランスの思想家は誰か。<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc8">
-          <button class="kk-choice" onclick="ansKakomon('kkc8',0,0,'kkex8')">① ボーダン</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',1,0,'kkex8')">② モンテスキュー</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',2,0,'kkex8')">③ ルソー</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',3,0,'kkex8')">④ ケネー</button>
+          <button class="kk-choice" data-tip="○ ボーダンはフランスの思想家。著書『<b>国家論</b>』で主権の概念を初めて用いた。" onclick="ansKakomon('kkc8',0,0,'kkex8')">① ボーダン</button>
+          <button class="kk-choice" data-tip="✗ モンテスキューは『法の精神』で<b>三権分立</b>を論じた人。主権概念の提唱者ではない。" onclick="ansKakomon('kkc8',1,0,'kkex8')">② モンテスキュー</button>
+          <button class="kk-choice" data-tip="✗ ルソーは『社会契約論』で<b>一般意思</b>に基づく直接民主制を主張。" onclick="ansKakomon('kkc8',2,0,'kkex8')">③ ルソー</button>
+          <button class="kk-choice" data-tip="✗ ケネーは『経済表』を著した<b>重農主義</b>の経済学者。" onclick="ansKakomon('kkc8',3,0,'kkex8')">④ ケネー</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex8')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex8"><strong>正解:①</strong><br>ボーダンは『国家論』で主権という概念を初めて用いました。②モンテスキューは『法の精神』で三権分立。③ルソーは『社会契約論』で一般意思に基づく直接民主制。④ケネーは『経済表』を著した重農主義者です。</div>
@@ -1016,10 +1031,20 @@ function ansUQ(qid,sel,cor){
     if(i===cor)b.classList.add('correct');
     else if(i===sel&&sel!==cor)b.classList.add('wrong');
   });
-  // 不正解時のみ解説を表示
-  if(sel!==cor){
-    qBox.classList.add('on');
+  // バッジを解説の先頭に挿入(既存があれば置き換え)
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  var badgeHtml='';
+  if(sel===cor){
+    badgeHtml='<div class="ans-badge ok">✅ 正解！</div>';
+  }else{
+    badgeHtml='<div class="ans-badge ng">❌ 不正解　→　正解は <span class="big">'+(marks[cor]||(cor+1))+'</span></div>';
   }
+  // 既存のバッジを削除してから先頭に追加
+  var oldBadge=qBox.querySelector('.ans-badge');
+  if(oldBadge)oldBadge.remove();
+  qBox.insertAdjacentHTML('afterbegin',badgeHtml);
+  // 正解・不正解どちらでも解説を表示する(生徒の意見を反映)
+  qBox.classList.add('on');
 }
 
 // 単元4択の採点
@@ -1154,7 +1179,36 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  // 既存のチップを除去
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    // ボタンの直後に解説チップを追加(自分の選択肢と正解の選択肢のみ)
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  // 全体バッジ(✅正解!/❌不正解)
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}

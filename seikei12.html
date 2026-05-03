@@ -152,6 +152,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -779,10 +793,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 衆議院の解散についての記述として<strong>誤っているもの</strong>を、次の①〜④のうちから一つ選べ。</div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,3,'kkex0')">① 内閣は、天皇の国事行為に対する助言と承認を通して衆議院を解散することができる、という憲法運用が定着している。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,3,'kkex0')">② 内閣は、衆議院が内閣不信任決議を行わなくても衆議院を解散することができる、という憲法運用が定着している。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,3,'kkex0')">③ 衆議院の解散総選挙後、一定期間内に、特別会が召集されなければならない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,3,'kkex0')">④ 衆議院の解散後、国会の議決が必要になった場合、新しい衆議院議員が選挙されるのを待たなければならない。</button>
+          <button class="kk-choice" data-tip="○ 7条解散の運用。内閣は天皇の国事行為への助言と承認を通して解散できる。正しい。" onclick="ansKakomon('kkc0',0,3,'kkex0')">① 内閣は、天皇の国事行為に対する助言と承認を通して衆議院を解散することができる、という憲法運用が定着している。</button>
+          <button class="kk-choice" data-tip="○ 不信任決議によらない7条解散も憲法運用として定着。正しい。" onclick="ansKakomon('kkc0',1,3,'kkex0')">② 内閣は、衆議院が内閣不信任決議を行わなくても衆議院を解散することができる、という憲法運用が定着している。</button>
+          <button class="kk-choice" data-tip="○ 解散→<b>40日以内に総選挙→30日以内に特別会召集</b>。正しい。" onclick="ansKakomon('kkc0',2,3,'kkex0')">③ 衆議院の解散総選挙後、一定期間内に、特別会が召集されなければならない。</button>
+          <button class="kk-choice" data-tip="✗ 衆議院解散中に国会の議決が必要なら、内閣の要求で<b>参議院の緊急集会</b>を求めることができる。" onclick="ansKakomon('kkc0',3,3,'kkex0')">④ 衆議院の解散後、国会の議決が必要になった場合、新しい衆議院議員が選挙されるのを待たなければならない。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:④</strong><br>衆議院解散中に国会の議決が必要な場合は、内閣の要求で<strong>参議院の緊急集会</strong>を求めることができます。新しい衆議院議員の選挙を待つ必要はありません。①②7条解散の説明で正しい。③解散→40日以内に総選挙→30日以内に特別会召集で正しい。</div>
@@ -792,10 +806,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 日本国憲法の規定で明記された内閣の権限と<strong>はいえないもの</strong>を、次の①〜④のうちから一つ選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 政令を制定すること</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 下級裁判所の裁判官を任命すること</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 国政に関する調査を実施すること</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 外交関係を処理すること</button>
+          <button class="kk-choice" data-tip="○ <b>政令の制定</b>は内閣の権限(憲法73条6号)。正しい。" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 政令を制定すること</button>
+          <button class="kk-choice" data-tip="○ <b>下級裁判所裁判官の任命</b>は内閣の権限(憲法80条1項)。正しい。" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 下級裁判所の裁判官を任命すること</button>
+          <button class="kk-choice" data-tip="✗ <b>国政調査権</b>は<b>国会(各議院)</b>の権限(憲法62条)。内閣の権限ではない。" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 国政に関する調査を実施すること</button>
+          <button class="kk-choice" data-tip="○ <b>外交関係の処理</b>は内閣の権限(憲法73条2号)。正しい。" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 外交関係を処理すること</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:③</strong><br>国政に関する調査(国政調査権)は<strong>国会</strong>の権限であり、内閣の権限ではありません。①政令制定は憲法73条6号、②下級裁判官任命は80条、④外交処理は73条2号で内閣の権限とされています。</div>
@@ -805,10 +819,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 日本の国会、内閣と行政各部との関係についての記述として<strong>誤っているもの</strong>を、次の①〜④のうちから一つ選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 行政に対する政治主導を実現するため、国会議員などから内閣により任命される副大臣や大臣政務官が行政各部に配置されている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 参議院は解散されることがないので、内閣総理大臣の政治的責任を問う問責決議を行うことも認められていない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 国務大臣は、自らに対する不信任決議案が衆議院で可決されても、直ちにその職を失うことはない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 議院に議席を有しない国務大臣は、議院に出席し、議案について発言することはできるが、議案の表決に参加することはできない。</button>
+          <button class="kk-choice" data-tip="○ 1999年導入の<b>副大臣・大臣政務官</b>制度。政治主導を目指したもの。正しい。" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 行政に対する政治主導を実現するため、国会議員などから内閣により任命される副大臣や大臣政務官が行政各部に配置されている。</button>
+          <button class="kk-choice" data-tip="✗ 参議院は内閣不信任決議権はないが、<b>問責決議</b>は行うことができる(法的拘束力なし)。" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 参議院は解散されることがないので、内閣総理大臣の政治的責任を問う問責決議を行うことも認められていない。</button>
+          <button class="kk-choice" data-tip="○ 個別の国務大臣への不信任決議は<b>法的拘束力なし</b>。直ちに職を失うことはない。正しい。" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 国務大臣は、自らに対する不信任決議案が衆議院で可決されても、直ちにその職を失うことはない。</button>
+          <button class="kk-choice" data-tip="○ 議席のない国務大臣は出席・発言可能だが<b>表決には参加できない</b>。正しい。" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 議院に議席を有しない国務大臣は、議院に出席し、議案について発言することはできるが、議案の表決に参加することはできない。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex2"><strong>正解:②</strong><br>参議院に内閣不信任決議権はありませんが、<strong>問責決議は行うことができます</strong>(法的拘束力はないが)。①政治主導を目指して副大臣・政務官が導入された(1999年)で正しい。③個別の国務大臣に対する不信任決議は法的拘束力がなく、職を失うことはない。④議席のない国務大臣は出席・発言は可能だが表決には参加できない。</div>
@@ -1296,7 +1310,33 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}

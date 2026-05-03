@@ -163,6 +163,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -668,10 +682,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2024年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 大日本帝国憲法に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,1,'kkex0')">① 大日本帝国憲法は民定憲法であり、天皇と国民が共同して制定した。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,1,'kkex0')">② 大日本帝国憲法は欽定憲法であり、外見的立憲主義の特徴を持ち、天皇に権力が集中していた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,1,'kkex0')">③ 大日本帝国憲法では国民の基本的人権が永久不可侵として保障された。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,1,'kkex0')">④ 大日本帝国憲法では統帥権は内閣に属していた。</button>
+          <button class="kk-choice" data-tip="✗ 大日本帝国憲法は<b>欽定憲法</b>(天皇が定めた憲法)。民定憲法ではない。" onclick="ansKakomon('kkc0',0,1,'kkex0')">① 大日本帝国憲法は民定憲法であり、天皇と国民が共同して制定した。</button>
+          <button class="kk-choice" data-tip="○ 大日本帝国憲法は<b>欽定憲法</b>で、形式上の立憲主義(<b>外見的立憲主義</b>)に過ぎず、実態は天皇主権。" onclick="ansKakomon('kkc0',1,1,'kkex0')">② 大日本帝国憲法は欽定憲法であり、外見的立憲主義の特徴を持ち、天皇に権力が集中していた。</button>
+          <button class="kk-choice" data-tip="✗ 明治憲法では基本的人権は「<b>法律の範囲内</b>」でのみ認められた(臣民の権利)。永久不可侵ではない。" onclick="ansKakomon('kkc0',2,1,'kkex0')">③ 大日本帝国憲法では国民の基本的人権が永久不可侵として保障された。</button>
+          <button class="kk-choice" data-tip="✗ 統帥権は<b>天皇に属し</b>、内閣・議会から独立(統帥権の独立)。" onclick="ansKakomon('kkc0',3,1,'kkex0')">④ 大日本帝国憲法では統帥権は内閣に属していた。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:②</strong><br>大日本帝国憲法は天皇が定めた欽定憲法で、表面上は立憲主義をとりながら実際には天皇大権・統帥権などで天皇に権力が集中する外見的立憲主義だった。①民定憲法ではない。③基本的人権は「法律の範囲内」でのみ保障(臣民の権利)。④統帥権は天皇に属し内閣・議会から独立。</div>
@@ -681,10 +695,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2022年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 大正デモクラシーに関する人物と説の組み合わせとして<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 美濃部達吉 ─ 民本主義(政治の目的は民衆の利福)</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 吉野作造 ─ 天皇機関説(天皇は国家機関の一つ)</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 美濃部達吉 ─ 天皇機関説、 吉野作造 ─ 民本主義</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 吉野作造 ─ 天皇機関説・民本主義の両方を唱えた</button>
+          <button class="kk-choice" data-tip="✗ 民本主義は<b>吉野作造</b>。美濃部達吉ではない。" onclick="ansKakomon('kkc1',0,2,'kkex1')">① 美濃部達吉 ─ 民本主義(政治の目的は民衆の利福)</button>
+          <button class="kk-choice" data-tip="✗ 天皇機関説は<b>美濃部達吉</b>。吉野作造ではない。" onclick="ansKakomon('kkc1',1,2,'kkex1')">② 吉野作造 ─ 天皇機関説(天皇は国家機関の一つ)</button>
+          <button class="kk-choice" data-tip="○ 美濃部達吉=<b>天皇機関説</b>、吉野作造=<b>民本主義</b>。これが正しい組合せ。" onclick="ansKakomon('kkc1',2,2,'kkex1')">③ 美濃部達吉 ─ 天皇機関説、 吉野作造 ─ 民本主義</button>
+          <button class="kk-choice" data-tip="✗ 吉野作造は民本主義のみ。天皇機関説は美濃部達吉。" onclick="ansKakomon('kkc1',3,2,'kkex1')">④ 吉野作造 ─ 天皇機関説・民本主義の両方を唱えた</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:③</strong><br>美濃部達吉=天皇機関説(天皇は国家という法人の機関の一つ→議会中心の政治を正当化)、吉野作造=民本主義(政治の目的は民衆の利福→普通選挙・政党政治を主張)。①②は人物と説が逆。</div>
@@ -694,10 +708,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2023年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 日本国憲法の改正手続きとして<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 各議院の出席議員の過半数の賛成で発議し、国民投票で3分の2以上の賛成が必要。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 各議院の総議員の3分の2以上の賛成で発議し、国民投票で過半数の賛成が必要。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 内閣が発議し、両院の過半数で可決し、国民投票で過半数の賛成が必要。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 各議院の総議員の3分の2以上で発議し、都道府県の3分の2以上の賛成が必要。</button>
+          <button class="kk-choice" data-tip="✗ 「出席議員の過半数」が誤り。発議は<b>総議員の3分の2以上</b>必要。" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 各議院の出席議員の過半数の賛成で発議し、国民投票で3分の2以上の賛成が必要。</button>
+          <button class="kk-choice" data-tip="○ 各議院の<b>総議員の3分の2以上</b>で発議し、国民投票で<b>過半数</b>の賛成。憲法96条。" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 各議院の総議員の3分の2以上の賛成で発議し、国民投票で過半数の賛成が必要。</button>
+          <button class="kk-choice" data-tip="✗ 内閣発議ではない。<b>国会(各議院)が発議</b>する。" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 内閣が発議し、両院の過半数で可決し、国民投票で過半数の賛成が必要。</button>
+          <button class="kk-choice" data-tip="✗ 都道府県の3分の2ではなく、<b>国民投票での過半数</b>が必要。" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 各議院の総議員の3分の2以上で発議し、都道府県の3分の2以上の賛成が必要。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex2"><strong>正解:②</strong><br>憲法96条:各議院の総議員の3分の2以上の賛成で発議 → 国民投票で有効投票の過半数の賛成 → 天皇が国民の名で公布。①出席議員ではなく総議員。③内閣発議ではない。④都道府県ではない。</div>
@@ -707,10 +721,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2020年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. 日本国憲法の三大原則として<strong>正しい組み合わせ</strong>を選べ。</div>
         <div class="kk-choices" id="kkc3">
-          <button class="kk-choice" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 天皇主権・基本的人権の尊重・平和主義</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',1,1,'kkex3')">② 国民主権・基本的人権の尊重・平和主義</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',2,1,'kkex3')">③ 国民主権・象徴天皇制・平和主義</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ 国民主権・基本的人権の尊重・戦争の放棄</button>
+          <button class="kk-choice" data-tip="✗ 「天皇主権」は<b>大日本帝国憲法</b>の原理。日本国憲法は国民主権。" onclick="ansKakomon('kkc3',0,1,'kkex3')">① 天皇主権・基本的人権の尊重・平和主義</button>
+          <button class="kk-choice" data-tip="○ 日本国憲法の三大原則は「<b>国民主権・基本的人権の尊重・平和主義</b>」。" onclick="ansKakomon('kkc3',1,1,'kkex3')">② 国民主権・基本的人権の尊重・平和主義</button>
+          <button class="kk-choice" data-tip="✗ 「象徴天皇制」は三大原則の一つではない(国民主権の現れ)。" onclick="ansKakomon('kkc3',2,1,'kkex3')">③ 国民主権・象徴天皇制・平和主義</button>
+          <button class="kk-choice" data-tip="✗ 三大原則の正式な表現は「<b>平和主義</b>」(戦争の放棄はその内容)。" onclick="ansKakomon('kkc3',3,1,'kkex3')">④ 国民主権・基本的人権の尊重・戦争の放棄</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex3"><strong>正解:②</strong><br>日本国憲法の三大原則は「国民主権・基本的人権の尊重・平和主義」。①天皇主権は大日本帝国憲法。③象徴天皇制は三大原則の一つではない(国民主権の内容に含まれる位置づけ)。④「戦争の放棄」は平和主義の内容だが三大原則の正式な表現は「平和主義」。</div>
@@ -720,10 +734,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2018年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 日本国憲法の公布・施行に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc4">
-          <button class="kk-choice" onclick="ansKakomon('kkc4',0,1,'kkex4')">① 1945年8月15日に公布・施行された。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',1,1,'kkex4')">② 1946年11月3日に公布、1947年5月3日に施行された。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',2,1,'kkex4')">③ 1947年5月3日に公布、1947年11月3日に施行された。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',3,1,'kkex4')">④ 新たに制定されたのではなく、大日本帝国憲法をそのまま引き継いだ。</button>
+          <button class="kk-choice" data-tip="✗ 1945年8月15日は<b>終戦の日</b>。憲法公布は1946年。" onclick="ansKakomon('kkc4',0,1,'kkex4')">① 1945年8月15日に公布・施行された。</button>
+          <button class="kk-choice" data-tip="○ 1946年11月3日<b>公布</b>(現・文化の日)、1947年5月3日<b>施行</b>(現・憲法記念日)。" onclick="ansKakomon('kkc4',1,1,'kkex4')">② 1946年11月3日に公布、1947年5月3日に施行された。</button>
+          <button class="kk-choice" data-tip="✗ 公布と施行の日付が逆。<b>公布が1946年11月3日</b>、施行が1947年5月3日。" onclick="ansKakomon('kkc4',2,1,'kkex4')">③ 1947年5月3日に公布、1947年11月3日に施行された。</button>
+          <button class="kk-choice" data-tip="✗ 形式上は明治憲法73条の改正手続きを経たが、<b>内容は全面的に改められた</b>。" onclick="ansKakomon('kkc4',3,1,'kkex4')">④ 新たに制定されたのではなく、大日本帝国憲法をそのまま引き継いだ。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex4"><strong>正解:②</strong><br>日本国憲法は1946年11月3日(現在の文化の日)に公布、1947年5月3日(現在の憲法記念日)に施行。形式上は大日本帝国憲法73条の改正手続きを経て制定されたが、内容は全面的に改められた。</div>
@@ -732,13 +746,13 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2019年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6. 次の記述A〜Cのうち、大日本帝国憲法下の制度には<strong>当てはまらず</strong>、かつ日本国憲法下の制度に<strong>当てはまる</strong>ものとして正しいものはどれか。正しい記述をすべて選び、その<strong>組合せ</strong>として最も適当なものを選べ。<br><br>A 天皇の地位は主権の存する国民の総意に基づく。<br>B 衆議院議員が選挙で選出される。<br>C 内閣の規定が憲法におかれる。</div>
         <div class="kk-choices" id="kkc5">
-          <button class="kk-choice" onclick="ansKakomon('kkc5',0,4,'kkex5')">① A</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',1,4,'kkex5')">② B</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',2,4,'kkex5')">③ C</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',3,4,'kkex5')">④ AとB</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',4,4,'kkex5')">⑤ AとC</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',5,4,'kkex5')">⑥ BとC</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',6,4,'kkex5')">⑦ AとBとC</button>
+          <button class="kk-choice" data-tip="✗ Aは正しいが、Cも条件に当てはまる。両方を選ぶべき。" onclick="ansKakomon('kkc5',0,4,'kkex5')">① A</button>
+          <button class="kk-choice" data-tip="✗ Bは衆議院議員選挙のことで明治憲法でも公選だったため当てはまらない。" onclick="ansKakomon('kkc5',1,4,'kkex5')">② B</button>
+          <button class="kk-choice" data-tip="✗ Cは正しいが、Aも条件に当てはまる。" onclick="ansKakomon('kkc5',2,4,'kkex5')">③ C</button>
+          <button class="kk-choice" data-tip="✗ Bは明治憲法でも衆議院議員は公選だったため不適。" onclick="ansKakomon('kkc5',3,4,'kkex5')">④ AとB</button>
+          <button class="kk-choice" data-tip="○ A=日本国憲法のみ(明治は天皇主権)、C=日本国憲法のみ(明治に内閣規定なし)。" onclick="ansKakomon('kkc5',4,4,'kkex5')">⑤ AとC</button>
+          <button class="kk-choice" data-tip="✗ Bは両方の憲法で当てはまるため不適。" onclick="ansKakomon('kkc5',5,4,'kkex5')">⑥ BとC</button>
+          <button class="kk-choice" data-tip="✗ Bは両方の憲法に当てはまるため除外。" onclick="ansKakomon('kkc5',6,4,'kkex5')">⑦ AとBとC</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex5"><strong>正解:⑤</strong><br>A 正:日本国憲法第1条「天皇は…象徴であつて、この地位は主権の存する日本国民の総意に基く」。明治憲法は天皇主権。B 誤:両憲法とも当てはまる(明治憲法でも衆議院議員は公選)。C 正:日本国憲法第5章に内閣の規定があるが、明治憲法に内閣の規定はない(国務大臣は天皇を輔弼)。</div>
@@ -748,10 +762,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2016年 センター試験追試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 憲法は国の<strong>最高法規</strong>であるという原則を定めた日本国憲法の規定はどれか。正しいものを選べ。</div>
         <div class="kk-choices" id="kkc6">
-          <button class="kk-choice" onclick="ansKakomon('kkc6',0,2,'kkex6')">① 国会は、国権の最高機関であって唯一の立法機関である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',1,2,'kkex6')">② 内閣総理大臣その他の国務大臣は、文民でなければならない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',2,2,'kkex6')">③ 憲法に反する法律、命令、詔勅および国務に関するその他の行為は、効力を有しない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',3,2,'kkex6')">④ 地方自治体の組織および運営に関する事項は、地方自治の本旨に基づいて、法律で定める。</button>
+          <button class="kk-choice" data-tip="✗ これは<b>国会の地位</b>(第41条)の規定。最高法規性の規定ではない。" onclick="ansKakomon('kkc6',0,2,'kkex6')">① 国会は、国権の最高機関であって唯一の立法機関である。</button>
+          <button class="kk-choice" data-tip="✗ これは<b>文民統制</b>(シビリアンコントロール、第66条2項)の規定。" onclick="ansKakomon('kkc6',1,2,'kkex6')">② 内閣総理大臣その他の国務大臣は、文民でなければならない。</button>
+          <button class="kk-choice" data-tip="○ 第98条1項「この憲法は、国の最高法規であつて…効力を有しない」が<b>最高法規性</b>の規定。" onclick="ansKakomon('kkc6',2,2,'kkex6')">③ 憲法に反する法律、命令、詔勅および国務に関するその他の行為は、効力を有しない。</button>
+          <button class="kk-choice" data-tip="✗ これは<b>地方自治</b>の規定(第92条)。" onclick="ansKakomon('kkc6',3,2,'kkex6')">④ 地方自治体の組織および運営に関する事項は、地方自治の本旨に基づいて、法律で定める。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex6"><strong>正解:③</strong><br>憲法第98条1項「この憲法は、国の最高法規であつて、その条規に反する法律、命令、詔勅及び国務に関するその他の行為の全部又は一部は、その効力を有しない」が最高法規性の規定です。①は国会の地位、②は文民統制、④は地方自治の規定です。</div>
@@ -761,10 +775,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問8. 大日本帝国憲法(明治憲法)から日本国憲法への変化についての記述として<strong>適当でないもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc7">
-          <button class="kk-choice" onclick="ansKakomon('kkc7',0,3,'kkex7')">① 明治憲法で統治権を総攬するとされた天皇は、日本国憲法では日本国と日本国民統合の象徴とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',1,3,'kkex7')">② 明治憲法では臣民の権利が法律の範囲内で与えられたが、日本国憲法では基本的人権が侵すことのできない永久の権利として保障された。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',2,3,'kkex7')">③ 明治憲法では皇族・華族・勅任議員からなる貴族院が置かれていたが、日本国憲法では公選の参議院が設けられた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',3,3,'kkex7')">④ 明治憲法で規定されていた地方自治は日本国憲法ではいっそう拡充され、地方特別法を制定する場合、事前に住民投票を行う制度が導入された。</button>
+          <button class="kk-choice" data-tip="○ 統治権を総攬する天皇から、象徴天皇への変化。正しい。" onclick="ansKakomon('kkc7',0,3,'kkex7')">① 明治憲法で統治権を総攬するとされた天皇は、日本国憲法では日本国と日本国民統合の象徴とされた。</button>
+          <button class="kk-choice" data-tip="○ 「法律の範囲内」から「侵すことのできない永久の権利」への変化。正しい。" onclick="ansKakomon('kkc7',1,3,'kkex7')">② 明治憲法では臣民の権利が法律の範囲内で与えられたが、日本国憲法では基本的人権が侵すことのできない永久の権利として保障された。</button>
+          <button class="kk-choice" data-tip="○ 貴族院(非民選)から公選の参議院への変化。正しい。" onclick="ansKakomon('kkc7',2,3,'kkex7')">③ 明治憲法では皇族・華族・勅任議員からなる貴族院が置かれていたが、日本国憲法では公選の参議院が設けられた。</button>
+          <button class="kk-choice" data-tip="✗ 明治憲法には<b>地方自治の規定がなかった</b>。地方特別法の住民投票制度も日本国憲法以降。" onclick="ansKakomon('kkc7',3,3,'kkex7')">④ 明治憲法で規定されていた地方自治は日本国憲法ではいっそう拡充され、地方特別法を制定する場合、事前に住民投票を行う制度が導入された。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex7')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex7"><strong>正解:④</strong><br>明治憲法には地方自治の規定がありませんでした。地方自治特別法の住民投票制度が設けられたのも日本国憲法になってからです。①象徴天皇制、②基本的人権の保障、③貴族院から参議院への変化はいずれも正しい。</div>
@@ -774,10 +788,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問9. 日本国憲法の定める憲法改正手続についての記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc8">
-          <button class="kk-choice" onclick="ansKakomon('kkc8',0,2,'kkex8')">① 憲法の改正は、各議院の総議員の3分の2以上の賛成で、国会が国民に発議する。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',1,2,'kkex8')">② 国民が国会の発議した憲法改正を承認するには、特別の国民投票または国会の定める選挙の際に行われる投票で、その過半数の賛成を必要とする。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',2,2,'kkex8')">③ 日本に居住する定住外国人は、引き続き3か月以上、同一の市町村に住所を有していれば、その市町村で憲法改正国民投票に参加できる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',3,2,'kkex8')">④ 憲法改正について国民の承認が得られたときは、天皇は、国民の名において、直ちにこれを公布する。</button>
+          <button class="kk-choice" data-tip="○ 各議院総議員の3分の2以上で発議。正しい。" onclick="ansKakomon('kkc8',0,2,'kkex8')">① 憲法の改正は、各議院の総議員の3分の2以上の賛成で、国会が国民に発議する。</button>
+          <button class="kk-choice" data-tip="○ 国民投票で過半数の賛成が必要。正しい。" onclick="ansKakomon('kkc8',1,2,'kkex8')">② 国民が国会の発議した憲法改正を承認するには、特別の国民投票または国会の定める選挙の際に行われる投票で、その過半数の賛成を必要とする。</button>
+          <button class="kk-choice" data-tip="✗ 定住外国人には<b>参政権がなく</b>、憲法改正国民投票にも参加できない。" onclick="ansKakomon('kkc8',2,2,'kkex8')">③ 日本に居住する定住外国人は、引き続き3か月以上、同一の市町村に住所を有していれば、その市町村で憲法改正国民投票に参加できる。</button>
+          <button class="kk-choice" data-tip="○ 天皇が国民の名において公布する。正しい。" onclick="ansKakomon('kkc8',3,2,'kkex8')">④ 憲法改正について国民の承認が得られたときは、天皇は、国民の名において、直ちにこれを公布する。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex8')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex8"><strong>正解:③</strong><br>定住外国人には参政権が認められていないため、憲法改正の国民投票にも参加する権利がありません。①各議院総議員の3分の2以上で発議、②国民投票で過半数の賛成、④天皇による公布はすべて正しい。</div>
@@ -787,10 +801,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2012年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問10. 日本国憲法と明治憲法(大日本帝国憲法)との比較についての記述として<strong>適当でないもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc9">
-          <button class="kk-choice" onclick="ansKakomon('kkc9',0,0,'kkex9')">① 明治憲法の下では貴族院議員は臣民による制限選挙で選ばれたが、日本国憲法の下では参議院議員は普通選挙で選ばれる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',1,0,'kkex9')">② 明治憲法は軍隊の保持や天皇が宣戦する権限を認めていたが、日本国憲法は戦力の不保持や戦争の放棄などの平和主義を掲げている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',2,0,'kkex9')">③ 日本国憲法の下では主権は国民にあるとの考えがとられているが、明治憲法の下では主権は天皇にあるとされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',3,0,'kkex9')">④ 日本国憲法は法律によっても侵すことのできない権利として基本的人権を保障しているが、明治憲法は法律の範囲内でのみ臣民の権利を認めた。</button>
+          <button class="kk-choice" data-tip="✗ 明治憲法下の貴族院議員は<b>非民選</b>(皇族・華族・勅任議員)で、臣民による選挙ではない。" onclick="ansKakomon('kkc9',0,0,'kkex9')">① 明治憲法の下では貴族院議員は臣民による制限選挙で選ばれたが、日本国憲法の下では参議院議員は普通選挙で選ばれる。</button>
+          <button class="kk-choice" data-tip="○ 平和主義(戦争放棄・戦力不保持)への変化。正しい。" onclick="ansKakomon('kkc9',1,0,'kkex9')">② 明治憲法は軍隊の保持や天皇が宣戦する権限を認めていたが、日本国憲法は戦力の不保持や戦争の放棄などの平和主義を掲げている。</button>
+          <button class="kk-choice" data-tip="○ 天皇主権から国民主権への変化。正しい。" onclick="ansKakomon('kkc9',2,0,'kkex9')">③ 日本国憲法の下では主権は国民にあるとの考えがとられているが、明治憲法の下では主権は天皇にあるとされた。</button>
+          <button class="kk-choice" data-tip="○ 「法律の範囲内」から「永久不可侵」への変化。正しい。" onclick="ansKakomon('kkc9',3,0,'kkex9')">④ 日本国憲法は法律によっても侵すことのできない権利として基本的人権を保障しているが、明治憲法は法律の範囲内でのみ臣民の権利を認めた。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex9')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex9"><strong>正解:①</strong><br>明治憲法の貴族院議員は非民選で、皇族・華族・勅任議員などから選ばれていました(臣民による制限選挙ではない)。②戦争放棄・戦力不保持(平和主義)、③国民主権から天皇主権、④基本的人権の保障はすべて正しい。</div>
@@ -1278,7 +1292,33 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}

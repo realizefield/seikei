@@ -168,6 +168,20 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 /* チャレンジ中のblank */
 .blank.cmode{background:var(--drop);border-bottom:2.5px solid var(--ink);color:var(--red);cursor:pointer;pointer-events:auto}
 .blank.cmode:hover{background:#fff3b0}
+
+.ans-badge{display:inline-block;font-weight:700;font-size:.92em;padding:5px 13px;border-radius:6px;margin-bottom:7px;letter-spacing:.04em}
+.ans-badge.ok{background:#d4f5e2;color:#1a7a3e;border:1.5px solid #1a7a3e}
+.ans-badge.ng{background:#ffe0e0;color:#c1272d;border:2px solid #c1272d}
+.ans-badge .big{font-size:1.25em;font-weight:900;margin:0 3px}
+.kk-tip{margin:6px 0 10px 0;padding:9px 12px;border-radius:7px;font-size:.85em;line-height:1.7;display:block;animation:tipFadeIn .25s ease}
+.kk-tip.tip-ok{background:#e8f7ee;border-left:4px solid #1a7a3e;color:#0f4d27}
+.kk-tip.tip-ng{background:#fdecec;border-left:4px solid #c1272d;color:#7a1a1f}
+.kk-tip-mark{display:inline-block;font-weight:700;margin-right:8px;padding:2px 8px;border-radius:4px;font-size:.92em}
+.kk-tip.tip-ok .kk-tip-mark{background:#1a7a3e;color:#fff}
+.kk-tip.tip-ng .kk-tip-mark{background:#c1272d;color:#fff}
+.kk-tip-txt{color:#222}
+@keyframes tipFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -579,10 +593,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2024年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問1. 政教分離の原則に関する判例の説明として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc0">
-          <button class="kk-choice" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 津地鎮祭訴訟では、公費による地鎮祭が政教分離に反するとして違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',1,2,'kkex0')">② 愛媛玉串料訴訟では、公費による玉串料の支出が社会的儀礼の範囲内として合憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 愛媛玉串料訴訟では、玉串料の奉納は宗教的活動にあたるとして違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ 津地鎮祭訴訟と愛媛玉串料訴訟はどちらも違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 津地鎮祭訴訟は「<b>世俗的行事</b>で政教分離違反なし」として<b>合憲</b>。" onclick="ansKakomon('kkc0',0,2,'kkex0')">① 津地鎮祭訴訟では、公費による地鎮祭が政教分離に反するとして違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 愛媛玉串料訴訟は宗教的活動とされて<b>違憲</b>。合憲ではない。" onclick="ansKakomon('kkc0',1,2,'kkex0')">② 愛媛玉串料訴訟では、公費による玉串料の支出が社会的儀礼の範囲内として合憲とされた。</button>
+          <button class="kk-choice" data-tip="○ 愛媛玉串料訴訟では公費の玉串料支出を<b>宗教的活動</b>と判断し違憲とされた。" onclick="ansKakomon('kkc0',2,2,'kkex0')">③ 愛媛玉串料訴訟では、玉串料の奉納は宗教的活動にあたるとして違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 津地鎮祭訴訟は<b>合憲</b>、愛媛玉串料訴訟は<b>違憲</b>。" onclick="ansKakomon('kkc0',3,2,'kkex0')">④ 津地鎮祭訴訟と愛媛玉串料訴訟はどちらも違憲とされた。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex0')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex0"><strong>正解:③</strong><br>愛媛玉串料訴訟:愛媛県が靖国神社等への玉串料を公費支出→「宗教的活動にあたり政教分離に違反」→<strong>違憲</strong>。①津地鎮祭訴訟は「世俗的行事で政教分離違反なし」→<strong>合憲</strong>。②逆(玉串料は違憲)。④津は合憲・愛媛は違憲。</div>
@@ -592,10 +606,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2020年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問2. 身体の自由(人身の自由)に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc1">
-          <button class="kk-choice" onclick="ansKakomon('kkc1',0,1,'kkex1')">① 令状主義では、現行犯の場合にも必ず裁判官の令状が必要である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',1,1,'kkex1')">② 罪刑法定主義とは、犯罪と刑罰はあらかじめ法律で定めなければならないという原則である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',2,1,'kkex1')">③ 無罪推定の原則では、起訴された後は有罪として扱われる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc1',3,1,'kkex1')">④ 一事不再理とは、有罪判決が確定した後は同一事件で再審理できないという原則である。</button>
+          <button class="kk-choice" data-tip="✗ <b>現行犯</b>の場合は令状不要(例外)。憲法33条。" onclick="ansKakomon('kkc1',0,1,'kkex1')">① 令状主義では、現行犯の場合にも必ず裁判官の令状が必要である。</button>
+          <button class="kk-choice" data-tip="○ 罪刑法定主義は犯罪と刑罰を事前に<b>法律で定める</b>原則(憲法31条)。" onclick="ansKakomon('kkc1',1,1,'kkex1')">② 罪刑法定主義とは、犯罪と刑罰はあらかじめ法律で定めなければならないという原則である。</button>
+          <button class="kk-choice" data-tip="✗ 起訴後でも<b>有罪が確定するまでは無罪</b>として扱われる(無罪推定の原則)。" onclick="ansKakomon('kkc1',2,1,'kkex1')">③ 無罪推定の原則では、起訴された後は有罪として扱われる。</button>
+          <button class="kk-choice" data-tip="✗ 一事不再理は<b>無罪・有罪確定後</b>の同一事件再審理禁止。「有罪判決確定後」に限定されない。" onclick="ansKakomon('kkc1',3,1,'kkex1')">④ 一事不再理とは、有罪判決が確定した後は同一事件で再審理できないという原則である。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex1')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex1"><strong>正解:②</strong><br>罪刑法定主義(憲法31条)は犯罪と刑罰を事前に法律で定める原則→正しい。①現行犯は令状不要(例外)。③起訴後も有罪確定までは無罪として扱われる(無罪推定の原則)。④一事不再理は「無罪確定後」の同一事件での再審理禁止。</div>
@@ -605,10 +619,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2022年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問3. 経済活動の自由に関する違憲判決の説明として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc2">
-          <button class="kk-choice" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 薬事法薬局距離制限違憲判決では、財産権の侵害を理由として違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 薬事法薬局距離制限違憲判決では、職業選択の自由の侵害を理由として違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 森林法共有林分割制規定違憲判決では、職業選択の自由の侵害を理由として違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 経済活動の自由は公共の福祉による制約を受けず、いかなる規制も認められない。</button>
+          <button class="kk-choice" data-tip="✗ 薬事法薬局距離制限違憲判決は<b>職業選択の自由</b>の侵害が理由。財産権ではない。" onclick="ansKakomon('kkc2',0,1,'kkex2')">① 薬事法薬局距離制限違憲判決では、財産権の侵害を理由として違憲とされた。</button>
+          <button class="kk-choice" data-tip="○ 薬事法薬局距離制限違憲判決は<b>職業選択の自由(22条)</b>の侵害として違憲。" onclick="ansKakomon('kkc2',1,1,'kkex2')">② 薬事法薬局距離制限違憲判決では、職業選択の自由の侵害を理由として違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 森林法共有林分割制違憲判決は<b>財産権(29条)</b>の侵害が理由。" onclick="ansKakomon('kkc2',2,1,'kkex2')">③ 森林法共有林分割制規定違憲判決では、職業選択の自由の侵害を理由として違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 経済の自由は<b>公共の福祉による制約</b>を受ける(精神の自由より広く制限可能)。" onclick="ansKakomon('kkc2',3,1,'kkex2')">④ 経済活動の自由は公共の福祉による制約を受けず、いかなる規制も認められない。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex2')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex2"><strong>正解:②</strong><br>薬事法薬局距離制限→<strong>職業選択の自由(22条)</strong>の侵害→違憲。森林法共有林分割制→<strong>財産権(29条)</strong>の侵害→違憲。①と③は侵害された権利が逆。④経済の自由は公共の福祉による制約を受ける。</div>
@@ -618,10 +632,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2023年 共通テスト</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問4. 表現の自由・学問の自由に関する判例の説明として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc3">
-          <button class="kk-choice" onclick="ansKakomon('kkc3',0,2,'kkex3')">① 家永教科書訴訟では、教科書検定が検閲にあたるとして違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',1,2,'kkex3')">② チャタレー事件では、刑法175条のわいせつ物頒布罪は表現の自由を侵害するとして違憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',2,2,'kkex3')">③ 家永教科書訴訟では、不合格教科書も書店で販売できることを理由に教科書検定は検閲にあたらず合憲とされた。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc3',3,2,'kkex3')">④ 東大ポポロ劇団事件では、大学の自治を侵害するとして私服警官の立ち入りが違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 家永教科書訴訟で教科書検定は<b>合憲</b>(検閲にあたらず)。違憲ではない。" onclick="ansKakomon('kkc3',0,2,'kkex3')">① 家永教科書訴訟では、教科書検定が検閲にあたるとして違憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ チャタレー事件で刑法175条は<b>合憲</b>(公共の福祉による制限)。" onclick="ansKakomon('kkc3',1,2,'kkex3')">② チャタレー事件では、刑法175条のわいせつ物頒布罪は表現の自由を侵害するとして違憲とされた。</button>
+          <button class="kk-choice" data-tip="○ 家永教科書訴訟:不合格教科書も<b>書店で販売できる</b>ため検閲ではないとして<b>合憲</b>。" onclick="ansKakomon('kkc3',2,2,'kkex3')">③ 家永教科書訴訟では、不合格教科書も書店で販売できることを理由に教科書検定は検閲にあたらず合憲とされた。</button>
+          <button class="kk-choice" data-tip="✗ 東大ポポロ劇団事件は私服警官立ち入りを<b>合憲</b>とした(学問的活動でない)。" onclick="ansKakomon('kkc3',3,2,'kkex3')">④ 東大ポポロ劇団事件では、大学の自治を侵害するとして私服警官の立ち入りが違憲とされた。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex3')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex3"><strong>正解:③</strong><br>家永教科書訴訟:不合格教科書も書店で販売できるため検閲にあたらず<strong>合憲</strong>。①は逆(合憲)。②チャタレー事件は「公共の福祉による制限で合憲」。④東大ポポロ劇団事件は「学問的活動でなく大学の自治範囲外」→私服警官立ち入りを<strong>合憲</strong>とした。</div>
@@ -631,10 +645,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験 2019年</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問5. 精神の自由に関する記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc4">
-          <button class="kk-choice" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 思想・良心の自由は内心の自由であり、絶対的に保障される。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',1,3,'kkex4')">② 検閲は憲法21条2項で絶対的に禁止されている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 大学の自治とは、大学が権力の干渉を受けずに自主的に管理・運営できる権利である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ 表現の自由は他の人権より優越的な地位を持ち、いかなる制約も認められない。</button>
+          <button class="kk-choice" data-tip="○ 思想・良心の自由は内心の自由として<b>絶対的に保障</b>される。正しい。" onclick="ansKakomon('kkc4',0,3,'kkex4')">① 思想・良心の自由は内心の自由であり、絶対的に保障される。</button>
+          <button class="kk-choice" data-tip="○ 検閲は憲法21条2項で<b>絶対的に禁止</b>される。正しい。" onclick="ansKakomon('kkc4',1,3,'kkex4')">② 検閲は憲法21条2項で絶対的に禁止されている。</button>
+          <button class="kk-choice" data-tip="○ 大学の自治は学問の自由の制度的保障。正しい。" onclick="ansKakomon('kkc4',2,3,'kkex4')">③ 大学の自治とは、大学が権力の干渉を受けずに自主的に管理・運営できる権利である。</button>
+          <button class="kk-choice" data-tip="✗ 表現の自由も<b>公共の福祉による制約</b>を受ける(わいせつ表現の規制など)。" onclick="ansKakomon('kkc4',3,3,'kkex4')">④ 表現の自由は他の人権より優越的な地位を持ち、いかなる制約も認められない。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex4')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex4"><strong>正解:④</strong><br>表現の自由は「優越的地位」をもつ重要な権利とされますが、「いかなる制約も認められない」わけではなく、公共の福祉による制約を受ける場合があります(例:わいせつ表現の規制)。①②③はすべて正しい。</div>
@@ -643,13 +657,13 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2024年 共通テスト本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問6. 信教の自由や政教分離の原則に関する次の記述ア〜ウのうち、<strong>正しいもの</strong>はどれか。当てはまるものをすべて選び、その<strong>組合せ</strong>として最も適当なものを選べ。<br><br>ア 宗教団体などを結成する宗教的結社の自由は、憲法が保障する信教の自由に含まれる。<br>イ 一定の要件を満たした宗教団体には、国から特権を受けたり政治上の権力を行使したりすることが憲法上認められている。<br>ウ 国および地方公共団体は、宗教教育をはじめとして、いかなる宗教的活動も行ってはならない。</div>
         <div class="kk-choices" id="kkc5">
-          <button class="kk-choice" onclick="ansKakomon('kkc5',0,4,'kkex5')">① ア</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',1,4,'kkex5')">② イ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',2,4,'kkex5')">③ ウ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',3,4,'kkex5')">④ アとイ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',4,4,'kkex5')">⑤ アとウ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',5,4,'kkex5')">⑥ イとウ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc5',6,4,'kkex5')">⑦ アとイとウ</button>
+          <button class="kk-choice" data-tip="✗ アは正しいが、ウも正しい。両方を選ぶべき。" onclick="ansKakomon('kkc5',0,4,'kkex5')">① ア</button>
+          <button class="kk-choice" data-tip="✗ イは誤り(憲法20条で宗教団体の特権・政治権力行使は禁止)。" onclick="ansKakomon('kkc5',1,4,'kkex5')">② イ</button>
+          <button class="kk-choice" data-tip="✗ ウは正しいが、アも正しい。" onclick="ansKakomon('kkc5',2,4,'kkex5')">③ ウ</button>
+          <button class="kk-choice" data-tip="✗ イは誤り。アとウが正解。" onclick="ansKakomon('kkc5',3,4,'kkex5')">④ アとイ</button>
+          <button class="kk-choice" data-tip="○ ア(宗教的結社の自由)とウ(国・地方の宗教的活動禁止)が正しい。イは誤り。" onclick="ansKakomon('kkc5',4,4,'kkex5')">⑤ アとウ</button>
+          <button class="kk-choice" data-tip="✗ イは誤り(宗教団体の特権は禁止)。" onclick="ansKakomon('kkc5',5,4,'kkex5')">⑥ イとウ</button>
+          <button class="kk-choice" data-tip="✗ イは誤り。" onclick="ansKakomon('kkc5',6,4,'kkex5')">⑦ アとイとウ</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex5')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex5"><strong>正解:⑤</strong><br>ア 正:宗教的結社の自由は信教の自由に含まれる。イ 誤:憲法第20条で宗教団体が国から特権を受けたり政治上の権力を行使したりすることは禁止されている。ウ 正:憲法第20条3項で国・地方公共団体の宗教的活動が禁止されている。</div>
@@ -659,13 +673,13 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2022年 共通テスト本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問7. 政教分離原則に関する最高裁判所の判例についての次の記述ア〜ウのうち、<strong>正しいもの</strong>はどれか。当てはまる記述をすべて選び、その<strong>組合せ</strong>として最も適当なものを選べ。<br><br>ア 津地鎮祭訴訟の最高裁判決では、市が体育館の起工に際して神社神道固有の祭式にのっとり地鎮祭を行ったことは、憲法が禁止する宗教的活動にあたるとされた。<br>イ 愛媛玉ぐし料訴訟の最高裁判決では、県が神社に対して公金から玉ぐし料を支出したことは、憲法が禁止する公金の支出にあたるとされた。<br>ウ 空知太神社訴訟の最高裁判決では、市が神社に市有地を無償で使用させていたことは、憲法が禁止する宗教団体に対する特権の付与にあたるとされた。</div>
         <div class="kk-choices" id="kkc6">
-          <button class="kk-choice" onclick="ansKakomon('kkc6',0,5,'kkex6')">① ア</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',1,5,'kkex6')">② イ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',2,5,'kkex6')">③ ウ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',3,5,'kkex6')">④ アとイ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',4,5,'kkex6')">⑤ アとウ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',5,5,'kkex6')">⑥ イとウ</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc6',6,5,'kkex6')">⑦ アとイとウ</button>
+          <button class="kk-choice" data-tip="✗ アは誤り。津地鎮祭訴訟は<b>合憲</b>(宗教的活動に当たらないとされた)。" onclick="ansKakomon('kkc6',0,5,'kkex6')">① ア</button>
+          <button class="kk-choice" data-tip="✗ イは正しいが、ウも正しい。" onclick="ansKakomon('kkc6',1,5,'kkex6')">② イ</button>
+          <button class="kk-choice" data-tip="✗ ウは正しいが、イも正しい。" onclick="ansKakomon('kkc6',2,5,'kkex6')">③ ウ</button>
+          <button class="kk-choice" data-tip="✗ アは誤り。イとウが正解。" onclick="ansKakomon('kkc6',3,5,'kkex6')">④ アとイ</button>
+          <button class="kk-choice" data-tip="✗ アは誤り(津地鎮祭は合憲)。" onclick="ansKakomon('kkc6',4,5,'kkex6')">⑤ アとウ</button>
+          <button class="kk-choice" data-tip="○ イ(愛媛玉串料=違憲)とウ(空知太神社=違憲)が正しい。アは誤り。" onclick="ansKakomon('kkc6',5,5,'kkex6')">⑥ イとウ</button>
+          <button class="kk-choice" data-tip="✗ アは誤り。" onclick="ansKakomon('kkc6',6,5,'kkex6')">⑦ アとイとウ</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex6')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex6"><strong>正解:⑥</strong><br>ア 誤:津地鎮祭訴訟は「世俗的行事として政教分離違反なし」として<strong>合憲</strong>とされた。イ 正:愛媛玉ぐし料訴訟は<strong>違憲</strong>。ウ 正:空知太神社訴訟は<strong>違憲</strong>。3つの判例を「合憲・違憲・違憲」と整理して覚えましょう。</div>
@@ -675,10 +689,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2017年 センター試験追試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問8. 日本国憲法が保障する表現の自由および通信の秘密に関する記述として<strong>正しいもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc7">
-          <button class="kk-choice" onclick="ansKakomon('kkc7',0,3,'kkex7')">① 『チャタレイ夫人の恋人』という小説の翻訳が問題となった刑事事件で、最高裁判所は、わいせつ文書の頒布を禁止した刑法の規定は表現の自由を侵害するので違憲とした。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',1,3,'kkex7')">② 通信傍受法は、組織犯罪に関して捜査機関が電話を傍受する際に裁判所の発する令状を不要としている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',2,3,'kkex7')">③ 『石に泳ぐ魚』という小説のモデルとされた女性がプライバシーを侵害されたとして小説の出版差止めを求めた事件で、最高裁判所は、表現の自由を侵害するとして出版差止めを認めなかった。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc7',3,3,'kkex7')">④ 特定秘密保護法は、日本の安全保障に関する情報で特定秘密に指定された情報の漏洩を禁止している。</button>
+          <button class="kk-choice" data-tip="✗ チャタレイ事件で刑法175条は<b>合憲</b>(有罪)と判断された。" onclick="ansKakomon('kkc7',0,3,'kkex7')">① 『チャタレイ夫人の恋人』という小説の翻訳が問題となった刑事事件で、最高裁判所は、わいせつ文書の頒布を禁止した刑法の規定は表現の自由を侵害するので違憲とした。</button>
+          <button class="kk-choice" data-tip="✗ 通信傍受には<b>裁判所の令状が必要</b>。令状不要は誤り。" onclick="ansKakomon('kkc7',1,3,'kkex7')">② 通信傍受法は、組織犯罪に関して捜査機関が電話を傍受する際に裁判所の発する令状を不要としている。</button>
+          <button class="kk-choice" data-tip="✗ 『石に泳ぐ魚』事件で最高裁は<b>出版差止めを認めた</b>(プライバシー優先)。" onclick="ansKakomon('kkc7',2,3,'kkex7')">③ 『石に泳ぐ魚』という小説のモデルとされた女性がプライバシーを侵害されたとして小説の出版差止めを求めた事件で、最高裁判所は、表現の自由を侵害するとして出版差止めを認めなかった。</button>
+          <button class="kk-choice" data-tip="○ 特定秘密保護法(2013年)は安全保障情報の漏洩を禁止。" onclick="ansKakomon('kkc7',3,3,'kkex7')">④ 特定秘密保護法は、日本の安全保障に関する情報で特定秘密に指定された情報の漏洩を禁止している。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex7')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex7"><strong>正解:④</strong><br>2013年成立の特定秘密保護法の説明として正しい。①最高裁はチャタレイ事件で<strong>合憲</strong>(有罪)と判断。②通信傍受には裁判所の令状が必要。③『石に泳ぐ魚』事件で最高裁は<strong>出版差止めを認めた</strong>。</div>
@@ -688,10 +702,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2012年 センター試験追試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問9. 刑事手続に関する日本国憲法の条文である次の①〜④を、A(適正な手続)、B(罪刑法定主義)の要請のいずれか一方に分類した場合に、<strong>Bに分類されるもの</strong>として最も適当なものを選べ。</div>
         <div class="kk-choices" id="kkc8">
-          <button class="kk-choice" onclick="ansKakomon('kkc8',0,3,'kkex8')">① 何人も、理由を直ちに告げられ、且つ、直ちに弁護人に依頼する権利を与へられなければ、抑留又は拘禁されない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',1,3,'kkex8')">② 公務員による拷問…は、絶対にこれを禁ずる。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',2,3,'kkex8')">③ 何人も、自己に不利益な供述を強要されない。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc8',3,3,'kkex8')">④ 何人も、実行の時に適法であつた行為…については、刑事上の責任を問はれない。</button>
+          <button class="kk-choice" data-tip="✗ ①は<b>弁護人依頼権</b>でA(適正手続)の要請。" onclick="ansKakomon('kkc8',0,3,'kkex8')">① 何人も、理由を直ちに告げられ、且つ、直ちに弁護人に依頼する権利を与へられなければ、抑留又は拘禁されない。</button>
+          <button class="kk-choice" data-tip="✗ ②は<b>拷問禁止</b>でA(適正手続)の要請。" onclick="ansKakomon('kkc8',1,3,'kkex8')">② 公務員による拷問…は、絶対にこれを禁ずる。</button>
+          <button class="kk-choice" data-tip="✗ ③は<b>黙秘権</b>でA(適正手続)の要請。" onclick="ansKakomon('kkc8',2,3,'kkex8')">③ 何人も、自己に不利益な供述を強要されない。</button>
+          <button class="kk-choice" data-tip="○ ④は<b>遡及処罰の禁止</b>(憲法39条)で<b>罪刑法定主義(B)</b>の核心。" onclick="ansKakomon('kkc8',3,3,'kkex8')">④ 何人も、実行の時に適法であつた行為…については、刑事上の責任を問はれない。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex8')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex8"><strong>正解:④</strong><br>憲法第39条は遡及処罰の禁止を規定しており、「事件後に作った法律で処罰してはならない」という罪刑法定主義(B)の核心です。①弁護人依頼権、②拷問禁止、③黙秘権はいずれも適正手続(A)に該当します。</div>
@@ -701,10 +715,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">センター試験</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問10. 最高裁判所が違憲判決を出した事例は少ない。<strong>経済的自由権の侵害を理由とする最高裁判所の違憲判決の例</strong>として正しいものを選べ。</div>
         <div class="kk-choices" id="kkc9">
-          <button class="kk-choice" onclick="ansKakomon('kkc9',0,0,'kkex9')">① 森林法共有林分割制限訴訟判決</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',1,0,'kkex9')">② 津地鎮祭訴訟判決</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',2,0,'kkex9')">③ 三菱樹脂事件判決</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc9',3,0,'kkex9')">④ 愛媛玉串料訴訟判決</button>
+          <button class="kk-choice" data-tip="○ 森林法共有林分割制違憲判決は<b>財産権(経済的自由権)</b>の侵害で違憲。" onclick="ansKakomon('kkc9',0,0,'kkex9')">① 森林法共有林分割制限訴訟判決</button>
+          <button class="kk-choice" data-tip="✗ 津地鎮祭訴訟は信教の自由(精神の自由)の判例で<b>合憲</b>。" onclick="ansKakomon('kkc9',1,0,'kkex9')">② 津地鎮祭訴訟判決</button>
+          <button class="kk-choice" data-tip="✗ 三菱樹脂事件は思想良心の自由(精神の自由)の判例で<b>合憲</b>。" onclick="ansKakomon('kkc9',2,0,'kkex9')">③ 三菱樹脂事件判決</button>
+          <button class="kk-choice" data-tip="✗ 愛媛玉串料訴訟は信教の自由の違憲判決。経済的自由権ではない。" onclick="ansKakomon('kkc9',3,0,'kkex9')">④ 愛媛玉串料訴訟判決</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex9')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex9"><strong>正解:①</strong><br>森林法共有林分割制限訴訟は、共有林の分割を原則認めない規定が財産権(経済的自由権)の侵害として<strong>違憲</strong>とされました。②津地鎮祭は信教の自由(精神の自由)の判例で合憲。③三菱樹脂は思想良心の自由(精神の自由)の判例で合憲。④愛媛玉串料は信教の自由の違憲判決ですが、経済的自由権ではありません。</div>
@@ -714,10 +728,10 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
         <span class="kk-year-tag">2019年 センター試験本試</span>
         <div style="font-size:.93em;font-weight:700;margin-bottom:10px;line-height:1.7">問11. 自由権のうち、日本における人身の自由に関連する記述として<strong>誤っているもの</strong>を選べ。</div>
         <div class="kk-choices" id="kkc10">
-          <button class="kk-choice" onclick="ansKakomon('kkc10',0,0,'kkex10')">① 現行犯として逮捕する場合は、裁判官の発する令状が必要である。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc10',1,0,'kkex10')">② 憲法上、何人も自己に不利益となる供述を強要されないことが定められている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc10',2,0,'kkex10')">③ 公務員による拷問や残虐な刑罰は、憲法上禁止されている。</button>
-          <button class="kk-choice" onclick="ansKakomon('kkc10',3,0,'kkex10')">④ 第一審で有罪判決が出されても、最終的に判決が確定するまでは、被告人は無罪であると推定される。</button>
+          <button class="kk-choice" data-tip="✗ <b>現行犯逮捕は令状不要</b>(憲法33条)。「必要」とするのは誤り。" onclick="ansKakomon('kkc10',0,0,'kkex10')">① 現行犯として逮捕する場合は、裁判官の発する令状が必要である。</button>
+          <button class="kk-choice" data-tip="○ 憲法38条1項の<b>黙秘権</b>。正しい。" onclick="ansKakomon('kkc10',1,0,'kkex10')">② 憲法上、何人も自己に不利益となる供述を強要されないことが定められている。</button>
+          <button class="kk-choice" data-tip="○ 憲法36条の<b>拷問・残虐刑の禁止</b>。正しい。" onclick="ansKakomon('kkc10',2,0,'kkex10')">③ 公務員による拷問や残虐な刑罰は、憲法上禁止されている。</button>
+          <button class="kk-choice" data-tip="○ 無罪推定の原則。判決確定までは無罪として扱われる。正しい。" onclick="ansKakomon('kkc10',3,0,'kkex10')">④ 第一審で有罪判決が出されても、最終的に判決が確定するまでは、被告人は無罪であると推定される。</button>
         </div>
         <button class="kk-ans-btn" onclick="showKkEx('kkex10')">💡 解説を見る</button>
         <div class="kk-explain" id="kkex10"><strong>正解:①</strong><br>憲法第33条「何人も、現行犯として逮捕される場合を除いては…令状によらなければ、逮捕されない」と定めており、<strong>現行犯逮捕は令状が不要</strong>です。②黙秘権、③拷問・残虐刑の禁止、④無罪推定の原則はすべて正しい。</div>
@@ -1203,7 +1217,33 @@ function judgeAll(){var bls=[].slice.call(document.querySelectorAll('#vQ .blank'
 function retryQ(){_hideBanner();_stopConf();document.querySelectorAll('#vQ .blank').forEach(function(b){b.textContent='';b.classList.remove('ok','ng')});buildChips(QW);_pausedMs=0;_startTimer();_hide('spill');_hide('bRetry');_hide('bGoSeigo')}
 function goSeigo(){_showView('vSeigo');setPhase(2);_stopTimer();_sgAnswered=new Array(10).fill(false);_sgScore=0;_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('spill');_show('bGoFlash');_show('bBack');_hideBanner()}
 function ansSeigo(idx,selected,correct,explain){if(_sgAnswered[idx])return;_sgAnswered[idx]=true;var item=_el('sg'+idx),btns=item.querySelectorAll('.seigo-btn'),isCorrect=(selected===correct);btns.forEach(function(btn){var isO=btn.textContent.includes('○');if(isO===correct)btn.classList.add('correct');else if(isO===selected&&!isCorrect)btn.classList.add('wrong');btn.onclick=null});if(isCorrect)_sgScore++;var exEl=_el('sgex'+idx);if(exEl){exEl.textContent=(isCorrect?'✅ 正解！ ':'❌ 不正解　')+explain;exEl.classList.add('on')}}
-function ansKakomon(gId,sel,cor,exId){var g=_el(gId);if(!g)return;g.querySelectorAll('.kk-choice').forEach(function(b,i){b.onclick=null;if(i===cor)b.classList.add('correct');else if(i===sel&&sel!==cor)b.classList.add('wrong')});showKkEx(exId)}
+function ansKakomon(gId,sel,cor,exId){
+  var g=_el(gId);if(!g)return;
+  var choices=g.querySelectorAll('.kk-choice');
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  g.querySelectorAll('.kk-tip').forEach(function(t){t.remove()});
+  choices.forEach(function(b,i){
+    b.onclick=null;
+    if(i===cor)b.classList.add('correct');
+    else if(i===sel&&sel!==cor)b.classList.add('wrong');
+    if(i===sel||i===cor){
+      var tip=b.getAttribute('data-tip');
+      if(tip){
+        var div=document.createElement('div');
+        div.className='kk-tip '+(i===cor?'tip-ok':'tip-ng');
+        div.innerHTML='<span class="kk-tip-mark">'+(i===cor?'正解':'あなたの答え')+' '+(marks[i]||(i+1))+'</span><span class="kk-tip-txt">'+tip+'</span>';
+        b.insertAdjacentElement('afterend',div);
+      }
+    }
+  });
+  var ex=_el(exId);
+  if(ex){
+    var oldBadge=ex.querySelector('.ans-badge');if(oldBadge)oldBadge.remove();
+    var html=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+    ex.insertAdjacentHTML('afterbegin',html);
+  }
+  showKkEx(exId);
+}
 function showKkEx(id){var e=_el(id);if(e)e.classList.add('on')}
 function goFlash(){_showView('vFlash');setPhase(3);_hide('bExpl');_hide('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('spill');_show('bBack');_hideBanner()}
 function backToRead(){_resetTimer();_closePause();_showView('vRead');_hideWB();_hideBanner();setPhase(0);_show('bExpl');_show('bGoFlashTop');_hide('bJudge');_hide('bRetry');_hide('bGoSeigo');_hide('bGoFlash');_hide('bBack');_hide('spill');stopFc()}
