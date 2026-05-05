@@ -1182,15 +1182,29 @@ function ansUQ(qid,sel,cor){
   if(parent.dataset.answered)return;
   parent.dataset.answered='1';
   parent.dataset.correct=(sel===cor)?'1':'0';
-  btns.forEach(function(b,i){
-    b.onclick=null;
-    if(i===cor)b.classList.add('correct');
-    else if(i===sel&&sel!==cor)b.classList.add('wrong');
-  });
-  // 不正解時のみ解説を表示
-  if(sel!==cor){
-    qBox.classList.add('on');
+  for(var i=0;i<btns.length;i++){
+    btns[i].onclick=null;
+    if(i===cor){btns[i].classList.add('correct');}
+    else if(i===sel&&sel!==cor){btns[i].classList.add('wrong');}
   }
+  var marks=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+  // 選択肢のテキストから丸数字を取り除く
+  function _strip(t){return (t||'').replace(/^\s*[①②③④⑤⑥⑦⑧⑨]\s*/,'').replace(/^\s+|\s+$/g,'');}
+  var corText=(btns[cor]?_strip(btns[cor].textContent):'');
+  var selText=(btns[sel]?_strip(btns[sel].textContent):'');
+  // 既存のバッジ・サマリを削除
+  var olds=qBox.querySelectorAll('.ans-badge,.ans-summary');
+  for(var j=0;j<olds.length;j++){if(olds[j].parentNode)olds[j].parentNode.removeChild(olds[j]);}
+  var badgeHtml=(sel===cor)?'<div class="ans-badge ok">✅ 正解！</div>':'<div class="ans-badge ng">❌ 不正解</div>';
+  var summaryHtml='<div class="ans-summary">';
+  if(sel!==cor){
+    summaryHtml+='<div class="asum-row asum-ng"><span class="asum-lbl">あなたの答え</span><span class="asum-mark">'+(marks[sel]||(sel+1))+'</span><span class="asum-txt">'+selText+'</span></div>';
+  }
+  summaryHtml+='<div class="asum-row asum-ok"><span class="asum-lbl">正解</span><span class="asum-mark">'+(marks[cor]||(cor+1))+'</span><span class="asum-txt">'+corText+'</span></div>';
+  summaryHtml+='</div>';
+  qBox.insertAdjacentHTML('afterbegin',badgeHtml+summaryHtml);
+  // 正解・不正解どちらでも解説を表示
+  qBox.classList.add('on');
 }
 
 // 単元4択の採点
