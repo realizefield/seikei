@@ -249,10 +249,12 @@ const UNITS = [
   {id:'sk08', num:'⑧', title:'自由権',                 sub:'精神の自由・身体の自由・経済の自由', file:'seikei08.html'},
   {id:'sk09', num:'⑨', title:'社会権・参政権・請求権', sub:'生存権・労働基本権・国民審査',      file:'seikei09.html'},
   {id:'sk10', num:'⑩', title:'平和主義',               sub:'憲法9条・自衛隊・安全保障',         file:'seikei10.html'},
-  {id:'sk11', num:'⑪', title:'国会(1)',                sub:'国会の地位・二院制・両院の権限',    file:'seikei11.html'},
-  {id:'sk12', num:'⑫', title:'国会(2)',                sub:'立法手続・国会議員の特権・運営',    file:'seikei12.html'},
-  {id:'sk13', num:'⑬', title:'内閣',                   sub:'議院内閣制・内閣の権限・組織',      file:'seikei13.html'},
-  {id:'sk14', num:'⑭', title:'裁判所',                 sub:'司法権の独立・違憲審査制・裁判員制度', file:'seikei14.html'},
+  {id:'sk11', num:'⑪', title:'国会',                   sub:'国会の地位・二院制・両院の権限・立法手続',    file:'seikei11.html'},
+  {id:'sk12', num:'⑫', title:'内閣',                   sub:'議院内閣制・内閣の権限・組織',              file:'seikei12.html'},
+  {id:'sk13', num:'⑬', title:'裁判所(1)',              sub:'司法権の独立・司法制度・三審制',            file:'seikei13.html'},
+  {id:'sk14', num:'⑭', title:'裁判所(2)',              sub:'違憲審査制・国民の司法参加・司法改革・再審', file:'seikei14.html'},
+  {id:'sk15', num:'⑮', title:'地方自治',               sub:'本旨・直接請求・住民投票・三位一体改革・地方財政', file:'seikei15.html'},
+  {id:'sk16', num:'⑯', title:'選挙と政党(1)',          sub:'選挙制度・議員定数不均衡・選挙のルール・政治資金・政党', file:'seikei16.html'},
 ];
 
 /* ── バッジ定義 ── */
@@ -318,7 +320,7 @@ function getStreak() {
 
 /* ── カード生成 ── */
 /* ── 完成済み単元 ── */
-const DONE_FILES = ['seikei01.html','seikei02.html','seikei03.html','seikei04.html','seikei05.html','seikei06.html','seikei07.html','seikei08.html','seikei09.html','seikei10.html','seikei11.html','seikei12.html','seikei13.html','seikei14.html'];
+const DONE_FILES = ['seikei01.html','seikei02.html','seikei03.html','seikei04.html','seikei05.html','seikei06.html','seikei07.html','seikei08.html','seikei09.html','seikei10.html','seikei11.html','seikei12.html','seikei13.html','seikei14.html','seikei15.html','seikei16.html'];
 
 function buildCards() {
   const wrap = document.getElementById('cardsWrap');
