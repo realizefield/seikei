@@ -93,28 +93,28 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
     <div class="person-row">
       <div class="pbadge">成立</div>
       <div class="pcont">
-        <p><strong>ウェストファリア条約</strong>(1648年)：三十年戦争の講和。ヨーロッパに<button class="blank" onclick="this.textContent='主権国家';this.classList.add('show')">　　　</button>を基本単位とする国際社会が成立。各国の主権平等・内政不干渉が原則。</p>
-        <p>17世紀→君主が国民を支配する<button class="blank" onclick="this.textContent='絶対主義';this.classList.add('show')">　　　</button>国家。18〜19世紀→市民革命を経て<button class="blank" onclick="this.textContent='国民主権';this.classList.add('show')">　　　</button>に基づく国民国家が成立。ナショナリズムが高まる。</p>
+        <p><strong>ウェストファリア条約</strong>(1648年)：三十年戦争の講和。ヨーロッパに<span class="blank show" data-ans="主権国家">主権国家</span>を基本単位とする国際社会が成立。各国の主権平等・内政不干渉が原則。</p>
+        <p>17世紀→君主が国民を支配する<span class="blank show" data-ans="絶対主義">絶対主義</span>国家。18〜19世紀→市民革命を経て<span class="blank show" data-ans="国民主権">国民主権</span>に基づく国民国家が成立。ナショナリズムが高まる。</p>
       </div>
     </div>
     <div class="person-row">
       <div class="pbadge">国際法</div>
       <div class="pcont">
         <p>国際法には2種類ある。<strong>条約</strong>…国家間の交渉・合意により明文化された法。<strong>国際慣習法</strong>…長年の慣行により認められた法(公海自由の原則など)。</p>
-        <p>「<button class="blank" onclick="this.textContent='国際法の父';this.classList.add('show')">　　　</button>」＝<strong>グロティウス</strong>(オランダ、1583〜1645年)。著書『<button class="blank" onclick="this.textContent='戦争と平和の法';this.classList.add('show')">　　　　　　</button>』で自然法に基づき国際法を体系化した。</p>
+        <p>「<span class="blank show" data-ans="国際法の父">国際法の父</span>」＝<strong>グロティウス</strong>(オランダ、1583〜1645年)。著書『<span class="blank show" data-ans="戦争と平和の法">戦争と平和の法</span>』で自然法に基づき国際法を体系化した。</p>
       </div>
     </div>
     <div class="person-row">
       <div class="pbadge">国際裁判所</div>
       <div class="pcont">
-        <p><strong>国際司法裁判所(ICJ)</strong>：本部オランダのハーグ。<button class="blank" onclick="this.textContent='国家間';this.classList.add('show')">　　　</button>の紛争を解決。裁判官15名・任期9年。<strong>紛争当事国双方の同意</strong>が必要。判決の強制執行権限はない。</p>
-        <p><strong>国際刑事裁判所(ICC)</strong>：本部ハーグ。設立条約採択1998年・設置2003年。戦争犯罪などを犯した<button class="blank" onclick="this.textContent='個人';this.classList.add('show')">　　</button>を裁く。日本は2007年に加入。アメリカ・中国・インド・ロシアは未加盟。</p>
+        <p><strong>国際司法裁判所(ICJ)</strong>：本部オランダのハーグ。<span class="blank show" data-ans="国家間">国家間</span>の紛争を解決。裁判官15名・任期9年。<strong>紛争当事国双方の同意</strong>が必要。判決の強制執行権限はない。</p>
+        <p><strong>国際刑事裁判所(ICC)</strong>：本部ハーグ。設立条約採択1998年・設置2003年。戦争犯罪などを犯した<span class="blank show" data-ans="個人">個人</span>を裁く。日本は2007年に加入。アメリカ・中国・インド・ロシアは未加盟。</p>
       </div>
     </div>
 
     <div class="unit-wb">
       <div class="unit-wb-lbl">🏷 語群チャレンジ — 空欄に当てはまる語を選べ</div>
-      <div class="unit-wb-chips" id="uc1-chips">
+      <div class="unit-wb-chips" id="uwb-chips-u1">
         <button class="chip" onclick="selChip(this,'u1')">グロティウス</button>
         <button class="chip" onclick="selChip(this,'u1')">国際慣習法</button>
         <button class="chip" onclick="selChip(this,'u1')">ウェストファリア</button>
@@ -124,8 +124,11 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
       </div>
       <div class="unit-btns">
         <button class="unit-btn challenge" onclick="startUnitChallenge('u1')">✏ チャレンジ開始</button>
-        <button class="unit-btn hint" onclick="showAllBlanks('u1')">💡 全答表示</button>
-        <button class="unit-btn quiz" onclick="document.getElementById('uq-u1').classList.toggle('on')">📝 確認問題</button>
+        <button class="unit-btn check" onclick="checkUnit('u1')" style="display:none" id="ub-check-u1">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u1')" style="display:none" id="ub-hint-u1">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u1')" style="display:none" id="ub-retry-u1">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u1')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u1" style="display:none"></span>
       </div>
     </div>
 
@@ -168,7 +171,7 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
       <div class="pbadge">成立</div>
       <div class="pcont">
         <p>1941年：<strong>大西洋憲章</strong>…米英が戦後国際平和維持機構について合意。1944年：<strong>ダンバートン・オークス</strong>会議で国連憲章の原案を討議。</p>
-        <p>1945年：<strong>サンフランシスコ</strong>会議で<button class="blank" onclick="this.textContent='国連憲章';this.classList.add('show')">　　　　</button>を採択。51か国を原加盟国として<strong>国際連合</strong>が発足。本部は<button class="blank" onclick="this.textContent='ニューヨーク';this.classList.add('show')">　　　　　</button>(アメリカ)。加盟国193か国(2024年現在)。</p>
+        <p>1945年：<strong>サンフランシスコ</strong>会議で<span class="blank show" data-ans="国連憲章">国連憲章</span>を採択。51か国を原加盟国として<strong>国際連合</strong>が発足。本部は<span class="blank show" data-ans="ニューヨーク">ニューヨーク</span>(アメリカ)。加盟国193か国(2024年現在)。</p>
       </div>
     </div>
     <div class="person-row">
@@ -178,9 +181,9 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <thead><tr><th>機関</th><th>構成・特徴</th></tr></thead>
           <tbody>
             <tr><td><strong>総会</strong></td><td>全加盟国。1国1票の投票権。重要事項は3分の2以上の賛成で決議。</td></tr>
-            <tr><td><strong>安全保障理事会</strong></td><td>常任理事国5か国(米・英・仏・露・中)＋非常任理事国10か国。常任理事国は<button class="blank" onclick="this.textContent='拒否権';this.classList.add('show')">　　　</button>を持つ。</td></tr>
+            <tr><td><strong>安全保障理事会</strong></td><td>常任理事国5か国(米・英・仏・露・中)＋非常任理事国10か国。常任理事国は<span class="blank show" data-ans="拒否権">拒否権</span>を持つ。</td></tr>
             <tr><td><strong>経済社会理事会</strong></td><td>経済・社会・文化・保健など分野で国際協力を目的とする。専門機関と連携。</td></tr>
-            <tr><td><strong>事務局</strong></td><td>事務総長は安保理の勧告により<button class="blank" onclick="this.textContent='総会';this.classList.add('show')">　　</button>が任命。</td></tr>
+            <tr><td><strong>事務局</strong></td><td>事務総長は安保理の勧告により<span class="blank show" data-ans="総会">総会</span>が任命。</td></tr>
             <tr><td><strong>国際司法裁判所</strong></td><td>ハーグ設置。国家間の法的紛争を解決。</td></tr>
             <tr><td><strong>信託統治理事会</strong></td><td>信託統治地域の施政を監視。現在は活動停止。</td></tr>
           </tbody>
@@ -190,7 +193,7 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 
     <div class="unit-wb">
       <div class="unit-wb-lbl">🏷 語群チャレンジ</div>
-      <div class="unit-wb-chips" id="uc2-chips">
+      <div class="unit-wb-chips" id="uwb-chips-u2">
         <button class="chip" onclick="selChip(this,'u2')">総会</button>
         <button class="chip" onclick="selChip(this,'u2')">安全保障理事会</button>
         <button class="chip" onclick="selChip(this,'u2')">経済社会理事会</button>
@@ -200,8 +203,11 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
       </div>
       <div class="unit-btns">
         <button class="unit-btn challenge" onclick="startUnitChallenge('u2')">✏ チャレンジ開始</button>
-        <button class="unit-btn hint" onclick="showAllBlanks('u2')">💡 全答表示</button>
-        <button class="unit-btn quiz" onclick="document.getElementById('uq-u2').classList.toggle('on')">📝 確認問題</button>
+        <button class="unit-btn check" onclick="checkUnit('u2')" style="display:none" id="ub-check-u2">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u2')" style="display:none" id="ub-hint-u2">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u2')" style="display:none" id="ub-retry-u2">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u2')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u2" style="display:none"></span>
       </div>
     </div>
 
@@ -243,22 +249,22 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
     <div class="person-row">
       <div class="pbadge">表決</div>
       <div class="pcont">
-        <p><strong>手続事項</strong>：15か国中<button class="blank" onclick="this.textContent='9';this.classList.add('show')">　</button>か国以上の賛成で成立。拒否権なし。</p>
+        <p><strong>手続事項</strong>：15か国中<span class="blank show" data-ans="9">9</span>か国以上の賛成で成立。拒否権なし。</p>
         <p><strong>実質事項</strong>：常任理事国5か国を含む9か国以上の賛成で成立。常任理事国1か国でも反対すると<strong>否決</strong>(拒否権)。</p>
-        <p>5常任理事国：<button class="blank" onclick="this.textContent='アメリカ・イギリス・フランス・ロシア・中国';this.classList.add('show')">　　　　　　　　　　　　　　　</button></p>
+        <p>5常任理事国：<span class="blank show" data-ans="アメリカ・イギリス・フランス・ロシア・中国">アメリカ・イギリス・フランス・ロシア・中国</span></p>
       </div>
     </div>
     <div class="person-row">
       <div class="pbadge">機能不全</div>
       <div class="pcont">
         <p>冷戦期：米ソ対立により安保理がたびたび機能停止。→1950年、「<strong>平和のための結集</strong>」決議を採択。総会で緊急特別総会を開催可能に。</p>
-        <p>国連加盟国は安保理の決定を<button class="blank" onclick="this.textContent='国連憲章にしたがい受諾かつ履行';this.classList.add('show')">　　　　　　　　　　　　　　</button>しなければならない。</p>
+        <p>国連加盟国は安保理の決定を<span class="blank show" data-ans="国連憲章にしたがい受諾かつ履行">国連憲章にしたがい受諾かつ履行</span>しなければならない。</p>
       </div>
     </div>
 
     <div class="unit-wb">
       <div class="unit-wb-lbl">🏷 語群チャレンジ</div>
-      <div class="unit-wb-chips" id="uc3-chips">
+      <div class="unit-wb-chips" id="uwb-chips-u3">
         <button class="chip" onclick="selChip(this,'u3')">拒否権</button>
         <button class="chip" onclick="selChip(this,'u3')">9</button>
         <button class="chip" onclick="selChip(this,'u3')">15</button>
@@ -268,8 +274,11 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
       </div>
       <div class="unit-btns">
         <button class="unit-btn challenge" onclick="startUnitChallenge('u3')">✏ チャレンジ開始</button>
-        <button class="unit-btn hint" onclick="showAllBlanks('u3')">💡 全答表示</button>
-        <button class="unit-btn quiz" onclick="document.getElementById('uq-u3').classList.toggle('on')">📝 確認問題</button>
+        <button class="unit-btn check" onclick="checkUnit('u3')" style="display:none" id="ub-check-u3">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u3')" style="display:none" id="ub-hint-u3">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u3')" style="display:none" id="ub-retry-u3">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u3')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u3" style="display:none"></span>
       </div>
     </div>
 
@@ -302,29 +311,29 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
       <div class="pbadge">PKO</div>
       <div class="pcont">
         <p><strong>国連平和維持活動(PKO)</strong>は国連憲章に明記のない活動(「憲章6章半」ともいう)。総会や安保理の決議に基づき派遣。</p>
-        <p>PKO3原則：①<button class="blank" onclick="this.textContent='関係国の同意';this.classList.add('show')">　　　　　　</button> ②<button class="blank" onclick="this.textContent='中立性';this.classList.add('show')">　　　</button> ③<button class="blank" onclick="this.textContent='自衛及び任務遂行以外の武力不行使';this.classList.add('show')">　　　　　　　　　　　　</button></p>
-        <p>活動内容：停戦監視・選挙監視・<button class="blank" onclick="this.textContent='平和維持軍(PKF)';this.classList.add('show')">　　　　　　　</button>など。要員拠出は加盟国の<strong>任意</strong>(義務ではない)。</p>
+        <p>PKO3原則：①<span class="blank show" data-ans="関係国の同意">関係国の同意</span> ②<span class="blank show" data-ans="中立性">中立性</span> ③<span class="blank show" data-ans="自衛及び任務遂行以外の武力不行使">自衛及び任務遂行以外の武力不行使</span></p>
+        <p>活動内容：停戦監視・選挙監視・<span class="blank show" data-ans="平和維持軍(PKF)">平和維持軍(PKF)</span>など。要員拠出は加盟国の<strong>任意</strong>(義務ではない)。</p>
       </div>
     </div>
     <div class="person-row">
       <div class="pbadge">日本とPKO</div>
       <div class="pcont">
-        <p>1992年：<strong>PKO協力法</strong>制定 → <button class="blank" onclick="this.textContent='カンボジア';this.classList.add('show')">　　　　</button>暫定統治機構(UNTAC)に自衛隊派遣(初参加)。</p>
+        <p>1992年：<strong>PKO協力法</strong>制定 → <span class="blank show" data-ans="カンボジア">カンボジア</span>暫定統治機構(UNTAC)に自衛隊派遣(初参加)。</p>
         <p>その後：東ティモール(1999〜2012年、計4回)・スーダン・ミッション(2008〜11年)・ハイチ安定化ミッション(2010〜13年)など。</p>
-        <p>イラクへの自衛隊派遣(2003〜09年)は<button class="blank" onclick="this.textContent='イラク復興支援特別措置法';this.classList.add('show')">　　　　　　　　　　　</button>に基づく派遣であり、PKO協力法に基づく派遣ではない。</p>
+        <p>イラクへの自衛隊派遣(2003〜09年)は<span class="blank show" data-ans="イラク復興支援特別措置法">イラク復興支援特別措置法</span>に基づく派遣であり、PKO協力法に基づく派遣ではない。</p>
       </div>
     </div>
     <div class="person-row">
       <div class="pbadge">国連軍</div>
       <div class="pcont">
-        <p><strong>国連憲章第7章</strong>に規定される本来の国連軍(UNF)は、加盟国が安保理と特別協定を結んで兵力を提供するもの。<button class="blank" onclick="this.textContent='これまで組織されたことはない';this.classList.add('show')">　　　　　　　　　　　</button>。</p>
+        <p><strong>国連憲章第7章</strong>に規定される本来の国連軍(UNF)は、加盟国が安保理と特別協定を結んで兵力を提供するもの。<span class="blank show" data-ans="これまで組織されたことはない">これまで組織されたことはない</span>。</p>
         <p>朝鮮戦争で派遣された「国連軍」は、ソ連が欠席した安保理で決定されたもので<strong>正規の国連軍ではない</strong>。</p>
       </div>
     </div>
 
     <div class="unit-wb">
       <div class="unit-wb-lbl">🏷 語群チャレンジ</div>
-      <div class="unit-wb-chips" id="uc4-chips">
+      <div class="unit-wb-chips" id="uwb-chips-u4">
         <button class="chip" onclick="selChip(this,'u4')">PKO</button>
         <button class="chip" onclick="selChip(this,'u4')">カンボジア</button>
         <button class="chip" onclick="selChip(this,'u4')">PKO協力法</button>
@@ -334,8 +343,11 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
       </div>
       <div class="unit-btns">
         <button class="unit-btn challenge" onclick="startUnitChallenge('u4')">✏ チャレンジ開始</button>
-        <button class="unit-btn hint" onclick="showAllBlanks('u4')">💡 全答表示</button>
-        <button class="unit-btn quiz" onclick="document.getElementById('uq-u4').classList.toggle('on')">📝 確認問題</button>
+        <button class="unit-btn check" onclick="checkUnit('u4')" style="display:none" id="ub-check-u4">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u4')" style="display:none" id="ub-hint-u4">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u4')" style="display:none" id="ub-retry-u4">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u4')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u4" style="display:none"></span>
       </div>
     </div>
 
@@ -385,15 +397,15 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
       <div class="pbadge">関連機関</div>
       <div class="pcont">
         <p><strong>UNICEF</strong>(国連児童基金)：発展途上国を中心に子どもの教育・福利厚生。</p>
-        <p><strong>UNHCR</strong>(国連難民高等弁務官事務所)：難民の保護・支援。1991〜2000年、日本の<button class="blank" onclick="this.textContent='緒方貞子';this.classList.add('show')">　　　　</button>が高等弁務官を務めた。</p>
+        <p><strong>UNHCR</strong>(国連難民高等弁務官事務所)：難民の保護・支援。1991〜2000年、日本の<span class="blank show" data-ans="緒方貞子">緒方貞子</span>が高等弁務官を務めた。</p>
         <p><strong>UNEP</strong>(国連環境計画)：環境問題への取組み。<strong>UNCTAD</strong>(国連貿易開発会議)：南北問題解決を目的として設立。</p>
-        <p><strong>WTO</strong>(世界貿易機関)：貿易ルールの設定と紛争解決。<button class="blank" onclick="this.textContent='GATT';this.classList.add('show')">　　　　</button>(関税と貿易に関する一般協定)を引き継ぎ1995年に設立。</p>
+        <p><strong>WTO</strong>(世界貿易機関)：貿易ルールの設定と紛争解決。<span class="blank show" data-ans="GATT">GATT</span>(関税と貿易に関する一般協定)を引き継ぎ1995年に設立。</p>
       </div>
     </div>
 
     <div class="unit-wb">
       <div class="unit-wb-lbl">🏷 語群チャレンジ</div>
-      <div class="unit-wb-chips" id="uc5-chips">
+      <div class="unit-wb-chips" id="uwb-chips-u5">
         <button class="chip" onclick="selChip(this,'u5')">WHO</button>
         <button class="chip" onclick="selChip(this,'u5')">UNICEF</button>
         <button class="chip" onclick="selChip(this,'u5')">UNHCR</button>
@@ -403,8 +415,11 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
       </div>
       <div class="unit-btns">
         <button class="unit-btn challenge" onclick="startUnitChallenge('u5')">✏ チャレンジ開始</button>
-        <button class="unit-btn hint" onclick="showAllBlanks('u5')">💡 全答表示</button>
-        <button class="unit-btn quiz" onclick="document.getElementById('uq-u5').classList.toggle('on')">📝 確認問題</button>
+        <button class="unit-btn check" onclick="checkUnit('u5')" style="display:none" id="ub-check-u5">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u5')" style="display:none" id="ub-hint-u5">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u5')" style="display:none" id="ub-retry-u5">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u5')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u5" style="display:none"></span>
       </div>
     </div>
 
@@ -443,7 +458,7 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
           <thead><tr><th>方式</th><th>内容</th><th>例</th></tr></thead>
           <tbody>
             <tr><td><strong>勢力均衡</strong></td><td>国家間の力のバランスで平和を保つ</td><td>第一次大戦前のヨーロッパ</td></tr>
-            <tr><td><strong>集団安全保障</strong></td><td>侵略国に加盟国全体で制裁を加える</td><td><button class="blank" onclick="this.textContent='国際連盟・国際連合';this.classList.add('show')">　　　　　　　　</button></td></tr>
+            <tr><td><strong>集団安全保障</strong></td><td>侵略国に加盟国全体で制裁を加える</td><td><span class="blank show" data-ans="国際連盟・国際連合">国際連盟・国際連合</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -451,16 +466,16 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
     <div class="person-row">
       <div class="pbadge">国連の課題</div>
       <div class="pcont">
-        <p>①<strong>拒否権</strong>：常任理事国が反対すると重要決議が成立しない。→<button class="blank" onclick="this.textContent='安保理改革';this.classList.add('show')">　　　　　</button>(常任理事国拡大・拒否権見直し)が議論されている。</p>
+        <p>①<strong>拒否権</strong>：常任理事国が反対すると重要決議が成立しない。→<span class="blank show" data-ans="安保理改革">安保理改革</span>(常任理事国拡大・拒否権見直し)が議論されている。</p>
         <p>②<strong>財政問題</strong>：加盟国の分担金未払い。アメリカは連邦議会の反対により国際連盟に加盟しなかった歴史がある。</p>
-        <p>③<strong>実効性の問題</strong>：国際法に強制執行機関がない。ICJは判決を強制執行する権限を<button class="blank" onclick="this.textContent='もたない';this.classList.add('show')">　　　　</button>。</p>
+        <p>③<strong>実効性の問題</strong>：国際法に強制執行機関がない。ICJは判決を強制執行する権限を<span class="blank show" data-ans="もたない">もたない</span>。</p>
         <p>④人間の<strong>安全保障</strong>：1994年UNDP報告書で提唱。国家ではなく個人の安全を重視。</p>
       </div>
     </div>
 
     <div class="unit-wb">
       <div class="unit-wb-lbl">🏷 語群チャレンジ</div>
-      <div class="unit-wb-chips" id="uc6-chips">
+      <div class="unit-wb-chips" id="uwb-chips-u6">
         <button class="chip" onclick="selChip(this,'u6')">集団安全保障</button>
         <button class="chip" onclick="selChip(this,'u6')">勢力均衡</button>
         <button class="chip" onclick="selChip(this,'u6')">安保理改革</button>
@@ -470,8 +485,11 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
       </div>
       <div class="unit-btns">
         <button class="unit-btn challenge" onclick="startUnitChallenge('u6')">✏ チャレンジ開始</button>
-        <button class="unit-btn hint" onclick="showAllBlanks('u6')">💡 全答表示</button>
-        <button class="unit-btn quiz" onclick="document.getElementById('uq-u6').classList.toggle('on')">📝 確認問題</button>
+        <button class="unit-btn check" onclick="checkUnit('u6')" style="display:none" id="ub-check-u6">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u6')" style="display:none" id="ub-hint-u6">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u6')" style="display:none" id="ub-retry-u6">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u6')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u6" style="display:none"></span>
       </div>
     </div>
 
@@ -641,8 +659,115 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 </div><!-- /main -->
 
 <script>
-// 過去問採点関数(0始まりインデックス)
-function ansKakomon(qnum, selected, el){
+// ── 語群チャレンジ ──────────────────────────────
+function startUnitChallenge(u){
+  const blanks=document.querySelectorAll(`[data-unit="${u}"] .blank`);
+  blanks.forEach(b=>{
+    b.classList.remove('show','ok','ng');
+    b.textContent='';
+  });
+  // チップを再生成
+  const chipsEl=document.getElementById(`uwb-chips-${u}`);
+  // data-ans から語群を収集してシャッフル
+  const words=[...blanks].map(b=>b.getAttribute('data-ans'));
+  const shuffled=words.sort(()=>Math.random()-0.5);
+  chipsEl.innerHTML='';
+  shuffled.forEach(w=>{
+    const c=document.createElement('button');
+    c.className='chip';
+    c.textContent=w;
+    c.onclick=()=>selectChip(c,u);
+    chipsEl.appendChild(c);
+  });
+  document.getElementById(`ub-check-${u}`).style.display='inline-block';
+  document.getElementById(`ub-hint-${u}`).style.display='inline-block';
+  document.getElementById(`ub-retry-${u}`).style.display='none';
+  document.getElementById(`ub-score-${u}`).style.display='none';
+}
+
+function selectChip(chip,u){
+  if(chip.classList.contains('sel')){
+    chip.classList.remove('sel');
+    return;
+  }
+  document.querySelectorAll(`#uwb-chips-${u} .chip`).forEach(c=>c.classList.remove('sel'));
+  chip.classList.add('sel');
+  const blanks=document.querySelectorAll(`[data-unit="${u}"] .blank:not(.show):not(.ok):not(.ng)`);
+  blanks.forEach(b=>{
+    b.onclick=()=>{
+      b.textContent=chip.textContent;
+      b.classList.add('show');
+      chip.classList.remove('sel');
+      chip.remove();
+      // blankのonclickを解除
+      blanks.forEach(x=>x.onclick=null);
+    };
+  });
+}
+
+function checkUnit(u){
+  const blanks=document.querySelectorAll(`[data-unit="${u}"] .blank`);
+  let correct=0,total=0;
+  blanks.forEach(b=>{
+    total++;
+    const ans=b.getAttribute('data-ans');
+    if(b.textContent===ans){
+      b.classList.add('ok'); b.classList.remove('ng');
+      correct++;
+    } else {
+      b.classList.add('ng'); b.classList.remove('ok');
+    }
+  });
+  document.getElementById(`ub-score-${u}`).textContent=`${correct}/${total}問正解`;
+  document.getElementById(`ub-score-${u}`).style.display='inline-block';
+  document.getElementById(`ub-retry-${u}`).style.display='inline-block';
+  document.getElementById(`ub-check-${u}`).style.display='none';
+}
+
+function hintUnit(u){
+  const blanks=document.querySelectorAll(`[data-unit="${u}"] .blank`);
+  blanks.forEach(b=>{
+    if(!b.classList.contains('show')){
+      b.textContent=b.getAttribute('data-ans');
+      b.classList.add('show');
+    }
+  });
+  document.querySelectorAll(`#uwb-chips-${u} .chip`).forEach(c=>c.remove());
+}
+
+function retryUnit(u){ startUnitChallenge(u); }
+
+function openUnitQuiz(u){
+  document.getElementById(`uq-${u}`).classList.toggle('on');
+}
+
+// ── 確認問題採点 ────────────────────────────────
+function ansUQ(qid,choice,correct){
+  const btns=event.target.parentElement.querySelectorAll('.uqc');
+  btns.forEach((b,i)=>{
+    b.disabled=true;
+    if(i===correct) b.classList.add('correct');
+    else if(i===choice&&choice!==correct) b.classList.add('wrong');
+  });
+  document.getElementById(`uqex-${qid}`).classList.add('on');
+}
+
+function judgeUnitQuiz(u,total){
+  const answered=document.querySelectorAll(`#uq-${u} .uqc.correct`).length;
+  document.getElementById(`uqs-${u}`).textContent=`${answered}/${total}問正解`;
+  document.getElementById(`uqs-${u}`).style.display='inline-block';
+}
+
+function resetUnitQuiz(u,total){
+  document.querySelectorAll(`#uq-${u} .uqc`).forEach(b=>{
+    b.disabled=false; b.classList.remove('correct','wrong');
+  });
+  document.querySelectorAll(`#uq-${u} .uqc-explain`).forEach(e=>e.classList.remove('on'));
+  document.getElementById(`uqs-${u}`).style.display='none';
+}
+
+// ── 過去問採点(0始まりインデックス) ──────────────
+function ansKakomon(qnum,selected,el){
   const correctMap={
     1:1,  // 問1正解②(idx1)
     2:0,  // 問2正解①(idx0)
@@ -668,41 +793,6 @@ function ansKakomon(qnum, selected, el){
     document.getElementById('kr'+qnum).innerHTML='<span style="color:var(--red);font-weight:700">✕ 不正解</span>';
   }
   document.getElementById('ke'+qnum).classList.add('on');
-}
-
-// 単元チャレンジ関連
-function selChip(el,u){}
-function startUnitChallenge(u){}
-function showAllBlanks(u){
-  document.querySelectorAll(`[data-unit="${u}"] .blank`).forEach(b=>{
-    b.click();
-  });
-}
-
-// 確認問題採点
-function ansUQ(qid,choice,correct){
-  const btns=event.target.parentElement.querySelectorAll('.uqc');
-  btns.forEach((b,i)=>{
-    b.disabled=true;
-    if(i===correct)b.classList.add('correct');
-    else if(i===choice&&choice!==correct)b.classList.add('wrong');
-  });
-  document.getElementById(`uqex-${qid}`).classList.add('on');
-}
-
-function judgeUnitQuiz(u,total){
-  const answered=document.querySelectorAll(`#uq-${u} .uqc.correct`).length;
-  document.getElementById(`uqs-${u}`).textContent=`${answered}/${total}問正解`;
-  document.getElementById(`uqs-${u}`).style.display='inline-block';
-}
-
-function resetUnitQuiz(u,total){
-  document.querySelectorAll(`#uq-${u} .uqc`).forEach(b=>{
-    b.disabled=false;
-    b.classList.remove('correct','wrong');
-  });
-  document.querySelectorAll(`#uq-${u} .uqc-explain`).forEach(e=>e.classList.remove('on'));
-  document.getElementById(`uqs-${u}`).style.display='none';
 }
 </script>
 
