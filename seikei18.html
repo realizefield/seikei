@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治経済 GAMBA ⑱ 国際連合</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;--gold:#c8972a;--gold2:#f0c040;--red:#c0392b;--blue:#1a3a6b;--green:#1a6b3a;--orange:#e67e22;--purple:#7b2d8b;--muted:#6b7a99;--border:#d8d3c8;--drop:#fffbe6;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.9}
+.hdr{background:var(--ink);color:#fff;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;box-shadow:0 3px 14px rgba(0,0,0,.45)}
+.hdr-info{display:flex;flex-direction:column;gap:1px}
+.hdr-sub{font-size:.65em;opacity:.5;letter-spacing:.12em}
+.hdr-title{font-size:.95em;font-weight:700;letter-spacing:.03em}
+.main{max-width:860px;margin:0 auto;padding:20px 13px 160px}
+.s-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.s-head-e{background:var(--blue);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-icon{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
+.s-ht{font-size:.92em;font-weight:700;letter-spacing:.03em;flex:1}
+.s-body{padding:16px 18px}
+.person-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed var(--border)}
+.person-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pbadge{background:var(--blue);color:#fff;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:3px;flex-shrink:0}
+.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.purple{background:var(--purple)}.pbadge.dk{background:#2c3e50}
+.pcont{flex:1;font-size:.93em}.pcont p{margin-bottom:8px}.pcont strong{color:var(--blue)}
+.blank{display:inline-flex;align-items:center;justify-content:center;min-width:90px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.blank:hover{background:#fff3b0}.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
+.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.84em}
+.gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
+.gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
+.note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
+.unit-wb{margin-top:20px;padding-top:20px;border-top:2px dashed var(--border)}
+.unit-wb-lbl{font-size:.76em;font-weight:700;color:var(--muted);margin-bottom:10px}
+.unit-wb-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;min-height:36px}
+.chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer;transition:.12s}
+.chip:hover{background:#253060;transform:translateY(-1px)}.chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.unit-btns{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.unit-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:7px 16px;border:none;border-radius:6px;cursor:pointer;transition:.12s}
+.unit-btn.challenge{background:var(--orange);color:#fff}.unit-btn.check{background:var(--green);color:#fff}.unit-btn.hint{background:var(--purple);color:#fff}
+.unit-btn.retry{background:var(--muted);color:#fff}.unit-btn.quiz{background:var(--blue);color:#fff}
+.unit-btn:hover{opacity:.88;transform:translateY(-1px)}
+.unit-score{font-size:.8em;font-weight:700;padding:6px 14px;background:var(--drop);border-radius:6px;color:var(--ink);margin-left:auto}
+.unit-quiz{display:none;margin-top:20px;padding:20px;background:#f8f9fa;border-radius:10px;border:2px solid var(--border)}
+.unit-quiz.on{display:block}
+.unit-quiz-title{font-size:.9em;font-weight:700;color:var(--blue);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+.unit-quiz-q{margin-bottom:20px;padding-bottom:20px;border-bottom:1px dashed var(--border)}
+.unit-quiz-q:last-of-type{border-bottom:none}
+.unit-quiz-qt{font-size:.9em;margin-bottom:12px;line-height:1.75}
+.unit-quiz-num{display:inline-block;background:var(--red);color:#fff;font-size:.75em;font-weight:700;padding:2px 8px;border-radius:3px;margin-right:6px}
+.unit-quiz-choices{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.uqc{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#fff;cursor:pointer;transition:.13s;text-align:left;line-height:1.5}
+.uqc:hover{border-color:var(--blue);background:#eef3ff}
+.uqc.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}
+.uqc.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.uqc-explain{display:none;font-size:.83em;background:#f0f8ff;border-radius:6px;padding:10px 13px;border-left:3px solid var(--blue);line-height:1.75;margin-top:7px}
+.uqc-explain.on{display:block}
+/* 過去問セクション */
+.s-head-k{background:var(--red);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px;font-size:.92em;font-weight:700;letter-spacing:.03em}
+.kq-block{padding:16px 18px;border-bottom:1px solid var(--border)}
+.kq-block:last-child{border-bottom:none}
+.kq-stem{font-size:.9em;line-height:1.8;margin-bottom:10px}
+.kq-num{display:inline-block;background:var(--red);color:#fff;font-size:.74em;font-weight:700;padding:2px 9px;border-radius:3px;margin-right:6px}
+.kq-src{font-size:.72em;color:var(--muted);margin-left:6px}
+.kq-choices{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.kqc{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#fff;cursor:pointer;transition:.13s;text-align:left;line-height:1.55}
+.kqc:hover{border-color:var(--red);background:#fff5f5}
+.kqc.correct{background:#d4f5e2;border-color:var(--green);color:#1a6b3a;font-weight:700;cursor:default}
+.kqc.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.kq-explain{display:none;font-size:.83em;background:#fff5f5;border-radius:6px;padding:10px 13px;border-left:3px solid var(--red);line-height:1.75;margin-top:6px}
+.kq-explain.on{display:block}
+.kq-result{font-size:.85em;font-weight:700;margin-bottom:6px;min-height:1.2em}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-info">
+    <div class="hdr-sub">政治経済 GAMBA</div>
+    <div class="hdr-title">⑱ 国際連合</div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- 単元1: 国際社会の成立と国際法 -->
+<div class="s-card" data-unit="u1">
+  <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">国際社会の成立と国際法</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">成立</div>
+      <div class="pcont">
+        <p><strong>ウェストファリア条約</strong>(1648年)：三十年戦争の講和。ヨーロッパに<button class="blank" onclick="this.textContent='主権国家';this.classList.add('show')">　　　</button>を基本単位とする国際社会が成立。各国の主権平等・内政不干渉が原則。</p>
+        <p>17世紀→君主が国民を支配する<button class="blank" onclick="this.textContent='絶対主義';this.classList.add('show')">　　　</button>国家。18〜19世紀→市民革命を経て<button class="blank" onclick="this.textContent='国民主権';this.classList.add('show')">　　　</button>に基づく国民国家が成立。ナショナリズムが高まる。</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="pbadge">国際法</div>
+      <div class="pcont">
+        <p>国際法には2種類ある。<strong>条約</strong>…国家間の交渉・合意により明文化された法。<strong>国際慣習法</strong>…長年の慣行により認められた法(公海自由の原則など)。</p>
+        <p>「<button class="blank" onclick="this.textContent='国際法の父';this.classList.add('show')">　　　</button>」＝<strong>グロティウス</strong>(オランダ、1583〜1645年)。著書『<button class="blank" onclick="this.textContent='戦争と平和の法';this.classList.add('show')">　　　　　　</button>』で自然法に基づき国際法を体系化した。</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="pbadge">国際裁判所</div>
+      <div class="pcont">
+        <p><strong>国際司法裁判所(ICJ)</strong>：本部オランダのハーグ。<button class="blank" onclick="this.textContent='国家間';this.classList.add('show')">　　　</button>の紛争を解決。裁判官15名・任期9年。<strong>紛争当事国双方の同意</strong>が必要。判決の強制執行権限はない。</p>
+        <p><strong>国際刑事裁判所(ICC)</strong>：本部ハーグ。設立条約採択1998年・設置2003年。戦争犯罪などを犯した<button class="blank" onclick="this.textContent='個人';this.classList.add('show')">　　</button>を裁く。日本は2007年に加入。アメリカ・中国・インド・ロシアは未加盟。</p>
+      </div>
+    </div>
+
+    <div class="unit-wb">
+      <div class="unit-wb-lbl">🏷 語群チャレンジ — 空欄に当てはまる語を選べ</div>
+      <div class="unit-wb-chips" id="uc1-chips">
+        <button class="chip" onclick="selChip(this,'u1')">グロティウス</button>
+        <button class="chip" onclick="selChip(this,'u1')">国際慣習法</button>
+        <button class="chip" onclick="selChip(this,'u1')">ウェストファリア</button>
+        <button class="chip" onclick="selChip(this,'u1')">ICJ</button>
+        <button class="chip" onclick="selChip(this,'u1')">ICC</button>
+        <button class="chip" onclick="selChip(this,'u1')">条約</button>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u1')">✏ チャレンジ開始</button>
+        <button class="unit-btn hint" onclick="showAllBlanks('u1')">💡 全答表示</button>
+        <button class="unit-btn quiz" onclick="document.getElementById('uq-u1').classList.toggle('on')">📝 確認問題</button>
+      </div>
+    </div>
+
+    <div class="unit-quiz on" id="uq-u1">
+      <div class="unit-quiz-title">📝 単元1 確認問題</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>ウェストファリア条約に関する記述として正しいものを選べ。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u1q0',0,3)">① ヨーロッパにおいて、絶対君主制を否定し議会制民主主義を確立した。</button>
+          <button class="uqc" onclick="ansUQ('u1q0',1,3)">② 植民地をめぐるヨーロッパ諸国の紛争を終結させた。</button>
+          <button class="uqc" onclick="ansUQ('u1q0',2,3)">③ ヨーロッパにおける宗教改革を収束させ、ローマ教皇の権威を回復した。</button>
+          <button class="uqc" onclick="ansUQ('u1q0',3,3)">④ 三十年戦争を終結させ、主権国家からなる国際社会の成立を促した。</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u1q0"><strong>正解:④</strong><br>ウェストファリア条約は三十年戦争の講和条約。ヨーロッパに主権国家体制を確立した。①は誤り(絶対君主制全盛期)。②③も誤り。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>国際慣習法(慣習国際法)についての記述として適当でないものを選べ。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u1q1',0,1)">① 国際慣習法とは、諸国の慣行の積み重ねにより形成された法である。</button>
+          <button class="uqc" onclick="ansUQ('u1q1',1,1)">② 国際慣習法において、輸入品に関税を課すことが禁じられている。</button>
+          <button class="uqc" onclick="ansUQ('u1q1',2,1)">③ 国際慣習法は、条約の形に成文化されることがある。</button>
+          <button class="uqc" onclick="ansUQ('u1q1',3,1)">④ 国際慣習法により、公海自由の原則が認められている。</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u1q1"><strong>正解:②</strong><br>②が誤り。各国は主権に基づき輸入品に関税を課す「関税自主権」を有している。国際慣習法は関税を禁じていない。①③④はすべて正しい。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u1',2)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u1',2)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u1" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 単元2: 国連の成立と機構 -->
+<div class="s-card" data-unit="u2">
+  <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">国連の成立と機構</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">成立</div>
+      <div class="pcont">
+        <p>1941年：<strong>大西洋憲章</strong>…米英が戦後国際平和維持機構について合意。1944年：<strong>ダンバートン・オークス</strong>会議で国連憲章の原案を討議。</p>
+        <p>1945年：<strong>サンフランシスコ</strong>会議で<button class="blank" onclick="this.textContent='国連憲章';this.classList.add('show')">　　　　</button>を採択。51か国を原加盟国として<strong>国際連合</strong>が発足。本部は<button class="blank" onclick="this.textContent='ニューヨーク';this.classList.add('show')">　　　　　</button>(アメリカ)。加盟国193か国(2024年現在)。</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="pbadge">主要機関</div>
+      <div class="pcont">
+        <table class="gtbl">
+          <thead><tr><th>機関</th><th>構成・特徴</th></tr></thead>
+          <tbody>
+            <tr><td><strong>総会</strong></td><td>全加盟国。1国1票の投票権。重要事項は3分の2以上の賛成で決議。</td></tr>
+            <tr><td><strong>安全保障理事会</strong></td><td>常任理事国5か国(米・英・仏・露・中)＋非常任理事国10か国。常任理事国は<button class="blank" onclick="this.textContent='拒否権';this.classList.add('show')">　　　</button>を持つ。</td></tr>
+            <tr><td><strong>経済社会理事会</strong></td><td>経済・社会・文化・保健など分野で国際協力を目的とする。専門機関と連携。</td></tr>
+            <tr><td><strong>事務局</strong></td><td>事務総長は安保理の勧告により<button class="blank" onclick="this.textContent='総会';this.classList.add('show')">　　</button>が任命。</td></tr>
+            <tr><td><strong>国際司法裁判所</strong></td><td>ハーグ設置。国家間の法的紛争を解決。</td></tr>
+            <tr><td><strong>信託統治理事会</strong></td><td>信託統治地域の施政を監視。現在は活動停止。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="unit-wb">
+      <div class="unit-wb-lbl">🏷 語群チャレンジ</div>
+      <div class="unit-wb-chips" id="uc2-chips">
+        <button class="chip" onclick="selChip(this,'u2')">総会</button>
+        <button class="chip" onclick="selChip(this,'u2')">安全保障理事会</button>
+        <button class="chip" onclick="selChip(this,'u2')">経済社会理事会</button>
+        <button class="chip" onclick="selChip(this,'u2')">事務局</button>
+        <button class="chip" onclick="selChip(this,'u2')">拒否権</button>
+        <button class="chip" onclick="selChip(this,'u2')">ニューヨーク</button>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u2')">✏ チャレンジ開始</button>
+        <button class="unit-btn hint" onclick="showAllBlanks('u2')">💡 全答表示</button>
+        <button class="unit-btn quiz" onclick="document.getElementById('uq-u2').classList.toggle('on')">📝 確認問題</button>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u2">
+      <div class="unit-quiz-title">📝 単元2 確認問題</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>国際連合の制度についての記述として誤っているものを選べ。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u2q0',0,2)">① 安全保障理事会は、常任理事国が拒否権を持つ。</button>
+          <button class="uqc" onclick="ansUQ('u2q0',1,2)">② 経済社会理事会は、教育や文化に関する専門機関と連携関係をもつ。</button>
+          <button class="uqc" onclick="ansUQ('u2q0',2,2)">③ 総会は、安全保障理事会の勧告に基づいて事務総長を任命する。</button>
+          <button class="uqc" onclick="ansUQ('u2q0',3,2)">④ 総会は、安全保障理事会の非常任理事国を選出する。</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u2q0"><strong>正解:③</strong><br>③は誤り。事務総長は「安保理の勧告に基づき<strong>総会が任命</strong>」する。問題文は逆になっている。①②④はすべて正しい。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>国際連合についての記述として誤っているものを選べ。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u2q1',0,2)">① 第二次世界大戦中に制度の構想ができたが、冷戦が本格化すると集団安全保障についての活動が難しくなった。</button>
+          <button class="uqc" onclick="ansUQ('u2q1',1,2)">② 国際の平和と安全の維持のみならず、社会的進歩や生活水準の向上を促進することなども目的として設立された。</button>
+          <button class="uqc" onclick="ansUQ('u2q1',2,2)">③ 信託統治理事会は、冷戦後の新たな信託統治地域の設定に伴い、活動範囲を拡大している。</button>
+          <button class="uqc" onclick="ansUQ('u2q1',3,2)">④ 経済社会理事会と提携関係にある専門機関として、世界保健機関(WHO)や国際開発協会(IDA)などが設置されている。</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u2q1"><strong>正解:③</strong><br>③が誤り。信託統治理事会は1994年にパラオが独立して最後の信託統治領がなくなり、活動停止状態となっている(拡大ではなく縮小・停止)。①②④は正しい。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u2',2)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u2',2)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u2" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 単元3: 安全保障理事会と拒否権 -->
+<div class="s-card" data-unit="u3">
+  <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">安全保障理事会と拒否権</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">表決</div>
+      <div class="pcont">
+        <p><strong>手続事項</strong>：15か国中<button class="blank" onclick="this.textContent='9';this.classList.add('show')">　</button>か国以上の賛成で成立。拒否権なし。</p>
+        <p><strong>実質事項</strong>：常任理事国5か国を含む9か国以上の賛成で成立。常任理事国1か国でも反対すると<strong>否決</strong>(拒否権)。</p>
+        <p>5常任理事国：<button class="blank" onclick="this.textContent='アメリカ・イギリス・フランス・ロシア・中国';this.classList.add('show')">　　　　　　　　　　　　　　　</button></p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="pbadge">機能不全</div>
+      <div class="pcont">
+        <p>冷戦期：米ソ対立により安保理がたびたび機能停止。→1950年、「<strong>平和のための結集</strong>」決議を採択。総会で緊急特別総会を開催可能に。</p>
+        <p>国連加盟国は安保理の決定を<button class="blank" onclick="this.textContent='国連憲章にしたがい受諾かつ履行';this.classList.add('show')">　　　　　　　　　　　　　　</button>しなければならない。</p>
+      </div>
+    </div>
+
+    <div class="unit-wb">
+      <div class="unit-wb-lbl">🏷 語群チャレンジ</div>
+      <div class="unit-wb-chips" id="uc3-chips">
+        <button class="chip" onclick="selChip(this,'u3')">拒否権</button>
+        <button class="chip" onclick="selChip(this,'u3')">9</button>
+        <button class="chip" onclick="selChip(this,'u3')">15</button>
+        <button class="chip" onclick="selChip(this,'u3')">実質事項</button>
+        <button class="chip" onclick="selChip(this,'u3')">手続事項</button>
+        <button class="chip" onclick="selChip(this,'u3')">平和のための結集</button>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u3')">✏ チャレンジ開始</button>
+        <button class="unit-btn hint" onclick="showAllBlanks('u3')">💡 全答表示</button>
+        <button class="unit-btn quiz" onclick="document.getElementById('uq-u3').classList.toggle('on')">📝 確認問題</button>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u3">
+      <div class="unit-quiz-title">📝 単元3 確認問題</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>安全保障理事会(安保理)についての記述として誤っているものを選べ。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u3q0',0,1)">① 安保理の常任理事国は、手続事項以外の事項について、拒否権をもっている。</button>
+          <button class="uqc" onclick="ansUQ('u3q0',1,1)">② 安保理は、国際社会の平和と安全の維持または回復に必要な軍事的措置を決定する場合には、あらかじめ総会の承認を得なければならない。</button>
+          <button class="uqc" onclick="ansUQ('u3q0',2,1)">③ 国連加盟国は、安保理の決定を、国連憲章にしたがい受諾かつ履行しなければならない。</button>
+          <button class="uqc" onclick="ansUQ('u3q0',3,1)">④ 安保理は、侵略行為の中止を求める自らの決定を実施するために、国連加盟国がいかなる非軍事的措置をとるべきかを決定することができる。</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u3q0"><strong>正解:②</strong><br>②が誤り。安保理が軍事的措置を決定するのに、あらかじめ総会の承認は不要。安保理は独自の権限で決定できる。①③④は正しい。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u3',1)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u3',1)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u3" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 単元4: PKOと国連軍 -->
+<div class="s-card" data-unit="u4">
+  <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">PKOと国連軍</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">PKO</div>
+      <div class="pcont">
+        <p><strong>国連平和維持活動(PKO)</strong>は国連憲章に明記のない活動(「憲章6章半」ともいう)。総会や安保理の決議に基づき派遣。</p>
+        <p>PKO3原則：①<button class="blank" onclick="this.textContent='関係国の同意';this.classList.add('show')">　　　　　　</button> ②<button class="blank" onclick="this.textContent='中立性';this.classList.add('show')">　　　</button> ③<button class="blank" onclick="this.textContent='自衛及び任務遂行以外の武力不行使';this.classList.add('show')">　　　　　　　　　　　　</button></p>
+        <p>活動内容：停戦監視・選挙監視・<button class="blank" onclick="this.textContent='平和維持軍(PKF)';this.classList.add('show')">　　　　　　　</button>など。要員拠出は加盟国の<strong>任意</strong>(義務ではない)。</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="pbadge">日本とPKO</div>
+      <div class="pcont">
+        <p>1992年：<strong>PKO協力法</strong>制定 → <button class="blank" onclick="this.textContent='カンボジア';this.classList.add('show')">　　　　</button>暫定統治機構(UNTAC)に自衛隊派遣(初参加)。</p>
+        <p>その後：東ティモール(1999〜2012年、計4回)・スーダン・ミッション(2008〜11年)・ハイチ安定化ミッション(2010〜13年)など。</p>
+        <p>イラクへの自衛隊派遣(2003〜09年)は<button class="blank" onclick="this.textContent='イラク復興支援特別措置法';this.classList.add('show')">　　　　　　　　　　　</button>に基づく派遣であり、PKO協力法に基づく派遣ではない。</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="pbadge">国連軍</div>
+      <div class="pcont">
+        <p><strong>国連憲章第7章</strong>に規定される本来の国連軍(UNF)は、加盟国が安保理と特別協定を結んで兵力を提供するもの。<button class="blank" onclick="this.textContent='これまで組織されたことはない';this.classList.add('show')">　　　　　　　　　　　</button>。</p>
+        <p>朝鮮戦争で派遣された「国連軍」は、ソ連が欠席した安保理で決定されたもので<strong>正規の国連軍ではない</strong>。</p>
+      </div>
+    </div>
+
+    <div class="unit-wb">
+      <div class="unit-wb-lbl">🏷 語群チャレンジ</div>
+      <div class="unit-wb-chips" id="uc4-chips">
+        <button class="chip" onclick="selChip(this,'u4')">PKO</button>
+        <button class="chip" onclick="selChip(this,'u4')">カンボジア</button>
+        <button class="chip" onclick="selChip(this,'u4')">PKO協力法</button>
+        <button class="chip" onclick="selChip(this,'u4')">東ティモール</button>
+        <button class="chip" onclick="selChip(this,'u4')">国連軍</button>
+        <button class="chip" onclick="selChip(this,'u4')">停戦監視</button>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u4')">✏ チャレンジ開始</button>
+        <button class="unit-btn hint" onclick="showAllBlanks('u4')">💡 全答表示</button>
+        <button class="unit-btn quiz" onclick="document.getElementById('uq-u4').classList.toggle('on')">📝 確認問題</button>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u4">
+      <div class="unit-quiz-title">📝 単元4 確認問題</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>国連の平和維持活動について、PKO協力法に基づいて自衛隊が派遣された国や地域として誤っているものを選べ。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u4q0',0,0)">① イラク</button>
+          <button class="uqc" onclick="ansUQ('u4q0',1,0)">② カンボジア</button>
+          <button class="uqc" onclick="ansUQ('u4q0',2,0)">③ ハイチ</button>
+          <button class="uqc" onclick="ansUQ('u4q0',3,0)">④ 東ティモール</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u4q0"><strong>正解:①</strong><br>イラクへの自衛隊派遣(2003〜09年)はPKO協力法ではなく、イラク復興支援特別措置法に基づくもの。②カンボジア(1992年・初参加)、③ハイチ、④東ティモールはPKO協力法に基づく派遣。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u4',1)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u4',1)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u4" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 単元5: 国連の専門機関 -->
+<div class="s-card" data-unit="u5">
+  <div class="s-head-e"><div class="s-icon">5</div><div class="s-ht">国連の専門機関・関連機関</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">専門機関</div>
+      <div class="pcont">
+        <table class="gtbl">
+          <thead><tr><th>略称</th><th>正式名</th><th>主な活動</th></tr></thead>
+          <tbody>
+            <tr><td><strong>WHO</strong></td><td>世界保健機関</td><td>健康水準の向上・国際的保健事業の推進</td></tr>
+            <tr><td><strong>ILO</strong></td><td>国際労働機関</td><td>労働条件の改善・社会保障の促進</td></tr>
+            <tr><td><strong>UNESCO</strong></td><td>国連教育科学文化機関</td><td>教育・科学・文化の発展</td></tr>
+            <tr><td><strong>FAO</strong></td><td>国連食糧農業機関</td><td>食料生産・農業の発展</td></tr>
+            <tr><td><strong>IBRD</strong></td><td>国際復興開発銀行(世界銀行)</td><td>発展途上国への融資</td></tr>
+            <tr><td><strong>IMF</strong></td><td>国際通貨基金</td><td>為替相場の安定・国際収支均衡</td></tr>
+            <tr><td><strong>IAEA</strong></td><td>国際原子力機関</td><td>原子力の平和利用・軍事転用防止</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="pbadge">関連機関</div>
+      <div class="pcont">
+        <p><strong>UNICEF</strong>(国連児童基金)：発展途上国を中心に子どもの教育・福利厚生。</p>
+        <p><strong>UNHCR</strong>(国連難民高等弁務官事務所)：難民の保護・支援。1991〜2000年、日本の<button class="blank" onclick="this.textContent='緒方貞子';this.classList.add('show')">　　　　</button>が高等弁務官を務めた。</p>
+        <p><strong>UNEP</strong>(国連環境計画)：環境問題への取組み。<strong>UNCTAD</strong>(国連貿易開発会議)：南北問題解決を目的として設立。</p>
+        <p><strong>WTO</strong>(世界貿易機関)：貿易ルールの設定と紛争解決。<button class="blank" onclick="this.textContent='GATT';this.classList.add('show')">　　　　</button>(関税と貿易に関する一般協定)を引き継ぎ1995年に設立。</p>
+      </div>
+    </div>
+
+    <div class="unit-wb">
+      <div class="unit-wb-lbl">🏷 語群チャレンジ</div>
+      <div class="unit-wb-chips" id="uc5-chips">
+        <button class="chip" onclick="selChip(this,'u5')">WHO</button>
+        <button class="chip" onclick="selChip(this,'u5')">UNICEF</button>
+        <button class="chip" onclick="selChip(this,'u5')">UNHCR</button>
+        <button class="chip" onclick="selChip(this,'u5')">IAEA</button>
+        <button class="chip" onclick="selChip(this,'u5')">IMF</button>
+        <button class="chip" onclick="selChip(this,'u5')">UNCTAD</button>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u5')">✏ チャレンジ開始</button>
+        <button class="unit-btn hint" onclick="showAllBlanks('u5')">💡 全答表示</button>
+        <button class="unit-btn quiz" onclick="document.getElementById('uq-u5').classList.toggle('on')">📝 確認問題</button>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u5">
+      <div class="unit-quiz-title">📝 単元5 確認問題</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>次の国際機関に関する記述ア〜ウのうち、正しいものをすべて選んだ組合せを選べ。<br>ア: WHOは、世界の人々の健康水準の向上や国際的な保健事業の推進に関する活動を行っている。<br>イ: UNICEFは、発展途上国を中心に子どもの教育や福利厚生に関する活動を行っている。<br>ウ: UNHCRは、迫害や紛争などによって生じる難民の保護に関する活動を行っている。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u5q0',0,6)">① ア</button>
+          <button class="uqc" onclick="ansUQ('u5q0',1,6)">② アとイ</button>
+          <button class="uqc" onclick="ansUQ('u5q0',2,6)">③ アとウ</button>
+          <button class="uqc" onclick="ansUQ('u5q0',3,6)">④ イとウ</button>
+          <button class="uqc" onclick="ansUQ('u5q0',4,6)">⑤ ウ</button>
+          <button class="uqc" onclick="ansUQ('u5q0',5,6)">⑥ イ</button>
+          <button class="uqc" onclick="ansUQ('u5q0',6,6)">⑦ アとイとウ</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u5q0"><strong>正解:⑦(アとイとウすべて正しい)</strong><br>ア:WHO→正しい。イ:UNICEF→正しい。ウ:UNHCR→正しい。3つともすべて正確な記述。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u5',1)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u5',1)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u5" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 単元6: 国連の課題と国際社会 -->
+<div class="s-card" data-unit="u6">
+  <div class="s-head-e"><div class="s-icon">6</div><div class="s-ht">国連の課題と集団安全保障</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">安全保障の方式</div>
+      <div class="pcont">
+        <table class="gtbl">
+          <thead><tr><th>方式</th><th>内容</th><th>例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>勢力均衡</strong></td><td>国家間の力のバランスで平和を保つ</td><td>第一次大戦前のヨーロッパ</td></tr>
+            <tr><td><strong>集団安全保障</strong></td><td>侵略国に加盟国全体で制裁を加える</td><td><button class="blank" onclick="this.textContent='国際連盟・国際連合';this.classList.add('show')">　　　　　　　　</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="pbadge">国連の課題</div>
+      <div class="pcont">
+        <p>①<strong>拒否権</strong>：常任理事国が反対すると重要決議が成立しない。→<button class="blank" onclick="this.textContent='安保理改革';this.classList.add('show')">　　　　　</button>(常任理事国拡大・拒否権見直し)が議論されている。</p>
+        <p>②<strong>財政問題</strong>：加盟国の分担金未払い。アメリカは連邦議会の反対により国際連盟に加盟しなかった歴史がある。</p>
+        <p>③<strong>実効性の問題</strong>：国際法に強制執行機関がない。ICJは判決を強制執行する権限を<button class="blank" onclick="this.textContent='もたない';this.classList.add('show')">　　　　</button>。</p>
+        <p>④人間の<strong>安全保障</strong>：1994年UNDP報告書で提唱。国家ではなく個人の安全を重視。</p>
+      </div>
+    </div>
+
+    <div class="unit-wb">
+      <div class="unit-wb-lbl">🏷 語群チャレンジ</div>
+      <div class="unit-wb-chips" id="uc6-chips">
+        <button class="chip" onclick="selChip(this,'u6')">集団安全保障</button>
+        <button class="chip" onclick="selChip(this,'u6')">勢力均衡</button>
+        <button class="chip" onclick="selChip(this,'u6')">安保理改革</button>
+        <button class="chip" onclick="selChip(this,'u6')">人間の安全保障</button>
+        <button class="chip" onclick="selChip(this,'u6')">拒否権</button>
+        <button class="chip" onclick="selChip(this,'u6')">財政問題</button>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u6')">✏ チャレンジ開始</button>
+        <button class="unit-btn hint" onclick="showAllBlanks('u6')">💡 全答表示</button>
+        <button class="unit-btn quiz" onclick="document.getElementById('uq-u6').classList.toggle('on')">📝 確認問題</button>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u6">
+      <div class="unit-quiz-title">📝 単元6 確認問題</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>国際社会全体の平和と安全を維持するための国連の仕組みに関する記述として正しいものを選べ。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u6q0',0,3)">① 国連安全保障理事会が侵略国に対する制裁を決定するためには、すべての理事国の賛成が必要である。</button>
+          <button class="uqc" onclick="ansUQ('u6q0',1,3)">② 国連憲章は、国連加盟国が安全保障理事会決議に基づかずに武力を行使することを認めていない。</button>
+          <button class="uqc" onclick="ansUQ('u6q0',2,3)">③ 国連が平和維持活動を実施できるようにするため、国連加盟国は平和維持軍を編成するのに必要な要員を提供する義務を負っている。</button>
+          <button class="uqc" onclick="ansUQ('u6q0',3,3)">④ 国連憲章に規定されている本来の国連軍は、これまでに組織されたことがない。</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u6q0"><strong>正解:④</strong><br>④正しい。国連憲章第7章に規定される本来の国連軍は、特別協定が締結されていないため未組織。①誤り：すべての理事国ではなく9理事国(常任5か国含む)。②誤り：個別・集団的自衛権は認められている(51条)。③誤り：要員の提供は義務ではなく任意。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u6',1)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u6',1)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u6" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 過去問セクション -->
+<div class="s-card">
+  <div class="s-head-k">📝 過去問演習 — 国際連合</div>
+
+  <!-- 問1 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr1"></div>
+    <div class="kq-stem"><span class="kq-num">問1</span>現代の国際社会の取組みについての記述として正しいものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[15本]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(1,0,this)">① 国連人間環境会議では、先進国による温室効果ガスの削減目標値が採択された。</button>
+      <button class="kqc" onclick="ansKakomon(1,1,this)">② 国連人間環境会議の決議を受けて、UNEP(国連環境計画)が設立された。</button>
+      <button class="kqc" onclick="ansKakomon(1,2,this)">③ 国連環境開発会議では、京都議定書が採択された。</button>
+      <button class="kqc" onclick="ansKakomon(1,3,this)">④ 国連環境開発会議の決議を受けて、UNCTAD(国連貿易開発会議)が設立された。</button>
+    </div>
+    <div class="kq-explain" id="ke1"><strong>正解: ②</strong><br>②正しい。1972年ストックホルムの国連人間環境会議を受けてUNEP(国連環境計画)が設立された。①誤り：温室効果ガス削減目標は気候変動枠組条約締約国会議(COP3)の京都議定書。③誤り：国連環境開発会議(1992年)ではアジェンダ21やリオ宣言。④誤り：UNCTADは南北問題解決を目的として設立された。</div>
+  </div>
+
+  <!-- 問2 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr2"></div>
+    <div class="kq-stem"><span class="kq-num">問2</span>国際紛争の処理について説明したものとして正しいものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[14本]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(2,0,this)">① 国際司法裁判所(ICJ)が裁判を行うには、紛争当事国双方の同意が必要とされる。</button>
+      <button class="kqc" onclick="ansKakomon(2,1,this)">② 侵略国に対する国連の安全保障理事会の決議では、経済制裁はできない。</button>
+      <button class="kqc" onclick="ansKakomon(2,2,this)">③ 国連のPKOは、加盟国が自発的に人員を提供するものではない。</button>
+      <button class="kqc" onclick="ansKakomon(2,3,this)">④ 国連憲章に規定されている国連軍は、多発する地域紛争に備えて常備されている。</button>
+    </div>
+    <div class="kq-explain" id="ke2"><strong>正解: ①</strong><br>①正しい。ICJの裁判は紛争当事国双方の同意が必要。②誤り：安保理は経済制裁も可能。③誤り：PKOの人員拠出は加盟国の任意(自発的)。④誤り：本来の国連軍は常備されておらず、組織されたこともない。</div>
+  </div>
+
+  <!-- 問3 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr3"></div>
+    <div class="kq-stem"><span class="kq-num">問3</span>国際社会についての記述として正しいものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[14追]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(3,0,this)">① ウェストファリア会議の結果、各国の主権とその平等に基づく国際社会が、地球規模で成立した。</button>
+      <button class="kqc" onclick="ansKakomon(3,1,this)">② 第二次世界大戦の終結後、国連(国際連合)が設立されたが、ソ連はアメリカとの対立を理由に当初加盟を見送った。</button>
+      <button class="kqc" onclick="ansKakomon(3,2,this)">③ 国際司法裁判所(ICJ)は、国際法にのっとって裁判し、判決を強制執行する。</button>
+      <button class="kqc" onclick="ansKakomon(3,3,this)">④ 国連の総会は、加盟国が一票の投票権を有する多数決制に基づき、決定を行う。</button>
+    </div>
+    <div class="kq-explain" id="ke3"><strong>正解: ④</strong><br>④正しい。国連総会は1国1票の多数決制。①誤り：ウェストファリア条約はヨーロッパ規模の成立で地球規模ではない。②誤り：ソ連も原加盟国(加盟遅延はなかった)。③誤り：ICJには判決を強制執行する権限がない。</div>
+  </div>
+
+  <!-- 問4 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr4"></div>
+    <div class="kq-stem"><span class="kq-num">問4</span>国際連合の制度についての記述として誤っているものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[12本]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(4,0,this)">① 安全保障理事会は、表決手続きとして全会一致制を用いる。</button>
+      <button class="kqc" onclick="ansKakomon(4,1,this)">② 経済社会理事会は、教育や文化に関する専門機関と連携関係をもつ。</button>
+      <button class="kqc" onclick="ansKakomon(4,2,this)">③ 総会は、安全保障理事会の勧告に基づいて事務総長を任命する。</button>
+      <button class="kqc" onclick="ansKakomon(4,3,this)">④ 総会は、安全保障理事会の非常任理事国を選出する。</button>
+    </div>
+    <div class="kq-explain" id="ke4"><strong>正解: ①</strong><br>①誤り。安保理の表決は実質事項で「常任5か国を含む9か国以上の賛成」(全会一致制ではない)。②正しい。③正しい(事務総長は安保理勧告に基づき総会が任命)。④正しい。</div>
+  </div>
+
+  <!-- 問5 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr5"></div>
+    <div class="kq-stem"><span class="kq-num">問5</span>国際連合の主要機関である安全保障理事会(安保理)についての記述として誤っているものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[09本]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(5,0,this)">① 安保理の常任理事国は、手続事項以外の事項について、拒否権をもっている。</button>
+      <button class="kqc" onclick="ansKakomon(5,1,this)">② 安保理は、国際社会の平和と安全の維持または回復に必要な軍事的措置を決定する場合には、あらかじめ総会の承認を得なければならない。</button>
+      <button class="kqc" onclick="ansKakomon(5,2,this)">③ 国連加盟国は、安保理の決定を、国連憲章にしたがい受諾かつ履行しなければならない。</button>
+      <button class="kqc" onclick="ansKakomon(5,3,this)">④ 安保理は、侵略行為の中止を求める自らの決定を実施するために、国連加盟国がいかなる非軍事的措置をとるべきかを決定することができる。</button>
+    </div>
+    <div class="kq-explain" id="ke5"><strong>正解: ②</strong><br>②誤り。安保理が軍事的措置を決定するのに総会の事前承認は不要。安保理は独自の権限で決定できる。①③④は正しい記述。</div>
+  </div>
+
+  <!-- 問6 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr6"></div>
+    <div class="kq-stem"><span class="kq-num">問6</span>国連安全保障理事会における表決についての次の事例A〜Cのうち、決議が成立するものとして正しいものはどれか。当てはまる事例をすべて選び、その組合せとして最も適当なものを選べ。<span class="kq-src">[19本]</span><br>
+    A 実質事項の決議案に、イギリスが反対し、ほかのすべての理事会構成国が賛成した。<br>
+    B 手続事項の決議案に、フランスを含む5か国が反対し、ほかのすべての理事会構成国が賛成した。<br>
+    C 実質事項の決議案に、すべての常任理事国を含む9か国が賛成した。</div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(6,0,this)">① A</button>
+      <button class="kqc" onclick="ansKakomon(6,1,this)">② B</button>
+      <button class="kqc" onclick="ansKakomon(6,2,this)">③ C</button>
+      <button class="kqc" onclick="ansKakomon(6,3,this)">④ AとB</button>
+      <button class="kqc" onclick="ansKakomon(6,4,this)">⑤ AとC</button>
+      <button class="kqc" onclick="ansKakomon(6,5,this)">⑥ BとC</button>
+      <button class="kqc" onclick="ansKakomon(6,6,this)">⑦ AとBとC</button>
+    </div>
+    <div class="kq-explain" id="ke6"><strong>正解: ⑥(BとC)</strong><br>A：実質事項で常任理事国イギリスが反対→拒否権発動→不成立。B：手続事項は拒否権なし、9理事国以上の賛成で成立→成立。C：実質事項で常任5か国全員賛成＋計9か国→成立。</div>
+  </div>
+
+  <!-- 問7 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr7"></div>
+    <div class="kq-stem"><span class="kq-num">問7</span>国際社会についての記述として正しいものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[14追]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(7,0,this)">① ウェストファリア会議の結果、各国の主権とその平等に基づく国際社会が、地球規模で成立した。</button>
+      <button class="kqc" onclick="ansKakomon(7,1,this)">② 国際法上、主権国家は、人口、国土、国力などにかかわりなく、平等な関係にあるとみなされている。</button>
+      <button class="kqc" onclick="ansKakomon(7,2,this)">③ 国際司法裁判所(ICJ)は、国際法にのっとって裁判し、判決を強制執行する。</button>
+      <button class="kqc" onclick="ansKakomon(7,3,this)">④ 国際刑事裁判所(ICC)は、国家間の紛争を法的に解決することを目的とする機関である。</button>
+    </div>
+    <div class="kq-explain" id="ke7"><strong>正解: ②</strong><br>②正しい。主権平等の原則により、国力・人口にかかわらず国家は平等。①誤り：ウェストファリア条約はヨーロッパ規模。③誤り：ICJに強制執行権限はない。④誤り：ICCは個人の戦争犯罪を裁く裁判所(国家間紛争ではない)。</div>
+  </div>
+
+  <!-- 問8 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr8"></div>
+    <div class="kq-stem"><span class="kq-num">問8</span>国際連合についての記述として誤っているものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[11本]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(8,0,this)">① 第二次世界大戦中に、制度の構想についての合意ができたが、後に冷戦が本格化すると集団安全保障についての構想どおりの活動が難しくなった。</button>
+      <button class="kqc" onclick="ansKakomon(8,1,this)">② 国際の平和と安全の維持のみならず、社会的進歩や生活水準の向上を促進することなども目的として設立された。</button>
+      <button class="kqc" onclick="ansKakomon(8,2,this)">③ 信託統治理事会は、冷戦後の新たな信託統治地域の設定に伴い、活動範囲を拡大している。</button>
+      <button class="kqc" onclick="ansKakomon(8,3,this)">④ 経済社会理事会と提携関係にある専門機関として、世界保健機関(WHO)や国際開発協会(IDA)などが設置されている。</button>
+    </div>
+    <div class="kq-explain" id="ke8"><strong>正解: ③</strong><br>③誤り。信託統治理事会は1994年にパラオが独立して最後の信託統治領がなくなり、活動停止状態(拡大どころか停止)。①②④はすべて正しい。</div>
+  </div>
+
+  <!-- 問9 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr9"></div>
+    <div class="kq-stem"><span class="kq-num">問9</span>国連憲章に定められている総会や安全保障理事会の議決のルールについての記述として正しいものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[05本]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(9,0,this)">① 安全保障理事会では、すべての理事国は拒否権を行使できる。</button>
+      <button class="kqc" onclick="ansKakomon(9,1,this)">② 安全保障理事会では、すべての理事国の過半数の賛成により議決を行う。</button>
+      <button class="kqc" onclick="ansKakomon(9,2,this)">③ 総会では、すべての加盟国は一票ずつ投票権を有する。</button>
+      <button class="kqc" onclick="ansKakomon(9,3,this)">④ 総会では、安全保障理事会のすべての常任理事国は拒否権を行使できる。</button>
+    </div>
+    <div class="kq-explain" id="ke9"><strong>正解: ③</strong><br>③正しい。国連総会では1国1票の原則。①誤り：拒否権は常任理事国のみ。②誤り：実質事項は常任5か国含む9か国の賛成が必要。④誤り：総会での拒否権はない。</div>
+  </div>
+
+  <!-- 問10 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr10"></div>
+    <div class="kq-stem"><span class="kq-num">問10</span>国際社会全体の平和と安全を維持するための国連(国際連合)の仕組みに関する記述として正しいものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[17本]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(10,0,this)">① 国連安全保障理事会が侵略国に対する制裁を決定するためには、すべての理事国の賛成が必要である。</button>
+      <button class="kqc" onclick="ansKakomon(10,1,this)">② 国連憲章は、国連加盟国が安全保障理事会決議に基づかずに武力を行使することを認めていない。</button>
+      <button class="kqc" onclick="ansKakomon(10,2,this)">③ 国連が平和維持活動を実施できるようにするため、国連加盟国は平和維持軍を編成するのに必要な要員を提供する義務を負っている。</button>
+      <button class="kqc" onclick="ansKakomon(10,3,this)">④ 国連憲章に規定されている本来の国連軍は、これまでに組織されたことがない。</button>
+    </div>
+    <div class="kq-explain" id="ke10"><strong>正解: ④</strong><br>④正しい。本来の国連軍は特別協定未締結のため組織されたことがない。①誤り：すべての理事国ではなく9か国(常任5か国含む)。②誤り：個別的・集団的自衛権は認められている(51条)。③誤り：要員提供は義務ではなく任意。</div>
+  </div>
+
+</div><!-- /過去問セクション -->
+
+</div><!-- /main -->
+
+<script>
+// 過去問採点関数(0始まりインデックス)
+function ansKakomon(qnum, selected, el){
+  const correctMap={
+    1:1,  // 問1正解②(idx1)
+    2:0,  // 問2正解①(idx0)
+    3:3,  // 問3正解④(idx3)
+    4:0,  // 問4正解①(idx0)
+    5:1,  // 問5正解②(idx1)
+    6:5,  // 問6正解⑥BとC(idx5)
+    7:1,  // 問7正解②(idx1)
+    8:2,  // 問8正解③(idx2)
+    9:2,  // 問9正解③(idx2)
+    10:3  // 問10正解④(idx3)
+  };
+  const correct=correctMap[qnum];
+  const allBtns=el.parentElement.querySelectorAll('.kqc');
+  if(el.classList.contains('correct')||el.classList.contains('wrong')) return;
+  allBtns.forEach(b=>b.disabled=true);
+  if(selected===correct){
+    el.classList.add('correct');
+    document.getElementById('kr'+qnum).innerHTML='<span style="color:var(--green);font-weight:700">○ 正解！</span>';
+  } else {
+    el.classList.add('wrong');
+    allBtns[correct].classList.add('correct');
+    document.getElementById('kr'+qnum).innerHTML='<span style="color:var(--red);font-weight:700">✕ 不正解</span>';
+  }
+  document.getElementById('ke'+qnum).classList.add('on');
+}
+
+// 単元チャレンジ関連
+function selChip(el,u){}
+function startUnitChallenge(u){}
+function showAllBlanks(u){
+  document.querySelectorAll(`[data-unit="${u}"] .blank`).forEach(b=>{
+    b.click();
+  });
+}
+
+// 確認問題採点
+function ansUQ(qid,choice,correct){
+  const btns=event.target.parentElement.querySelectorAll('.uqc');
+  btns.forEach((b,i)=>{
+    b.disabled=true;
+    if(i===correct)b.classList.add('correct');
+    else if(i===choice&&choice!==correct)b.classList.add('wrong');
+  });
+  document.getElementById(`uqex-${qid}`).classList.add('on');
+}
+
+function judgeUnitQuiz(u,total){
+  const answered=document.querySelectorAll(`#uq-${u} .uqc.correct`).length;
+  document.getElementById(`uqs-${u}`).textContent=`${answered}/${total}問正解`;
+  document.getElementById(`uqs-${u}`).style.display='inline-block';
+}
+
+function resetUnitQuiz(u,total){
+  document.querySelectorAll(`#uq-${u} .uqc`).forEach(b=>{
+    b.disabled=false;
+    b.classList.remove('correct','wrong');
+  });
+  document.querySelectorAll(`#uq-${u} .uqc-explain`).forEach(e=>e.classList.remove('on'));
+  document.getElementById(`uqs-${u}`).style.display='none';
+}
+</script>
+
+</body>
+</html>

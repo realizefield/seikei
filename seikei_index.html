@@ -4,82 +4,204 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>政治経済 GAMBA ─ 単元表</title>
-<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{
+  /* 色合いは元のまま */
   --ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;
   --gold:#c8972a;--gold2:#f0c040;--accent:#1a3a6b;
   --red:#c0392b;--green:#1a6b3a;--orange:#e67e22;
   --muted:#6b7a99;--border:#d8d3c8;
   --A:#27ae60;--B:#2980b9;--C:#e67e22;
+  /* 参考indexのレイアウト変数 */
+  --radius:16px;--radius-lg:22px;
+  --shadow:0 4px 24px rgba(15,25,35,.08);
+  --shadow-hover:0 8px 32px rgba(15,25,35,.14);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;min-height:100vh}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.8;min-height:100vh}
 
-/* ── ヘッダー ── */
-.hdr{background:var(--ink);color:#fff;padding:0 20px;height:58px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 3px 16px rgba(0,0,0,.5);position:sticky;top:0;z-index:400}
-.hdr-left h1{font-family:'Noto Serif JP',serif;font-size:1.1em;font-weight:700;letter-spacing:.04em}
-.hdr-left h1 span{color:var(--gold2)}
-.hdr-left p{font-size:.64em;opacity:.5;letter-spacing:.14em;margin-top:2px}
-.streak-badge{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:5px 13px}
-.streak-badge .flame{font-size:1.2em}
-.streak-badge .days{font-size:.76em;font-weight:700;color:var(--gold2)}
+/* ══ NAV ══ */
+nav{
+  position:sticky;top:0;z-index:400;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--border);
+  padding:0 20px;height:58px;
+  display:flex;align-items:center;justify-content:space-between;
+  backdrop-filter:blur(8px);
+  box-shadow:0 2px 16px rgba(15,25,35,.1);
+}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-mark{
+  width:38px;height:38px;
+  background:linear-gradient(135deg,var(--accent),#2c5eb0);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:900;color:#fff;
+  box-shadow:0 2px 8px rgba(26,58,107,.3);
+}
+.nav-logo-text{line-height:1.25}
+.nav-logo-name{font-size:.98em;font-weight:900;color:var(--ink);letter-spacing:.02em}
+.nav-logo-sub{font-size:.62em;color:var(--muted);letter-spacing:.12em}
+.streak-badge{
+  display:flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,#fff8e6,#fff3cd);
+  border:1px solid var(--gold);
+  border-radius:50px;padding:6px 16px;
+  box-shadow:0 2px 8px rgba(200,151,42,.15);
+}
+.streak-badge .flame{font-size:1.1em}
+.streak-badge .days{font-size:.78em;font-weight:700;color:var(--gold)}
 
-/* ── サマリーバー ── */
-.sbar{background:#1d2f5a;padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-bottom:3px solid var(--gold)}
-.sbi{display:flex;flex-direction:column;align-items:center;gap:1px}
-.sbi-n{font-size:1.35em;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums}
-.sbi-l{font-size:.62em;color:rgba(255,255,255,.6);letter-spacing:.05em}
-.sbd{width:1px;background:rgba(255,255,255,.2);height:34px;flex-shrink:0}
-.pw{flex:1;min-width:180px}
-.pl{font-size:.67em;color:rgba(255,255,255,.6);margin-bottom:4px}
-.pb{background:rgba(255,255,255,.15);border-radius:20px;height:10px;overflow:hidden}
-.pf{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;border-radius:20px;transition:.6s}
-.pp{font-size:.7em;color:var(--gold2);margin-top:3px;font-weight:700}
+/* ══ HERO / サマリー ══ */
+.hero{
+  background:linear-gradient(135deg,var(--accent) 0%,#2c5eb0 55%,#3a7bd5 100%);
+  padding:40px 24px 36px;
+  color:#fff;
+}
+.hero-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.hero-title-group{}
+.hero-label{font-size:.7em;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-bottom:6px}
+.hero-title{font-size:clamp(20px,3.5vw,30px);font-weight:900;line-height:1.3;margin-bottom:6px}
+.hero-title span{color:var(--gold2)}
+.hero-sub{font-size:.85em;opacity:.8;line-height:1.7}
 
-/* ── タブナビ ── */
-.tab-nav{background:#253060;border-bottom:2px solid var(--gold);padding:6px 14px;display:flex;gap:5px;flex-wrap:wrap;position:sticky;top:58px;z-index:300}
-.tnav{font-family:'BIZ UDPGothic',sans-serif;font-size:.76em;font-weight:700;padding:5px 14px;border:none;border-radius:5px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.64);cursor:pointer;transition:.14s;letter-spacing:.03em}
-.tnav:hover{background:rgba(255,255,255,.22);color:#fff}
-.tnav.on{background:var(--gold);color:var(--ink)}
+.hero-stats{display:flex;gap:6px;flex-wrap:wrap}
+.hstat{
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:14px;padding:14px 20px;text-align:center;min-width:80px;
+}
+.hstat-num{font-size:1.6em;font-weight:900;color:var(--gold2);line-height:1}
+.hstat-lbl{font-size:.62em;opacity:.75;margin-top:4px;letter-spacing:.05em}
 
-/* ── メイン ── */
-.main{max-width:920px;margin:0 auto;padding:22px 14px 80px}
+/* プログレスバー */
+.progress-wrap{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:14px;padding:14px 20px;min-width:200px;
+}
+.progress-lbl{font-size:.7em;opacity:.75;margin-bottom:8px;letter-spacing:.06em}
+.progress-bar-bg{background:rgba(255,255,255,.2);border-radius:20px;height:10px;overflow:hidden}
+.progress-bar-fill{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;border-radius:20px;transition:.6s}
+.progress-pct{font-size:.8em;font-weight:700;color:var(--gold2);margin-top:5px;text-align:right}
+
+/* ══ タブナビ ══ */
+.tab-nav{
+  background:rgba(255,255,255,.97);
+  border-bottom:2px solid var(--border);
+  padding:8px 20px;
+  display:flex;gap:6px;flex-wrap:wrap;
+  position:sticky;top:58px;z-index:300;
+  backdrop-filter:blur(8px);
+  box-shadow:0 2px 8px rgba(15,25,35,.04);
+}
+.tnav{
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:.78em;font-weight:700;
+  padding:7px 18px;border:2px solid var(--border);border-radius:50px;
+  background:#fff;color:var(--muted);cursor:pointer;transition:.14s;letter-spacing:.04em;
+}
+.tnav:hover{border-color:var(--accent);color:var(--accent)}
+.tnav.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* ══ メイン ══ */
+.main{max-width:920px;margin:0 auto;padding:28px 16px 100px}
 .tab-sec{display:none}.tab-sec.on{display:block}
 
-/* ── セクション見出し ── */
-.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
-.sec-bar{width:5px;height:34px;border-radius:3px;flex-shrink:0;background:var(--red)}
-.sec-title{font-family:'Noto Serif JP',serif;font-size:1.05em;font-weight:700;letter-spacing:.03em}
-.sec-note{font-size:.74em;color:var(--muted);margin-left:auto;font-weight:700}
+/* ══ セクション見出し ══ */
+.sec-hdr{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:20px;padding-bottom:12px;
+  border-bottom:2px solid var(--border);
+}
+.sec-label{font-size:.68em;font-weight:700;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.sec-title{font-family:'Noto Serif JP',serif;font-size:1.08em;font-weight:700;letter-spacing:.04em;color:var(--ink)}
+.sec-note{
+  margin-left:auto;font-size:.73em;font-weight:700;
+  background:linear-gradient(135deg,#eef3ff,#e8f0fe);
+  color:var(--accent);
+  border:1px solid rgba(26,58,107,.18);
+  padding:4px 12px;border-radius:50px;
+}
 
-/* ── 単元カード ── */
-.unit-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:.15s}
-.unit-card:hover{box-shadow:0 5px 20px rgba(0,0,0,.1);transform:translateY(-1px)}
+/* ══ バッジエリア ══ */
+.badge-sec{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px 22px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+}
+.badge-sec-title{font-size:.72em;font-weight:700;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;margin-bottom:14px}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:12px 14px;border-radius:12px;border:2px solid var(--border);
+  background:var(--paper);min-width:76px;transition:.2s;
+}
+.badge.earned{
+  border-color:var(--gold);
+  background:linear-gradient(135deg,#fffbea,#fff8d0);
+  box-shadow:0 4px 12px rgba(200,151,42,.2);
+}
+.badge.locked{opacity:.3;filter:grayscale(1)}
+.badge-icon{font-size:1.6em}
+.badge-name{font-size:.64em;font-weight:700;color:var(--ink);text-align:center;line-height:1.3}
 
-.unit-top{display:flex;align-items:center;gap:12px;padding:13px 16px}
-.unit-num{width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
-.unit-title-wrap{flex:1}
-.unit-title{font-size:.95em;font-weight:700;line-height:1.4}
-.unit-sub{font-size:.75em;color:var(--muted);margin-top:2px}
-.unit-step-badge{font-size:.65em;padding:3px 9px;border-radius:10px;font-weight:700;white-space:nowrap;background:#f0f0ee;color:var(--muted);border:1px solid var(--border)}
+/* ══ 単元カード ══ */
+.unit-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--radius);margin-bottom:14px;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s;
+}
+.unit-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+
+.unit-top{display:flex;align-items:center;gap:14px;padding:16px 20px 12px}
+
+.unit-num{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent),#2c5eb0);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:.84em;
+  box-shadow:0 2px 8px rgba(26,58,107,.25);
+}
+
+.unit-title-wrap{flex:1;min-width:0}
+.unit-title{font-size:.97em;font-weight:700;line-height:1.4;color:var(--ink)}
+.unit-sub{font-size:.73em;color:var(--muted);margin-top:3px;line-height:1.5}
+
+.unit-meta-col{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.unit-step-badge{
+  font-size:.65em;padding:4px 10px;border-radius:50px;font-weight:700;white-space:nowrap;
+  background:var(--paper);color:var(--muted);border:1px solid var(--border);
+}
 .unit-step-badge.done{background:#d4f5e2;color:var(--green);border-color:var(--green)}
 .unit-step-badge.partial{background:#fff3cd;color:#856404;border-color:#ffc107}
+.open-badge{
+  font-size:.62em;padding:3px 9px;border-radius:50px;font-weight:700;
+}
+.open-badge.open{background:#d4f5e2;color:var(--green);border:1px solid var(--green)}
+.open-badge.soon{background:var(--paper);color:var(--muted);border:1px solid var(--border)}
 
 /* 理解度ボタン行 */
-.abc-row{display:flex;gap:6px;padding:0 16px 10px;align-items:center;flex-wrap:wrap}
-.abc-lbl{font-size:.7em;color:var(--muted);font-weight:700;margin-right:3px;letter-spacing:.06em}
-.abc-btn{width:36px;height:28px;border:2px solid var(--border);border-radius:6px;font-family:'BIZ UDPGothic',sans-serif;font-weight:700;font-size:.82em;background:#f5f5f2;color:var(--muted);cursor:pointer;transition:.15s}
-.abc-btn:hover{border-color:var(--muted);transform:scale(1.05)}
-.abc-btn.A{background:var(--A);color:#fff;border-color:var(--A)}
-.abc-btn.B{background:var(--B);color:#fff;border-color:var(--B)}
-.abc-btn.C{background:var(--C);color:#fff;border-color:var(--C)}
-.abc-hint{font-size:.67em;color:var(--muted);margin-left:6px}
+.abc-row{
+  display:flex;gap:8px;padding:0 20px 12px;align-items:center;flex-wrap:wrap;
+}
+.abc-lbl{font-size:.68em;color:var(--muted);font-weight:700;letter-spacing:.08em;margin-right:2px}
+.abc-btn{
+  height:32px;padding:0 14px;border:2px solid var(--border);border-radius:50px;
+  font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:.8em;
+  background:#fff;color:var(--muted);cursor:pointer;transition:.15s;letter-spacing:.04em;
+}
+.abc-btn:hover{border-color:var(--muted);transform:translateY(-1px)}
+.abc-btn.A{background:var(--A);color:#fff;border-color:var(--A);box-shadow:0 2px 8px rgba(39,174,96,.25)}
+.abc-btn.B{background:var(--B);color:#fff;border-color:var(--B);box-shadow:0 2px 8px rgba(41,128,185,.25)}
+.abc-btn.C{background:var(--C);color:#fff;border-color:var(--C);box-shadow:0 2px 8px rgba(230,126,34,.25)}
+.abc-hint{font-size:.67em;color:var(--muted);margin-left:4px}
 
 /* 統計行 */
-.stat-row{display:flex;gap:12px;padding:0 16px 10px;align-items:center;flex-wrap:wrap}
-.stat-item{display:flex;align-items:center;gap:3px;font-size:.73em;color:var(--muted)}
+.stat-row{display:flex;gap:14px;padding:0 20px 12px;align-items:center;flex-wrap:wrap}
+.stat-item{display:flex;align-items:center;gap:4px;font-size:.72em;color:var(--muted)}
 .stat-val{font-weight:700;color:var(--ink)}
 .rdots{display:flex;gap:3px;align-items:center}
 .rdot{width:9px;height:9px;border-radius:50%;background:var(--border)}
@@ -87,110 +209,176 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 .rdot.done.perf{background:var(--green)}
 
 /* リンクボタン行 */
-.link-row{display:flex;gap:7px;padding:0 16px 14px;flex-wrap:wrap}
-.plink{text-decoration:none;font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:8px 16px;border-radius:7px;border:1.5px solid var(--border);color:var(--ink);background:#f8f8f5;transition:.13s;display:inline-flex;align-items:center;gap:5px}
-.plink:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(0,0,0,.12)}
-.plink.go{background:var(--accent);color:#fff;border-color:var(--accent)}
-.plink.go:hover{background:#122d56}
-.plink.fc{background:var(--green);color:#fff;border-color:var(--green)}
-.plink.fc:hover{background:#125a2e}
+.link-row{display:flex;gap:8px;padding:0 20px 16px;flex-wrap:wrap}
+.plink{
+  text-decoration:none;font-family:'Noto Sans JP',sans-serif;
+  font-size:.8em;font-weight:700;padding:9px 20px;border-radius:50px;
+  border:2px solid var(--border);color:var(--ink);background:#fff;
+  transition:.14s;display:inline-flex;align-items:center;gap:6px;
+}
+.plink:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(15,25,35,.12)}
+.plink.go{
+  background:linear-gradient(135deg,var(--accent),#2c5eb0);
+  color:#fff;border-color:transparent;
+  box-shadow:0 4px 14px rgba(26,58,107,.25);
+}
+.plink.go:hover{box-shadow:0 6px 20px rgba(26,58,107,.35)}
+.plink.fc{
+  background:linear-gradient(135deg,var(--green),#1a8a46);
+  color:#fff;border-color:transparent;
+  box-shadow:0 4px 14px rgba(26,107,58,.25);
+}
+.plink.fc:hover{box-shadow:0 6px 20px rgba(26,107,58,.35)}
 
-/* ── バッジエリア ── */
-.badge-sec{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.badge-ttl{font-size:.78em;font-weight:700;color:var(--muted);letter-spacing:.1em;margin-bottom:12px}
-.badges{display:flex;flex-wrap:wrap;gap:9px}
-.badge{display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 12px;border-radius:9px;border:2px solid var(--border);background:#f8f8f5;min-width:74px;transition:.2s}
-.badge.earned{border-color:var(--gold);background:linear-gradient(135deg,#fffbea,#fff8d0);box-shadow:0 2px 8px rgba(200,151,42,.2)}
-.badge.locked{opacity:.3;filter:grayscale(1)}
-.badge-icon{font-size:1.55em}
-.badge-name{font-size:.64em;font-weight:700;color:var(--ink);text-align:center;line-height:1.3}
+/* ══ 学習記録タブ ══ */
+.record-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px 22px;
+  margin-bottom:20px;box-shadow:var(--shadow);
+}
+.record-card-title{font-size:.72em;font-weight:700;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;margin-bottom:16px}
 
-/* ── 学習記録タブ ── */
-.prog-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.prog-card-ttl{font-size:.78em;font-weight:700;color:var(--muted);letter-spacing:.1em;margin-bottom:14px}
-.prog-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--border)}
+.prog-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
 .prog-row:last-child{border-bottom:none}
-.prog-num{width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.72em;font-weight:700;flex-shrink:0}
-.prog-title{flex:1;font-size:.88em;font-weight:700}
-.prog-grade{font-size:.76em;font-weight:700;padding:2px 9px;border-radius:10px;background:#f0f0ee;color:var(--muted);border:1px solid var(--border)}
+.prog-num{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent),#2c5eb0);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:.72em;font-weight:700;
+}
+.prog-title{flex:1;font-size:.88em;font-weight:700;color:var(--ink)}
+.prog-grade{
+  font-size:.73em;font-weight:700;padding:3px 10px;border-radius:50px;
+  background:var(--paper);color:var(--muted);border:1px solid var(--border);
+}
 .prog-grade.A{background:var(--A);color:#fff;border-color:var(--A)}
 .prog-grade.B{background:var(--B);color:#fff;border-color:var(--B)}
 .prog-grade.C{background:var(--C);color:#fff;border-color:var(--C)}
-.prog-meta{font-size:.7em;color:var(--muted)}
+.prog-meta{font-size:.68em;color:var(--muted);white-space:nowrap}
 
-/* ── カレンダー ── */
-.cal-sec{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.cal-ttl{font-size:.78em;font-weight:700;color:var(--muted);letter-spacing:.1em;margin-bottom:12px}
+/* カレンダー */
 .cal-grid{display:flex;flex-wrap:wrap;gap:4px}
-.cal-day{width:15px;height:15px;border-radius:3px;background:var(--border)}
+.cal-day{width:15px;height:15px;border-radius:4px;background:var(--border)}
 .cal-day.s1{background:#c6e48b}.cal-day.s2{background:#7bc96f}
 .cal-day.s3{background:#239a3b}.cal-day.s4{background:#196127}
-.cal-lbl{display:flex;gap:5px;align-items:center;margin-top:8px;font-size:.68em;color:var(--muted)}
-.cld{width:11px;height:11px;border-radius:2px}
+.cal-lbl{display:flex;gap:5px;align-items:center;margin-top:10px;font-size:.68em;color:var(--muted)}
+.cld{width:11px;height:11px;border-radius:3px}
 
-/* ── 達成モーダル ── */
+/* ══ 達成モーダル ══ */
 .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:900;align-items:center;justify-content:center}
 .modal-ov.open{display:flex}
-.modal-box{background:#fff;border-radius:18px;padding:32px 36px;text-align:center;max-width:340px;width:90%;box-shadow:0 12px 48px rgba(0,0,0,.3);position:relative;overflow:hidden}
-.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold))}
-.modal-emoji{font-size:2.8em;margin-bottom:10px}
-.modal-title{font-size:1.2em;font-weight:700;margin-bottom:8px}
-.modal-sub{font-size:.85em;color:var(--muted);margin-bottom:20px;line-height:1.6}
-.modal-close{font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:10px 28px;cursor:pointer}
+.modal-box{
+  background:#fff;border-radius:var(--radius-lg);padding:36px 40px;
+  text-align:center;max-width:340px;width:90%;
+  box-shadow:0 16px 56px rgba(0,0,0,.25);
+  position:relative;overflow:hidden;
+}
+.modal-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));
+}
+.modal-emoji{font-size:3em;margin-bottom:12px}
+.modal-title{font-size:1.2em;font-weight:900;margin-bottom:8px;color:var(--ink)}
+.modal-sub{font-size:.87em;color:var(--muted);margin-bottom:22px;line-height:1.6}
+.modal-close{
+  font-family:'Noto Sans JP',sans-serif;font-size:.9em;font-weight:700;
+  background:linear-gradient(135deg,var(--accent),#2c5eb0);
+  color:#fff;border:none;border-radius:50px;padding:11px 32px;cursor:pointer;
+  box-shadow:0 4px 14px rgba(26,58,107,.25);transition:.15s;
+}
+.modal-close:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,58,107,.35)}
 
 #cnv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+
+/* ══ レスポンシブ ══ */
+@media(max-width:640px){
+  .hero-inner{flex-direction:column;gap:20px}
+  .hero-stats{gap:6px}
+  .hstat{padding:11px 14px;min-width:66px}
+  .hstat-num{font-size:1.35em}
+  .unit-top{padding:13px 14px 10px}
+  .abc-row,.stat-row,.link-row{padding-left:14px;padding-right:14px}
+  .abc-hint{display:none}
+}
 </style>
 </head>
 <body>
 
 <canvas id="cnv"></canvas>
 
-<!-- ── ヘッダー ── -->
-<header class="hdr">
-  <div class="hdr-left">
-    <h1>政治経済 <span>GAMBA</span></h1>
-    <p>頑張れ！完全習得システム</p>
-  </div>
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-mark">政</div>
+    <div class="nav-logo-text">
+      <div class="nav-logo-name">政治経済 GAMBA</div>
+      <div class="nav-logo-sub">完全習得システム</div>
+    </div>
+  </a>
   <div class="streak-badge">
     <span class="flame">🔥</span>
     <span class="days" id="streakDisp">0日連続</span>
   </div>
-</header>
+</nav>
 
-<!-- ── サマリーバー ── -->
-<div class="sbar">
-  <div class="sbi"><div class="sbi-n" id="sumTotal">0</div><div class="sbi-l">総学習回数</div></div>
-  <div class="sbd"></div>
-  <div class="sbi"><div class="sbi-n" id="sumA" style="color:#4be890">0</div><div class="sbi-l">理解A（完璧）</div></div>
-  <div class="sbi"><div class="sbi-n" id="sumB" style="color:#6bb5ff">0</div><div class="sbi-l">理解B（良好）</div></div>
-  <div class="sbi"><div class="sbi-n" id="sumC" style="color:#ffb347">0</div><div class="sbi-l">理解C（要復習）</div></div>
-  <div class="sbd"></div>
-  <div class="pw">
-    <div class="pl">全14単元　習熟度</div>
-    <div class="pb"><div class="pf" id="progFill" style="width:0%"></div></div>
-    <div class="pp" id="progPct">0%</div>
+<!-- ══ HERO / サマリー ══ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-title-group">
+      <div class="hero-label">政治経済 全18単元</div>
+      <div class="hero-title">頑張れ！<span>完全習得</span>への道</div>
+      <div class="hero-sub">単元ごとに理解度A・B・Cを記録して<br>弱点を着実につぶしていこう</div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-num" id="sumTotal">0</div>
+        <div class="hstat-lbl">総学習回数</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num" style="color:#4be890" id="sumA">0</div>
+        <div class="hstat-lbl">理解A</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num" style="color:#6bb5ff" id="sumB">0</div>
+        <div class="hstat-lbl">理解B</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num" style="color:#ffb347" id="sumC">0</div>
+        <div class="hstat-lbl">理解C</div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-lbl">習熟度（公開済み単元）</div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progFill" style="width:0%"></div>
+        </div>
+        <div class="progress-pct" id="progPct">0%</div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ── タブナビ ── -->
-<nav class="tab-nav">
+<!-- ══ タブナビ ══ -->
+<div class="tab-nav">
   <button class="tnav on" onclick="switchTab('tab-units',this)">📋 単元表</button>
   <button class="tnav"    onclick="switchTab('tab-record',this)">📅 学習記録</button>
-</nav>
+</div>
 
 <div class="main">
 
-<!-- ══════ 単元表タブ ══════ -->
+<!-- 単元表タブ -->
 <div class="tab-sec on" id="tab-units">
 
   <div class="badge-sec">
-    <div class="badge-ttl">🏅 達成バッジ</div>
+    <div class="badge-sec-title">🏅 達成バッジ</div>
     <div class="badges" id="badgeArea"></div>
   </div>
 
   <div class="sec-hdr">
-    <div class="sec-bar"></div>
-    <div class="sec-title">政治経済　全14単元</div>
+    <div>
+      <div class="sec-label">Unit List</div>
+      <div class="sec-title">政治経済　全18単元</div>
+    </div>
     <div class="sec-note" id="secNote"></div>
   </div>
 
@@ -198,16 +386,16 @@ body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);col
 
 </div>
 
-<!-- ══════ 学習記録タブ ══════ -->
+<!-- 学習記録タブ -->
 <div class="tab-sec" id="tab-record">
 
-  <div class="prog-card">
-    <div class="prog-card-ttl">📊 単元別　理解度一覧</div>
+  <div class="record-card">
+    <div class="record-card-title">📊 単元別　理解度一覧</div>
     <div id="progList"></div>
   </div>
 
-  <div class="cal-sec">
-    <div class="cal-ttl">📅 学習カレンダー（過去84日）</div>
+  <div class="record-card">
+    <div class="record-card-title">📅 学習カレンダー（過去84日）</div>
     <div class="cal-grid" id="calGrid"></div>
     <div class="cal-lbl">
       <span>少</span>
@@ -255,6 +443,8 @@ const UNITS = [
   {id:'sk14', num:'⑭', title:'裁判所(2)',              sub:'違憲審査制・国民の司法参加・司法改革・再審', file:'seikei14.html'},
   {id:'sk15', num:'⑮', title:'地方自治',               sub:'本旨・直接請求・住民投票・三位一体改革・地方財政', file:'seikei15.html'},
   {id:'sk16', num:'⑯', title:'選挙と政党(1)',          sub:'選挙制度・議員定数不均衡・選挙のルール・政治資金・政党', file:'seikei16.html'},
+  {id:'sk17', num:'⑰', title:'選挙と政党(2)',          sub:'政党政治の形態・圧力団体・55年体制・行政国家・行政改革', file:'seikei17.html'},
+  {id:'sk18', num:'⑱', title:'国際連合',               sub:'国際社会の成立・国際法・国連の機構・安保理・PKO・専門機関', file:'seikei18.html'},
 ];
 
 /* ── バッジ定義 ── */
@@ -318,10 +508,10 @@ function getStreak() {
   }catch(e){return 0}
 }
 
-/* ── カード生成 ── */
 /* ── 完成済み単元 ── */
-const DONE_FILES = ['seikei01.html','seikei02.html','seikei03.html','seikei04.html','seikei05.html','seikei06.html','seikei07.html','seikei08.html','seikei09.html','seikei10.html','seikei11.html','seikei12.html','seikei13.html','seikei14.html','seikei15.html','seikei16.html'];
+const DONE_FILES = ['seikei01.html','seikei02.html','seikei03.html','seikei04.html','seikei05.html','seikei06.html','seikei07.html','seikei08.html','seikei09.html','seikei10.html','seikei11.html','seikei12.html','seikei13.html','seikei14.html','seikei15.html','seikei16.html','seikei17.html','seikei18.html'];
 
+/* ── カード生成 ── */
 function buildCards() {
   const wrap = document.getElementById('cardsWrap');
   wrap.innerHTML = UNITS.map(u => {
@@ -334,9 +524,9 @@ function buildCards() {
         <div class="unit-title">${u.title}</div>
         <div class="unit-sub">${u.sub}</div>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px">
+      <div class="unit-meta-col">
         <div class="unit-step-badge" id="badge-${u.id}">未学習</div>
-        ${done ? '<span style="font-size:.62em;background:#d4f5e2;color:var(--green);border:1px solid var(--green);padding:2px 7px;border-radius:8px;font-weight:700;">✅ 公開中</span>' : '<span style="font-size:.62em;background:#f0f0ee;color:var(--muted);border:1px solid var(--border);padding:2px 7px;border-radius:8px;font-weight:700;">🔜 準備中</span>'}
+        <span class="open-badge ${done?'open':'soon'}">${done?'✅ 公開中':'🔜 準備中'}</span>
       </div>
     </div>
     <div class="abc-row">
@@ -391,24 +581,20 @@ function render() {
     else if(grade==='B') cntB++;
     else if(grade==='C') cntC++;
 
-    // ABCボタン色
     document.querySelectorAll(`[data-id="${u.id}"]`).forEach(btn=>{
       btn.className='abc-btn'+(grade===btn.dataset.grade?' '+grade:'');
     });
 
-    // 統計
     const ce=document.getElementById('cnt-'+u.id);  if(ce) ce.textContent=cnt;
     const le=document.getElementById('last-'+u.id); if(le) le.textContent=last||'─';
     renderDots(u.id,cnt,grade);
 
-    // カード左ボーダー
     const card=document.getElementById('uc-'+u.id);
-    if(card) card.style.borderLeft=grade?`4px solid var(--${grade})`:'';
+    if(card) card.style.borderLeft=grade?`4px solid var(--${grade})`:grade===''?'':'';
 
-    // ステップバッジ
     const sb=document.getElementById('badge-'+u.id);
     if(sb){
-      if(!grade&&cnt===0){ sb.textContent='未学習';   sb.className='unit-step-badge'; }
+      if(!grade&&cnt===0){ sb.textContent='未学習';    sb.className='unit-step-badge'; }
       else if(grade==='A'){ sb.textContent='✅ 完璧';  sb.className='unit-step-badge done'; }
       else if(grade==='B'){ sb.textContent='📘 良好';  sb.className='unit-step-badge partial'; }
       else if(grade==='C'){ sb.textContent='📌 要復習';sb.className='unit-step-badge partial'; }
@@ -416,13 +602,11 @@ function render() {
     }
   });
 
-  // サマリーバー
   document.getElementById('sumTotal').textContent=total;
   document.getElementById('sumA').textContent=cntA;
   document.getElementById('sumB').textContent=cntB;
   document.getElementById('sumC').textContent=cntC;
 
-  // 習熟度バー（公開済み単元のみ / A=100 B=60 C=30）
   const doneUnits = UNITS.filter(u => DONE_FILES.includes(u.file));
   const pct = doneUnits.length === 0 ? 0 : Math.round(
     doneUnits.reduce((s,u)=>{
@@ -433,14 +617,11 @@ function render() {
   document.getElementById('progFill').style.width=pct+'%';
   document.getElementById('progPct').textContent=pct+'%';
 
-  // セクション注釈（公開済み単元中の習得数）
   const chk=doneUnits.filter(u=>getGrade(d,u.id)==='A').length;
-  document.getElementById('secNote').textContent=`A評価 ${chk} / ${doneUnits.length} 単元（公開中${doneUnits.length}単元）`;
+  document.getElementById('secNote').textContent=`A評価 ${chk} / ${doneUnits.length} 単元`;
 
-  // 連続日数
   document.getElementById('streakDisp').textContent=getStreak()+'日連続';
 
-  // バッジ・カレンダー・進捗一覧
   renderBadges(d);
   renderCalendar();
   renderProgList(d);
@@ -460,7 +641,7 @@ function renderProgList(d) {
       <div class="prog-num">${u.num}</div>
       <div class="prog-title">${u.title}</div>
       <span class="prog-grade ${grade}">${grade||'─'}</span>
-      <span class="prog-meta">${cnt}回　最終:${last||'─'}</span>
+      <span class="prog-meta">${cnt}回　${last||'─'}</span>
       ${done ? '' : '<span style="font-size:.65em;color:var(--muted);margin-left:4px">🔜</span>'}
     </div>`;
   }).join('');

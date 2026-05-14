@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治経済 GAMBA ⑰ 選挙と政党(2)</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1923;--paper:#f2f0eb;--card:#fffefb;--gold:#c8972a;--gold2:#f0c040;--red:#c0392b;--blue:#1a3a6b;--green:#1a6b3a;--orange:#e67e22;--purple:#7b2d8b;--muted:#6b7a99;--border:#d8d3c8;--drop:#fffbe6;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'BIZ UDPGothic','Meiryo',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.9}
+.hdr{background:var(--ink);color:#fff;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;box-shadow:0 3px 14px rgba(0,0,0,.45)}
+.hdr-info{display:flex;flex-direction:column;gap:1px}
+.hdr-sub{font-size:.65em;opacity:.5;letter-spacing:.12em}
+.hdr-title{font-size:.95em;font-weight:700;letter-spacing:.03em}
+.main{max-width:860px;margin:0 auto;padding:20px 13px 160px}
+.s-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.s-head-e{background:var(--blue);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.s-icon{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84em;flex-shrink:0}
+.s-ht{font-size:.92em;font-weight:700;letter-spacing:.03em;flex:1}
+.s-body{padding:16px 18px}
+.person-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed var(--border)}
+.person-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pbadge{background:var(--blue);color:#fff;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:3px;flex-shrink:0}
+.pbadge.red{background:var(--red)}.pbadge.green{background:var(--green)}.pbadge.orange{background:var(--orange)}.pbadge.purple{background:var(--purple)}.pbadge.dk{background:#2c3e50}
+.pcont{flex:1;font-size:.93em}.pcont p{margin-bottom:8px}.pcont strong{color:var(--blue)}
+.blank{display:inline-flex;align-items:center;justify-content:center;min-width:90px;height:27px;background:var(--drop);border:none;border-bottom:2.5px solid var(--ink);margin:0 3px;padding:0 7px;cursor:pointer;font-family:'BIZ UDPGothic',sans-serif;font-size:.9em;font-weight:700;color:var(--red);border-radius:3px 3px 0 0;transition:.12s;vertical-align:middle;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.blank:hover{background:#fff3b0}.blank.show{background:#eef3ff;border-color:var(--blue);color:var(--blue);cursor:default;pointer-events:none}.blank.ok{background:#d4f5e2;border-color:var(--green);color:var(--green)}.blank.ng{background:#ffe0e0;border-color:var(--red);color:var(--red)}
+.gtbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.84em}
+.gtbl th,.gtbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
+.gtbl thead th{background:var(--blue);color:#fff;font-weight:700;text-align:center}
+.note-box{font-size:.78em;color:var(--muted);margin-top:9px;padding:7px 12px;background:#f0f4ff;border-radius:4px;border-left:3px solid var(--blue);line-height:1.6}
+.unit-wb{margin-top:20px;padding-top:20px;border-top:2px dashed var(--border)}
+.unit-wb-lbl{font-size:.76em;font-weight:700;color:var(--muted);margin-bottom:10px}
+.unit-wb-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;min-height:36px}
+.chip{font-family:'BIZ UDPGothic',sans-serif;font-size:.84em;font-weight:700;background:var(--ink);color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer;transition:.12s}
+.chip:hover{background:#253060;transform:translateY(-1px)}.chip.sel{background:var(--gold);color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.unit-btns{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.unit-btn{font-family:'BIZ UDPGothic',sans-serif;font-size:.8em;font-weight:700;padding:7px 16px;border:none;border-radius:6px;cursor:pointer;transition:.12s}
+.unit-btn.challenge{background:var(--orange);color:#fff}.unit-btn.check{background:var(--green);color:#fff}.unit-btn.hint{background:var(--purple);color:#fff}
+.unit-btn.retry{background:var(--muted);color:#fff}.unit-btn.quiz{background:var(--blue);color:#fff}
+.unit-btn:hover{opacity:.88;transform:translateY(-1px)}
+.unit-score{font-size:.8em;font-weight:700;padding:6px 14px;background:var(--drop);border-radius:6px;color:var(--ink);margin-left:auto}
+.unit-quiz{display:none;margin-top:20px;padding:20px;background:#f8f9fa;border-radius:10px;border:2px solid var(--border)}
+.unit-quiz.on{display:block}
+.unit-quiz-title{font-size:.9em;font-weight:700;color:var(--blue);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+.unit-quiz-q{margin-bottom:20px;padding-bottom:20px;border-bottom:1px dashed var(--border)}
+.unit-quiz-q:last-of-type{border-bottom:none}
+.unit-quiz-qt{font-size:.9em;margin-bottom:12px;line-height:1.75}
+.unit-quiz-num{display:inline-block;background:var(--red);color:#fff;font-size:.75em;font-weight:700;padding:2px 8px;border-radius:3px;margin-right:6px}
+.unit-quiz-choices{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.uqc{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#fff;cursor:pointer;transition:.13s;text-align:left;line-height:1.5}
+.uqc:hover{border-color:var(--blue);background:#eef3ff}
+.uqc.correct{background:#d4f5e2;border-color:var(--green);color:var(--green);font-weight:700;cursor:default}
+.uqc.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.uqc-explain{display:none;font-size:.83em;background:#f0f8ff;border-radius:6px;padding:10px 13px;border-left:3px solid var(--blue);line-height:1.75;margin-top:7px}
+.uqc-explain.on{display:block}
+/* 過去問セクション */
+.s-head-k{background:var(--red);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:10px;font-size:.92em;font-weight:700;letter-spacing:.03em}
+.kq-block{padding:16px 18px;border-bottom:1px solid var(--border)}
+.kq-block:last-child{border-bottom:none}
+.kq-stem{font-size:.9em;line-height:1.8;margin-bottom:10px}
+.kq-num{display:inline-block;background:var(--red);color:#fff;font-size:.74em;font-weight:700;padding:2px 9px;border-radius:3px;margin-right:6px}
+.kq-src{font-size:.72em;color:var(--muted);margin-left:6px}
+.kq-choices{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.kqc{font-family:'BIZ UDPGothic',sans-serif;font-size:.88em;padding:9px 13px;border:2px solid var(--border);border-radius:7px;background:#fff;cursor:pointer;transition:.13s;text-align:left;line-height:1.55}
+.kqc:hover{border-color:var(--red);background:#fff5f5}
+.kqc.correct{background:#d4f5e2;border-color:var(--green);color:#1a6b3a;font-weight:700;cursor:default}
+.kqc.wrong{background:#ffe0e0;border-color:var(--red);color:var(--red);cursor:default}
+.kq-explain{display:none;font-size:.83em;background:#fff5f5;border-radius:6px;padding:10px 13px;border-left:3px solid var(--red);line-height:1.75;margin-top:6px}
+.kq-explain.on{display:block}
+.kq-result{font-size:.85em;font-weight:700;margin-bottom:6px;min-height:1.2em}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-info">
+    <div class="hdr-sub">政治経済 GAMBA</div>
+    <div class="hdr-title">⑰ 選挙と政党(2)</div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- 単元1: 政党政治のさまざまな形態 -->
+<div class="s-card" data-unit="u1">
+  <div class="s-head-e"><div class="s-icon">1</div><div class="s-ht">政党政治のさまざまな形態</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">一党制</div>
+      <div class="pcont">
+        <p><span class="blank show" data-ans="一党制">一党制</span>とは、一党独裁体制で社会主義国に多い制度です。中国、キューバ、北朝鮮などが該当します。</p>
+        <p><strong>長所:</strong> 強力な安定した長期政権ができる。</p>
+        <p><strong>短所:</strong> 独裁的になり人権無視の危険性がある。腐敗政治になりやすい。</p>
+      </div>
+    </div>
+    
+    <div class="person-row">
+      <div class="pbadge red">二大政党制</div>
+      <div class="pcont">
+        <p><span class="blank show" data-ans="二大政党制">二大政党制</span>とは、大きな2つの政党で政権交代をする制度です。</p>
+        <p>アメリカは<span class="blank show" data-ans="民主党">民主党</span>と<span class="blank show" data-ans="共和党">共和党</span>。イギリスは<span class="blank show" data-ans="保守党">保守党</span>と<span class="blank show" data-ans="労働党">労働党</span>。</p>
+        <p><strong>長所:</strong> 政策のちがいがわかりやすく、有権者の選択が容易である。政局が安定し、政権交代も容易である。</p>
+        <p><strong>短所:</strong> 二大政党以外の国民の多様な意見をとりあげられない。特定政党が長期間政権を独占する危険がある。</p>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge orange">多党制</div>
+      <div class="pcont">
+        <p><span class="blank show" data-ans="多党制">多党制</span>とは、多数政党がある制度です。日本は多党制です。イタリア、フランス、ドイツなども該当します。</p>
+        <p><strong>長所:</strong> 国民の多様な意見を反映できる。連立政権で権力の腐敗が防げる。</p>
+        <p><strong>短所:</strong> 連立内閣のため政権が不安定。政策が妥協的で中途半端。</p>
+        <div class="note-box">イギリスの野党は、いつでも政権交代があれば政治ができるよう、影の内閣<span class="blank show" data-ans="シャドーキャビネット">シャドーキャビネット</span>とよばれる内閣を組織しています。</div>
+      </div>
+    </div>
+
+    <div class="unit-wb" id="uwb-u1">
+      <div class="unit-wb-lbl">▼ 単元①の語群</div>
+      <div class="unit-wb-chips" id="uwb-chips-u1"></div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u1')">🎯 チャレンジ</button>
+        <button class="unit-btn check" onclick="checkUnit('u1')" style="display:none" id="ub-check-u1">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u1')" style="display:none" id="ub-hint-u1">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u1')" style="display:none" id="ub-retry-u1">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u1')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u1" style="display:none"></span>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u1">
+      <div class="unit-quiz-title">📝 確認問題(単元①政党政治のさまざまな形態)</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>社会主義国に多く見られる、一つの政党による独裁体制を何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u1q0',0,0)">① 一党制</button>
+          <button class="uqc" onclick="ansUQ('u1q0',1,0)">② 二大政党制</button>
+          <button class="uqc" onclick="ansUQ('u1q0',2,0)">③ 多党制</button>
+          <button class="uqc" onclick="ansUQ('u1q0',3,0)">④ 連立制</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u1q0"><strong>正解:①</strong><br>一党制は、一党独裁体制で社会主義国に多く見られます。中国、キューバ、北朝鮮などが該当します。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>アメリカの二大政党制を構成する2つの政党は、民主党ともう一つは何か。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u1q1',0,1)">① 保守党</button>
+          <button class="uqc" onclick="ansUQ('u1q1',1,1)">② 共和党</button>
+          <button class="uqc" onclick="ansUQ('u1q1',2,1)">③ 労働党</button>
+          <button class="uqc" onclick="ansUQ('u1q1',3,1)">④ 自由党</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u1q1"><strong>正解:②</strong><br>アメリカは民主党と共和党の二大政党制です。イギリスは保守党と労働党の二大政党制です。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>イギリスの野党が、いつでも政権交代に備えて組織している内閣を何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u1q2',0,1)">① 予備内閣</button>
+          <button class="uqc" onclick="ansUQ('u1q2',1,1)">② シャドーキャビネット（影の内閣）</button>
+          <button class="uqc" onclick="ansUQ('u1q2',2,1)">③ 仮想内閣</button>
+          <button class="uqc" onclick="ansUQ('u1q2',3,1)">④ 待機内閣</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u1q2"><strong>正解:②</strong><br>シャドーキャビネット（影の内閣）は、イギリスの野党がいつでも政権交代があれば政治ができるよう組織している内閣です。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>日本は、イタリア、フランス、ドイツと同様に、多数の政党が存在する何制か。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u1q3',0,2)">① 一党制</button>
+          <button class="uqc" onclick="ansUQ('u1q3',1,2)">② 二大政党制</button>
+          <button class="uqc" onclick="ansUQ('u1q3',2,2)">③ 多党制</button>
+          <button class="uqc" onclick="ansUQ('u1q3',3,2)">④ 連合制</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u1q3"><strong>正解:③</strong><br>日本は多党制です。多党制は国民の多様な意見を反映できますが、政権が不安定になりやすい面があります。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u1',4)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u1',4)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u1" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 単元2: 圧力団体 -->
+<div class="s-card" data-unit="u2">
+  <div class="s-head-e"><div class="s-icon">2</div><div class="s-ht">圧力団体</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">圧力団体とは</div>
+      <div class="pcont">
+        <p>議会や行政官庁の政策決定に政治的圧力を加え、自分たちの特殊利益を実現しようとする利益団体を<span class="blank show" data-ans="圧力団体">圧力団体</span>と言います。</p>
+        <p>20世紀初めアメリカで生まれました。</p>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge red">ロビイスト</div>
+      <div class="pcont">
+        <p>アメリカは、圧力団体の利益を政治に反映させるために、政党・議員・官僚などに働きかけることを専門とする<span class="blank show" data-ans="ロビイスト">ロビイスト</span>と呼ばれる代理人が連邦議会の議員相手に積極的な働きかけを行います。</p>
+        <div class="note-box">米国議会のロビーなどで議員と話し合うという慣行からできた言葉です。</div>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge green">日本の経済3団体</div>
+      <div class="pcont">
+        <p>戦後の日本でも、経団連、経済同友会、日本商工会議所を「経済3団体」といい、それぞれ大企業、経営者、中小企業の団体が<span class="blank show" data-ans="圧力団体">圧力団体</span>です。</p>
+        <p>他に日本医師会・主婦連・農協中央会などがあります。</p>
+        <ul style="margin-top:8px;margin-left:20px;font-size:.92em">
+          <li><strong>日本経団連:</strong> 自動車、商社、金融など大企業約1300社が主なメンバー。</li>
+          <li><strong>経済同友会:</strong> 企業経営者らが日本経済をどう立て直すか考えようと集まったのが原点。</li>
+          <li><strong>日本商工会議所:</strong> 中小企業の会員が多い各地の商工会議所の代表。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="unit-wb" id="uwb-u2">
+      <div class="unit-wb-lbl">▼ 単元②の語群</div>
+      <div class="unit-wb-chips" id="uwb-chips-u2"></div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u2')">🎯 チャレンジ</button>
+        <button class="unit-btn check" onclick="checkUnit('u2')" style="display:none" id="ub-check-u2">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u2')" style="display:none" id="ub-hint-u2">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u2')" style="display:none" id="ub-retry-u2">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u2')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u2" style="display:none"></span>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u2">
+      <div class="unit-quiz-title">📝 確認問題(単元②圧力団体)</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>議会や行政官庁の政策決定に政治的圧力を加え、自分たちの特殊利益を実現しようとする利益団体を何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u2q0',0,0)">① 圧力団体</button>
+          <button class="uqc" onclick="ansUQ('u2q0',1,0)">② 利益集団</button>
+          <button class="uqc" onclick="ansUQ('u2q0',2,0)">③ 政策団体</button>
+          <button class="uqc" onclick="ansUQ('u2q0',3,0)">④ 業界団体</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u2q0"><strong>正解:①</strong><br>圧力団体は、20世紀初めアメリカで生まれました。日本では経団連、経済同友会、日本商工会議所を「経済3団体」といいます。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>アメリカで圧力団体の利益を政治に反映させるため、政党・議員・官僚などに働きかけることを専門とする代理人を何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u2q1',0,1)">① エージェント</button>
+          <button class="uqc" onclick="ansUQ('u2q1',1,1)">② ロビイスト</button>
+          <button class="uqc" onclick="ansUQ('u2q1',2,1)">③ コンサルタント</button>
+          <button class="uqc" onclick="ansUQ('u2q1',3,1)">④ アドバイザー</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u2q1"><strong>正解:②</strong><br>ロビイストは、米国議会のロビーなどで議員と話し合うという慣行からできた言葉です。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u2',2)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u2',2)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u2" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 単元3: 与党と野党・戦後の政党史 -->
+<div class="s-card" data-unit="u3">
+  <div class="s-head-e"><div class="s-icon">3</div><div class="s-ht">与党と野党・戦後の政党史</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">与党と野党</div>
+      <div class="pcont">
+        <p>選挙で国会の議席の多数を占めた政党の党首は、国会で<span class="blank show" data-ans="内閣総理大臣">内閣総理大臣</span>に指名され、内閣を作ります。</p>
+        <p>このように、政権を担当する政党のことを<span class="blank show" data-ans="与党">与党</span>といい、政権に加わらない政党を<span class="blank show" data-ans="野党">野党</span>といいます。</p>
+        <div class="note-box">行政に「与（くみ）する＝味方する」という意味で与党といいます。野党は、政府から離れた在野の政党との意味。</div>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge red">55年体制</div>
+      <div class="pcont">
+        <p>1947年初の社会党政権である<span class="blank show" data-ans="片山哲">片山哲</span>内閣が成立します。</p>
+        <p><span class="blank show" data-ans="1955">1955</span>年、左派右派に分裂していた<span class="blank show" data-ans="日本社会党">日本社会党</span>が統一し、日本民主党と自由党が合同して<span class="blank show" data-ans="自由民主党">自由民主党</span>ができました。</p>
+        <p>この年以降、自由民主党と日本社会党の二大政党が対抗しあう体制が続きます。このような体制を<span class="blank show" data-ans="55年体制">55年体制</span>といいます。</p>
+        <p>現実は、社会党の議席数は自民党の約半数で、二大政党制というより<span class="blank show" data-ans="1と1/2政党制">1と1/2政党制</span>にすぎず、55年体制は自民党の一党優位体制でした。</p>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge orange">保守と革新</div>
+      <div class="pcont">
+        <p>日米安保条約や自衛隊を認める立場を<span class="blank show" data-ans="保守">保守</span>、反対する立場を<span class="blank show" data-ans="革新">革新</span>と呼びます。</p>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge green">包括政党</div>
+      <div class="pcont">
+        <p>1960年代には誰からも賛成が得られやすい政策を綱領とする<span class="blank show" data-ans="包括政党">包括政党</span>が生まれました。</p>
+        <p>1960年の反安保闘争の際に、日米安保条約に賛成する右派グループが、社会党を離れて民主社会党（後の民主党）を結成します。</p>
+        <p>1964年には創価学会を支持母体に<span class="blank show" data-ans="公明党">公明党</span>が生まれ、多党化傾向が生まれました。</p>
+        <p>民社党や公明党は、保守と革新の中間に位置することから<span class="blank show" data-ans="中道政党">中道政党</span>と呼ばれました。</p>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge purple">ロッキード事件</div>
+      <div class="pcont">
+        <p>1976年<span class="blank show" data-ans="ロッキード事件">ロッキード事件</span>…旅客機の売り込みの際にロッキード社から巨額のワイロが政治家に渡された事件で、<span class="blank show" data-ans="田中角栄">田中角栄</span>元首相が逮捕・起訴されました。</p>
+        <p>ロッキード事件を契機として新自由クラブが分離し、社会党から社会民主連合が離脱します。共産党・社会党の<span class="blank show" data-ans="革新政党">革新政党</span>や公明党・民社党・社会民主連合などの<span class="blank show" data-ans="中道政党">中道政党</span>以外に、税金や環境などの独自の課題を掲げるミニ政党が生まれていきました。</p>
+      </div>
+    </div>
+
+    <div class="unit-wb" id="uwb-u3">
+      <div class="unit-wb-lbl">▼ 単元③の語群</div>
+      <div class="unit-wb-chips" id="uwb-chips-u3"></div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u3')">🎯 チャレンジ</button>
+        <button class="unit-btn check" onclick="checkUnit('u3')" style="display:none" id="ub-check-u3">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u3')" style="display:none" id="ub-hint-u3">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u3')" style="display:none" id="ub-retry-u3">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u3')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u3" style="display:none"></span>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u3">
+      <div class="unit-quiz-title">📝 確認問題(単元③与党と野党・戦後の政党史)</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>選挙で国会の議席の多数を占めた政党が政権を担当するとき、この政党を何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u3q0',0,0)">① 与党</button>
+          <button class="uqc" onclick="ansUQ('u3q0',1,0)">② 野党</button>
+          <button class="uqc" onclick="ansUQ('u3q0',2,0)">③ 第一党</button>
+          <button class="uqc" onclick="ansUQ('u3q0',3,0)">④ 多数党</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u3q0"><strong>正解:①</strong><br>与党は、政権を担当する政党のことです。政権に加わらない政党を野党といいます。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>1955年に左派右派に分裂していた日本社会党が統一し、日本民主党と自由党が合同して自由民主党ができ、自民党と社会党の二大政党が対抗しあう体制が続いた。この体制を何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u3q1',0,0)">① 55年体制</button>
+          <button class="uqc" onclick="ansUQ('u3q1',1,0)">② 保革対立</button>
+          <button class="uqc" onclick="ansUQ('u3q1',2,0)">③ 二大政党制</button>
+          <button class="uqc" onclick="ansUQ('u3q1',3,0)">④ 政党政治</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u3q1"><strong>正解:①</strong><br>55年体制は、1955年に成立した自民党と社会党の対抗体制です。実際には1と1/2政党制にすぎず、自民党の一党優位体制でした。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>日米安保条約や自衛隊を認める立場を何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u3q2',0,0)">① 保守</button>
+          <button class="uqc" onclick="ansUQ('u3q2',1,0)">② 革新</button>
+          <button class="uqc" onclick="ansUQ('u3q2',2,0)">③ 中道</button>
+          <button class="uqc" onclick="ansUQ('u3q2',3,0)">④ リベラル</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u3q2"><strong>正解:①</strong><br>保守は、日米安保条約や自衛隊を認める立場です。反対する立場を革新と呼びます。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問4</span>1976年に、旅客機の売り込みの際にロッキード社から巨額のワイロが政治家に渡され、田中角栄元首相が逮捕・起訴された事件を何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u3q3',0,1)">① リクルート事件</button>
+          <button class="uqc" onclick="ansUQ('u3q3',1,1)">② ロッキード事件</button>
+          <button class="uqc" onclick="ansUQ('u3q3',2,1)">③ 佐川急便事件</button>
+          <button class="uqc" onclick="ansUQ('u3q3',3,1)">④ ゼネコン汚職事件</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u3q3"><strong>正解:②</strong><br>ロッキード事件は、1976年に発覚した旅客機の売り込みに関する大規模な汚職事件です。田中角栄元首相が逮捕・起訴されました。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u3',4)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u3',4)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u3" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 単元4: 55年体制の崩壊と政治不信 -->
+<div class="s-card" data-unit="u4">
+  <div class="s-head-e"><div class="s-icon">4</div><div class="s-ht">55年体制の崩壊と政治不信</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">55年体制の崩壊</div>
+      <div class="pcont">
+        <p>総選挙では、自民党が過半数割れとなり、日本新党党首の<span class="blank show" data-ans="細川護煕">細川護煕</span>内閣が、非自民・非共産の8党派からなる<span class="blank show" data-ans="連立内閣">連立内閣</span>が発足します。</p>
+        <p><span class="blank show" data-ans="政治資金規正法">政治資金規正法</span>が改正され、政治家個人への献金を禁止します。また、<span class="blank show" data-ans="政党助成法">政党助成法</span>が成立し、政党の政治資金を公費で助成するようになりました。</p>
+        <p>1994～1996年 社会党内閣成立 <span class="blank show" data-ans="村山富市">村山富市</span>内閣……自民党と社会党の<span class="blank show" data-ans="連立内閣">連立内閣</span>です。1995年阪神淡路大震災が起こる。1995年地下鉄サリン事件が起こる。</p>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge red">政治不信</div>
+      <div class="pcont">
+        <p>度重なる汚職事件や公約を守らない政治家に対して政治的無関心<span class="blank show" data-ans="政治的アパシー">政治的アパシー</span>が広がりました。</p>
+        <p>また、投票率の低下に加え、政治に関心はあるものの、支持する政党を持たない<span class="blank show" data-ans="無党派層">無党派層</span>が増加しました。</p>
+      </div>
+    </div>
+
+    <div class="unit-wb" id="uwb-u4">
+      <div class="unit-wb-lbl">▼ 単元④の語群</div>
+      <div class="unit-wb-chips" id="uwb-chips-u4"></div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u4')">🎯 チャレンジ</button>
+        <button class="unit-btn check" onclick="checkUnit('u4')" style="display:none" id="ub-check-u4">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u4')" style="display:none" id="ub-hint-u4">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u4')" style="display:none" id="ub-retry-u4">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u4')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u4" style="display:none"></span>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u4">
+      <div class="unit-quiz-title">📝 確認問題(単元④55年体制の崩壊と政治不信)</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>55年体制崩壊後、1993年に日本新党党首として非自民・非共産の8党派からなる連立内閣を成立させた首相は誰か。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u4q0',0,0)">① 細川護煕</button>
+          <button class="uqc" onclick="ansUQ('u4q0',1,0)">② 村山富市</button>
+          <button class="uqc" onclick="ansUQ('u4q0',2,0)">③ 羽田孜</button>
+          <button class="uqc" onclick="ansUQ('u4q0',3,0)">④ 宮澤喜一</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u4q0"><strong>正解:①</strong><br>細川護煕内閣は、日本新党、日本社会党、新生党、公明党、民社党、新党さきがけ、社会民主連合、民主改革連合の非自民・非共産の8党派からなる連立内閣でした。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>度重なる汚職事件や公約を守らない政治家に対して広がった、政治的無関心をカタカナで何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u4q1',0,0)">① 政治的アパシー</button>
+          <button class="uqc" onclick="ansUQ('u4q1',1,0)">② 政治的シニシズム</button>
+          <button class="uqc" onclick="ansUQ('u4q1',2,0)">③ 政治的エスノセントリズム</button>
+          <button class="uqc" onclick="ansUQ('u4q1',3,0)">④ 政治的ニヒリズム</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u4q1"><strong>正解:①</strong><br>政治的アパシーは、政治的無関心のことです。度重なる汚職事件や公約を守らない政治家に対して広がりました。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u4',2)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u4',2)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u4" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 単元5: 行政国家と官僚政治 -->
+<div class="s-card" data-unit="u5">
+  <div class="s-head-e"><div class="s-icon">5</div><div class="s-ht">行政国家と官僚政治</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">行政国家</div>
+      <div class="pcont">
+        <p>20世紀に夜警国家から福祉国家へ変わると、社会保障・教育・経済政策などさまざまな分野で行政の仕事が増大し、行政の役割が増えました。</p>
+        <p>現代の国家は、議会中心の<span class="blank show" data-ans="立法国家">立法国家</span>から行政権が優越した<span class="blank show" data-ans="行政国家">行政国家</span>へと変化しました。</p>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge red">官僚の権限増大</div>
+      <div class="pcont">
+        <p>日本では①<span class="blank show" data-ans="内閣提出法案">内閣提出法案</span>が増大したことで内閣提出法案を作成する官僚の権限が増加。</p>
+        <p>②行政機関が制定する命令である政令・省令・行政委員会の制定する委員会規則などの<span class="blank show" data-ans="委任立法">委任立法</span>が増えたことで、作成する官僚の役割が増加しました。</p>
+        <p>高度な専門知識を持ち、実務を熟知した官僚は大きな力を持っています。このような官僚による支配を官僚制<span class="blank show" data-ans="ビューロクラシー">ビューロクラシー</span>といいます。</p>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge orange">マックス・ウェーバー</div>
+      <div class="pcont">
+        <p>経済学者<span class="blank show" data-ans="マックス・ウェーバー">マックス・ウェーバー</span>は官僚制<span class="blank show" data-ans="ビューロクラシー">ビューロクラシー</span>の支配の弊害を上げています。</p>
+        <ul style="margin-top:8px;margin-left:20px;font-size:.92em">
+          <li>縄張り主義<span class="blank show" data-ans="セクショナリズム">セクショナリズム</span>…自分の仕事であるかどうかにこだわる。</li>
+          <li><span class="blank show" data-ans="秘密主義">秘密主義</span>……判断の過程や決済についての内部文書の公開を嫌う。</li>
+          <li>煩わしい細部にわたる要求のある文書を作り残す<span class="blank show" data-ans="繁文縟礼">繁文縟礼</span>（はんぶんじょくれい）</li>
+          <li>規則を盾に柔軟な対応をしない<span class="blank show" data-ans="法律万能主義">法律万能主義</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="unit-wb" id="uwb-u5">
+      <div class="unit-wb-lbl">▼ 単元⑤の語群</div>
+      <div class="unit-wb-chips" id="uwb-chips-u5"></div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u5')">🎯 チャレンジ</button>
+        <button class="unit-btn check" onclick="checkUnit('u5')" style="display:none" id="ub-check-u5">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u5')" style="display:none" id="ub-hint-u5">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u5')" style="display:none" id="ub-retry-u5">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u5')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u5" style="display:none"></span>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u5">
+      <div class="unit-quiz-title">📝 確認問題(単元⑤行政国家と官僚政治)</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>議会中心の立法国家から行政権が優越した何国家へと変化したか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u5q0',0,0)">① 行政国家</button>
+          <button class="uqc" onclick="ansUQ('u5q0',1,0)">② 福祉国家</button>
+          <button class="uqc" onclick="ansUQ('u5q0',2,0)">③ 官僚国家</button>
+          <button class="uqc" onclick="ansUQ('u5q0',3,0)">④ 近代国家</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u5q0"><strong>正解:①</strong><br>行政国家は、議会中心の立法国家から行政権が優越した国家です。社会保障・教育・経済政策などさまざまな分野で行政の仕事が増大しました。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>官僚による支配を、カタカナで何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u5q1',0,0)">① ビューロクラシー</button>
+          <button class="uqc" onclick="ansUQ('u5q1',1,0)">② デモクラシー</button>
+          <button class="uqc" onclick="ansUQ('u5q1',2,0)">③ テクノクラシー</button>
+          <button class="uqc" onclick="ansUQ('u5q1',3,0)">④ プルトクラシー</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u5q1"><strong>正解:①</strong><br>ビューロクラシー（官僚制）は、官僚による支配のことです。経済学者マックス・ウェーバーは官僚制の支配の弊害を上げています。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u5',2)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u5',2)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u5" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 単元6: 日本の官僚制の問題点と行政改革 -->
+<div class="s-card" data-unit="u6">
+  <div class="s-head-e"><div class="s-icon">6</div><div class="s-ht">日本の官僚制の問題点と行政改革</div></div>
+  <div class="s-body">
+    <div class="person-row">
+      <div class="pbadge">日本の官僚制の問題点</div>
+      <div class="pcont">
+        <p>官僚には、民間企業や個人に対して<span class="blank show" data-ans="許認可権">許認可権</span>という大きな権限があります。</p>
+        <p>官僚は配分先や配分量を決める<span class="blank show" data-ans="行政裁量権">行政裁量権</span>を行使し、あわせて、民間企業・団体に対して法的強制力はなく、助言や勧告といった形で行う<span class="blank show" data-ans="行政指導">行政指導</span>ができます。</p>
+        <p>官僚が退職後に民間企業や団体に再就職する<span class="blank show" data-ans="天下り">天下り</span>が慣例化していました。</p>
+        <p>また、官僚の出身者が国会議員となり官庁と利益集団との間に立って利益調整を行う特定の政策分野に精通した<span class="blank show" data-ans="族議員">族議員</span>が存在しています。</p>
+        <p><span class="blank show" data-ans="たてわり行政">たてわり行政</span>……省庁や部門ごとの縦のつながりや予算獲得が重視されて、横のつながりに欠け、行政サービスが硬直化していて柔軟性がない。</p>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge red">オンブズマン制度</div>
+      <div class="pcont">
+        <p><span class="blank show" data-ans="オンブズマン">オンブズマン</span>制度……行政から独立し、市民を代表して市民の苦情や告発をもとに調査を行い、行政府に対して改善策を提案勧告する人を<span class="blank show" data-ans="オンブズマン">オンブズマン</span>（行政監察官）といいます。</p>
+        <p>日本は、<span class="blank show" data-ans="川崎市">川崎市</span>が1990年に初めて市民オンブズマンを導入しましたが、国政レベルではまだありません。</p>
+      </div>
+    </div>
+
+    <div class="person-row">
+      <div class="pbadge green">行政改革</div>
+      <div class="pcont">
+        <p>1980年に、臨時行政調査会によって行政改革が提言されました。「<span class="blank show" data-ans="増税なき">増税なき</span>財政再建」が柱で、公務員の定員削減・許認可事務の整理・補助金の整理・年金制度の改革などが推進されました。</p>
+        <p>縦割り行政の排除と政治主導にするために①総理大臣を長として、政策の調整を行う<span class="blank show" data-ans="内閣府">内閣府</span>が作られました。</p>
+        <p>②内閣府の中に、国政上重要な事項を審議する<span class="blank show" data-ans="重要政策会議">重要政策会議</span>が設置されました。</p>
+        <p>③政務次官が廃止され、国会の答弁を官僚に任せず、国会議員から選ばれる<span class="blank show" data-ans="副大臣">副大臣</span>・<span class="blank show" data-ans="大臣政務官">大臣政務官</span>が新設されました。</p>
+        <p>④<span class="blank show" data-ans="国会審議活性化法">国会審議活性化法</span>……政治主導の政策システムを確立する目的で作られました。<span class="blank show" data-ans="国家政策基本委員会">国家政策基本委員会</span>が設置され、各党党首が重要課題について直接討論する<span class="blank show" data-ans="党首討論制度">党首討論制度</span>が導入されました。官僚が政府委員になり大臣に代わって答弁する<span class="blank show" data-ans="政府委員会制度">政府委員会制度</span>は廃止されました。</p>
+      </div>
+    </div>
+
+    <div class="unit-wb" id="uwb-u6">
+      <div class="unit-wb-lbl">▼ 単元⑥の語群</div>
+      <div class="unit-wb-chips" id="uwb-chips-u6"></div>
+      <div class="unit-btns">
+        <button class="unit-btn challenge" onclick="startUnitChallenge('u6')">🎯 チャレンジ</button>
+        <button class="unit-btn check" onclick="checkUnit('u6')" style="display:none" id="ub-check-u6">✔ 答え合わせ</button>
+        <button class="unit-btn hint" onclick="hintUnit('u6')" style="display:none" id="ub-hint-u6">📖 お手本</button>
+        <button class="unit-btn retry" onclick="retryUnit('u6')" style="display:none" id="ub-retry-u6">↺ もう一度</button>
+        <button class="unit-btn quiz" onclick="openUnitQuiz('u6')">📝 確認問題</button>
+        <span class="unit-score" id="ub-score-u6" style="display:none"></span>
+      </div>
+    </div>
+
+    <div class="unit-quiz" id="uq-u6">
+      <div class="unit-quiz-title">📝 確認問題(単元⑥日本の官僚制の問題点と行政改革)</div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問1</span>官僚が民間企業や個人に対して持つ、大きな権限を何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u6q0',0,0)">① 許認可権</button>
+          <button class="uqc" onclick="ansUQ('u6q0',1,0)">② 監督権</button>
+          <button class="uqc" onclick="ansUQ('u6q0',2,0)">③ 規制権</button>
+          <button class="uqc" onclick="ansUQ('u6q0',3,0)">④ 統制権</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u6q0"><strong>正解:①</strong><br>許認可権は、官僚が民間企業や個人に対して持つ大きな権限です。企業や団体は、官僚の顔色を窺って許認可が得られるように接待をすることがありました。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問2</span>日本で1990年に初めて市民オンブズマンを導入した都市はどこか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u6q1',0,1)">① 横浜市</button>
+          <button class="uqc" onclick="ansUQ('u6q1',1,1)">② 川崎市</button>
+          <button class="uqc" onclick="ansUQ('u6q1',2,1)">③ 名古屋市</button>
+          <button class="uqc" onclick="ansUQ('u6q1',3,1)">④ 大阪市</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u6q1"><strong>正解:②</strong><br>川崎市が1990年に初めて市民オンブズマンを導入しました。しかし、国政レベルではまだオンブズマン制度はありません。</div>
+      </div>
+      <div class="unit-quiz-q">
+        <div class="unit-quiz-qt"><span class="unit-quiz-num">問3</span>政治主導の政策システムを確立する目的で作られ、党首討論制度が導入された法律を何というか。</div>
+        <div class="unit-quiz-choices">
+          <button class="uqc" onclick="ansUQ('u6q2',0,0)">① 国会審議活性化法</button>
+          <button class="uqc" onclick="ansUQ('u6q2',1,0)">② 政治改革法</button>
+          <button class="uqc" onclick="ansUQ('u6q2',2,0)">③ 国会改革法</button>
+          <button class="uqc" onclick="ansUQ('u6q2',3,0)">④ 政治主導法</button>
+        </div>
+        <div class="uqc-explain" id="uqex-u6q2"><strong>正解:①</strong><br>国会審議活性化法は、政治主導の政策システムを確立する目的で作られました。国家政策基本委員会が設置され、党首討論制度が導入されました。</div>
+      </div>
+      <div class="unit-btns">
+        <button class="unit-btn check" onclick="judgeUnitQuiz('u6',3)">✔ 採点する</button>
+        <button class="unit-btn retry" onclick="resetUnitQuiz('u6',3)">↺ 再チャレンジ</button>
+        <span class="unit-score" id="uqs-u6" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 過去問セクション -->
+<div class="s-card">
+  <div class="s-head-k">📝 過去問演習 — 選挙と政党</div>
+
+  <!-- 問1 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr1"></div>
+    <div class="kq-stem"><span class="kq-num">問1</span>政党に関連する記述として最も適当なものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[11本13]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(1,0,this)">① 無党派層とは、政党の公認を受けた候補者には投票しない人々をいう。</button>
+      <button class="kqc" onclick="ansKakomon(1,1,this)">② 明治憲法下の一時期、政党内閣が登場し政権交代も行われた。</button>
+      <button class="kqc" onclick="ansKakomon(1,2,this)">③ 日本国憲法の思想・良心の自由の保障の下では、議院における議員の投票行動を政党が拘束することは法律で禁止されている。</button>
+      <button class="kqc" onclick="ansKakomon(1,3,this)">④ 第二次世界大戦後初の衆議院議員総選挙で、自由民主党の一党優位が成立した。</button>
+    </div>
+    <div class="kq-explain" id="ke1"><strong>正解: ②</strong><br>②正しい。大正デモクラシー期、政党内閣が登場し政権交代(憲政の常道)が行われた。①誤り：無党派層とは支持政党のない層のこと。③誤り：法律で禁止はされていない。④誤り：自民党結成は1955年で、戦後最初の総選挙の後。</div>
+  </div>
+
+  <!-- 問2 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr2"></div>
+    <div class="kq-stem"><span class="kq-num">問2</span>利益集団(圧力団体)についての記述として最も適当なものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[17本20]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(2,0,this)">① 政府や議会に働きかけて政策決定に影響を与え特定の利益を実現しようとする集団のことを、利益集団という。</button>
+      <button class="kqc" onclick="ansKakomon(2,1,this)">② 政治的な主張の近い人々が集まって政権の獲得を目的として活動する集団のことを、利益集団という。</button>
+      <button class="kqc" onclick="ansKakomon(2,2,this)">③ 日本においては、利益集団の代理人であるロビイストは国会に登録され活動が公認されている。</button>
+      <button class="kqc" onclick="ansKakomon(2,3,this)">④ 日本においては、利益集団のニーズに応じて利益誘導政治を行うことが推奨されている。</button>
+    </div>
+    <div class="kq-explain" id="ke2"><strong>正解: ①</strong><br>①正しい。利益集団とは、政府・議会に働きかけて特定の利益実現を目指す集団。②は政党の説明。③誤り：日本にはロビイスト登録制度はない(アメリカに存在)。④誤り：利益誘導政治は問題点として指摘されている。</div>
+  </div>
+
+  <!-- 問3 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr3"></div>
+    <div class="kq-stem"><span class="kq-num">問3</span>日本の政党政治についての記述として最も適当なものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[13追3]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(3,0,this)">① 1955年の自民党結成以降、2009年の鳩山内閣の成立まで政権交代は起きなかった。</button>
+      <button class="kqc" onclick="ansKakomon(3,1,this)">② 1960年代から70年代にかけて、野党の多党化が進行した。</button>
+      <button class="kqc" onclick="ansKakomon(3,2,this)">③ 自民党と社会党は、1970年代には国会でほぼ同数の議席を保持していた。</button>
+      <button class="kqc" onclick="ansKakomon(3,3,this)">④ 自民党の特徴とされた派閥は、1980年代には消滅していた。</button>
+    </div>
+    <div class="kq-explain" id="ke3"><strong>正解: ②</strong><br>②正しい。1960〜70年代に公明党・民社党・新自由クラブなどが登場し、野党の多党化が進んだ。①誤り：1993年に細川連立内閣が発足し政権交代があった。③誤り：社会党の議席は自民党の約半分(1と1/2政党制)。④誤り：派閥は現在も存在している。</div>
+  </div>
+
+  <!-- 問4 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr4"></div>
+    <div class="kq-stem"><span class="kq-num">問4</span>55年体制に関連して、戦後の日本政治についての記述として最も適当なものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[12追31]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(4,0,this)">① 社会党の再統一と保守合同による自民党の結成以降、55年体制が形成され、自民党と社会党の二大政党が政権交代を繰り返した。</button>
+      <button class="kqc" onclick="ansKakomon(4,1,this)">② 中選挙区制の下では、同一選挙区内で同一政党の候補者が複数立候補することはないので、政策・政策中心の選挙が行われた。</button>
+      <button class="kqc" onclick="ansKakomon(4,2,this)">③ 政治改革を求める世論を背景として細川連立政権が誕生した翌年に、衆議院議員選挙に、小選挙区比例代表並立制が導入された。</button>
+      <button class="kqc" onclick="ansKakomon(4,3,this)">④ 自民党は細川連立政権崩壊以後で政権の座にあった時期、他の政党と連立を組んだことはなく、単独政権を維持し続けた。</button>
+    </div>
+    <div class="kq-explain" id="ke4"><strong>正解: ③</strong><br>③正しい。1993年細川内閣誕生→1994年小選挙区比例代表並立制導入(1996年衆院選から実施)。①誤り：政権交代は起きず自民党が長期政権。②誤り：中選挙区制では同一政党から複数立候補が可能。④誤り：細川内閣崩壊後、村山社会党内閣との連立を組んだ。</div>
+  </div>
+
+  <!-- 問5 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr5"></div>
+    <div class="kq-stem"><span class="kq-num">問5</span>政治資金制度に関連する記述として正しいものを、次の①〜③のうちから一つ選べ。<span class="kq-src">[11追12改]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(5,0,this)">① 政党の政治資金を公費で助成するため、一定の要件を満たした政党に、政党交付金が支給される。</button>
+      <button class="kqc" onclick="ansKakomon(5,1,this)">② 政党による政治資金の収支の報告は、法律上の義務ではないので、これを怠っても処罰されない。</button>
+      <button class="kqc" onclick="ansKakomon(5,2,this)">③ 政治家個人が企業や労働組合から政治献金を受け取ることは、政治資金規正法上認められている。</button>
+    </div>
+    <div class="kq-explain" id="ke5"><strong>正解: ①</strong><br>①正しい。政党助成法(1994年)により、要件を満たす政党に政党交付金が支給される。②誤り：収支報告は政治資金規正法で義務付けられており、怠れば処罰される。③誤り：政治資金規正法改正により、企業・団体から政治家個人への献金は禁止されている。</div>
+  </div>
+
+  <!-- 問6 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr6"></div>
+    <div class="kq-stem"><span class="kq-num">問6</span>日本における選挙制度についての記述として最も適当なものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[22追25]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(6,0,this)">① 仕事や留学などで海外に住んでいる有権者には、海外で投票を行うことは制度上認められていない。</button>
+      <button class="kqc" onclick="ansKakomon(6,1,this)">② 選挙運動において、有権者が友人や知人に対して候補者への投票や応援を直接依頼することは禁止されている。</button>
+      <button class="kqc" onclick="ansKakomon(6,2,this)">③ 仕事や旅行などで投票日に選挙人名簿登録地以外の市区町村に滞在する予定の有権者には、投票を行うことは制度上認められていない。</button>
+      <button class="kqc" onclick="ansKakomon(6,3,this)">④ 選挙運動において、投票依頼の目的で有権者の家を戸別訪問することは禁止されている。</button>
+    </div>
+    <div class="kq-explain" id="ke6"><strong>正解: ④</strong><br>④正しい。戸別訪問は公職選挙法で禁止されている(買収・利益誘導につながりやすいため)。①誤り：在外投票制度がある(1998年導入、2006年に選挙区にも拡大)。②誤り：友人への直接依頼は禁止されていない。③誤り：期日前投票・不在者投票制度がある。</div>
+  </div>
+
+  <!-- 問7 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr7"></div>
+    <div class="kq-stem"><span class="kq-num">問7</span>選挙制度の一般的な特徴についての記述として最も適当なものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[10追16]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(7,0,this)">① 非拘束名簿式比例代表制は、小選挙区制よりも死票を生みやすい。</button>
+      <button class="kqc" onclick="ansKakomon(7,1,this)">② 拘束名簿式比例代表制では、小選挙区制よりも、政党に属さない者が議席を獲得しやすい。</button>
+      <button class="kqc" onclick="ansKakomon(7,2,this)">③ 小選挙区制は、大選挙区制よりも死票を生みやすい。</button>
+      <button class="kqc" onclick="ansKakomon(7,3,this)">④ 大選挙区制では、議員の総定数が一定であれば、小選挙区制よりも選挙区の数が多くなりやすい。</button>
+    </div>
+    <div class="kq-explain" id="ke7"><strong>正解: ③</strong><br>③正しい。小選挙区制は1選挙区1名しか当選しないため死票が多く発生する。大選挙区制は複数当選するため死票が少ない。①誤り：比例代表制の方が死票は少ない。②誤り：拘束名簿式では政党が名簿順を決めるため無所属は不利。④誤り：大選挙区制は定数が多いので選挙区は少なくなりやすい。</div>
+  </div>
+
+  <!-- 問8 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr8"></div>
+    <div class="kq-stem"><span class="kq-num">問8</span>民主政治に関連する日本の制度についての記述として最も適当なものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[09本23]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(8,0,this)">① 憲法改正のためには、国会が発議した憲法改正案が、国民投票の3分の2以上の賛成をもって承認されなければならない。</button>
+      <button class="kqc" onclick="ansKakomon(8,1,this)">② 国民には、衆参両院の議員、地方自治体の長と議会の議員を、秘密投票で選ぶことが保障されている。</button>
+      <button class="kqc" onclick="ansKakomon(8,2,this)">③ 国民には、最高裁判所の裁判官を、その任命後初めて行われる衆議院議員総選挙または参議院議員通常選挙の際に、審査することが保障されている。</button>
+      <button class="kqc" onclick="ansKakomon(8,3,this)">④ 内閣総理大臣を国民が直接選出できるようにするには、憲法の改正は不要だが、法律で定めなければならない。</button>
+    </div>
+    <div class="kq-explain" id="ke8"><strong>正解: ②</strong><br>②正しい。国民は普通・平等・直接・秘密選挙の四原則が保障されている。①誤り：国民投票は過半数の賛成で承認(2分の1)。③誤り：国民審査は衆議院議員総選挙の際のみ。④誤り：首相公選制の導入には憲法改正が必要。</div>
+  </div>
+
+  <!-- 問9 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr9"></div>
+    <div class="kq-stem"><span class="kq-num">問9</span>間接民主制を補完すべく、現在の日本において、直接民主制の手法が一部取り入れられている。そうした例の一つである憲法改正手続に関する記述として正しいものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[17本25]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(9,0,this)">① 憲法改正手続法は、日本国憲法の施行と同時に制定された。</button>
+      <button class="kqc" onclick="ansKakomon(9,1,this)">② 憲法改正に関する国民投票法は、投票年齢を満20歳以上に引き下げた。</button>
+      <button class="kqc" onclick="ansKakomon(9,2,this)">③ 憲法改正の承認には、国民投票において、その過半数の賛成が必要とされている。</button>
+      <button class="kqc" onclick="ansKakomon(9,3,this)">④ 憲法改正の発議には、衆参両議院において、それぞれ総議員の4分の3以上の賛成が必要とされている。</button>
+    </div>
+    <div class="kq-explain" id="ke9"><strong>正解: ③</strong><br>③正しい。国民投票において有効投票の過半数の賛成が必要(96条)。①誤り：憲法改正手続法(国民投票法)は2007年に制定。②誤り：投票年齢は18歳以上(2014年改正)。④誤り：総議員の3分の2以上の賛成が必要。</div>
+  </div>
+
+  <!-- 問10 -->
+  <div class="kq-block">
+    <div class="kq-result" id="kr10"></div>
+    <div class="kq-stem"><span class="kq-num">問10</span>選挙について、遡及の原則や選挙制度の特徴に関する記述として適当でないものを、次の①〜④のうちから一つ選べ。<span class="kq-src">[17本]</span></div>
+    <div class="kq-choices">
+      <button class="kqc" onclick="ansKakomon(10,0,this)">① 秘密選挙とは、有権者の自由な意思表明を守るため、投票の内容を他人に知られないことを保障する選挙の原則を意味する。</button>
+      <button class="kqc" onclick="ansKakomon(10,1,this)">② 小選挙区制は、大選挙区制と比べた場合、各党の得票率と議席占有率との間に差が生じにくい選挙制度とされる。</button>
+      <button class="kqc" onclick="ansKakomon(10,2,this)">③ 普通選挙とは、納税額や財産にかかわりなく、一定の年齢に達した者に選挙権を与える選挙の原則を意味する。</button>
+      <button class="kqc" onclick="ansKakomon(10,3,this)">④ 比例代表制は、小選挙区制と比べた場合、多党制が生じやすい選挙制度とされる。</button>
+    </div>
+    <div class="kq-explain" id="ke10"><strong>正解: ②</strong><br>②誤り。小選挙区制は、得票率と議席占有率の差が大きくなりやすい(死票が多いため小党が不利)。逆に比例代表制の方が得票率と議席率が比例しやすい。①③④はすべて正しい記述。</div>
+  </div>
+
+</div><!-- /過去問セクション -->
+
+</div>
+
+<script>
+// ユニットデータ
+const unitData={
+u1:{words:['一党制','二大政党制','民主党','共和党','保守党','労働党','多党制','シャドーキャビネット']},
+u2:{words:['圧力団体','ロビイスト']},
+u3:{words:['内閣総理大臣','与党','野党','片山哲','1955','日本社会党','自由民主党','55年体制','1と1/2政党制','保守','革新','包括政党','公明党','中道政党','ロッキード事件','田中角栄','革新政党']},
+u4:{words:['細川護煕','連立内閣','政治資金規正法','政党助成法','村山富市','政治的アパシー','無党派層']},
+u5:{words:['立法国家','行政国家','内閣提出法案','委任立法','ビューロクラシー','マックス・ウェーバー','セクショナリズム','秘密主義','繁文縟礼','法律万能主義']},
+u6:{words:['許認可権','行政裁量権','行政指導','天下り','族議員','たてわり行政','オンブズマン','川崎市','増税なき','内閣府','重要政策会議','副大臣','大臣政務官','国会審議活性化法','国家政策基本委員会','党首討論制度','政府委員会制度']}
+};
+
+let uqScores={};
+
+function startUnitChallenge(u){
+const blanks=document.querySelectorAll(`[data-unit="${u}"] .blank`);
+blanks.forEach(b=>{b.classList.remove('show','ok','ng');b.textContent='';});
+const chips=document.getElementById(`uwb-chips-${u}`);
+chips.innerHTML='';
+unitData[u].words.forEach(w=>{
+const c=document.createElement('button');
+c.className='chip';
+c.textContent=w;
+c.onclick=()=>selectChip(c,u);
+chips.appendChild(c);
+});
+document.getElementById(`ub-check-${u}`).style.display='inline-block';
+document.getElementById(`ub-hint-${u}`).style.display='inline-block';
+document.getElementById(`ub-retry-${u}`).style.display='none';
+document.getElementById(`ub-score-${u}`).style.display='none';
+}
+
+function selectChip(chip,u){
+if(chip.classList.contains('sel')){
+chip.classList.remove('sel');
+return;
+}
+document.querySelectorAll(`#uwb-chips-${u} .chip`).forEach(c=>c.classList.remove('sel'));
+chip.classList.add('sel');
+const blanks=document.querySelectorAll(`[data-unit="${u}"] .blank:not(.show)`);
+blanks.forEach(b=>{
+b.onclick=()=>{
+b.textContent=chip.textContent;
+b.classList.add('show');
+chip.classList.remove('sel');
+chip.remove();
+};
+});
+}
+
+function checkUnit(u){
+const blanks=document.querySelectorAll(`[data-unit="${u}"] .blank`);
+let correct=0,total=0;
+blanks.forEach(b=>{
+total++;
+const ans=b.getAttribute('data-ans');
+if(b.textContent===ans){
+b.classList.add('ok');
+b.classList.remove('ng');
+correct++;
+}else{
+b.classList.add('ng');
+b.classList.remove('ok');
+}
+});
+document.getElementById(`ub-score-${u}`).textContent=`${correct}/${total}問正解`;
+document.getElementById(`ub-score-${u}`).style.display='inline-block';
+document.getElementById(`ub-retry-${u}`).style.display='inline-block';
+document.getElementById(`ub-check-${u}`).style.display='none';
+}
+
+function hintUnit(u){
+const blanks=document.querySelectorAll(`[data-unit="${u}"] .blank`);
+blanks.forEach(b=>{
+if(!b.classList.contains('show')){
+b.textContent=b.getAttribute('data-ans');
+b.classList.add('show');
+}
+});
+document.querySelectorAll(`#uwb-chips-${u} .chip`).forEach(c=>c.remove());
+}
+
+function retryUnit(u){
+startUnitChallenge(u);
+}
+
+function openUnitQuiz(u){
+const quiz=document.getElementById(`uq-${u}`);
+quiz.classList.toggle('on');
+}
+
+function ansUQ(qid,choice,correct){
+const btns=event.target.parentElement.querySelectorAll('.uqc');
+btns.forEach((b,i)=>{
+b.disabled=true;
+if(i===correct)b.classList.add('correct');
+else if(i===choice&&choice!==correct)b.classList.add('wrong');
+});
+document.getElementById(`uqex-${qid}`).classList.add('on');
+}
+
+// 過去問採点関数(0始まりインデックス)
+function ansKakomon(qnum, selected, el){
+  const correctMap={
+    1:1,  // 問1正解②(idx1)
+    2:0,  // 問2正解①(idx0)
+    3:1,  // 問3正解②(idx1)
+    4:2,  // 問4正解③(idx2)
+    5:0,  // 問5正解①(idx0)
+    6:3,  // 問6正解④(idx3)
+    7:2,  // 問7正解③(idx2)
+    8:1,  // 問8正解②(idx1)
+    9:2,  // 問9正解③(idx2)
+    10:1  // 問10正解②(idx1)
+  };
+  const correct=correctMap[qnum];
+  const allBtns=el.parentElement.querySelectorAll('.kqc');
+  allBtns.forEach(b=>{ if(b.classList.contains('correct')||b.classList.contains('wrong')) return; });
+  if(el.classList.contains('correct')||el.classList.contains('wrong')) return;
+  allBtns.forEach(b=>b.disabled=true);
+  if(selected===correct){
+    el.classList.add('correct');
+    document.getElementById('kr'+qnum).innerHTML='<span style="color:var(--green);font-weight:700">○ 正解！</span>';
+  } else {
+    el.classList.add('wrong');
+    allBtns[correct].classList.add('correct');
+    document.getElementById('kr'+qnum).innerHTML='<span style="color:var(--red);font-weight:700">✕ 不正解</span>';
+  }
+  document.getElementById('ke'+qnum).classList.add('on');
+}
+
+function judgeUnitQuiz(u,total){
+const answered=document.querySelectorAll(`#uq-${u} .uqc.correct`).length;
+document.getElementById(`uqs-${u}`).textContent=`${answered}/${total}問正解`;
+document.getElementById(`uqs-${u}`).style.display='inline-block';
+}
+
+function resetUnitQuiz(u,total){
+document.querySelectorAll(`#uq-${u} .uqc`).forEach(b=>{
+b.disabled=false;
+b.classList.remove('correct','wrong');
+});
+document.querySelectorAll(`#uq-${u} .uqc-explain`).forEach(e=>e.classList.remove('on'));
+document.getElementById(`uqs-${u}`).style.display='none';
+}
+</script>
+
+</body>
+</html>
